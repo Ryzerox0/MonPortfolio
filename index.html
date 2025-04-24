@@ -1,11 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Romain Legrand - Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      padding-top: 4rem;
+    }
+    .progress {
+      height: 20px;
+    }
+    .progress-bar {
+      line-height: 20px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Portfolio</h1>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Romain Legrand</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">Présentation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Compétences</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Formation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projets</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white text-center py-5">
+    <div class="container">
+      <h1>Romain Legrand</h1>
+      <p class="lead">Développeur multi-langages - Étudiant / Game Developer</p>
+    </div>
+  </header>
+
+  <section id="about" class="container my-5">
+    <h2>Présentation</h2>
+    <p>Actuellement étudiant à ISEN Méditerranée en Bachelor développement de systèmes numériques immersifs pour le développement de jeux et les systèmes immersifs. Je souhaite améliorer mes compétences et participer à l'innovation. Je suis confiant dans ma capacité à m'adapter et à travailler en équipe pour atteindre les objectifs fixés.</p>
+    <ul>
+      <li><strong>Téléphone:</strong> +33 7 83 62 36 36</li>
+      <li><strong>Ville:</strong> Marseille, France</li>
+      <li><strong>Diplôme:</strong> Étudiant Bachelor</li>
+      <li><strong>Email:</strong> romain.legrand@isen.yncrea.fr</li>
+    </ul>
+  </section>
+
+  <section id="skills" class="container my-5">
+    <h2>Compétences</h2>
+    <p>Grâce à ma formation, j'ai appris à utiliser les moteurs Unity et Unreal Engine 5. J'ai également suivi des cours de programmation orientée objet pour Java, C# sur Unity, C, C++ et d'autres langages comme Python, PHP ou MySQL.</p>
+    <div class="mb-3">
+      <label>Unity</label>
+      <div class="progress">
+        <div class="progress-bar bg-success" style="width: 60%;">60%</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label>Unreal Engine</label>
+      <div class="progress">
+        <div class="progress-bar bg-info" style="width: 70%;">70%</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label>Blender</label>
+      <div class="progress">
+        <div class="progress-bar bg-warning" style="width: 40%;">40%</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label>C++</label>
+      <div class="progress">
+        <div class="progress-bar bg-danger" style="width: 50%;">50%</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label>Web</label>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" style="width: 40%;">40%</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label>Photoshop</label>
+      <div class="progress">
+        <div class="progress-bar bg-dark" style="width: 20%;">20%</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="container my-5">
+    <h2>Formation</h2>
+    <ul>
+      <li><strong>2022-2025:</strong> Bachelor développement de systèmes numériques immersifs pour le développement de jeux et les systèmes immersifs
+        <ul>
+          <li>Spécialisation en développement de jeux</li>
+          <li>Initiation à de nombreux métiers du jeu vidéo</li>
+          <li>Formation aux technologies immersives et projets</li>
+        </ul>
+      </li>
+      <li><strong>2019-2022:</strong> Bac STI2D
+        <ul>
+          <li>Option systèmes informatiques et numériques</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="projects" class="container my-5">
+    <h2>Projets réalisés</h2>
+    <p>Liste des projets réalisés avec Unity, Unreal Engine et autres technologies.</p>
+    <!-- Vous pouvez ajouter ici des cartes ou des descriptions de projets -->
+  </section>
+
+  <section id="contact" class="container my-5">
+    <h2>Contact</h2>
+    <p>Pour me contacter, veuillez envoyer un email à <a href="mailto:romain.legrand@isen.yncrea.fr">romain.legrand@isen.yncrea.fr</a>.</p>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+      &copy; 2025 Romain Legrand. Tous droits réservés.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
