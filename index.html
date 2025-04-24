@@ -5,20 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Baptiste Curie-Cadet - Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
     body {
       padding-top: 4rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     .progress {
-      height: 20px;
+      height: 22px;
+      border-radius: 10px;
     }
     .progress-bar {
-      line-height: 20px;
+      line-height: 22px;
+      font-weight: 600;
+    }
+    header {
+      background: linear-gradient(to right, #007bff, #6610f2);
+    }
+    h2 {
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+    .section-title {
+      font-weight: bold;
+      color: #343a40;
+    }
+    .card-project {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border: none;
     }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
     <div class="container">
       <a class="navbar-brand" href="#">Baptiste Curie-Cadet</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -36,73 +56,57 @@
     </div>
   </nav>
 
-  <header class="bg-primary text-white text-center py-5">
+  <header class="text-white text-center py-5">
     <div class="container">
-      <h1>Baptiste Curie-Cadet</h1>
+      <h1 class="display-4 fw-bold">Baptiste Curie-Cadet</h1>
       <p class="lead">Développeur multi-langages - Étudiant / Game Developer</p>
     </div>
   </header>
 
   <section id="about" class="container my-5">
     <h2>Présentation</h2>
-    <p>Actuellement étudiant à ISEN Méditerranée en Bachelor développement de systèmes numériques immersifs pour le développement 
-        de jeux et les systèmes immersifs. Je souhaite améliorer mes compétences et participer à l'innovation. Je suis confiant dans 
-        ma capacité à m'adapter et à travailler en équipe pour atteindre les objectifs fixés.</p>
-    <ul>
-      <li><strong>Téléphone:</strong> +33 7 68 84 23 64</li>
-      <li><strong>Ville:</strong> Marseille, France</li>
-      <li><strong>Diplôme:</strong> Étudiant Bachelor</li>
-      <li><strong>Email:</strong> baptiste.curie-cadet@isen.yncrea.fr</li>
+    <p>Actuellement étudiant à ISEN Méditerranée en Bachelor développement de systèmes numériques immersifs. Je suis passionné par les nouvelles technologies et les systèmes immersifs, avec une forte envie d'innover.</p>
+    <ul class="list-unstyled">
+      <li><i class="fas fa-phone-alt me-2 text-primary"></i><strong>Téléphone:</strong> +33 7 68 84 23 64</li>
+      <li><i class="fas fa-map-marker-alt me-2 text-primary"></i><strong>Ville:</strong> Marseille, France</li>
+      <li><i class="fas fa-graduation-cap me-2 text-primary"></i><strong>Diplôme:</strong> Étudiant Bachelor</li>
+      <li><i class="fas fa-envelope me-2 text-primary"></i><strong>Email:</strong> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">baptiste.curie-cadet@isen.yncrea.fr</a></li>
     </ul>
   </section>
 
   <section id="skills" class="container my-5">
     <h2>Compétences</h2>
-    <p>Grâce à ma formation, j'ai appris à utiliser les moteurs Unity et Unreal Engine 5. J'ai également suivi des cours de 
-        programmation orientée objet pour Java, C# sur Unity, C, C++ et d'autres langages comme Python, PHP ou MySQL.</p>
-    <div class="mb-3">
-      <label>Unity</label>
-      <div class="progress">
-        <div class="progress-bar bg-success" style="width: 60%;">60%</div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Unity</strong></p>
+        <div class="progress mb-3"><div class="progress-bar bg-success" style="width: 60%;">60%</div></div>
+        <p><strong>Unreal Engine</strong></p>
+        <div class="progress mb-3"><div class="progress-bar bg-info" style="width: 70%;">70%</div></div>
+        <p><strong>Blender</strong></p>
+        <div class="progress mb-3"><div class="progress-bar bg-warning" style="width: 40%;">40%</div></div>
       </div>
-    </div>
-    <div class="mb-3">
-      <label>Unreal Engine</label>
-      <div class="progress">
-        <div class="progress-bar bg-info" style="width: 70%;">70%</div>
-      </div>
-    </div>
-    <div class="mb-3">
-      <label>Blender</label>
-      <div class="progress">
-        <div class="progress-bar bg-warning" style="width: 40%;">40%</div>
-      </div>
-    </div>
-    <div class="mb-3">
-      <label>C++</label>
-      <div class="progress">
-        <div class="progress-bar bg-danger" style="width: 50%;">50%</div>
-      </div>
-    </div>
-    <div class="mb-3">
-      <label>Web</label>
-      <div class="progress">
-        <div class="progress-bar bg-secondary" style="width: 40%;">40%</div>
+      <div class="col-md-6">
+        <p><strong>C++</strong></p>
+        <div class="progress mb-3"><div class="progress-bar bg-danger" style="width: 50%;">50%</div></div>
+        <p><strong>Web</strong></p>
+        <div class="progress mb-3"><div class="progress-bar bg-secondary" style="width: 40%;">40%</div></div>
       </div>
     </div>
   </section>
 
   <section id="education" class="container my-5">
     <h2>Formation</h2>
-    <ul>
-      <li><strong>2022-2025:</strong> Bachelor développement de systèmes numériques immersifs pour le développement de jeux et les systèmes immersifs
+    <ul class="list-group">
+      <li class="list-group-item">
+        <strong>2022-2025:</strong> Bachelor systèmes numériques immersifs
         <ul>
           <li>Spécialisation en développement de jeux</li>
-          <li>Initiation à de nombreux métiers du jeu vidéo</li>
-          <li>Formation aux technologies immersives et projets</li>
+          <li>Initiation aux métiers du jeu vidéo</li>
+          <li>Technologies immersives & projets</li>
         </ul>
       </li>
-      <li><strong>2020-2023:</strong> Bac STI2D
+      <li class="list-group-item">
+        <strong>2020-2023:</strong> Bac STI2D
         <ul>
           <li>Option systèmes informatiques et numériques</li>
         </ul>
@@ -112,13 +116,22 @@
 
   <section id="projects" class="container my-5">
     <h2>Projets réalisés</h2>
-    <p>Liste des projets réalisés avec Unity, Unreal Engine et autres technologies.</p>
-    <!-- Vous pouvez ajouter ici des cartes ou des descriptions de projets -->
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card card-project">
+          <div class="card-body">
+            <h5 class="card-title">Projet Unity - Runner 3D</h5>
+            <p class="card-text">Jeu de course 3D créé avec Unity, comprenant des mécaniques de déplacement et obstacles dynamiques.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Ajouter d'autres cartes de projets ici -->
+    </div>
   </section>
 
   <section id="contact" class="container my-5">
     <h2>Contact</h2>
-    <p>Pour me contacter, veuillez envoyer un email à <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">baptiste.curie-cadet@isen.yncrea.fr</a>.</p>
+    <p><i class="fas fa-envelope text-primary"></i> Pour me contacter, envoyez un email à <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">baptiste.curie-cadet@isen.yncrea.fr</a>.</p>
   </section>
 
   <footer class="bg-dark text-white text-center py-3">
