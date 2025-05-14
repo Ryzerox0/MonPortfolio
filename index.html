@@ -100,6 +100,18 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Style du sélecteur de langue */
+    .language-select {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .language-select img {
+      width: 25px;
+      height: 15px;
+      border-radius: 5px;
+    }
   </style>
 </head>
 
@@ -203,7 +215,8 @@
     <a href="#contact" class="btn-circle" title="Contact"><i class="fas fa-envelope"></i></a>
 
     <!-- Sélecteur de langue -->
-    <div class="btn-circle" title="Langue">
+    <div class="language-select">
+      <img id="language-flag" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/320px-Flag_of_France.svg.png" alt="Français">
       <select id="language-select" class="form-select" style="background-color: #222; color: #bbb; border: 1px solid #333;">
         <option value="fr" selected>FR</option>
         <option value="en">EN</option>
@@ -234,6 +247,18 @@
 
     document.querySelectorAll('.reveal').forEach(el => {
       observer.observe(el);
+    });
+
+    // Fonction pour changer le drapeau lors du changement de langue
+    document.getElementById('language-select').addEventListener('change', (e) => {
+      const selectedLang = e.target.value;
+      const flagImage = document.getElementById('language-flag');
+
+      if (selectedLang === 'fr') {
+        flagImage.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/320px-Flag_of_France.svg.png';
+      } else if (selectedLang === 'en') {
+        flagImage.src = 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_Kingdom.svg';
+      }
     });
   </script>
 
