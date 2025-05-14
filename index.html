@@ -106,19 +106,16 @@
 <body>
 
   <!-- Sélecteur de langue -->
-  <div class="dropdown" style="position: absolute; top: 20px; right: 20px;">
-    <button class="btn btn-dark dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-      Langue
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-      <li><a class="dropdown-item" href="#" onclick="changeLanguage('fr')">Français</a></li>
-      <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
-    </ul>
+  <div class="container text-end mt-3">
+    <select id="language-selector" class="form-select w-auto">
+      <option value="fr" selected>Français</option>
+      <option value="en">English</option>
+    </select>
   </div>
 
   <!-- En-tête -->
   <header class="text-center section reveal">
-    <h1 class="display-5" id="developer-title">DÉVELOPPEUR MULTI-LANGAGES</h1>
+    <h1 class="display-5">DÉVELOPPEUR MULTI-LANGAGES</h1>
     <hr style="width: 60px; border: 2px solid #28a745; margin: 15px auto 0;">
   </header>
 
@@ -129,7 +126,7 @@
         <img src="Moi.jpg" alt="Photo de profil" class="img-fluid rounded" style="max-height: 400px;">
       </div>
       <div class="col-md-7">
-        <h2 id="about-title">À propos</h2>
+        <h2>À propos</h2>
         <p id="about-text">Étudiant à l’ISEN Méditerranée en Bachelor de développement de systèmes numériques immersifs, spécialisé dans le développement de jeux vidéo et les technologies immersives. Passionné par l’innovation et le travail en équipe.</p>
         <div class="row mt-4">
           <div class="col-sm-6">
@@ -145,47 +142,84 @@
     </div>
   </section>
 
-  <!-- Script de changement de langue -->
-  <script>
-    function changeLanguage(lang) {
-      const langData = {
-        fr: {
-          title: "DÉVELOPPEUR MULTI-LANGAGES",
-          aboutTitle: "À propos",
-          aboutText: "Étudiant à l’ISEN Méditerranée en Bachelor de développement de systèmes numériques immersifs, spécialisé dans le développement de jeux vidéo et les technologies immersives. Passionné par l’innovation et le travail en équipe."
-        },
-        en: {
-          title: "MULTI-LANGUAGE DEVELOPER",
-          aboutTitle: "About",
-          aboutText: "Student at ISEN Méditerranée in a Bachelor of Immersive Digital Systems Development, specialized in video game development and immersive technologies. Passionate about innovation and teamwork."
-        }
-      };
+  <!-- Compétences -->
+  <section id="skills" class="container section reveal">
+    <h2>Compétences</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <p>Unity</p>
+        <div class="progress mb-3"><div class="progress-bar bg-success" style="width: 60%;">60%</div></div>
+        <p>Unreal Engine</p>
+        <div class="progress mb-3"><div class="progress-bar bg-info" style="width: 70%;">70%</div></div>
+        <p>Blender</p>
+        <div class="progress mb-3"><div class="progress-bar bg-warning" style="width: 40%;">40%</div></div>
+      </div>
+      <div class="col-md-6">
+        <p>C++</p>
+        <div class="progress mb-3"><div class="progress-bar bg-danger" style="width: 50%;">50%</div></div>
+        <p>Développement Web</p>
+        <div class="progress mb-3"><div class="progress-bar bg-secondary" style="width: 40%;">40%</div></div>
+      </div>
+    </div>
+  </section>
 
-      // Changer le contenu basé sur la langue sélectionnée
-      document.getElementById('developer-title').textContent = langData[lang].title;
-      document.getElementById('about-title').textContent = langData[lang].aboutTitle;
-      document.getElementById('about-text').textContent = langData[lang].aboutText;
-    }
-  </script>
+  <!-- Formation -->
+  <section id="education" class="container section reveal">
+    <h2>Formation</h2>
+    <ul class="list-group bg-transparent">
+      <li class="list-group-item bg-dark text-light">
+        <strong>2022-2025 :</strong> Bachelor Systèmes Numériques Immersifs
+        <ul>
+          <li>Développement de jeux vidéo</li>
+          <li>Technologies immersives</li>
+        </ul>
+      </li>
+      <li class="list-group-item bg-dark text-light">
+        <strong>2020-2023 :</strong> Bac STI2D (SIN)
+      </li>
+    </ul>
+  </section>
+
+  <!-- Projets -->
+  <section id="projects" class="container section reveal">
+    <h2>Projets</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card card-project text-white">
+          <div class="card-body">
+            <h5>Runner 3D (Unity)</h5>
+            <p>Jeu de course avec obstacles dynamiques et mécaniques de déplacement fluides.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container section reveal">
+    <h2>Contact</h2>
+    <p><i class="fas fa-envelope text-success"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">baptiste.curie-cadet@isen.yncrea.fr</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    &copy; 2025 Baptiste Curie-Cadet.
+  </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Animation apparition -->
+  <!-- Script de changement de langue -->
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-
-    document.querySelectorAll('.reveal').forEach(el => {
-      observer.observe(el);
+    document.getElementById('language-selector').addEventListener('change', function(e) {
+      const lang = e.target.value;
+      if (lang === 'en') {
+        document.querySelector('h1').textContent = 'MULTI-LANGUAGE DEVELOPER';
+        document.getElementById('about-text').textContent = 'Student at ISEN Méditerranée in Bachelor of immersive digital systems development, specializing in video game development and immersive technologies. Passionate about innovation and teamwork.';
+      } else {
+        document.querySelector('h1').textContent = 'DÉVELOPPEUR MULTI-LANGAGES';
+        document.getElementById('about-text').textContent = 'Étudiant à l’ISEN Méditerranée en Bachelor de développement de systèmes numériques immersifs, spécialisé dans le développement de jeux vidéo et les technologies immersives. Passionné par l’innovation et le travail en équipe.';
+      }
     });
   </script>
 
