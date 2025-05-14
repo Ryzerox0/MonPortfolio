@@ -187,9 +187,9 @@
     <a href="#projects" class="btn-circle" title="Projets"><i class="fas fa-gamepad"></i></a>
     <a href="#contact" class="btn-circle" title="Contact"><i class="fas fa-envelope"></i></a>
 
-    <!-- Bouton de langue intégré comme les autres -->
+    <!-- Bouton de langue corrigé -->
     <a href="#" id="language-button" class="btn-circle" title="Changer de langue">
-      <img id="language-flag" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/320px-Flag_of_France.svg.png" alt="Langue" style="width: 25px; height: 15px; border-radius: 3px;">
+      <img id="language-flag" src="https://flagcdn.com/w40/fr.png" alt="Langue" style="width: 25px; height: 15px; border-radius: 3px;">
     </a>
   </div>
 
@@ -200,7 +200,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    // Animation au scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -212,7 +211,6 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Changement de langue au clic
     let currentLang = 'fr';
 
     document.getElementById('language-button').addEventListener('click', (e) => {
@@ -221,10 +219,10 @@
 
       if (currentLang === 'fr') {
         currentLang = 'en';
-        flagImage.src = 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_Kingdom.svg';
+        flagImage.src = 'https://flagcdn.com/w40/gb.png';
       } else {
         currentLang = 'fr';
-        flagImage.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/320px-Flag_of_France.svg.png';
+        flagImage.src = 'https://flagcdn.com/w40/fr.png';
       }
     });
   </script>
