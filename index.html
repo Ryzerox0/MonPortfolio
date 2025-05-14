@@ -9,7 +9,6 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   
   <style>
-    /* Styles généraux */
     body {
       background-color: #000;
       color: #ddd;
@@ -24,12 +23,6 @@
       padding-bottom: 10px;
       margin-bottom: 30px;
     }
-    a, a:hover {
-      color: #28a745;
-      text-decoration: none;
-    }
-
-    /* Mise en page */
     .section {
       padding: 60px 0;
       border-bottom: 1px solid #222;
@@ -48,13 +41,16 @@
       background-color: #111;
       border: none;
       box-shadow: 0 0 15px rgba(0,0,0,0.6);
-      transition: transform 0.3s ease;
+      transform: scale(0.95);
+      transition: transform 0.6s ease, box-shadow 0.3s ease;
+    }
+    .card-project.reveal-visible {
+      transform: scale(1);
     }
     .card-project:hover {
-      transform: translateY(-5px);
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
-
-    /* Boutons latéraux */
     .side-buttons {
       position: fixed;
       top: 50%;
@@ -76,21 +72,28 @@
       justify-content: center;
       color: #bbb;
       transition: all 0.3s ease;
+      text-decoration: none;
     }
     .btn-circle:hover, .btn-circle.active {
       background-color: #28a745;
       color: #fff;
     }
-
-    /* Footer */
+    .flag-icon {
+      width: 22px;
+      height: auto;
+    }
     .footer {
       padding: 20px 0;
       background-color: #111;
       font-size: 0.9rem;
       color: #555;
     }
+    a, a:hover {
+      color: #28a745;
+      text-decoration: none;
+    }
 
-    /* Animation d’apparition */
+    /* Animation d’apparition fade */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -102,7 +105,6 @@
     }
   </style>
 </head>
-
 <body>
 
   <!-- En-tête -->
@@ -211,7 +213,7 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Animation apparition -->
+  <!-- IntersectionObserver pour animations -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -220,11 +222,9 @@
           observer.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.1
-    });
+    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal').forEach(el => {
+    document.querySelectorAll('.reveal, .card-project').forEach(el => {
       observer.observe(el);
     });
   </script>
