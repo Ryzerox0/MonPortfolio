@@ -211,18 +211,81 @@
 
     let currentLang = 'fr';
 
-    document.getElementById('language-button').addEventListener('click', (e) => {
-      e.preventDefault();
+    const translations = {
+      'fr': {
+        title: "DÉVELOPPEUR MULTI-LANGAGES",
+        aboutTitle: "À propos",
+        aboutText: "Étudiant à l’ISEN Méditerranée en Bachelor de développement de systèmes numériques immersifs, spécialisé dans le développement de jeux vidéo et les technologies immersives. Passionné par l’innovation et le travail en équipe.",
+        phone: "+33 7 68 84 23 64",
+        city: "Marseille, France",
+        degree: "Bachelor",
+        email: "Email",
+        skillsTitle: "Compétences",
+        educationTitle: "Formation",
+        projectTitle: "Projets",
+        contactTitle: "Contact",
+        projectName: "Runner 3D (Unity)",
+        projectDesc: "Jeu de course avec obstacles dynamiques et mécaniques de déplacement fluides.",
+        contactMail: "baptiste.curie-cadet@isen.yncrea.fr"
+      },
+      'en': {
+        title: "MULTI-LANGUAGE DEVELOPER",
+        aboutTitle: "About",
+        aboutText: "Student at ISEN Méditerranée in a Bachelor's program in immersive digital systems development, specializing in video game development and immersive technologies. Passionate about innovation and teamwork.",
+        phone: "+33 7 68 84 23 64",
+        city: "Marseille, France",
+        degree: "Bachelor's Degree",
+        email: "Email",
+        skillsTitle: "Skills",
+        educationTitle: "Education",
+        projectTitle: "Projects",
+        contactTitle: "Contact",
+        projectName: "3D Runner (Unity)",
+        projectDesc: "Racing game with dynamic obstacles and smooth movement mechanics.",
+        contactMail: "baptiste.curie-cadet@isen.yncrea.fr"
+      }
+    };
+
+    function switchLanguage() {
       const flagImage = document.getElementById('language-flag');
 
-if (currentLang === 'fr') {
-  currentLang = 'en';
-  flagImage.src = "english.png";
-} else {
-  currentLang = 'fr';
-  flagImage.src = "french.png";
-}
+      if (currentLang === 'fr') {
+        currentLang = 'en';
+        flagImage.src = "https://flagcdn.com/w40/gb.png";
+      } else {
+        currentLang = 'fr';
+        flagImage.src = "https://flagcdn.com/w40/fr.png";
+      }
 
+      const t = translations[currentLang];
+
+      document.querySelector("header h1").textContent = t.title;
+      document.querySelector("#about h2").textContent = t.aboutTitle;
+      document.querySelector("#about p").textContent = t.aboutText;
+      // Pour modifier les numéros / textes à côté des icônes, on sélectionne le parent <p> puis on remplace son contenu texte
+      const phoneP = document.querySelector("#about .fa-phone-alt").parentElement;
+      phoneP.innerHTML = `<i class="fas fa-phone-alt text-success"></i> ${t.phone}`;
+      const cityP = document.querySelector("#about .fa-map-marker-alt").parentElement;
+      cityP.innerHTML = `<i class="fas fa-map-marker-alt text-success"></i> ${t.city}`;
+      const degreeP = document.querySelector("#about .fa-graduation-cap").parentElement;
+      degreeP.innerHTML = `<i class="fas fa-graduation-cap text-success"></i> ${t.degree}`;
+      const emailP = document.querySelector("#about .fa-envelope").parentElement;
+      emailP.innerHTML = `<i class="fas fa-envelope text-success"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">${t.email}</a>`;
+
+      document.querySelector("#skills h2").textContent = t.skillsTitle;
+      document.querySelector("#education h2").textContent = t.educationTitle;
+      document.querySelector("#projects h2").textContent = t.projectTitle;
+      document.querySelector("#contact h2").textContent = t.contactTitle;
+
+      document.querySelector("#projects h5").textContent = t.projectName;
+      document.querySelector("#projects p").textContent = t.projectDesc;
+
+      document.querySelector("#contact a").textContent = t.contactMail;
+    }
+
+    document.getElementById('language-button').addEventListener('click', (e) => {
+      e.preventDefault();
+      switchLanguage();
     });
   </script>
 
