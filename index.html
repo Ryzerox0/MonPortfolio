@@ -7,7 +7,9 @@
   <link rel="icon" type="image/png" href="manette.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
   <style>
+    /* Styles généraux */
     body {
       background-color: #000;
       color: #ddd;
@@ -26,15 +28,77 @@
       color: #28a745;
       text-decoration: none;
     }
+
+    /* Mise en page */
     .section {
       padding: 60px 0;
       border-bottom: 1px solid #222;
     }
-    .lang-select {
+    .progress {
+      background-color: #111;
+      height: 20px;
+      border-radius: 50px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      line-height: 20px;
+      font-size: 0.85rem;
+    }
+    .card-project {
+      background-color: #111;
+      border: none;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease;
+    }
+    .card-project:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Boutons latéraux */
+    .side-buttons {
       position: fixed;
-      top: 15px;
-      right: 15px;
-      z-index: 1001;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+    .btn-circle {
+      background-color: #222;
+      border: 1px solid #333;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #bbb;
+      transition: all 0.3s ease;
+    }
+    .btn-circle:hover, .btn-circle.active {
+      background-color: #28a745;
+      color: #fff;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 20px 0;
+      background-color: #111;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* Animation d’apparition */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -42,29 +106,67 @@
 <body>
 
   <!-- Sélecteur de langue -->
-  <div class="lang-select">
-    <select id="languageSwitcher" class="form-select form-select-sm bg-dark text-light border-secondary">
-      <option value="fr" selected>🇫🇷 Français</option>
-      <option value="en">🇬🇧 English</option>
-    </select>
+  <div class="dropdown" style="position: absolute; top: 20px; right: 20px;">
+    <button class="btn btn-dark dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+      Langue
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+      <li><a class="dropdown-item" href="#" onclick="changeLanguage('fr')">Français</a></li>
+      <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
+    </ul>
   </div>
 
   <!-- En-tête -->
   <header class="text-center section reveal">
-    <h1 data-i18n="headerTitle">DÉVELOPPEUR MULTI-LANGAGES</h1>
+    <h1 class="display-5" id="developer-title">DÉVELOPPEUR MULTI-LANGAGES</h1>
     <hr style="width: 60px; border: 2px solid #28a745; margin: 15px auto 0;">
   </header>
 
   <!-- Présentation -->
   <section id="about" class="container section reveal">
-    <h2 data-i18n="about">À propos</h2>
-    <p data-i18n="aboutText">Étudiant à l’ISEN Méditerranée en Bachelor de développement de systèmes numériques immersifs.</p>
+    <div class="row align-items-center">
+      <div class="col-md-5 text-center mb-4">
+        <img src="Moi.jpg" alt="Photo de profil" class="img-fluid rounded" style="max-height: 400px;">
+      </div>
+      <div class="col-md-7">
+        <h2 id="about-title">À propos</h2>
+        <p id="about-text">Étudiant à l’ISEN Méditerranée en Bachelor de développement de systèmes numériques immersifs, spécialisé dans le développement de jeux vidéo et les technologies immersives. Passionné par l’innovation et le travail en équipe.</p>
+        <div class="row mt-4">
+          <div class="col-sm-6">
+            <p><i class="fas fa-phone-alt text-success"></i> +33 7 68 84 23 64</p>
+            <p><i class="fas fa-map-marker-alt text-success"></i> Marseille, France</p>
+          </div>
+          <div class="col-sm-6">
+            <p><i class="fas fa-graduation-cap text-success"></i> Bachelor</p>
+            <p><i class="fas fa-envelope text-success"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">Email</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer text-center">
-    &copy; 2025 Baptiste Curie-Cadet.
-  </footer>
+  <!-- Script de changement de langue -->
+  <script>
+    function changeLanguage(lang) {
+      const langData = {
+        fr: {
+          title: "DÉVELOPPEUR MULTI-LANGAGES",
+          aboutTitle: "À propos",
+          aboutText: "Étudiant à l’ISEN Méditerranée en Bachelor de développement de systèmes numériques immersifs, spécialisé dans le développement de jeux vidéo et les technologies immersives. Passionné par l’innovation et le travail en équipe."
+        },
+        en: {
+          title: "MULTI-LANGUAGE DEVELOPER",
+          aboutTitle: "About",
+          aboutText: "Student at ISEN Méditerranée in a Bachelor of Immersive Digital Systems Development, specialized in video game development and immersive technologies. Passionate about innovation and teamwork."
+        }
+      };
+
+      // Changer le contenu basé sur la langue sélectionnée
+      document.getElementById('developer-title').textContent = langData[lang].title;
+      document.getElementById('about-title').textContent = langData[lang].aboutTitle;
+      document.getElementById('about-text').textContent = langData[lang].aboutText;
+    }
+  </script>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -78,35 +180,12 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, {
+      threshold: 0.1
+    });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
-
-  <!-- Traduction multilingue -->
-  <script>
-    const translations = {
-      fr: {
-        headerTitle: "DÉVELOPPEUR MULTI-LANGAGES",
-        about: "À propos",
-        aboutText: "Étudiant à l’ISEN Méditerranée en Bachelor de développement de systèmes numériques immersifs."
-      },
-      en: {
-        headerTitle: "MULTI-LANGUAGE DEVELOPER",
-        about: "About",
-        aboutText: "Student at ISEN Méditerranée in a Bachelor's degree in immersive digital systems development."
-      }
-    };
-
-    const switchLanguage = (lang) => {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        el.innerText = translations[lang][key];
-      });
-    };
-
-    document.getElementById('languageSwitcher').addEventListener('change', (e) => {
-      switchLanguage(e.target.value);
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
     });
   </script>
 
