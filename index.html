@@ -180,13 +180,13 @@
 
   <!-- Boutons latéraux -->
   <div class="side-buttons">
-    <a href="#top" class="btn-circle active" title="Accueil"><i class="fas fa-home"></i></a>
-    <a href="#about" class="btn-circle" title="À propos"><i class="fas fa-user"></i></a>
-    <a href="#skills" class="btn-circle" title="Compétences"><i class="fas fa-cogs"></i></a>
-    <a href="#education" class="btn-circle" title="Formation"><i class="fas fa-book"></i></a>
-    <a href="#projects" class="btn-circle" title="Projets"><i class="fas fa-gamepad"></i></a>
-    <a href="#contact" class="btn-circle" title="Contact"><i class="fas fa-envelope"></i></a>
-    <a href="#" id="language-button" class="btn-circle" title="Changer de langue">
+    <a href="#top" class="btn-circle active" title="Accueil" data-bs-toggle="tooltip"><i class="fas fa-home"></i></a>
+    <a href="#about" class="btn-circle" title="À propos" data-bs-toggle="tooltip"><i class="fas fa-user"></i></a>
+    <a href="#skills" class="btn-circle" title="Compétences" data-bs-toggle="tooltip"><i class="fas fa-cogs"></i></a>
+    <a href="#education" class="btn-circle" title="Formation" data-bs-toggle="tooltip"><i class="fas fa-book"></i></a>
+    <a href="#projects" class="btn-circle" title="Projets" data-bs-toggle="tooltip"><i class="fas fa-gamepad"></i></a>
+    <a href="#contact" class="btn-circle" title="Contact" data-bs-toggle="tooltip"><i class="fas fa-envelope"></i></a>
+    <a href="#" id="language-button" class="btn-circle" title="Changer de langue" data-bs-toggle="tooltip">
       <img id="language-flag" src="https://flagcdn.com/w40/fr.png" alt="Langue" style="width: 25px; height: 15px; border-radius: 3px;">
     </a>
   </div>
@@ -262,7 +262,7 @@
       document.querySelector("header h1").textContent = t.title;
       document.querySelector("#about h2").textContent = t.aboutTitle;
       document.querySelector("#about p").textContent = t.aboutText;
-      // Pour modifier les numéros / textes à côté des icônes, on sélectionne le parent <p> puis on remplace son contenu texte
+
       const phoneP = document.querySelector("#about .fa-phone-alt").parentElement;
       phoneP.innerHTML = `<i class="fas fa-phone-alt text-success"></i> ${t.phone}`;
       const cityP = document.querySelector("#about .fa-map-marker-alt").parentElement;
@@ -286,6 +286,12 @@
     document.getElementById('language-button').addEventListener('click', (e) => {
       e.preventDefault();
       switchLanguage();
+    });
+
+    // Initialisation des tooltips Bootstrap
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
     });
   </script>
 
