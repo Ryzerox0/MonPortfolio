@@ -64,18 +64,28 @@
       background-color: #007bff; /* Couleur bleue */
       border: none;
       border-radius: 50px; /* Forme ovale */
-      width: 120px;
+      width: 40px;
       height: 40px;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       color: #fff;
       transition: all 0.3s ease;
       font-size: 16px;
-      padding-left: 10px;
+      position: relative;
+      overflow: hidden;
     }
     .btn-circle:hover, .btn-circle.active {
       background-color: #0056b3; /* Couleur bleue plus foncée au survol */
+      width: 120px;
+    }
+    .btn-text {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      margin-left: 10px;
+    }
+    .btn-circle:hover .btn-text {
+      opacity: 1;
     }
     .footer {
       padding: 20px 0;
@@ -200,12 +210,12 @@
 
   <!-- Boutons latéraux -->
   <div class="side-buttons">
-    <a href="#top" class="btn-circle active" title="Accueil"><i class="fas fa-home"></i> Accueil</a>
-    <a href="#about" class="btn-circle" title="À propos"><i class="fas fa-user"></i> À propos</a>
-    <a href="#skills" class="btn-circle" title="Compétences"><i class="fas fa-cogs"></i> Compétences</a>
-    <a href="#education" class="btn-circle" title="Formation"><i class="fas fa-book"></i> Formation</a>
-    <a href="#projects" class="btn-circle" title="Projets"><i class="fas fa-gamepad"></i> Projets</a>
-    <a href="#contact" class="btn-circle" title="Contact"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="#top" class="btn-circle active" title="Accueil"><i class="fas fa-home"></i><span class="btn-text"> Accueil</span></a>
+    <a href="#about" class="btn-circle" title="À propos"><i class="fas fa-user"></i><span class="btn-text"> À propos</span></a>
+    <a href="#skills" class="btn-circle" title="Compétences"><i class="fas fa-cogs"></i><span class="btn-text"> Compétences</span></a>
+    <a href="#education" class="btn-circle" title="Formation"><i class="fas fa-book"></i><span class="btn-text"> Formation</span></a>
+    <a href="#projects" class="btn-circle" title="Projets"><i class="fas fa-gamepad"></i><span class="btn-text"> Projets</span></a>
+    <a href="#contact" class="btn-circle" title="Contact"><i class="fas fa-envelope"></i><span class="btn-text"> Contact</span></a>
     <a href="#" id="language-button" class="btn-circle" title="Changer de langue">
       <img id="language-flag" src="https://flagcdn.com/w40/fr.png" alt="Langue" style="width: 25px; height: 15px; border-radius: 3px;">
     </a>
