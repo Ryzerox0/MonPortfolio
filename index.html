@@ -95,10 +95,15 @@
     /* Ajout du style pour l'image de fond dans le header */
     header {
       background-image: url('dev.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
       background-position: center;
       color: white;
       text-align: center;
-      padding: 100px 0;
+      height: 100vh; /* Ajustez la hauteur de l'en-tête pour qu'elle soit égale à la hauteur de la fenêtre */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
   </style>
 </head>
