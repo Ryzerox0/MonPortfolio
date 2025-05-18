@@ -144,10 +144,11 @@
         N’hésitez pas à me contacter !</p>
         <div class="row mt-4">
           <div class="col-sm-6">
-            <p><i class="fas fa-phone-alt text-success"></i> +33 7 68 84 23 64</p>
             <p><i class="fas fa-map-marker-alt text-success"></i> Marseille, France</p>
           </div>
-          
+          <div class="col-sm-6">
+            <p><i class="fas fa-graduation-cap text-success"></i> Bachelor de développement de systèmes numériques immersifs</p>
+          </div>
         </div>
       </div>
     </div>
@@ -205,10 +206,8 @@
 
   <section id="contact" class="container section reveal">
     <h2>Contact</h2>
-    <div class="col-sm-6">
-            <p><i class="fas fa-graduation-cap text-success"></i>Bachelor de développement de systèmes numériques immersifs</p>
-            <p><i class="fas fa-envelope text-success"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">Email</a></p>
-    </div>
+    <p><i class="fas fa-phone-alt text-success"></i> +33 7 68 84 23 64</p>
+    <p><i class="fas fa-envelope text-success"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">baptiste.curie-cadet@isen.yncrea.fr</a></p>
   </section>
 
   <!-- Boutons latéraux -->
@@ -249,10 +248,10 @@
       'fr': {
         title: "DÉVELOPPEUR MULTI-LANGAGES",
         aboutTitle: "À propos",
-        aboutText: "Étudiant à l’ISEN Méditerranée en Bachelor de développement de systèmes numériques immersifs, spécialisé dans le développement de jeux vidéo et les technologies immersives. Passionné par l’innovation et le travail en équipe.",
+        aboutText: "Je m'appelle Baptiste, j'ai 19 ans et depuis de nombreuses années maintenant, je suis fasciné par le développement que ce soit dans le jeu-vidéo ou non juste d'avoir une idée et de l'a concevoir en vrai me fascine. Mon objectif professionnel est d’offrir à chaque spectateur ou utilisateur, quel que soit son âge, une véritable sensation d’évasion, celle qui me motive chaque jour. Passionné et déterminé, j’espère que mon portfolio aura su retenir votre attention. Sérieux et rigoureux, je m’engage pleinement dans chaque mission qui m’est confiée. Consciencieux et méthodique, je suis sans doute le profil que vous recherchez. N’hésitez pas à me contacter !",
         phone: "+33 7 68 84 23 64",
         city: "Marseille, France",
-        degree: "Bachelor",
+        degree: "Bachelor de développement de systèmes numériques immersifs",
         email: "Email",
         skillsTitle: "Compétences",
         educationTitle: "Formation",
@@ -265,10 +264,10 @@
       'en': {
         title: "MULTI-LANGUAGE DEVELOPER",
         aboutTitle: "About",
-        aboutText: "Student at ISEN Méditerranée in a Bachelor's program in immersive digital systems development, specializing in video game development and immersive technologies. Passionate about innovation and teamwork.",
+        aboutText: "My name is Baptiste, I am 19 years old, and for many years now, I have been fascinated by development, whether in video games or not. Just having an idea and turning it into reality fascinates me. My professional goal is to offer every viewer or user, regardless of their age, a true sense of escape, which motivates me every day. Passionate and determined, I hope my portfolio has captured your attention. Serious and rigorous, I fully commit to every task entrusted to me. Conscientious and methodical, I am undoubtedly the profile you are looking for. Do not hesitate to contact me!",
         phone: "+33 7 68 84 23 64",
         city: "Marseille, France",
-        degree: "Bachelor's Degree",
+        degree: "Bachelor's Degree in Immersive Digital Systems Development",
         email: "Email",
         skillsTitle: "Skills",
         educationTitle: "Education",
@@ -297,13 +296,9 @@
       document.querySelector("#about h2").textContent = t.aboutTitle;
       document.querySelector("#about p").textContent = t.aboutText;
 
-      const phoneP = document.querySelector("#about .fa-phone-alt").parentElement;
+      const phoneP = document.querySelector("#contact .fa-phone-alt").parentElement;
       phoneP.innerHTML = `<i class="fas fa-phone-alt text-success"></i> ${t.phone}`;
-      const cityP = document.querySelector("#about .fa-map-marker-alt").parentElement;
-      cityP.innerHTML = `<i class="fas fa-map-marker-alt text-success"></i> ${t.city}`;
-      const degreeP = document.querySelector("#about .fa-graduation-cap").parentElement;
-      degreeP.innerHTML = `<i class="fas fa-graduation-cap text-success"></i> ${t.degree}`;
-      const emailP = document.querySelector("#about .fa-envelope").parentElement;
+      const emailP = document.querySelector("#contact .fa-envelope").parentElement;
       emailP.innerHTML = `<i class="fas fa-envelope text-success"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">${t.email}</a>`;
 
       document.querySelector("#skills h2").textContent = t.skillsTitle;
@@ -313,8 +308,6 @@
 
       document.querySelector("#projects h5").textContent = t.projectName;
       document.querySelector("#projects p").textContent = t.projectDesc;
-
-      document.querySelector("#contact a").textContent = t.contactMail;
     }
 
     document.getElementById('language-button').addEventListener('click', (e) => {
