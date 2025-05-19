@@ -46,6 +46,7 @@
       border: none;
       box-shadow: 0 0 15px rgba(0,0,0,0.6);
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
     .card-project:hover {
       transform: translateY(-5px);
@@ -189,13 +190,12 @@
     <h2>Projets</h2>
     <div class="row">
       <div class="col-md-4 mb-4">
-        <div class="card card-project text-white">
+        <div class="card card-project text-white" id="projectCard">
           <div class="card-body">
             <h5>Pirate de l'étang (Unity)</h5>
             <p>Sound Designer/UI-UX
               Jouez Jack Moineau, malheureux pirate échoué sur une île en proie à une terrible malédiction.
               Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !</p>
-            <button id="downloadButton" class="btn btn-primary">Télécharger le projet</button>
           </div>
         </div>
       </div>
@@ -313,7 +313,7 @@
       switchLanguage();
     });
 
-    document.getElementById('downloadButton').addEventListener('click', function() {
+    document.getElementById('projectCard').addEventListener('click', function() {
       // Créer le pop-up
       const modal = document.createElement('div');
       modal.className = 'modal';
