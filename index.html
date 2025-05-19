@@ -317,20 +317,21 @@
       // Créer le pop-up
       const modal = document.createElement('div');
       modal.className = 'modal';
-      modal.innerHTML = 
+      modal.innerHTML = `
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Télécharger le projet</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body text-center">
+              <img src="1_Pirate.jpg" alt="Image du projet" class="img-fluid mb-3" style="max-height: 200px;">
               <p>Cliquez sur le lien ci-dessous pour télécharger le projet "Pirate de l'étang".</p>
               <a href="build-pirate.zip" class="btn btn-primary">Télécharger</a>
             </div>
           </div>
         </div>
-      ;
+      `;
 
       // Ajouter le pop-up au corps du document
       document.body.appendChild(modal);
