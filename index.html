@@ -193,8 +193,9 @@
           <div class="card-body">
             <h5>Pirate de l'étang (Unity)</h5>
             <p>Sound Designer/UI-UX
-              Jouez Jack Moineau, malheureux pirate échoué sur une île en proie à une terrible malédiction. 
+              Jouez Jack Moineau, malheureux pirate échoué sur une île en proie à une terrible malédiction.
               Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !</p>
+            <button id="downloadButton" class="btn btn-primary">Télécharger le projet</button>
           </div>
         </div>
       </div>
@@ -254,8 +255,8 @@
         educationTitle: "Formation",
         projectTitle: "Projets",
         contactTitle: "Contact",
-        projectName: "Runner 3D (Unity)",
-        projectDesc: "Jeu de course avec obstacles dynamiques et mécaniques de déplacement fluides.",
+        projectName: "Pirate de l'étang (Unity)",
+        projectDesc: "Sound Designer/UI-UX. Jouez Jack Moineau, malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !",
         contactMail: "baptiste.curie-cadet@isen.yncrea.fr"
       },
       'en': {
@@ -310,6 +311,33 @@
     document.getElementById('language-button').addEventListener('click', (e) => {
       e.preventDefault();
       switchLanguage();
+    });
+
+    document.getElementById('downloadButton').addEventListener('click', function() {
+      // Créer le pop-up
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.innerHTML = `
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Télécharger le projet</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Cliquez sur le lien ci-dessous pour télécharger le projet "Pirate de l'étang".</p>
+              <a href="lien_vers_le_projet" class="btn btn-primary">Télécharger</a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Ajouter le pop-up au corps du document
+      document.body.appendChild(modal);
+
+      // Afficher le pop-up
+      const bootstrapModal = new bootstrap.Modal(modal);
+      bootstrapModal.show();
     });
 
     // Initialisation des tooltips Bootstrap
