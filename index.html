@@ -317,7 +317,7 @@
       // Créer le pop-up
       const modal = document.createElement('div');
       modal.className = 'modal';
-      modal.innerHTML = `
+      modal.innerHTML = 
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -326,11 +326,11 @@
             </div>
             <div class="modal-body">
               <p>Cliquez sur le lien ci-dessous pour télécharger le projet "Pirate de l'étang".</p>
-              <a href="lien_vers_le_projet" class="btn btn-primary">Télécharger</a>
+              <a href="build-pirate.zip" class="btn btn-primary">Télécharger</a>
             </div>
           </div>
         </div>
-      `;
+      ;
 
       // Ajouter le pop-up au corps du document
       document.body.appendChild(modal);
