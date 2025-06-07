@@ -131,9 +131,18 @@
       height: 100%;
       object-fit: cover;
     }
+    .modal-body {
+      display: flex;
+      flex-direction: row;
+    }
     .modal-body img {
       width: 100%;
+      max-width: 300px;
       height: auto;
+      margin-right: 20px;
+    }
+    .project-details {
+      flex: 1;
     }
   </style>
 </head>
@@ -210,7 +219,6 @@
       <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal2">
         <img src="path_to_logo2.jpg" alt="Logo Project 2">
       </div>
-      <!-- Add more project logos as needed -->
     </div>
   </section>
 
@@ -224,10 +232,12 @@
         </div>
         <div class="modal-body">
           <img src="1_Pirate.jpg" alt="Project Image">
-          <p><strong>Catégorie:</strong> Unreal</p>
-          <p><strong>Date de projet:</strong> Mai 2024</p>
-          <p><strong>Durée:</strong> Un mois</p>
-          <p>Un cobaye de laboratoire ayant subi des expériences corporelles se voit attribué des compétences physiques inhumaines. Grâce à elles, il va en profiter pour s'échapper de la zone de test dans laquelle il est retenu et fuir cet enfer.</p>
+          <div class="project-details">
+            <p><strong>Catégorie:</strong> Unreal</p>
+            <p><strong>Date de projet:</strong> Mai 2024</p>
+            <p><strong>Durée:</strong> Un mois</p>
+            <p>Un cobaye de laboratoire ayant subi des expériences corporelles se voit attribué des compétences physiques inhumaines. Grâce à elles, il va en profiter pour s'échapper de la zone de test dans laquelle il est retenu et fuir cet enfer.</p>
+          </div>
         </div>
         <div class="modal-footer">
           <a href="build-pirate.zip" class="btn btn-primary">Télécharger le projet</a>
@@ -247,10 +257,12 @@
         </div>
         <div class="modal-body">
           <img src="path_to_project_image2.jpg" alt="Project Image">
-          <p><strong>Catégorie:</strong> Unity</p>
-          <p><strong>Date de projet:</strong> Juin 2024</p>
-          <p><strong>Durée:</strong> Deux mois</p>
-          <p>Un jeu éducatif conçu pour enseigner les bases de la programmation aux enfants. Ce projet utilise des mécaniques de jeu interactives pour rendre l'apprentissage amusant et engageant.</p>
+          <div class="project-details">
+            <p><strong>Catégorie:</strong> Unity</p>
+            <p><strong>Date de projet:</strong> Juin 2024</p>
+            <p><strong>Durée:</strong> Deux mois</p>
+            <p>Un jeu éducatif conçu pour enseigner les bases de la programmation aux enfants. Ce projet utilise des mécaniques de jeu interactives pour rendre l'apprentissage amusant et engageant.</p>
+          </div>
         </div>
         <div class="modal-footer">
           <a href="path_to_download_file2.zip" class="btn btn-primary">Télécharger le projet</a>
