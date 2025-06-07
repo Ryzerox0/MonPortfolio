@@ -169,6 +169,19 @@
       margin: 0;
       max-width: none;
     }
+    .image-navigation {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .image-navigation button {
+      margin: 0 5px;
+    }
+    .project-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
   </style>
 </head>
 
@@ -257,7 +270,11 @@
         </div>
         <div class="modal-body">
           <div class="modal-image-container">
-            <img src="1_Pirate.jpg" alt="Project Image">
+            <img id="projectImage1" src="1_Pirate.jpg" alt="Project Image">
+            <div class="image-navigation">
+              <button onclick="changeImage(1, -1)">Précédent</button>
+              <button onclick="changeImage(1, 1)">Suivant</button>
+            </div>
           </div>
           <div class="project-details">
             <p><strong>Catégorie:</strong> Unreal</p>
@@ -267,6 +284,10 @@
           </div>
         </div>
         <div class="modal-footer">
+          <div class="project-navigation">
+            <button onclick="changeProject(-1)">Projet Précédent</button>
+            <button onclick="changeProject(1)">Projet Suivant</button>
+          </div>
           <a href="build-pirate.zip" class="btn btn-primary">Télécharger le projet</a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
         </div>
@@ -284,7 +305,11 @@
         </div>
         <div class="modal-body">
           <div class="modal-image-container">
-            <img src="path_to_project_image2.jpg" alt="Project Image">
+            <img id="projectImage2" src="path_to_project_image2.jpg" alt="Project Image">
+            <div class="image-navigation">
+              <button onclick="changeImage(2, -1)">Précédent</button>
+              <button onclick="changeImage(2, 1)">Suivant</button>
+            </div>
           </div>
           <div class="project-details">
             <p><strong>Catégorie:</strong> Unity</p>
@@ -294,6 +319,10 @@
           </div>
         </div>
         <div class="modal-footer">
+          <div class="project-navigation">
+            <button onclick="changeProject(-1)">Projet Précédent</button>
+            <button onclick="changeProject(1)">Projet Suivant</button>
+          </div>
           <a href="path_to_download_file2.zip" class="btn btn-primary">Télécharger le projet</a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
         </div>
@@ -372,6 +401,31 @@
         contactMail: "baptiste.curie-cadet@isen.yncrea.fr"
       }
     };
+
+    const projectImages = {
+      1: ["1_Pirate.jpg", "1_Pirate2.jpg", "1_Pirate3.jpg"],
+      2: ["2_Educatif.jpg", "2_Educatif2.jpg", "2_Educatif3.jpg"]
+    };
+
+    let currentProject = 1;
+    let currentImageIndex = 0;
+
+    function changeImage(projectId, direction) {
+      const images = projectImages[projectId];
+      currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+      document.getElementById(`projectImage${projectId}`).src = images[currentImageIndex];
+    }
+
+    function changeProject(direction) {
+      const modalId = `projectModal${currentProject}`;
+      const modal = bootstrap.Modal.getInstance(document.getElementById(modalId));
+      modal.hide();
+
+      currentProject = ((currentProject + direction - 1 + 2) % 2) + 1;
+      const newModalId = `projectModal${currentProject}`;
+      const newModal = new bootstrap.Modal(document.getElementById(newModalId));
+      newModal.show();
+    }
 
     function switchLanguage() {
       const flagImage = document.getElementById('language-flag');
