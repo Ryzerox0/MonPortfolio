@@ -339,8 +339,7 @@
             <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <div class="modal-image-container">
-            <img id="projectImage1" src="1_Pirate.jpg" alt="Project Image">
-            <img id="projectImage1" src="header (1).jpg" alt="Project Image">
+            <img id="projectImage1_1" src="1_Pirate.jpg" alt="Project Image">
             <div class="image-selector">
               <button class="image-selector-button active" onclick="changeImage(1, 0)">●</button>
               <button class="image-selector-button" onclick="changeImage(1, 1)">●</button>
@@ -378,7 +377,7 @@
             <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <div class="modal-image-container">
-            <img id="projectImage2" src="path_to_project_image2.jpg" alt="Project Image">
+            <img id="projectImage2" src="2_Educatif.jpg" alt="Project Image">
             <div class="image-selector">
               <button class="image-selector-button active" onclick="changeImage(2, 0)">●</button>
               <button class="image-selector-button" onclick="changeImage(2, 1)">●</button>
@@ -516,7 +515,7 @@
     let currentImageIndex = 0;
 
     const projectImages = {
-      1: ["1_Pirate.jpg", "1_Pirate2.jpg", "1_Pirate3.jpg", "1_Pirate4.jpg", "1_Pirate5.jpg"],
+      1: ["1_Pirate.jpg", "header (1).jpg", "1_Pirate3.jpg", "1_Pirate4.jpg", "1_Pirate5.jpg"],
       2: ["2_Educatif.jpg", "2_Educatif2.jpg", "2_Educatif3.jpg"],
       3: ["3_Project.jpg", "3_Project2.jpg", "3_Project3.jpg"],
       4: ["4_Project.jpg", "4_Project2.jpg", "4_Project3.jpg"]
@@ -524,7 +523,8 @@
 
     function changeImage(projectId, imageIndex) {
       currentImageIndex = imageIndex;
-      document.getElementById(`projectImage${projectId}`).src = projectImages[projectId][currentImageIndex];
+      const imageId = `projectImage${projectId}_${imageIndex}`;
+      document.getElementById(imageId).src = projectImages[projectId][currentImageIndex];
 
       document.querySelectorAll(`.image-selector-button`).forEach(button => {
         button.classList.remove('active');
