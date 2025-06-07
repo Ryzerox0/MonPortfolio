@@ -1,3 +1,6 @@
+Pour changer le fond en bleu foncé et ajuster les couleurs des boutons et autres éléments pour qu'ils s'harmonisent avec ce thème, je vais mettre à jour le style CSS. Voici comment vous pouvez le faire :
+
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,30 +13,30 @@
 
   <style>
     body {
-      background-color: #4b0082; /* Nouvelle couleur de fond vive */
+      background-color: #000033; /* Bleu foncé pour le fond */
       color: #fff; /* Couleur du texte pour un meilleur contraste */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     h1, h2 {
-      color: #ffd700; /* Couleur vive pour les titres */
+      color: #4da6ff; /* Bleu clair pour les titres */
       font-weight: 600;
     }
     h2 {
-      border-bottom: 1px solid #444;
+      border-bottom: 1px solid #4da6ff;
       padding-bottom: 10px;
       margin-bottom: 30px;
     }
     a, a:hover {
-      color: #ffd700; /* Couleur vive pour les liens */
+      color: #4da6ff; /* Bleu clair pour les liens */
       text-decoration: none;
     }
     .section {
       padding: 60px 0;
-      border-bottom: 1px solid #444;
-      background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent pour les sections */
+      border-bottom: 1px solid rgba(77, 166, 255, 0.3);
+      background-color: rgba(255, 255, 255, 0.05); /* Fond légèrement transparent pour les sections */
     }
     .progress {
-      background-color: #111;
+      background-color: rgba(0, 0, 51, 0.5);
       height: 20px;
       border-radius: 50px;
       overflow: hidden;
@@ -53,7 +56,7 @@
       z-index: 1000;
     }
     .btn-circle {
-      background-color: #ffd700; /* Couleur vive pour les boutons */
+      background-color: #4da6ff; /* Bleu clair pour les boutons */
       border: none;
       border-radius: 50px;
       width: 50px;
@@ -61,14 +64,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #4b0082; /* Couleur du texte des boutons pour contraste */
+      color: #000033; /* Couleur du texte des boutons pour contraste */
       transition: all 0.3s ease;
       font-size: 20px;
       position: relative;
       overflow: hidden;
     }
     .btn-circle:hover, .btn-circle.active {
-      background-color: #ffcc00;
+      background-color: #7ab8ff;
       width: 150px;
     }
     .btn-text {
@@ -81,7 +84,7 @@
     }
     .footer {
       padding: 20px 0;
-      background-color: #111;
+      background-color: rgba(0, 0, 51, 0.7);
       font-size: 0.9rem;
       color: #fff;
     }
@@ -165,7 +168,7 @@
       transition: color 0.3s ease;
     }
     .image-selector button.active {
-      color: #ffd700;
+      color: #4da6ff;
     }
     .project-details {
       flex: 1;
@@ -197,7 +200,7 @@
       z-index: 10;
     }
     .navigation-arrows button {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 51, 0.5);
       border: none;
       color: white;
       font-size: 24px;
@@ -211,7 +214,7 @@
       justify-content: center;
     }
     .navigation-arrows button:hover {
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 51, 0.8);
     }
     .navigation-arrows .right-arrow {
       margin-right: 20px;
@@ -230,7 +233,7 @@
 <body>
   <header class="text-center section reveal">
     <h1 class="display-5">DÉVELOPPEUR DE SERIOUS GAMES ET JEUX VIDÉO</h1>
-    <hr style="width: 60px; border: 2px solid #ffd700; margin: 15px auto 0;">
+    <hr style="width: 60px; border: 2px solid #4da6ff; margin: 15px auto 0;">
   </header>
 
   <section id="about" class="container section reveal">
@@ -243,10 +246,10 @@
         <p>Je m'appelle Baptiste, j'ai 19 ans et je suis passionné par le développement de jeux vidéo, en particulier les serious games. Mon objectif professionnel est de créer des expériences immersives qui offrent une véritable sensation d'évasion et d'apprentissage. Passionné et déterminé, je m'engage pleinement dans chaque projet pour offrir des solutions innovantes et captivantes.</p>
         <div class="row mt-4">
           <div class="col-sm-6">
-            <p><i class="fas fa-map-marker-alt text-warning"></i> Marseille, France</p>
+            <p><i class="fas fa-map-marker-alt" style="color: #4da6ff;"></i> Marseille, France</p>
           </div>
           <div class="col-sm-6">
-            <p><i class="fas fa-graduation-cap text-warning"></i> Bachelor de développement de systèmes numériques immersifs</p>
+            <p><i class="fas fa-graduation-cap" style="color: #4da6ff;"></i> Bachelor de développement de systèmes numériques immersifs</p>
           </div>
         </div>
       </div>
@@ -258,11 +261,11 @@
     <div class="row">
       <div class="col-md-6">
         <p>Unity</p>
-        <div class="progress mb-3"><div class="progress-bar bg-warning" style="width: 70%;">70%</div></div>
+        <div class="progress mb-3"><div class="progress-bar bg-info" style="width: 70%; background-color: #4da6ff;">70%</div></div>
         <p>Unreal Engine</p>
-        <div class="progress mb-3"><div class="progress-bar bg-info" style="width: 60%;">60%</div></div>
+        <div class="progress mb-3"><div class="progress-bar bg-info" style="width: 60%; background-color: #4da6ff;">60%</div></div>
         <p>Blender</p>
-        <div class="progress mb-3"><div class="progress-bar bg-warning" style="width: 50%;">50%</div></div>
+        <div class="progress mb-3"><div class="progress-bar bg-info" style="width: 50%; background-color: #4da6ff;">50%</div></div>
       </div>
       <div class="col-md-6">
         <p>C++</p>
@@ -376,10 +379,10 @@
 
   <section id="contact" class="container section reveal">
     <h2>Contact</h2>
-    <p><i class="fas fa-phone-alt text-warning"></i> +33 7 68 84 23 64</p>
-    <p><i class="fas fa-envelope text-warning"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">baptiste.curie-cadet@isen.yncrea.fr</a></p>
+    <p><i class="fas fa-phone-alt" style="color: #4da6ff;"></i> +33 7 68 84 23 64</p>
+    <p><i class="fas fa-envelope" style="color: #4da6ff;"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">baptiste.curie-cadet@isen.yncrea.fr</a></p>
     <div class="mt-4">
-      <a href="https://www.linkedin.com/in/baptistecurie" target="_blank" class="text-light me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+      <a href="https://www.linkedin.com/in/baptistecurie" target="_blank" class="text-light me-3"><i class="fab fa-linkedin fa-2x" style="color: #4da6ff;"></i></a>
     </div>
   </section>
 
@@ -495,9 +498,9 @@
       document.querySelector("#about p").textContent = t.aboutText;
 
       const phoneP = document.querySelector("#contact .fa-phone-alt").parentElement;
-      phoneP.innerHTML = `<i class="fas fa-phone-alt text-warning"></i> ${t.phone}`;
+      phoneP.innerHTML = `<i class="fas fa-phone-alt" style="color: #4da6ff;"></i> ${t.phone}`;
       const emailP = document.querySelector("#contact .fa-envelope").parentElement;
-      emailP.innerHTML = `<i class="fas fa-envelope text-warning"></i> <a href="mailto:${t.contactMail}">${t.email}</a>`;
+      emailP.innerHTML = `<i class="fas fa-envelope" style="color: #4da6ff;"></i> <a href="mailto:${t.contactMail}">${t.email}</a>`;
 
       document.querySelector("#skills h2").textContent = t.skillsTitle;
       document.querySelector("#education h2").textContent = t.educationTitle;
