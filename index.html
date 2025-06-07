@@ -316,6 +316,12 @@
       <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal2">
         <img src="path_to_logo2.jpg" alt="Logo Project 2">
       </div>
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal3">
+        <img src="path_to_logo3.jpg" alt="Logo Project 3">
+      </div>
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal4">
+        <img src="path_to_logo4.jpg" alt="Logo Project 4">
+      </div>
     </div>
   </section>
 
@@ -391,6 +397,78 @@
     </div>
   </div>
 
+  <!-- Modal for Project 3 -->
+  <div class="modal fade modal-fullscreen" id="projectModal3" tabindex="-1" aria-labelledby="projectModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectModalLabel3">Nouveau Projet 1</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
+          </div>
+          <div class="modal-image-container">
+            <img id="projectImage3" src="path_to_project_image3.jpg" alt="Project Image">
+            <div class="image-selector">
+              <button class="image-selector-button active" onclick="changeImage(3, 0)">●</button>
+              <button class="image-selector-button" onclick="changeImage(3, 1)">●</button>
+              <button class="image-selector-button" onclick="changeImage(3, 2)">●</button>
+            </div>
+          </div>
+          <div class="project-details">
+            <p><strong>Catégorie:</strong> Unity</p>
+            <p><strong>Date de projet:</strong> Juillet 2024</p>
+            <p><strong>Durée:</strong> Trois mois</p>
+            <p>Description du nouveau projet 1. Ce projet est un exemple de ce que j'ai accompli et des compétences que j'ai développées.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="path_to_download_file3.zip" class="btn btn-primary">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Project 4 -->
+  <div class="modal fade modal-fullscreen" id="projectModal4" tabindex="-1" aria-labelledby="projectModalLabel4" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectModalLabel4">Nouveau Projet 2</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
+          </div>
+          <div class="modal-image-container">
+            <img id="projectImage4" src="path_to_project_image4.jpg" alt="Project Image">
+            <div class="image-selector">
+              <button class="image-selector-button active" onclick="changeImage(4, 0)">●</button>
+              <button class="image-selector-button" onclick="changeImage(4, 1)">●</button>
+              <button class="image-selector-button" onclick="changeImage(4, 2)">●</button>
+            </div>
+          </div>
+          <div class="project-details">
+            <p><strong>Catégorie:</strong> Unreal</p>
+            <p><strong>Date de projet:</strong> Août 2024</p>
+            <p><strong>Durée:</strong> Quatre mois</p>
+            <p>Description du nouveau projet 2. Ce projet est un exemple de ce que j'ai accompli et des compétences que j'ai développées.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="path_to_download_file4.zip" class="btn btn-primary">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section id="contact" class="container section reveal">
     <h2>Contact</h2>
     <p><i class="fas fa-phone-alt" style="color: #4da6ff;"></i> +33 7 68 84 23 64</p>
@@ -436,19 +514,19 @@
 
     const projectImages = {
       1: ["1_Pirate.jpg", "1_Pirate2.jpg", "1_Pirate3.jpg"],
-      2: ["2_Educatif.jpg", "2_Educatif2.jpg", "2_Educatif3.jpg"]
+      2: ["2_Educatif.jpg", "2_Educatif2.jpg", "2_Educatif3.jpg"],
+      3: ["3_Project.jpg", "3_Project2.jpg", "3_Project3.jpg"],
+      4: ["4_Project.jpg", "4_Project2.jpg", "4_Project3.jpg"]
     };
 
     function changeImage(projectId, imageIndex) {
       currentImageIndex = imageIndex;
       document.getElementById(`projectImage${projectId}`).src = projectImages[projectId][currentImageIndex];
 
-      // Remove active class from all buttons
       document.querySelectorAll(`.image-selector-button`).forEach(button => {
         button.classList.remove('active');
       });
 
-      // Add active class to the clicked button
       event.target.classList.add('active');
     }
 
@@ -457,7 +535,7 @@
       const modal = bootstrap.Modal.getInstance(document.getElementById(modalId));
       modal.hide();
 
-      currentProject = ((currentProject + direction - 1 + 2) % 2) + 1;
+      currentProject = ((currentProject + direction - 1 + 4) % 4) + 1;
       const newModalId = `projectModal${currentProject}`;
       const newModal = new bootstrap.Modal(document.getElementById(newModalId));
       newModal.show();
@@ -527,7 +605,6 @@
       switchLanguage();
     });
 
-    // Activate the first image button when the modal is shown
     document.getElementById('projectModal1').addEventListener('shown.bs.modal', function () {
       document.querySelectorAll('#projectModal1 .image-selector-button').forEach(button => {
         button.classList.remove('active');
@@ -540,6 +617,20 @@
         button.classList.remove('active');
       });
       document.querySelector('#projectModal2 .image-selector-button:first-child').classList.add('active');
+    });
+
+    document.getElementById('projectModal3').addEventListener('shown.bs.modal', function () {
+      document.querySelectorAll('#projectModal3 .image-selector-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      document.querySelector('#projectModal3 .image-selector-button:first-child').classList.add('active');
+    });
+
+    document.getElementById('projectModal4').addEventListener('shown.bs.modal', function () {
+      document.querySelectorAll('#projectModal4 .image-selector-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      document.querySelector('#projectModal4 .image-selector-button:first-child').classList.add('active');
     });
   </script>
 </body>
