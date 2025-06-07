@@ -158,10 +158,14 @@
     .image-selector button {
       background: none;
       border: none;
-      color: #007bff;
+      color: white;
       font-size: 24px;
       cursor: pointer;
       margin: 0 5px;
+      transition: color 0.3s ease;
+    }
+    .image-selector button.active {
+      color: #007bff;
     }
     .project-details {
       flex: 1;
@@ -278,9 +282,9 @@
           <div class="modal-image-container">
             <img id="projectImage1" src="1_Pirate.jpg" alt="Project Image">
             <div class="image-selector">
-              <button onclick="changeImage(1, 0)">●</button>
-              <button onclick="changeImage(1, 1)">●</button>
-              <button onclick="changeImage(1, 2)">●</button>
+              <button class="image-selector-button" onclick="changeImage(1, 0)">●</button>
+              <button class="image-selector-button" onclick="changeImage(1, 1)">●</button>
+              <button class="image-selector-button" onclick="changeImage(1, 2)">●</button>
             </div>
           </div>
           <div class="project-details">
@@ -314,9 +318,9 @@
           <div class="modal-image-container">
             <img id="projectImage2" src="path_to_project_image2.jpg" alt="Project Image">
             <div class="image-selector">
-              <button onclick="changeImage(2, 0)">●</button>
-              <button onclick="changeImage(2, 1)">●</button>
-              <button onclick="changeImage(2, 2)">●</button>
+              <button class="image-selector-button" onclick="changeImage(2, 0)">●</button>
+              <button class="image-selector-button" onclick="changeImage(2, 1)">●</button>
+              <button class="image-selector-button" onclick="changeImage(2, 2)">●</button>
             </div>
           </div>
           <div class="project-details">
@@ -389,6 +393,14 @@
     function changeImage(projectId, imageIndex) {
       currentImageIndex = imageIndex;
       document.getElementById(`projectImage${projectId}`).src = projectImages[projectId][currentImageIndex];
+
+      // Remove active class from all buttons
+      document.querySelectorAll(`.image-selector-button`).forEach(button => {
+        button.classList.remove('active');
+      });
+
+      // Add active class to the clicked button
+      event.target.classList.add('active');
     }
 
     function changeProject(direction) {
