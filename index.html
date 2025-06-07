@@ -192,6 +192,13 @@
       justify-content: space-between;
       margin-top: 20px;
     }
+    .project-navigation button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -296,8 +303,8 @@
         </div>
         <div class="modal-footer">
           <div class="project-navigation">
-            <button onclick="changeProject(-1)">Projet Précédent</button>
-            <button onclick="changeProject(1)">Projet Suivant</button>
+            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <a href="build-pirate.zip" class="btn btn-primary">Télécharger le projet</a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -332,8 +339,8 @@
         </div>
         <div class="modal-footer">
           <div class="project-navigation">
-            <button onclick="changeProject(-1)">Projet Précédent</button>
-            <button onclick="changeProject(1)">Projet Suivant</button>
+            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <a href="path_to_download_file2.zip" class="btn btn-primary">Télécharger le projet</a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
