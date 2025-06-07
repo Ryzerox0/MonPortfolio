@@ -136,6 +136,7 @@
       flex-direction: row;
       height: calc(100vh - 120px);
       overflow-y: auto;
+      position: relative;
     }
     .modal-image-container {
       flex: 1;
@@ -188,16 +189,29 @@
       max-width: none;
     }
     .project-navigation {
+      position: absolute;
+      top: 50%;
+      width: 100%;
       display: flex;
       justify-content: space-between;
-      margin-top: 20px;
+      transform: translateY(-50%);
     }
     .project-navigation button {
-      background: none;
+      background: rgba(0, 0, 0, 0.5);
       border: none;
       color: white;
       font-size: 24px;
       cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .project-navigation button:hover {
+      background: rgba(0, 0, 0, 0.8);
     }
   </style>
 </head>
@@ -287,7 +301,13 @@
         </div>
         <div class="modal-body">
           <div class="modal-image-container">
-            <img id="projectImage1" src="1_Pirate.jpg" alt="Project Image">
+            <div class="project-navigation">
+              <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+              <div style="flex: 1; display: flex; justify-content: center;">
+                <img id="projectImage1" src="1_Pirate.jpg" alt="Project Image">
+              </div>
+              <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
+            </div>
             <div class="image-selector">
               <button class="image-selector-button active" onclick="changeImage(1, 0)">●</button>
               <button class="image-selector-button" onclick="changeImage(1, 1)">●</button>
@@ -302,10 +322,6 @@
           </div>
         </div>
         <div class="modal-footer">
-          <div class="project-navigation">
-            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
-            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
-          </div>
           <a href="build-pirate.zip" class="btn btn-primary">Télécharger le projet</a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
         </div>
@@ -323,7 +339,13 @@
         </div>
         <div class="modal-body">
           <div class="modal-image-container">
-            <img id="projectImage2" src="path_to_project_image2.jpg" alt="Project Image">
+            <div class="project-navigation">
+              <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+              <div style="flex: 1; display: flex; justify-content: center;">
+                <img id="projectImage2" src="path_to_project_image2.jpg" alt="Project Image">
+              </div>
+              <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
+            </div>
             <div class="image-selector">
               <button class="image-selector-button active" onclick="changeImage(2, 0)">●</button>
               <button class="image-selector-button" onclick="changeImage(2, 1)">●</button>
@@ -338,10 +360,6 @@
           </div>
         </div>
         <div class="modal-footer">
-          <div class="project-navigation">
-            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
-            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
-          </div>
           <a href="path_to_download_file2.zip" class="btn btn-primary">Télécharger le projet</a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
         </div>
