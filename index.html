@@ -118,6 +118,23 @@
     header h1 {
       text-shadow: 2px 2px 4px #000, -2px -2px 4px #000, 2px -2px 4px #000, -2px 2px 4px #000;
     }
+    .project-container {
+      display: flex;
+      margin-bottom: 30px;
+    }
+    .project-video {
+      flex: 1;
+      padding-right: 20px;
+    }
+    .project-description {
+      flex: 1;
+      padding-left: 20px;
+      border-left: 1px solid #444;
+    }
+    .project-video iframe, .project-video img {
+      width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 
@@ -186,26 +203,16 @@
 
   <section id="projects" class="container section reveal">
     <h2>Projets</h2>
-    <div class="row">
-      <div class="col-md-4 mb-4">
-        <div class="card card-project text-white" id="projectCard">
-          <div class="card-body">
-            <h5>Pirate de l'étang (Unity)</h5>
-            <p>Sound Designer/UI-UX
-              Jouez Jack Moineau, malheureux pirate échoué sur une île en proie à une terrible malédiction.
-              Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !</p>
-          </div>
-        </div>
+    <div class="project-container">
+      <div class="project-video">
+        <img src="path_to_your_image.jpg" alt="Project Image">
       </div>
-      <div class="col-md-4 mb-4">
-        <div class="card card-project text-white" id="projectCard2">
-          <div class="card-body">
-            <h5>Serious Game Éducatif (Unity)</h5>
-            <p>Développeur/Designer
-              Un jeu éducatif conçu pour enseigner les bases de la programmation aux enfants.
-              Ce projet utilise des mécaniques de jeu interactives pour rendre l'apprentissage amusant et engageant.</p>
-          </div>
-        </div>
+      <div class="project-description">
+        <h3>Experimental Runner</h3>
+        <p><strong>Catégorie:</strong> Unreal</p>
+        <p><strong>Date de projet:</strong> Mai 2024</p>
+        <p><strong>Durée:</strong> Un mois</p>
+        <p>Un cobaye de laboratoire ayant subi des expériences corporelles se voit attribué des compétences physiques inhumaines. Grâce à elles, il va en profiter pour s'échapper de la zone de test dans laquelle il est retenu et fuir cet enfer.</p>
       </div>
     </div>
   </section>
@@ -229,7 +236,6 @@
     <a href="#education" class="btn-circle" title="Formation"><i class="fas fa-book"></i><span class="btn-text"> Formation</span></a>
     <a href="#projects" class="btn-circle" title="Projets"><i class="fas fa-gamepad"></i><span class="btn-text"> Projets</span></a>
     <a href="#contact" class="btn-circle" title="Contact"><i class="fas fa-envelope"></i><span class="btn-text"> Contact</span></a>
-    
   </div>
 
   <footer class="footer text-center">
@@ -327,56 +333,6 @@
     document.getElementById('language-button').addEventListener('click', (e) => {
       e.preventDefault();
       switchLanguage();
-    });
-
-    document.getElementById('projectCard').addEventListener('click', function() {
-      const modal = document.createElement('div');
-      modal.className = 'modal';
-      modal.innerHTML =
-        `<div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Télécharger le projet</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center">
-              <img src="1_Pirate.jpg" alt="Image du projet" class="img-fluid mb-3" style="max-height: 200px;">
-              <p>Cliquez sur le lien ci-dessous pour télécharger le projet "Pirate de l'étang".</p>
-              <a href="build-pirate.zip" class="btn btn-primary">Télécharger</a>
-            </div>
-          </div>
-        </div>`
-      ;
-
-      document.body.appendChild(modal);
-
-      const bootstrapModal = new bootstrap.Modal(modal);
-      bootstrapModal.show();
-    });
-
-    document.getElementById('projectCard2').addEventListener('click', function() {
-      const modal = document.createElement('div');
-      modal.className = 'modal';
-      modal.innerHTML =
-        `<div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Télécharger le projet</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center">
-              <img src="educational_game.jpg" alt="Image du projet" class="img-fluid mb-3" style="max-height: 200px;">
-              <p>Cliquez sur le lien ci-dessous pour télécharger le projet "Serious Game Éducatif".</p>
-              <a href="build-educational.zip" class="btn btn-primary">Télécharger</a>
-            </div>
-          </div>
-        </div>`
-      ;
-
-      document.body.appendChild(modal);
-
-      const bootstrapModal = new bootstrap.Modal(modal);
-      bootstrapModal.show();
     });
   </script>
 </body>
