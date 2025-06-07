@@ -1,6 +1,3 @@
-Pour changer le fond en bleu foncé et ajuster les couleurs des boutons et autres éléments pour qu'ils s'harmonisent avec ce thème, je vais mettre à jour le style CSS. Voici comment vous pouvez le faire :
-
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -40,10 +37,14 @@ Pour changer le fond en bleu foncé et ajuster les couleurs des boutons et autre
       height: 20px;
       border-radius: 50px;
       overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour le slider */
+      border: 1px solid rgba(77, 166, 255, 0.5); /* Bordure pour le slider */
     }
     .progress-bar {
       line-height: 20px;
       font-size: 0.85rem;
+      background-color: #4da6ff; /* Couleur de la barre de progression */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour la barre de progression */
     }
     .side-buttons {
       position: fixed;
@@ -261,17 +262,27 @@ Pour changer le fond en bleu foncé et ajuster les couleurs des boutons et autre
     <div class="row">
       <div class="col-md-6">
         <p>Unity</p>
-        <div class="progress mb-3"><div class="progress-bar bg-info" style="width: 70%; background-color: #4da6ff;">70%</div></div>
+        <div class="progress mb-3">
+          <div class="progress-bar" style="width: 70%;">70%</div>
+        </div>
         <p>Unreal Engine</p>
-        <div class="progress mb-3"><div class="progress-bar bg-info" style="width: 60%; background-color: #4da6ff;">60%</div></div>
+        <div class="progress mb-3">
+          <div class="progress-bar" style="width: 60%;">60%</div>
+        </div>
         <p>Blender</p>
-        <div class="progress mb-3"><div class="progress-bar bg-info" style="width: 50%; background-color: #4da6ff;">50%</div></div>
+        <div class="progress mb-3">
+          <div class="progress-bar" style="width: 50%;">50%</div>
+        </div>
       </div>
       <div class="col-md-6">
         <p>C++</p>
-        <div class="progress mb-3"><div class="progress-bar bg-danger" style="width: 50%;">50%</div></div>
+        <div class="progress mb-3">
+          <div class="progress-bar bg-danger" style="width: 50%;">50%</div>
+        </div>
         <p>Développement Web</p>
-        <div class="progress mb-3"><div class="progress-bar bg-secondary" style="width: 40%;">40%</div></div>
+        <div class="progress mb-3">
+          <div class="progress-bar bg-secondary" style="width: 40%;">40%</div>
+        </div>
       </div>
     </div>
   </section>
