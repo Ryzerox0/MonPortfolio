@@ -220,23 +220,31 @@
       flex-direction: row;
       align-items: center;
     }
-    .modal-image-container {
-      flex: 1;
+    .navigation-arrows {
+      position: absolute;
+      top: 50%;
+      width: 100%;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+    .navigation-arrows button {
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
       justify-content: center;
-      align-items: center;
-      padding: 20px;
     }
-    .modal-image-container img {
-      max-width: 100%;
-      max-height: 70vh;
-      object-fit: contain;
-    }
-    .modal-body {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+    .navigation-arrows button:hover {
+      background: rgba(0, 0, 0, 0.8);
     }
   </style>
 </head>
@@ -325,8 +333,9 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="project-navigation">
+          <div class="navigation-arrows">
             <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <div class="modal-image-container">
             <img id="projectImage1" src="1_Pirate.jpg" alt="Project Image">
@@ -341,9 +350,6 @@
             <p><strong>Date de projet:</strong> Mai 2024</p>
             <p><strong>Durée:</strong> Un mois</p>
             <p>Un cobaye de laboratoire ayant subi des expériences corporelles se voit attribué des compétences physiques inhumaines. Grâce à elles, il va en profiter pour s'échapper de la zone de test dans laquelle il est retenu et fuir cet enfer.</p>
-          </div>
-          <div class="project-navigation">
-            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
         <div class="modal-footer">
@@ -363,8 +369,9 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="project-navigation">
+          <div class="navigation-arrows">
             <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <div class="modal-image-container">
             <img id="projectImage2" src="path_to_project_image2.jpg" alt="Project Image">
@@ -379,9 +386,6 @@
             <p><strong>Date de projet:</strong> Juin 2024</p>
             <p><strong>Durée:</strong> Deux mois</p>
             <p>Un jeu éducatif conçu pour enseigner les bases de la programmation aux enfants. Ce projet utilise des mécaniques de jeu interactives pour rendre l'apprentissage amusant et engageant.</p>
-          </div>
-          <div class="project-navigation">
-            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
         <div class="modal-footer">
