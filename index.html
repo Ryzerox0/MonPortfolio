@@ -10,12 +10,12 @@
 
   <style>
     body {
-      background-color: #000;
-      color: #ddd;
+      background-color: #6a5acd; /* Une couleur vive et agréable */
+      color: #fff; /* Changement de la couleur du texte pour un meilleur contraste */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     h1, h2 {
-      color: #007bff;
+      color: #ffeb3b; /* Couleur vive pour les titres */
       font-weight: 600;
     }
     h2 {
@@ -24,12 +24,13 @@
       margin-bottom: 30px;
     }
     a, a:hover {
-      color: #007bff;
+      color: #ffeb3b; /* Couleur vive pour les liens */
       text-decoration: none;
     }
     .section {
       padding: 60px 0;
-      border-bottom: 1px solid #222;
+      border-bottom: 1px solid #444;
+      background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent pour les sections */
     }
     .progress {
       background-color: #111;
@@ -52,7 +53,7 @@
       z-index: 1000;
     }
     .btn-circle {
-      background-color: #007bff;
+      background-color: #ffeb3b; /* Couleur vive pour les boutons */
       border: none;
       border-radius: 50px;
       width: 50px;
@@ -60,14 +61,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
+      color: #6a5acd; /* Couleur du texte des boutons pour contraste */
       transition: all 0.3s ease;
       font-size: 20px;
       position: relative;
       overflow: hidden;
     }
     .btn-circle:hover, .btn-circle.active {
-      background-color: #0056b3;
+      background-color: #ffd700;
       width: 150px;
     }
     .btn-text {
@@ -82,7 +83,7 @@
       padding: 20px 0;
       background-color: #111;
       font-size: 0.9rem;
-      color: #555;
+      color: #fff;
     }
     .reveal {
       opacity: 0;
@@ -164,7 +165,7 @@
       transition: color 0.3s ease;
     }
     .image-selector button.active {
-      color: #007bff;
+      color: #ffeb3b;
     }
     .project-details {
       flex: 1;
@@ -213,7 +214,7 @@
       background: rgba(0, 0, 0, 0.8);
     }
     .navigation-arrows .right-arrow {
-      margin-right: 20px; /* Décale la flèche de droite */
+      margin-right: 20px;
     }
     .modal-image-container {
       margin: 0 60px;
@@ -229,7 +230,7 @@
 <body>
   <header class="text-center section reveal">
     <h1 class="display-5">DÉVELOPPEUR DE SERIOUS GAMES ET JEUX VIDÉO</h1>
-    <hr style="width: 60px; border: 2px solid #007bff; margin: 15px auto 0;">
+    <hr style="width: 60px; border: 2px solid #ffeb3b; margin: 15px auto 0;">
   </header>
 
   <section id="about" class="container section reveal">
@@ -242,10 +243,10 @@
         <p>Je m'appelle Baptiste, j'ai 19 ans et je suis passionné par le développement de jeux vidéo, en particulier les serious games. Mon objectif professionnel est de créer des expériences immersives qui offrent une véritable sensation d'évasion et d'apprentissage. Passionné et déterminé, je m'engage pleinement dans chaque projet pour offrir des solutions innovantes et captivantes.</p>
         <div class="row mt-4">
           <div class="col-sm-6">
-            <p><i class="fas fa-map-marker-alt text-success"></i> Marseille, France</p>
+            <p><i class="fas fa-map-marker-alt text-warning"></i> Marseille, France</p>
           </div>
           <div class="col-sm-6">
-            <p><i class="fas fa-graduation-cap text-success"></i> Bachelor de développement de systèmes numériques immersifs</p>
+            <p><i class="fas fa-graduation-cap text-warning"></i> Bachelor de développement de systèmes numériques immersifs</p>
           </div>
         </div>
       </div>
@@ -257,7 +258,7 @@
     <div class="row">
       <div class="col-md-6">
         <p>Unity</p>
-        <div class="progress mb-3"><div class="progress-bar bg-success" style="width: 70%;">70%</div></div>
+        <div class="progress mb-3"><div class="progress-bar bg-warning" style="width: 70%;">70%</div></div>
         <p>Unreal Engine</p>
         <div class="progress mb-3"><div class="progress-bar bg-info" style="width: 60%;">60%</div></div>
         <p>Blender</p>
@@ -375,8 +376,8 @@
 
   <section id="contact" class="container section reveal">
     <h2>Contact</h2>
-    <p><i class="fas fa-phone-alt text-success"></i> +33 7 68 84 23 64</p>
-    <p><i class="fas fa-envelope text-success"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">baptiste.curie-cadet@isen.yncrea.fr</a></p>
+    <p><i class="fas fa-phone-alt text-warning"></i> +33 7 68 84 23 64</p>
+    <p><i class="fas fa-envelope text-warning"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">baptiste.curie-cadet@isen.yncrea.fr</a></p>
     <div class="mt-4">
       <a href="https://www.linkedin.com/in/baptistecurie" target="_blank" class="text-light me-3"><i class="fab fa-linkedin fa-2x"></i></a>
     </div>
@@ -494,9 +495,9 @@
       document.querySelector("#about p").textContent = t.aboutText;
 
       const phoneP = document.querySelector("#contact .fa-phone-alt").parentElement;
-      phoneP.innerHTML = `<i class="fas fa-phone-alt text-success"></i> ${t.phone}`;
+      phoneP.innerHTML = `<i class="fas fa-phone-alt text-warning"></i> ${t.phone}`;
       const emailP = document.querySelector("#contact .fa-envelope").parentElement;
-      emailP.innerHTML = `<i class="fas fa-envelope text-success"></i> <a href="mailto:${t.contactMail}">${t.email}</a>`;
+      emailP.innerHTML = `<i class="fas fa-envelope text-warning"></i> <a href="mailto:${t.contactMail}">${t.email}</a>`;
 
       document.querySelector("#skills h2").textContent = t.skillsTitle;
       document.querySelector("#education h2").textContent = t.educationTitle;
