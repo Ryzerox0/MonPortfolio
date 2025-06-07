@@ -134,15 +134,25 @@
     .modal-body {
       display: flex;
       flex-direction: row;
+      height: calc(100vh - 120px);
+      overflow-y: auto;
     }
     .modal-body img {
-      width: 100%;
-      max-width: 300px;
+      max-width: 50%;
       height: auto;
       margin-right: 20px;
     }
     .project-details {
       flex: 1;
+    }
+    .modal-fullscreen {
+      max-width: none;
+      width: 100%;
+      margin: 0;
+      height: 100%;
+    }
+    .modal-content {
+      height: 100%;
     }
   </style>
 </head>
@@ -223,8 +233,8 @@
   </section>
 
   <!-- Modal for Project 1 -->
-  <div class="modal fade" id="projectModal1" tabindex="-1" aria-labelledby="projectModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+  <div class="modal fade modal-fullscreen" id="projectModal1" tabindex="-1" aria-labelledby="projectModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
       <div class="modal-content bg-dark text-light">
         <div class="modal-header">
           <h5 class="modal-title" id="projectModalLabel1">Experimental Runner</h5>
@@ -248,8 +258,8 @@
   </div>
 
   <!-- Modal for Project 2 -->
-  <div class="modal fade" id="projectModal2" tabindex="-1" aria-labelledby="projectModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+  <div class="modal fade modal-fullscreen" id="projectModal2" tabindex="-1" aria-labelledby="projectModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
       <div class="modal-content bg-dark text-light">
         <div class="modal-header">
           <h5 class="modal-title" id="projectModalLabel2">Serious Game Éducatif</h5>
