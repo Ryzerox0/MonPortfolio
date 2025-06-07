@@ -282,7 +282,7 @@
           <div class="modal-image-container">
             <img id="projectImage1" src="1_Pirate.jpg" alt="Project Image">
             <div class="image-selector">
-              <button class="image-selector-button" onclick="changeImage(1, 0)">●</button>
+              <button class="image-selector-button active" onclick="changeImage(1, 0)">●</button>
               <button class="image-selector-button" onclick="changeImage(1, 1)">●</button>
               <button class="image-selector-button" onclick="changeImage(1, 2)">●</button>
             </div>
@@ -318,7 +318,7 @@
           <div class="modal-image-container">
             <img id="projectImage2" src="path_to_project_image2.jpg" alt="Project Image">
             <div class="image-selector">
-              <button class="image-selector-button" onclick="changeImage(2, 0)">●</button>
+              <button class="image-selector-button active" onclick="changeImage(2, 0)">●</button>
               <button class="image-selector-button" onclick="changeImage(2, 1)">●</button>
               <button class="image-selector-button" onclick="changeImage(2, 2)">●</button>
             </div>
@@ -476,6 +476,21 @@
     document.getElementById('language-button').addEventListener('click', (e) => {
       e.preventDefault();
       switchLanguage();
+    });
+
+    // Activate the first image button when the modal is shown
+    document.getElementById('projectModal1').addEventListener('shown.bs.modal', function () {
+      document.querySelectorAll('#projectModal1 .image-selector-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      document.querySelector('#projectModal1 .image-selector-button:first-child').classList.add('active');
+    });
+
+    document.getElementById('projectModal2').addEventListener('shown.bs.modal', function () {
+      document.querySelectorAll('#projectModal2 .image-selector-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      document.querySelector('#projectModal2 .image-selector-button:first-child').classList.add('active');
     });
   </script>
 </body>
