@@ -186,40 +186,6 @@
       margin: 0;
       max-width: none;
     }
-    .project-navigation {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      z-index: 10;
-    }
-    .project-navigation button {
-      background: rgba(0, 0, 0, 0.5);
-      border: none;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      padding: 10px;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .project-navigation button:hover {
-      background: rgba(0, 0, 0, 0.8);
-    }
-    .modal-image-container {
-      margin: 0 60px;
-    }
-    .modal-body {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
     .navigation-arrows {
       position: absolute;
       top: 50%;
@@ -245,6 +211,17 @@
     }
     .navigation-arrows button:hover {
       background: rgba(0, 0, 0, 0.8);
+    }
+    .navigation-arrows .right-arrow {
+      margin-right: 20px; /* Décale la flèche de droite */
+    }
+    .modal-image-container {
+      margin: 0 60px;
+    }
+    .modal-body {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
     }
   </style>
 </head>
@@ -335,7 +312,7 @@
         <div class="modal-body">
           <div class="navigation-arrows">
             <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
-            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
+            <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <div class="modal-image-container">
             <img id="projectImage1" src="1_Pirate.jpg" alt="Project Image">
@@ -371,7 +348,7 @@
         <div class="modal-body">
           <div class="navigation-arrows">
             <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
-            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
+            <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <div class="modal-image-container">
             <img id="projectImage2" src="path_to_project_image2.jpg" alt="Project Image">
