@@ -133,10 +133,8 @@
     }
     .modal-body {
       display: flex;
-      flex-direction: row;
       height: calc(100vh - 120px);
       overflow-y: auto;
-      position: relative;
     }
     .modal-image-container {
       flex: 1;
@@ -195,8 +193,7 @@
       display: flex;
       justify-content: space-between;
       transform: translateY(-50%);
-      padding: 0 20px;
-      box-sizing: border-box;
+      z-index: 10;
     }
     .project-navigation button {
       background: rgba(0, 0, 0, 0.5);
@@ -217,6 +214,10 @@
     }
     .modal-image-container {
       margin: 0 60px;
+    }
+    .modal-body {
+      display: flex;
+      flex-direction: row;
     }
   </style>
 </head>
@@ -307,21 +308,23 @@
         <div class="modal-body">
           <div class="project-navigation">
             <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
-            <div class="modal-image-container">
-              <img id="projectImage1" src="1_Pirate.jpg" alt="Project Image">
-              <div class="image-selector">
-                <button class="image-selector-button active" onclick="changeImage(1, 0)">●</button>
-                <button class="image-selector-button" onclick="changeImage(1, 1)">●</button>
-                <button class="image-selector-button" onclick="changeImage(1, 2)">●</button>
-              </div>
+          </div>
+          <div class="modal-image-container">
+            <img id="projectImage1" src="1_Pirate.jpg" alt="Project Image">
+            <div class="image-selector">
+              <button class="image-selector-button active" onclick="changeImage(1, 0)">●</button>
+              <button class="image-selector-button" onclick="changeImage(1, 1)">●</button>
+              <button class="image-selector-button" onclick="changeImage(1, 2)">●</button>
             </div>
-            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <div class="project-details">
             <p><strong>Catégorie:</strong> Unreal</p>
             <p><strong>Date de projet:</strong> Mai 2024</p>
             <p><strong>Durée:</strong> Un mois</p>
             <p>Un cobaye de laboratoire ayant subi des expériences corporelles se voit attribué des compétences physiques inhumaines. Grâce à elles, il va en profiter pour s'échapper de la zone de test dans laquelle il est retenu et fuir cet enfer.</p>
+          </div>
+          <div class="project-navigation">
+            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
         <div class="modal-footer">
@@ -343,21 +346,23 @@
         <div class="modal-body">
           <div class="project-navigation">
             <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
-            <div class="modal-image-container">
-              <img id="projectImage2" src="path_to_project_image2.jpg" alt="Project Image">
-              <div class="image-selector">
-                <button class="image-selector-button active" onclick="changeImage(2, 0)">●</button>
-                <button class="image-selector-button" onclick="changeImage(2, 1)">●</button>
-                <button class="image-selector-button" onclick="changeImage(2, 2)">●</button>
-              </div>
+          </div>
+          <div class="modal-image-container">
+            <img id="projectImage2" src="path_to_project_image2.jpg" alt="Project Image">
+            <div class="image-selector">
+              <button class="image-selector-button active" onclick="changeImage(2, 0)">●</button>
+              <button class="image-selector-button" onclick="changeImage(2, 1)">●</button>
+              <button class="image-selector-button" onclick="changeImage(2, 2)">●</button>
             </div>
-            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <div class="project-details">
             <p><strong>Catégorie:</strong> Unity</p>
             <p><strong>Date de projet:</strong> Juin 2024</p>
             <p><strong>Durée:</strong> Deux mois</p>
             <p>Un jeu éducatif conçu pour enseigner les bases de la programmation aux enfants. Ce projet utilise des mécaniques de jeu interactives pour rendre l'apprentissage amusant et engageant.</p>
+          </div>
+          <div class="project-navigation">
+            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
         <div class="modal-footer">
