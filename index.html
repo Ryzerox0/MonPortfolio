@@ -140,14 +140,28 @@
     .modal-image-container {
       flex: 1;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       padding: 20px;
     }
     .modal-image-container img {
       max-width: 100%;
-      max-height: 100%;
+      max-height: 70vh;
       object-fit: contain;
+    }
+    .image-selector {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .image-selector button {
+      background: none;
+      border: none;
+      color: #007bff;
+      font-size: 24px;
+      cursor: pointer;
+      margin: 0 5px;
     }
     .project-details {
       flex: 1;
@@ -168,14 +182,6 @@
       height: 100%;
       margin: 0;
       max-width: none;
-    }
-    .image-navigation {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
-    .image-navigation button {
-      margin: 0 5px;
     }
     .project-navigation {
       display: flex;
@@ -271,9 +277,10 @@
         <div class="modal-body">
           <div class="modal-image-container">
             <img id="projectImage1" src="1_Pirate.jpg" alt="Project Image">
-            <div class="image-navigation">
-              <button onclick="changeImage(1, -1)">Précédent</button>
-              <button onclick="changeImage(1, 1)">Suivant</button>
+            <div class="image-selector">
+              <button onclick="changeImage(1, 0)">●</button>
+              <button onclick="changeImage(1, 1)">●</button>
+              <button onclick="changeImage(1, 2)">●</button>
             </div>
           </div>
           <div class="project-details">
@@ -306,9 +313,10 @@
         <div class="modal-body">
           <div class="modal-image-container">
             <img id="projectImage2" src="path_to_project_image2.jpg" alt="Project Image">
-            <div class="image-navigation">
-              <button onclick="changeImage(2, -1)">Précédent</button>
-              <button onclick="changeImage(2, 1)">Suivant</button>
+            <div class="image-selector">
+              <button onclick="changeImage(2, 0)">●</button>
+              <button onclick="changeImage(2, 1)">●</button>
+              <button onclick="changeImage(2, 2)">●</button>
             </div>
           </div>
           <div class="project-details">
@@ -370,6 +378,29 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     let currentLang = 'fr';
+    let currentProject = 1;
+    let currentImageIndex = 0;
+
+    const projectImages = {
+      1: ["1_Pirate.jpg", "1_Pirate2.jpg", "1_Pirate3.jpg"],
+      2: ["2_Educatif.jpg", "2_Educatif2.jpg", "2_Educatif3.jpg"]
+    };
+
+    function changeImage(projectId, imageIndex) {
+      currentImageIndex = imageIndex;
+      document.getElementById(`projectImage${projectId}`).src = projectImages[projectId][currentImageIndex];
+    }
+
+    function changeProject(direction) {
+      const modalId = `projectModal${currentProject}`;
+      const modal = bootstrap.Modal.getInstance(document.getElementById(modalId));
+      modal.hide();
+
+      currentProject = ((currentProject + direction - 1 + 2) % 2) + 1;
+      const newModalId = `projectModal${currentProject}`;
+      const newModal = new bootstrap.Modal(document.getElementById(newModalId));
+      newModal.show();
+    }
 
     const translations = {
       'fr': {
@@ -401,31 +432,6 @@
         contactMail: "baptiste.curie-cadet@isen.yncrea.fr"
       }
     };
-
-    const projectImages = {
-      1: ["1_Pirate.jpg", "1_Pirate2.jpg", "1_Pirate3.jpg"],
-      2: ["2_Educatif.jpg", "2_Educatif2.jpg", "2_Educatif3.jpg"]
-    };
-
-    let currentProject = 1;
-    let currentImageIndex = 0;
-
-    function changeImage(projectId, direction) {
-      const images = projectImages[projectId];
-      currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
-      document.getElementById(`projectImage${projectId}`).src = images[currentImageIndex];
-    }
-
-    function changeProject(direction) {
-      const modalId = `projectModal${currentProject}`;
-      const modal = bootstrap.Modal.getInstance(document.getElementById(modalId));
-      modal.hide();
-
-      currentProject = ((currentProject + direction - 1 + 2) % 2) + 1;
-      const newModalId = `projectModal${currentProject}`;
-      const newModal = new bootstrap.Modal(document.getElementById(newModalId));
-      newModal.show();
-    }
 
     function switchLanguage() {
       const flagImage = document.getElementById('language-flag');
