@@ -195,6 +195,8 @@
       display: flex;
       justify-content: space-between;
       transform: translateY(-50%);
+      padding: 0 20px;
+      box-sizing: border-box;
     }
     .project-navigation button {
       background: rgba(0, 0, 0, 0.5);
@@ -212,6 +214,9 @@
     }
     .project-navigation button:hover {
       background: rgba(0, 0, 0, 0.8);
+    }
+    .modal-image-container {
+      margin: 0 60px;
     }
   </style>
 </head>
@@ -300,19 +305,17 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="modal-image-container">
-            <div class="project-navigation">
-              <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
-              <div style="flex: 1; display: flex; justify-content: center;">
-                <img id="projectImage1" src="1_Pirate.jpg" alt="Project Image">
+          <div class="project-navigation">
+            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <div class="modal-image-container">
+              <img id="projectImage1" src="1_Pirate.jpg" alt="Project Image">
+              <div class="image-selector">
+                <button class="image-selector-button active" onclick="changeImage(1, 0)">●</button>
+                <button class="image-selector-button" onclick="changeImage(1, 1)">●</button>
+                <button class="image-selector-button" onclick="changeImage(1, 2)">●</button>
               </div>
-              <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
             </div>
-            <div class="image-selector">
-              <button class="image-selector-button active" onclick="changeImage(1, 0)">●</button>
-              <button class="image-selector-button" onclick="changeImage(1, 1)">●</button>
-              <button class="image-selector-button" onclick="changeImage(1, 2)">●</button>
-            </div>
+            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <div class="project-details">
             <p><strong>Catégorie:</strong> Unreal</p>
@@ -338,19 +341,17 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="modal-image-container">
-            <div class="project-navigation">
-              <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
-              <div style="flex: 1; display: flex; justify-content: center;">
-                <img id="projectImage2" src="path_to_project_image2.jpg" alt="Project Image">
+          <div class="project-navigation">
+            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <div class="modal-image-container">
+              <img id="projectImage2" src="path_to_project_image2.jpg" alt="Project Image">
+              <div class="image-selector">
+                <button class="image-selector-button active" onclick="changeImage(2, 0)">●</button>
+                <button class="image-selector-button" onclick="changeImage(2, 1)">●</button>
+                <button class="image-selector-button" onclick="changeImage(2, 2)">●</button>
               </div>
-              <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
             </div>
-            <div class="image-selector">
-              <button class="image-selector-button active" onclick="changeImage(2, 0)">●</button>
-              <button class="image-selector-button" onclick="changeImage(2, 1)">●</button>
-              <button class="image-selector-button" onclick="changeImage(2, 2)">●</button>
-            </div>
+            <button onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <div class="project-details">
             <p><strong>Catégorie:</strong> Unity</p>
