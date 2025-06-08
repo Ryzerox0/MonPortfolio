@@ -317,7 +317,7 @@
         <img src="bulle.png" alt="Logo Project 2">
       </div>
       <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal3">
-        <img src="path_to_logo3.jpg" alt="Logo Project 3">
+        <img src="chapeau.png" alt="Logo Project 3">
       </div>
       <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal4">
         <img src="path_to_logo4.jpg" alt="Logo Project 4">
@@ -405,7 +405,7 @@
     <div class="modal-dialog">
       <div class="modal-content bg-dark text-light">
         <div class="modal-header">
-          <h5 class="modal-title" id="projectModalLabel3">Nouveau Projet 1</h5>
+          <h5 class="modal-title" id="projectModalLabel3">Pablo</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -414,22 +414,23 @@
             <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <div class="modal-image-container">
-            <img id="projectImage3" src="3_Project.jpg" alt="Project Image">
+            <img id="projectImage3" src="mexi.png" alt="Project Image">
             <div class="image-selector">
               <button class="image-selector-button active" onclick="changeImage(3, 0)">●</button>
               <button class="image-selector-button" onclick="changeImage(3, 1)">●</button>
               <button class="image-selector-button" onclick="changeImage(3, 2)">●</button>
+              <button class="image-selector-button" onclick="changeImage(3, 3)">●</button>
             </div>
           </div>
           <div class="project-details">
             <p><strong>Catégorie:</strong> Unity</p>
-            <p><strong>Date de projet:</strong> Juillet 2024</p>
-            <p><strong>Durée:</strong> Trois mois</p>
-            <p>Description du nouveau projet 1. Ce projet est un exemple de ce que j'ai accompli et des compétences que j'ai développées.</p>
+            <p><strong>Utilité :</strong> Développeur Gameplay</p>
+            <p><strong>Durée:</strong> Un mois</p>
+            <p>Je suis à l'origine de tout ce qui est présent dans le jeu en terme de programmation. Il s'agit d'un projet que nous avions débuté en classe censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.</p>
           </div>
         </div>
         <div class="modal-footer">
-          <a href="path_to_download_file3.zip" class="btn btn-primary">Télécharger le projet</a>
+          <a href="Build-Pablo.zip" class="btn btn-primary">Télécharger le projet</a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
         </div>
       </div>
@@ -455,6 +456,7 @@
               <button class="image-selector-button active" onclick="changeImage(4, 0)">●</button>
               <button class="image-selector-button" onclick="changeImage(4, 1)">●</button>
               <button class="image-selector-button" onclick="changeImage(4, 2)">●</button>
+              <button class="image-selector-button" onclick="changeImage(4, 3)">●</button>
             </div>
           </div>
           <div class="project-details">
@@ -518,8 +520,8 @@
     const projectImages = {
       1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
       2: ["bulle1 (1).png", "bulle1 (2).png", "bulle1 (3).png", "bulle1 (4).png"],
-      3: ["3_Project.jpg", "3_Project2.jpg", "3_Project3.jpg"],
-      4: ["4_Project.jpg", "4_Project2.jpg", "4_Project3.jpg"]
+      3: ["mexi.png", "mexi (2).png", "mexi (3).png", "mexi (4).png"],
+      4: ["4_Project.jpg", "4_Project2.jpg", "4_Project3.jpg", "4_Project4.jpg"]
     };
 
     function changeImage(projectId, imageIndex) {
