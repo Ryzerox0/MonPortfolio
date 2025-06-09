@@ -809,7 +809,7 @@
       const imageElement = document.getElementById(`projectImage${projectId}`);
       imageElement.src = projectImages[projectId][currentImageIndex];
 
-      document.querySelectorAll('.image-selector-button').forEach(button => {
+      document.querySelectorAll(`.image-selector-button`).forEach(button => {
         button.classList.remove('active');
       });
 
@@ -843,35 +843,166 @@
       event.target.classList.add('active');
     }
 
-    function setActiveImageAndButton(projectId) {
-      const imageElement = document.getElementById(`projectImage${projectId}`);
-      imageElement.src = projectImages[projectId][0];
-
-      const buttons = document.querySelectorAll('.image-selector-button');
-      buttons.forEach(button => {
-        button.classList.remove('active');
-      });
-      buttons[0].classList.add('active');
-    }
-
-    document.getElementById('language-button').addEventListener('click', (e) => {
-      e.preventDefault();
-      switchLanguage();
-    });
-
-    document.querySelectorAll('.project-logo').forEach(logo => {
-      logo.addEventListener('click', function() {
-        currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
-        setActiveImageAndButton(currentProject);
-      });
-    });
-
-    document.querySelectorAll('[data-bs-toggle="modal"]').forEach(modalTrigger => {
-      modalTrigger.addEventListener('click', function() {
-        currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
-        setActiveImageAndButton(currentProject);
-      });
-    });
+    const translations = {
+      'fr': {
+        headerTitle: "Baptiste Curie-Cadet",
+        headerSubtitle: "DÉVELOPPEUR DE SERIOUS GAMES ET JEUX VIDÉO",
+        aboutTitle: "À propos",
+        aboutText: "Je m'appelle Baptiste, j'ai 19 ans et je suis passionné par le développement de jeux vidéo, en particulier les serious games. Mon objectif professionnel est de créer des expériences immersives qui offrent une véritable sensation d'évasion et d'apprentissage. Passionné et déterminé, je m'engage pleinement dans chaque projet pour offrir des solutions innovantes et captivantes.",
+        aboutLocation: "Marseille, France",
+        aboutDegree: "Bachelor de développement de systèmes numériques immersifs",
+        aboutDownloadCV: "Télécharger mon CV",
+        skillsTitle: "Compétences",
+        educationTitle: "Formation",
+        educationBachelor: "Bachelor Systèmes Numériques Immersifs",
+        educationBachelorDetail1: "Développement de jeux vidéo",
+        educationBachelorDetail2: "Technologies immersives",
+        educationBachelorDetail3: "Conception de serious games",
+        educationHighschool: "Bac STI2D (SIN)",
+        projectsTitle: "Projets",
+        filterAll: "Tout",
+        filterUnity: "Unity",
+        filterUnreal: "Unreal",
+        filterHTML: "HTML",
+        contactTitle: "Contact",
+        contactPhone: "+33 7 68 84 23 64",
+        contactEmail: "baptiste.curie-cadet@isen.yncrea.fr",
+        project1Title: "Pirates de l'étang",
+        project1Category: "Unity",
+        project1Utility: "Développeur / Sound Designer",
+        project1Duration: "Un mois",
+        project1Description: "Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !",
+        project1Download: "Télécharger le projet",
+        project1Close: "Fermer",
+        project2Title: "BABURU",
+        project2Category: "Unity",
+        project2Utility: "Développeur Gameplay",
+        project2Duration: "2 jours",
+        project2Description: "Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.",
+        project2Download: "Télécharger le projet",
+        project2Close: "Fermer",
+        project3Title: "Pablo",
+        project3Category: "Unity",
+        project3Utility: "Développeur Gameplay",
+        project3Duration: "Un mois",
+        project3Description: "Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.",
+        project3Download: "Télécharger le projet",
+        project3Close: "Fermer",
+        project4Title: "Ballex",
+        project4Category: "Unity",
+        project4Utility: "Développeur Gameplay",
+        project4Duration: "1 mois",
+        project4Description: "Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.",
+        project4Download: "Télécharger le projet",
+        project4Close: "Fermer",
+        project5Title: "Balance ton archétype",
+        project5Category: "Unity",
+        project5Utility: "Développeur Gameplay",
+        project5Duration: "1 mois",
+        project5Description: "Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.",
+        project5Download: "Télécharger le projet",
+        project5Close: "Fermer",
+        project6Title: "Route 66",
+        project6Category: "Unity",
+        project6Utility: "Artiste 3D/Lighting",
+        project6Duration: "1 semaine",
+        project6Description: "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.",
+        project6Download: "Télécharger le projet",
+        project6Close: "Fermer",
+        project7Title: "Garage The Borges",
+        project7Category: "HTML et PHP",
+        project7Utility: "Développeur du site",
+        project7Duration: "1 mois",
+        project7Description: "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.",
+        project7Close: "Fermer",
+        project8Title: "Écuyer des Ombres",
+        project8Category: "Unreal",
+        project8Utility: "Développeur et Sound Designer",
+        project8Duration: "1 mois et demi",
+        project8Description: "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d’un donjon maudit qui s’est récemment éveillé. D’étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades… et nulle armée en vue pour les défendre.",
+        project8Close: "Fermer",
+        footerYear: "2025"
+      },
+      'en': {
+        headerTitle: "Baptiste Curie-Cadet",
+        headerSubtitle: "SERIOUS GAMES AND VIDEO GAME DEVELOPER",
+        aboutTitle: "About",
+        aboutText: "My name is Baptiste, I am 19 years old, and I am passionate about video game development, especially serious games. My professional goal is to create immersive experiences that offer a true sense of escape and learning. Passionate and determined, I am fully committed to each project to provide innovative and captivating solutions.",
+        aboutLocation: "Marseille, France",
+        aboutDegree: "Bachelor's Degree in Immersive Digital Systems Development",
+        aboutDownloadCV: "Download my CV",
+        skillsTitle: "Skills",
+        educationTitle: "Education",
+        educationBachelor: "Bachelor in Immersive Digital Systems",
+        educationBachelorDetail1: "Video game development",
+        educationBachelorDetail2: "Immersive technologies",
+        educationBachelorDetail3: "Serious games design",
+        educationHighschool: "High School Diploma STI2D (SIN)",
+        projectsTitle: "Projects",
+        filterAll: "All",
+        filterUnity: "Unity",
+        filterUnreal: "Unreal",
+        filterHTML: "HTML",
+        contactTitle: "Contact",
+        contactPhone: "+33 7 68 84 23 64",
+        contactEmail: "baptiste.curie-cadet@isen.yncrea.fr",
+        project1Title: "Pirates of the Swamp",
+        project1Category: "Unity",
+        project1Utility: "Developer / Sound Designer",
+        project1Duration: "One month",
+        project1Description: "Play as Jack Moineau, an unfortunate pirate stranded on an island plagued by a terrible curse. Defeat as many enemies as possible while improving your equipment to go as far as possible!",
+        project1Download: "Download the project",
+        project1Close: "Close",
+        project2Title: "BABURU",
+        project2Category: "Unity",
+        project2Utility: "Gameplay Developer",
+        project2Duration: "2 days",
+        project2Description: "Baburu is a narrative light novel where you play as Alin, a shy boy who likes to stay in his bubble and creates an extroverted personality he calls Alex. In Baburu, your goal is to protect yourself from the outside world by staying in your bubble and preventing anyone from entering it. In this poetic game with strong ludonarrative dissonance, you will have to choose between safety and friendships.",
+        project2Download: "Download the project",
+        project2Close: "Close",
+        project3Title: "Pablo",
+        project3Category: "Unity",
+        project3Utility: "Gameplay Developer",
+        project3Duration: "One month",
+        project3Description: "I am the origin of everything present in the game in terms of programming. It is a project we started in class, intended to teach us the use of singletons and GameObject instantiations.",
+        project3Download: "Download the project",
+        project3Close: "Close",
+        project4Title: "Ballex",
+        project4Category: "Unity",
+        project4Utility: "Gameplay Developer",
+        project4Duration: "1 month",
+        project4Description: "Ballex is a 3D puzzle-action game with aesthetically pleasing graphics and complex gameplay. You will have to control a ball capable of changing physical state through the levels.",
+        project4Download: "Download the project",
+        project4Close: "Close",
+        project5Title: "Balance your archetype",
+        project5Category: "Unity",
+        project5Utility: "Gameplay Developer",
+        project5Duration: "1 month",
+        project5Description: "Balance your archetype is a serious game of the icebreaker type in which people will present themselves according to the archetype that will be randomly assigned to them; their goal is to be able to find everyone's archetype at the end. The game combines virtual and physical support. I was in charge of developing the random role assignments as well as the different phases of voting and presentation by updating the UI.",
+        project5Download: "Download the project",
+        project5Close: "Close",
+        project6Title: "Route 66",
+        project6Category: "Unity",
+        project6Utility: "3D Artist/Lighting",
+        project6Duration: "1 week",
+        project6Description: "Design of Route 66 inspired by Overwatch's Route 66.",
+        project6Download: "Download the project",
+        project6Close: "Close",
+        project7Title: "Garage The Borges",
+        project7Category: "HTML and PHP",
+        project7Utility: "Website Developer",
+        project7Duration: "1 month",
+        project7Description: "Welcome to the official website of our car dealership. This website, entirely developed in HTML and PHP, allows you to discover our entire catalog of new and used vehicles. Thanks to a simple and intuitive interface, you can consult the detailed sheets of the available cars, search for a model according to your criteria, and make an appointment directly online for a test drive or a trade-in estimate. This project reflects my dynamic web development work and my ability to create functional tools adapted to the needs of professionals.",
+        project7Close: "Close",
+        project8Title: "Squire of Shadows",
+        project8Category: "Unreal",
+        project8Utility: "Developer and Sound Designer",
+        project8Duration: "One and a half months",
+        project8Description: "The game takes place in a fantastic medieval kingdom. The village of Valombre lives under the threat of a cursed dungeon that has recently awakened. Strange creatures lurk there, and shadows creep into the neighboring woods. The terrified villagers have seen their daily lives disrupted: burned crops, disappeared livestock, sick children... and no army in sight to defend them.",
+        project8Close: "Close",
+        footerYear: "2025"
+      }
+    };
 
     function switchLanguage() {
       const flagImage = document.getElementById('language-flag');
@@ -964,28 +1095,24 @@
       document.getElementById("footer-year").textContent = t.footerYear;
     }
 
-    function setActiveImageAndButton(projectId) {
-      const imageElement = document.getElementById(`projectImage${projectId}`);
-      imageElement.src = projectImages[projectId][0];
-
-      const buttons = document.querySelectorAll('.image-selector-button');
-      buttons.forEach(button => {
-        button.classList.remove('active');
-      });
-      buttons[0].classList.add('active');
-    }
+    document.getElementById('language-button').addEventListener('click', (e) => {
+      e.preventDefault();
+      switchLanguage();
+    });
 
     document.querySelectorAll('.project-logo').forEach(logo => {
       logo.addEventListener('click', function() {
+        document.querySelectorAll('.image-selector-button').forEach(button => {
+          button.classList.remove('active');
+        });
+        document.querySelector('.image-selector-button:first-child').classList.add('active');
         currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
-        setActiveImageAndButton(currentProject);
       });
     });
 
     document.querySelectorAll('[data-bs-toggle="modal"]').forEach(modalTrigger => {
       modalTrigger.addEventListener('click', function() {
         currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
-        setActiveImageAndButton(currentProject);
       });
     });
   </script>
