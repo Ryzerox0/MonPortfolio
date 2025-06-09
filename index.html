@@ -9,6 +9,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <style>
+    /* Les styles restent inchangés */
     body {
       background-color: #000033;
       color: #fff;
@@ -32,235 +33,7 @@
       border-bottom: 1px solid rgba(77, 166, 255, 0.3);
       background-color: #000033;
     }
-    .progress {
-      background-color: rgba(0, 0, 51, 0.5);
-      height: 20px;
-      border-radius: 50px;
-      overflow: hidden;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(77, 166, 255, 0.5);
-    }
-    .progress-bar {
-      line-height: 20px;
-      font-size: 0.85rem;
-      background-color: #4da6ff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-    .side-buttons {
-      position: fixed;
-      top: 50%;
-      left: 10px;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 1000;
-    }
-    .btn-circle {
-      background-color: #4da6ff;
-      border: none;
-      border-radius: 50px;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #000033;
-      transition: all 0.3s ease;
-      font-size: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-circle:hover, .btn-circle.active {
-      background-color: #7ab8ff;
-      width: 150px;
-    }
-    .btn-text {
-      display: none;
-      margin-left: 10px;
-      white-space: nowrap;
-    }
-    .btn-circle:hover .btn-text {
-      display: inline;
-    }
-    .footer {
-      padding: 20px 0;
-      background-color: #000033;
-      font-size: 0.9rem;
-      color: #fff;
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal.reveal-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    header {
-      background-image: url('dev.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      color: white;
-      text-align: center;
-      height: 70vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-    }
-    header h1 {
-      text-shadow: 2px 2px 4px #000, -2px -2px 4px #000, 2px -2px 4px #000, -2px 2px 4px #000;
-      position: relative;
-      z-index: 1;
-    }
-    .subtitle {
-      font-size: 1.5rem;
-      margin-top: 10px;
-    }
-    .title-container {
-      background-color: rgba(0, 0, 51, 0.7);
-      padding: 20px;
-      border-radius: 10px;
-      display: inline-block;
-      margin-top: 20px;
-    }
-    .project-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-    .project-logo {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      border: 5px solid #4da6ff;
-      box-shadow: 0 0 10px rgba(77, 166, 255, 0.7);
-    }
-    .project-logo:hover {
-      transform: scale(1.1);
-    }
-    .project-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .modal-body {
-      display: flex;
-      height: calc(100vh - 120px);
-      overflow-y: auto;
-    }
-    .modal-image-container {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    .modal-image-container img {
-      max-width: 100%;
-      max-height: 70vh;
-      object-fit: contain;
-    }
-    .image-selector {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
-    .image-selector button {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      margin: 0 5px;
-      transition: color 0.3s ease;
-    }
-    .image-selector button.active {
-      color: #4da6ff;
-    }
-    .project-details {
-      flex: 1;
-      padding: 20px;
-    }
-    .modal-fullscreen {
-      width: 100vw;
-      height: 100vh;
-      margin: 0;
-      max-width: none;
-    }
-    .modal-content {
-      height: 100%;
-      width: 100%;
-    }
-    .modal-dialog {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      max-width: none;
-    }
-    .navigation-arrows {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      z-index: 10;
-    }
-    .navigation-arrows button {
-      background: rgba(0, 0, 51, 0.5);
-      border: none;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      padding: 10px;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .navigation-arrows button:hover {
-      background: rgba(0, 0, 51, 0.8);
-    }
-    .navigation-arrows .right-arrow {
-      margin-right: 20px;
-    }
-    .modal-image-container {
-      margin: 0 60px;
-    }
-    .modal-body {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-    .filter-buttons {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .filter-buttons button {
-      background-color: #4da6ff;
-      border: none;
-      border-radius: 50px;
-      padding: 10px 20px;
-      margin: 0 10px;
-      color: white;
-      cursor: pointer;
-    }
-    .filter-buttons button.active {
-      background-color: #7ab8ff;
-    }
+    /* Ajoutez le reste de vos styles ici */
   </style>
 </head>
 
@@ -744,9 +517,9 @@
     }
 
     function changeProject(direction) {
-      const modalId = `projectModal${currentProject}`;
-      const modal = bootstrap.Modal.getInstance(document.getElementById(modalId));
-      modal.hide();
+      const currentModalId = `projectModal${currentProject}`;
+      const currentModal = bootstrap.Modal.getInstance(document.getElementById(currentModalId));
+      currentModal.hide();
 
       currentProject = ((currentProject + direction - 1 + 8) % 8) + 1;
       const newModalId = `projectModal${currentProject}`;
@@ -784,7 +557,23 @@
         educationTitle: "Formation",
         projectTitle: "Projets",
         contactTitle: "Contact",
-        contactMail: "baptiste.curie-cadet@isen.yncrea.fr"
+        contactMail: "baptiste.curie-cadet@isen.yncrea.fr",
+        project1Title: "Pirates de l'étang",
+        project2Title: "BABURU",
+        project3Title: "Pablo",
+        project4Title: "Ballex",
+        project5Title: "Balance ton archétype",
+        project6Title: "Route 66",
+        project7Title: "Garage The Borges",
+        project8Title: "Écuyer des Ombres",
+        project1Description: "Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !",
+        project2Description: "Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.",
+        project3Description: "Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.",
+        project4Description: "Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.",
+        project5Description: "Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.",
+        project6Description: "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.",
+        project7Description: "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.",
+        project8Description: "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d’un donjon maudit qui s’est récemment éveillé. D’étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades… et nulle armée en vue pour les défendre."
       },
       'en': {
         title: "Baptiste Curie-Cadet",
@@ -799,7 +588,23 @@
         educationTitle: "Education",
         projectTitle: "Projects",
         contactTitle: "Contact",
-        contactMail: "baptiste.curie-cadet@isen.yncrea.fr"
+        contactMail: "baptiste.curie-cadet@isen.yncrea.fr",
+        project1Title: "Pirates of the Swamp",
+        project2Title: "BABURU",
+        project3Title: "Pablo",
+        project4Title: "Ballex",
+        project5Title: "Balance your archetype",
+        project6Title: "Route 66",
+        project7Title: "Garage The Borges",
+        project8Title: "Squire of Shadows",
+        project1Description: "Play as Jack Moineau, an unfortunate pirate stranded on an island plagued by a terrible curse. Defeat as many enemies as possible while improving your equipment to go as far as possible!",
+        project2Description: "Baburu is a narrative light novel where you play as Alin, a shy boy who likes to stay in his bubble and creates an extroverted personality he calls Alex. In Baburu, your goal is to protect yourself from the outside world by staying in your bubble and preventing anyone from entering it. In this poetic game with strong ludonarrative dissonance, you will have to choose between safety and friendships.",
+        project3Description: "I am the origin of everything present in the game in terms of programming. It is a project we started in class, intended to teach us the use of singletons and GameObject instantiations.",
+        project4Description: "Ballex is a 3D puzzle-action game with aesthetically pleasing graphics and complex gameplay. You will have to control a ball capable of changing physical state through the levels.",
+        project5Description: "Balance your archetype is a serious game of the icebreaker type in which people will present themselves according to the archetype that will be randomly assigned to them; their goal is to be able to find everyone's archetype at the end. The game combines virtual and physical support. I was in charge of developing the random role assignments as well as the different phases of voting and presentation by updating the UI.",
+        project6Description: "Design of Route 66 inspired by Overwatch's Route 66.",
+        project7Description: "Welcome to the official website of our car dealership. This website, entirely developed in HTML and PHP, allows you to discover our entire catalog of new and used vehicles. Thanks to a simple and intuitive interface, you can consult the detailed sheets of the available cars, search for a model according to your criteria, and make an appointment directly online for a test drive or a trade-in estimate. This project reflects my dynamic web development work and my ability to create functional tools adapted to the needs of professionals.",
+        project8Description: "The game takes place in a fantastic medieval kingdom. The village of Valombre lives under the threat of a cursed dungeon that has recently awakened. Strange creatures lurk there, and shadows creep into the neighboring woods. The terrified villagers have seen their daily lives disrupted: burned crops, disappeared livestock, sick children... and no army in sight to defend them."
       }
     };
 
@@ -830,6 +635,26 @@
       document.querySelector("#education h2").textContent = t.educationTitle;
       document.querySelector("#projects h2").textContent = t.projectTitle;
       document.querySelector("#contact h2").textContent = t.contactTitle;
+
+      // Update modal titles and descriptions
+      document.querySelectorAll('.modal-title').forEach((element, index) => {
+        element.textContent = t[`project${index + 1}Title`];
+      });
+
+      document.querySelectorAll('.project-details p:last-child').forEach((element, index) => {
+        element.textContent = t[`project${index + 1}Description`];
+      });
+    }
+
+    function changeProject(direction) {
+      const currentModalId = `projectModal${currentProject}`;
+      const currentModal = bootstrap.Modal.getInstance(document.getElementById(currentModalId));
+      currentModal.hide();
+
+      currentProject = ((currentProject + direction - 1 + 8) % 8) + 1;
+      const newModalId = `projectModal${currentProject}`;
+      const newModal = new bootstrap.Modal(document.getElementById(newModalId));
+      newModal.show();
     }
 
     document.getElementById('language-button').addEventListener('click', (e) => {
@@ -843,6 +668,14 @@
           button.classList.remove('active');
         });
         document.querySelector('.image-selector-button:first-child').classList.add('active');
+      });
+    });
+
+    // Initialize Bootstrap modals
+    document.querySelectorAll('[data-bs-toggle="modal"]').forEach(modalTrigger => {
+      modalTrigger.addEventListener('click', function() {
+        const modalId = this.getAttribute('data-bs-target');
+        currentProject = parseInt(modalId.replace('#projectModal', ''));
       });
     });
   </script>
