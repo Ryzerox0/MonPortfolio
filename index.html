@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Baptiste Curie-Cadet</title>
+  <link rel="icon" type="image/png" href="manette.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #000033;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    h1, h2 {
+      color: #4da6ff;
+      font-weight: 600;
+    }
+    h2 {
+      border-bottom: 1px solid #4da6ff;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+    a, a:hover {
+      color: #4da6ff;
+      text-decoration: none;
+    }
+    .section {
+      padding: 60px 0;
+      border-bottom: 1px solid rgba(77, 166, 255, 0.3);
+      background-color: #000033;
+    }
+    .progress {
+      background-color: rgba(0, 0, 51, 0.5);
+      height: 20px;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(77, 166, 255, 0.5);
+    }
+    .progress-bar {
+      line-height: 20px;
+      font-size: 0.85rem;
+      background-color: #4da6ff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .side-buttons {
+      position: fixed;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+    .btn-circle {
+      background-color: #4da6ff;
+      border: none;
+      border-radius: 50px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000033;
+      transition: all 0.3s ease;
+      font-size: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-circle:hover, .btn-circle.active {
+      background-color: #7ab8ff;
+      width: 150px;
+    }
+    .btn-text {
+      display: none;
+      margin-left: 10px;
+      white-space: nowrap;
+    }
+    .btn-circle:hover .btn-text {
+      display: inline;
+    }
+    .footer {
+      padding: 20px 0;
+      background-color: #000033;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    header {
+      background-image: url('dev.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: white;
+      text-align: center;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    header h1 {
+      text-shadow: 2px 2px 4px #000, -2px -2px 4px #000, 2px -2px 4px #000, -2px 2px 4px #000;
+      position: relative;
+      z-index: 1;
+    }
+    .project-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .project-logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .project-logo:hover {
+      transform: scale(1.1);
+    }
+    .project-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .modal-body {
+      display: flex;
+      height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+    .modal-image-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .modal-image-container img {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+    }
+    .image-selector {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .image-selector button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      margin: 0 5px;
+      transition: color 0.3s ease;
+    }
+    .image-selector button.active {
+      color: #4da6ff;
+    }
+    .project-details {
+      flex: 1;
+      padding: 20px;
+    }
+    .modal-fullscreen {
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      max-width: none;
+    }
+    .modal-content {
+      height: 100%;
+      width: 100%;
+    }
+    .modal-dialog {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      max-width: none;
+    }
+    .navigation-arrows {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+    .navigation-arrows button {
+      background: rgba(0, 0, 51, 0.5);
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .navigation-arrows button:hover {
+      background: rgba(0, 0, 51, 0.8);
+    }
+    .navigation-arrows .right-arrow {
+      margin-right: 20px;
+    }
+    .modal-image-container {
+      margin: 0 60px;
+    }
+    .modal-body {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="text-center section reveal">
+    <h1 class="display-5">DÉVELOPPEUR DE SERIOUS GAMES ET JEUX VIDÉO</h1>
+    <hr style="width: 60px; border: 2px solid #4da6ff; margin: 15px auto 0;">
+  </header>
+
+  <section id="about" class="container section reveal">
+    <div class="row align-items-center">
+      <div class="col-md-5 text-center mb-4">
+        <img src="Moi.jpg" alt="Photo de profil" class="img-fluid rounded" style="max-height: 400px;">
+      </div>
+      <div class="col-md-7">
+        <h2>À propos</h2>
+        <p>Je m'appelle Baptiste, j'ai 19 ans et je suis passionné par le développement de jeux vidéo, en particulier les serious games. Mon objectif professionnel est de créer des expériences immersives qui offrent une véritable sensation d'évasion et d'apprentissage. Passionné et déterminé, je m'engage pleinement dans chaque projet pour offrir des solutions innovantes et captivantes.</p>
+        <div class="row mt-4">
+          <div class="col-sm-6">
+            <p><i class="fas fa-map-marker-alt" style="color: #4da6ff;"></i> Marseille, France</p>
+          </div>
+          <div class="col-sm-6">
+            <p><i class="fas fa-graduation-cap" style="color: #4da6ff;"></i> Bachelor de développement de systèmes numériques immersifs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="container section reveal">
+    <h2>Compétences</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <p>Unity</p>
+        <div class="progress mb-3">
+          <div class="progress-bar" style="width: 70%;">70%</div>
+        </div>
+        <p>Unreal Engine</p>
+        <div class="progress mb-3">
+          <div class="progress-bar" style="width: 60%;">60%</div>
+        </div>
+        <p>Blender</p>
+        <div class="progress mb-3">
+          <div class="progress-bar" style="width: 50%;">50%</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <p>C++</p>
+        <div class="progress mb-3">
+          <div class="progress-bar" style="width: 50%;">50%</div>
+        </div>
+        <p>Développement Web</p>
+        <div class="progress mb-3">
+          <div class="progress-bar" style="width: 40%;">40%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="container section reveal">
+    <h2>Formation</h2>
+    <ul class="list-group bg-transparent">
+      <li class="list-group-item bg-dark text-light">
+        <strong>2023-2025 :</strong> Bachelor Systèmes Numériques Immersifs
+        <ul>
+          <li>Développement de jeux vidéo</li>
+          <li>Technologies immersives</li>
+          <li>Conception de serious games</li>
+        </ul>
+      </li>
+      <li class="list-group-item bg-dark text-light">
+        <strong>2020-2023 :</strong> Bac STI2D (SIN)
+      </li>
+    </ul>
+  </section>
+
+  <section id="projects" class="container section reveal">
+    <h2>Projets</h2>
+    <div class="project-logos">
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal1">
+        <img src="pirate.png" alt="Logo Project 1">
+      </div>
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal2">
+        <img src="bulle.png" alt="Logo Project 2">
+      </div>
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal3">
+        <img src="chapeau.png" alt="Logo Project 3">
+      </div>
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal4">
+        <img src="path_to_logo4.jpg" alt="Logo Project 4">
+      </div>
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal5">
+        <img src="path_to_logo5.jpg" alt="Logo Project 5">
+      </div>
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal6">
+        <img src="path_to_logo6.jpg" alt="Logo Project 6">
+      </div>
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal7">
+        <img src="path_to_logo7.jpg" alt="Logo Project 7">
+      </div>
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal8">
+        <img src="path_to_logo8.jpg" alt="Logo Project 8">
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal for Project 1 -->
+  <div class="modal fade modal-fullscreen" id="projectModal1" tabindex="-1" aria-labelledby="projectModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectModalLabel1">Pirates de l'étang</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
+          </div>
+          <div class="modal-image-container">
+            <img id="projectImage1" src="1_Pirate.jpg" alt="Project Image">
+            <div class="image-selector">
+              <button class="image-selector-button active" onclick="changeImage(1, 0)">●</button>
+              <button class="image-selector-button" onclick="changeImage(1, 1)">●</button>
+              <button class="image-selector-button" onclick="changeImage(1, 2)">●</button>
+              <button class="image-selector-button" onclick="changeImage(1, 3)">●</button>
+            </div>
+          </div>
+          <div class="project-details">
+            <p><strong>Catégorie:</strong> Unity</p>
+            <p><strong>Utilité :</strong> Développeur / Sound Designer</p>
+            <p><strong>Durée:</strong> Un mois</p>
+            <p>Jouez Jack Moineau, malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="build-pirate.zip" class="btn btn-primary">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Project 2 -->
+  <div class="modal fade modal-fullscreen" id="projectModal2" tabindex="-1" aria-labelledby="projectModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectModalLabel2">BABURU</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
+          </div>
+          <div class="modal-image-container">
+            <img id="projectImage2" src="bulle1 (1).png" alt="Project Image">
+            <div class="image-selector">
+              <button class="image-selector-button active" onclick="changeImage(2, 0)">●</button>
+              <button class="image-selector-button" onclick="changeImage(2, 1)">●</button>
+              <button class="image-selector-button" onclick="changeImage(2, 2)">●</button>
+              <button class="image-selector-button" onclick="changeImage(2, 3)">●</button>
+            </div>
+          </div>
+          <div class="project-details">
+            <p><strong>Catégorie:</strong> Unity</p>
+            <p><strong>Utilité :</strong> Développeur Gameplay</p>
+            <p><strong>Durée:</strong> 2 Jours</p>
+            <p>Baburu est un light novel narratif dans lequel vous incarnez Alin un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extraverti qu'il appel Alex.
+                Dans Baburu votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer, dans ce jeu poétique avec une forte dissonance ludo narrative, vous devrez choisir entre sécurité et amitiés.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="build-baburu.zip" class="btn btn-primary">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Project 3 -->
+  <div class="modal fade modal-fullscreen" id="projectModal3" tabindex="-1" aria-labelledby="projectModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectModalLabel3">Pablo</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
+          </div>
+          <div class="modal-image-container">
+            <img id="projectImage3" src="mexi (2).png" alt="Project Image">
+            <div class="image-selector">
+              <button class="image-selector-button active" onclick="changeImage(3, 0)">●</button>
+              <button class="image-selector-button" onclick="changeImage(3, 1)">●</button>
+              <button class="image-selector-button" onclick="changeImage(3, 2)">●</button>
+              <button class="image-selector-button" onclick="changeImage(3, 3)">●</button>
+            </div>
+          </div>
+          <div class="project-details">
+            <p><strong>Catégorie:</strong> Unity</p>
+            <p><strong>Utilité :</strong> Développeur Gameplay</p>
+            <p><strong>Durée:</strong> Un mois</p>
+            <p>Je suis à l'origine de tout ce qui est présent dans le jeu en terme de programmation. Il s'agit d'un projet que nous avions débuté en classe censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="Build-Pablo.zip" class="btn btn-primary">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Project 4 -->
+  <div class="modal fade modal-fullscreen" id="projectModal4" tabindex="-1" aria-labelledby="projectModalLabel4" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectModalLabel4">Nouveau Projet 2</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
+          </div>
+          <div class="modal-image-container">
+            <img id="projectImage4" src="4_Project.jpg" alt="Project Image">
+            <div class="image-selector">
+              <button class="image-selector-button active" onclick="changeImage(4, 0)">●</button>
+              <button class="image-selector-button" onclick="changeImage(4, 1)">●</button>
+              <button class="image-selector-button" onclick="changeImage(4, 2)">●</button>
+              <button class="image-selector-button" onclick="changeImage(4, 3)">●</button>
+            </div>
+          </div>
+          <div class="project-details">
+            <p><strong>Catégorie:</strong> Unreal</p>
+            <p><strong>Date de projet:</strong> Août 2024</p>
+            <p><strong>Durée:</strong> Quatre mois</p>
+            <p>Description du nouveau projet 2. Ce projet est un exemple de ce que j'ai accompli et des compétences que j'ai développées.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="path_to_download_file4.zip" class="btn btn-primary">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Project 5 -->
+  <div class="modal fade modal-fullscreen" id="projectModal5" tabindex="-1" aria-labelledby="projectModalLabel5" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectModalLabel5">Nouveau Projet 5</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
+          </div>
+          <div class="modal-image-container">
+            <img id="projectImage5" src="5_Project.jpg" alt="Project Image">
+            <div class="image-selector">
+              <button class="image-selector-button active" onclick="changeImage(5, 0)">●</button>
+              <button class="image-selector-button" onclick="changeImage(5, 1)">●</button>
+              <button class="image-selector-button" onclick="changeImage(5, 2)">●</button>
+              <button class="image-selector-button" onclick="changeImage(5, 3)">●</button>
+            </div>
+          </div>
+          <div class="project-details">
+            <p><strong>Catégorie:</strong> Unreal</p>
+            <p><strong>Date de projet:</strong> Septembre 2024</p>
+            <p><strong>Durée:</strong> Cinq mois</p>
+            <p>Description du nouveau projet 5. Ce projet est un exemple de ce que j'ai accompli et des compétences que j'ai développées.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="path_to_download_file5.zip" class="btn btn-primary">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Project 6 -->
+  <div class="modal fade modal-fullscreen" id="projectModal6" tabindex="-1" aria-labelledby="projectModalLabel6" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectModalLabel6">Nouveau Projet 6</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
+          </div>
+          <div class="modal-image-container">
+            <img id="projectImage6" src="6_Project.jpg" alt="Project Image">
+            <div class="image-selector">
+              <button class="image-selector-button active" onclick="changeImage(6, 0)">●</button>
+              <button class="image-selector-button" onclick="changeImage(6, 1)">●</button>
+              <button class="image-selector-button" onclick="changeImage(6, 2)">●</button>
+              <button class="image-selector-button" onclick="changeImage(6, 3)">●</button>
+            </div>
+          </div>
+          <div class="project-details">
+            <p><strong>Catégorie:</strong> Unreal</p>
+            <p><strong>Date de projet:</strong> Octobre 2024</p>
+            <p><strong>Durée:</strong> Six mois</p>
+            <p>Description du nouveau projet 6. Ce projet est un exemple de ce que j'ai accompli et des compétences que j'ai développées.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="path_to_download_file6.zip" class="btn btn-primary">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Project 7 -->
+  <div class="modal fade modal-fullscreen" id="projectModal7" tabindex="-1" aria-labelledby="projectModalLabel7" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectModalLabel7">Nouveau Projet 7</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
+          </div>
+          <div class="modal-image-container">
+            <img id="projectImage7" src="7_Project.jpg" alt="Project Image">
+            <div class="image-selector">
+              <button class="image-selector-button active" onclick="changeImage(7, 0)">●</button>
+              <button class="image-selector-button" onclick="changeImage(7, 1)">●</button>
+              <button class="image-selector-button" onclick="changeImage(7, 2)">●</button>
+              <button class="image-selector-button" onclick="changeImage(7, 3)">●</button>
+            </div>
+          </div>
+          <div class="project-details">
+            <p><strong>Catégorie:</strong> Unreal</p>
+            <p><strong>Date de projet:</strong> Novembre 2024</p>
+            <p><strong>Durée:</strong> Sept mois</p>
+            <p>Description du nouveau projet 7. Ce projet est un exemple de ce que j'ai accompli et des compétences que j'ai développées.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="path_to_download_file7.zip" class="btn btn-primary">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Project 8 -->
+  <div class="modal fade modal-fullscreen" id="projectModal8" tabindex="-1" aria-labelledby="projectModalLabel8" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectModalLabel8">Nouveau Projet 8</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-arrow-left"></i></button>
+            <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
+          </div>
+          <div class="modal-image-container">
+            <img id="projectImage8" src="8_Project.jpg" alt="Project Image">
+            <div class="image-selector">
+              <button class="image-selector-button active" onclick="changeImage(8, 0)">●</button>
+              <button class="image-selector-button" onclick="changeImage(8, 1)">●</button>
+              <button class="image-selector-button" onclick="changeImage(8, 2)">●</button>
+              <button class="image-selector-button" onclick="changeImage(8, 3)">●</button>
+            </div>
+          </div>
+          <div class="project-details">
+            <p><strong>Catégorie:</strong> Unreal</p>
+            <p><strong>Date de projet:</strong> Décembre 2024</p>
+            <p><strong>Durée:</strong> Huit mois</p>
+            <p>Description du nouveau projet 8. Ce projet est un exemple de ce que j'ai accompli et des compétences que j'ai développées.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="path_to_download_file8.zip" class="btn btn-primary">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="contact" class="container section reveal">
+    <h2>Contact</h2>
+    <p><i class="fas fa-phone-alt" style="color: #4da6ff;"></i> +33 7 68 84 23 64</p>
+    <p><i class="fas fa-envelope" style="color: #4da6ff;"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">baptiste.curie-cadet@isen.yncrea.fr</a></p>
+    <div class="mt-4">
+      <a href="https://www.linkedin.com/in/baptistecurie" target="_blank" class="text-light me-3"><i class="fab fa-linkedin fa-2x" style="color: #4da6ff;"></i></a>
+    </div>
+  </section>
+
+  <div class="side-buttons">
+    <a href="#" id="language-button" class="btn-circle" title="Changer de langue">
+      <img id="language-flag" src="https://flagcdn.com/w40/fr.png" alt="Langue" style="width: 25px; height: 15px; border-radius: 3px;">
+      <span class="btn-text"> Langue</span>
+    </a>
+    <a href="#top" class="btn-circle" title="Accueil"><i class="fas fa-home"></i><span class="btn-text"> Accueil</span></a>
+    <a href="#about" class="btn-circle" title="À propos"><i class="fas fa-user"></i><span class="btn-text"> À propos</span></a>
+    <a href="#education" class="btn-circle" title="Formation"><i class="fas fa-book"></i><span class="btn-text"> Formation</span></a>
+    <a href="#projects" class="btn-circle" title="Projets"><i class="fas fa-gamepad"></i><span class="btn-text"> Projets</span></a>
+    <a href="#contact" class="btn-circle" title="Contact"><i class="fas fa-envelope"></i><span class="btn-text"> Contact</span></a>
+  </div>
+
+  <footer class="footer text-center">
+    &copy; 2025 Baptiste Curie-Cadet.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    let currentLang = 'fr';
+    let currentProject = 1;
+    let currentImageIndex = 0;
+
+    const projectImages = {
+      1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
+      2: ["bulle1 (1).png", "bulle1 (2).png", "bulle1 (3).png", "bulle1 (4).png"],
+      3: ["mexi (2).png", "mexi.png", "mexi (3).png", "mexi (4).png"],
+      4: ["4_Project.jpg", "4_Project2.jpg", "4_Project3.jpg", "4_Project4.jpg"],
+      5: ["5_Project.jpg", "5_Project2.jpg", "5_Project3.jpg", "5_Project4.jpg"],
+      6: ["6_Project.jpg", "6_Project2.jpg", "6_Project3.jpg", "6_Project4.jpg"],
+      7: ["7_Project.jpg", "7_Project2.jpg", "7_Project3.jpg", "7_Project4.jpg"],
+      8: ["8_Project.jpg", "8_Project2.jpg", "8_Project3.jpg", "8_Project4.jpg"]
+    };
+
+    function changeImage(projectId, imageIndex) {
+      currentImageIndex = imageIndex;
+      const imageElement = document.getElementById(`projectImage${projectId}`);
+      imageElement.src = projectImages[projectId][currentImageIndex];
+
+      document.querySelectorAll(`.image-selector-button`).forEach(button => {
+        button.classList.remove('active');
+      });
+
+      event.target.classList.add('active');
+    }
+
+    function changeProject(direction) {
+      const modalId = `projectModal${currentProject}`;
+      const modal = bootstrap.Modal.getInstance(document.getElementById(modalId));
+      modal.hide();
+
+      currentProject = ((currentProject + direction - 1 + 8) % 8) + 1;
+      const newModalId = `projectModal${currentProject}`;
+      const newModal = new bootstrap.Modal(document.getElementById(newModalId));
+      newModal.show();
+    }
+
+    const translations = {
+      'fr': {
+        title: "DÉVELOPPEUR DE SERIOUS GAMES ET JEUX VIDÉO",
+        aboutTitle: "À propos",
+        aboutText: "Je m'appelle Baptiste, j'ai 19 ans et je suis passionné par le développement de jeux vidéo, en particulier les serious games. Mon objectif professionnel est de créer des expériences immersives qui offrent une véritable sensation d'évasion et d'apprentissage. Passionné et déterminé, je m'engage pleinement dans chaque projet pour offrir des solutions innovantes et captivantes.",
+        phone: "+33 7 68 84 23 64",
+        city: "Marseille, France",
+        degree: "Bachelor de développement de systèmes numériques immersifs",
+        email: "baptiste.curie-cadet@isen.yncrea.fr",
+        skillsTitle: "Compétences",
+        educationTitle: "Formation",
+        projectTitle: "Projets",
+        contactTitle: "Contact",
+        contactMail: "baptiste.curie-cadet@isen.yncrea.fr"
+      },
+      'en': {
+        title: "SERIOUS GAMES AND VIDEO GAME DEVELOPER",
+        aboutTitle: "About",
+        aboutText: "My name is Baptiste, I am 19 years old, and I am passionate about video game development, especially serious games. My professional goal is to create immersive experiences that offer a true sense of escape and learning. Passionate and determined, I am fully committed to each project to provide innovative and captivating solutions.",
+        phone: "+33 7 68 84 23 64",
+        city: "Marseille, France",
+        degree: "Bachelor's Degree in Immersive Digital Systems Development",
+        email: "baptiste.curie-cadet@isen.yncrea.fr",
+        skillsTitle: "Skills",
+        educationTitle: "Education",
+        projectTitle: "Projects",
+        contactTitle: "Contact",
+        contactMail: "baptiste.curie-cadet@isen.yncrea.fr"
+      }
+    };
+
+    function switchLanguage() {
+      const flagImage = document.getElementById('language-flag');
+
+      if (currentLang === 'fr') {
+        currentLang = 'en';
+        flagImage.src = "https://flagcdn.com/w40/gb.png";
+      } else {
+        currentLang = 'fr';
+        flagImage.src = "https://flagcdn.com/w40/fr.png";
+      }
+
+      const t = translations[currentLang];
+
+      document.querySelector("header h1").textContent = t.title;
+      document.querySelector("#about h2").textContent = t.aboutTitle;
+      document.querySelector("#about p").textContent = t.aboutText;
+
+      const phoneP = document.querySelector("#contact .fa-phone-alt").parentElement;
+      phoneP.innerHTML = `<i class="fas fa-phone-alt" style="color: #4da6ff;"></i> ${t.phone}`;
+      const emailP = document.querySelector("#contact .fa-envelope").parentElement;
+      emailP.innerHTML = `<i class="fas fa-envelope" style="color: #4da6ff;"></i> <a href="mailto:${t.contactMail}">${t.email}</a>`;
+
+      document.querySelector("#skills h2").textContent = t.skillsTitle;
+      document.querySelector("#education h2").textContent = t.educationTitle;
+      document.querySelector("#projects h2").textContent = t.projectTitle;
+      document.querySelector("#contact h2").textContent = t.contactTitle;
+    }
+
+    document.getElementById('language-button').addEventListener('click', (e) => {
+      e.preventDefault();
+      switchLanguage();
+    });
+
+    document.getElementById('projectModal1').addEventListener('shown.bs.modal', function () {
+      document.querySelectorAll('#projectModal1 .image-selector-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      document.querySelector('#projectModal1 .image-selector-button:first-child').classList.add('active');
+    });
+
+    document.getElementById('projectModal2').addEventListener('shown.bs.modal', function () {
+      document.querySelectorAll('#projectModal2 .image-selector-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      document.querySelector('#projectModal2 .image-selector-button:first-child').classList.add('active');
+    });
+
+    document.getElementById('projectModal3').addEventListener('shown.bs.modal', function () {
+      document.querySelectorAll('#projectModal3 .image-selector-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      document.querySelector('#projectModal3 .image-selector-button:first-child').classList.add('active');
+    });
+
+    document.getElementById('projectModal4').addEventListener('shown.bs.modal', function () {
+      document.querySelectorAll('#projectModal4 .image-selector-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      document.querySelector('#projectModal4 .image-selector-button:first-child').classList.add('active');
+    });
+
+    document.getElementById('projectModal5').addEventListener('shown.bs.modal', function () {
+      document.querySelectorAll('#projectModal5 .image-selector-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      document.querySelector('#projectModal5 .image-selector-button:first-child').classList.add('active');
+    });
+
+    document.getElementById('projectModal6').addEventListener('shown.bs.modal', function () {
+      document.querySelectorAll('#projectModal6 .image-selector-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      document.querySelector('#projectModal6 .image-selector-button:first-child').classList.add('active');
+    });
+
+    document.getElementById('projectModal7').addEventListener('shown.bs.modal', function () {
+      document.querySelectorAll('#projectModal7 .image-selector-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      document.querySelector('#projectModal7 .image-selector-button:first-child').classList.add('active');
+    });
+
+    document.getElementById('projectModal8').addEventListener('shown.bs.modal', function () {
+      document.querySelectorAll('#projectModal8 .image-selector-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      document.querySelector('#projectModal8 .image-selector-button:first-child').classList.add('active');
+    });
+  </script>
+</body>
+</html>
