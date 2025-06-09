@@ -124,12 +124,13 @@
       margin-top: 30px;
     }
     .project-logo {
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       overflow: hidden;
       cursor: pointer;
       transition: transform 0.3s ease;
+      border: 2px solid #4da6ff;
     }
     .project-logo:hover {
       transform: scale(1.1);
@@ -231,6 +232,23 @@
       flex-direction: row;
       align-items: center;
     }
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .filter-buttons button {
+      background-color: #4da6ff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      margin: 0 10px;
+      color: white;
+      cursor: pointer;
+    }
+    .filter-buttons button.active {
+      background-color: #7ab8ff;
+    }
   </style>
 </head>
 
@@ -308,30 +326,36 @@
   </section>
 
   <section id="projects" class="container section reveal">
+    <div class="filter-buttons">
+      <button onclick="filterProjects('all')" class="active">Tout</button>
+      <button onclick="filterProjects('Unity')">Unity</button>
+      <button onclick="filterProjects('Unreal')">Unreal</button>
+      <button onclick="filterProjects('HTML')">HTML</button>
+    </div>
     <h2>Projets</h2>
     <div class="project-logos">
-      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal1">
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal1" data-category="Unity">
         <img src="pirate.png" alt="Logo Project 1">
       </div>
-      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal2">
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal2" data-category="Unity">
         <img src="bulle.png" alt="Logo Project 2">
       </div>
-      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal3">
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal3" data-category="Unity">
         <img src="chapeau.png" alt="Logo Project 3">
       </div>
-      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal4">
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal4" data-category="Unity">
         <img src="header (1).jpg" alt="Logo Project 4">
       </div>
-      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal5">
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal5" data-category="Unity">
         <img src="balance (1).jpg" alt="Logo Project 5">
       </div>
-      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal6">
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal6" data-category="Unity">
         <img src="voiture (1).jpg" alt="Logo Project 6">
       </div>
-      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal7">
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal7" data-category="HTML">
         <img src="Capture d'écran 2025-06-09 024811.png" alt="Logo Project 7">
       </div>
-      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal8">
+      <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal8" data-category="Unreal">
         <img src="path_to_logo8.jpg" alt="Logo Project 8">
       </div>
     </div>
@@ -362,8 +386,8 @@
           <div class="project-details">
             <p><strong>Catégorie:</strong> Unity</p>
             <p><strong>Utilité :</strong> Développeur / Sound Designer</p>
-            <p><strong>Durée:</strong> Un mois</p>
-            <p>Jouez Jack Moineau, malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !</p>
+            <p><strong>Durée :</strong> Un mois</p>
+            <p>Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !</p>
           </div>
         </div>
         <div class="modal-footer">
@@ -399,9 +423,8 @@
           <div class="project-details">
             <p><strong>Catégorie:</strong> Unity</p>
             <p><strong>Utilité :</strong> Développeur Gameplay</p>
-            <p><strong>Durée:</strong> 2 Jours</p>
-            <p>Baburu est un light novel narratif dans lequel vous incarnez Alin un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extraverti qu'il appel Alex.
-                Dans Baburu votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer, dans ce jeu poétique avec une forte dissonance ludo narrative, vous devrez choisir entre sécurité et amitiés.</p>
+            <p><strong>Durée :</strong> 2 jours</p>
+            <p>Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.</p>
           </div>
         </div>
         <div class="modal-footer">
@@ -437,8 +460,8 @@
           <div class="project-details">
             <p><strong>Catégorie:</strong> Unity</p>
             <p><strong>Utilité :</strong> Développeur Gameplay</p>
-            <p><strong>Durée:</strong> Un mois</p>
-            <p>Je suis à l'origine de tout ce qui est présent dans le jeu en terme de programmation. Il s'agit d'un projet que nous avions débuté en classe censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.</p>
+            <p><strong>Durée :</strong> Un mois</p>
+            <p>Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.</p>
           </div>
         </div>
         <div class="modal-footer">
@@ -511,12 +534,12 @@
           <div class="project-details">
             <p><strong>Catégorie:</strong> Unity</p>
             <p><strong>Utilité :</strong> Développeur Gameplay</p>
-            <p><strong>Durée:</strong> 1 mois</p>
+            <p><strong>Durée :</strong> 1 mois</p>
             <p>Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.</p>
           </div>
         </div>
         <div class="modal-footer">
-          <a href="Build-Balalncetonarchétype.zip" class="btn btn-primary">Télécharger le projet</a>
+          <a href="Build-BalanceTonArchetype.zip" class="btn btn-primary">Télécharger le projet</a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
         </div>
       </div>
@@ -548,8 +571,8 @@
           <div class="project-details">
             <p><strong>Catégorie:</strong> Unity</p>
             <p><strong>Utilité :</strong> Artiste 3D/Lighting</p>
-            <p><strong>Durée:</strong> 1 semaine</p>
-            <p>Conception de la route 66 avec comme inspriration la route 66 d'Overwatch.</p>
+            <p><strong>Durée :</strong> 1 semaine</p>
+            <p>Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.</p>
           </div>
         </div>
         <div class="modal-footer">
@@ -574,7 +597,7 @@
             <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <div class="modal-image-container">
-            <img id="projectImage7" src="Capture d'écran 2025-06-08 015925.png" alt="Project Image">
+            <img id="projectImage7" src="Capture d'écran 2025-06-09 024811.png" alt="Project Image">
             <div class="image-selector">
               <button class="image-selector-button active" onclick="changeImage(7, 0)">●</button>
               <button class="image-selector-button" onclick="changeImage(7, 1)">●</button>
@@ -586,11 +609,8 @@
           <div class="project-details">
             <p><strong>Catégorie:</strong> HTML et PHP</p>
             <p><strong>Utilité :</strong> Développeur du site</p>
-            <p><strong>Durée:</strong> 1 mois</p>
-            <p>Bienvenue sur le site officiel de notre concession automobile.
-              Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion.
-              Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise.
-              Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.</p>
+            <p><strong>Durée :</strong> 1 mois</p>
+            <p>Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.</p>
           </div>
         </div>
         <div class="modal-footer">
@@ -625,7 +645,7 @@
           <div class="project-details">
             <p><strong>Catégorie:</strong> Unreal</p>
             <p><strong>Date de projet:</strong> Décembre 2024</p>
-            <p><strong>Durée:</strong> Huit mois</p>
+            <p><strong>Durée :</strong> Huit mois</p>
             <p>Description du nouveau projet 8. Ce projet est un exemple de ce que j'ai accompli et des compétences que j'ai développées.</p>
           </div>
         </div>
@@ -687,7 +707,7 @@
       4: ["header (1).jpg", "ballex (1).png", "ballex (2).png", "ballex (3).png"],
       5: ["balance (1).jpg", "balance (1).png", "balance (2).png", "balance (3).png"],
       6: ["voiture (1).jpg", "voiture (1).png", "voiture (2).png", "voiture (3).png"],
-      7: ["Capture d'écran 2025-06-08 015925.png", "Capture d'écran 2025-06-08 020533.png", "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png", "Capture d'écran 2025-06-08 020630.png"],
+      7: ["Capture d'écran 2025-06-09 024811.png", "Capture d'écran 2025-06-08 020533.png", "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png", "Capture d'écran 2025-06-08 020630.png"],
       8: ["8_Project.jpg", "8_Project2.jpg", "8_Project3.jpg", "8_Project4.jpg"]
     };
 
@@ -712,6 +732,22 @@
       const newModalId = `projectModal${currentProject}`;
       const newModal = new bootstrap.Modal(document.getElementById(newModalId));
       newModal.show();
+    }
+
+    function filterProjects(category) {
+      const logos = document.querySelectorAll('.project-logo');
+      logos.forEach(logo => {
+        if (category === 'all' || logo.getAttribute('data-category') === category) {
+          logo.style.display = 'block';
+        } else {
+          logo.style.display = 'none';
+        }
+      });
+
+      document.querySelectorAll('.filter-buttons button').forEach(button => {
+        button.classList.remove('active');
+      });
+      event.target.classList.add('active');
     }
 
     const translations = {
@@ -778,60 +814,13 @@
       switchLanguage();
     });
 
-    document.getElementById('projectModal1').addEventListener('shown.bs.modal', function () {
-      document.querySelectorAll('#projectModal1 .image-selector-button').forEach(button => {
-        button.classList.remove('active');
+    document.querySelectorAll('.project-logo').forEach(logo => {
+      logo.addEventListener('click', function() {
+        document.querySelectorAll('.image-selector-button').forEach(button => {
+          button.classList.remove('active');
+        });
+        document.querySelector('.image-selector-button:first-child').classList.add('active');
       });
-      document.querySelector('#projectModal1 .image-selector-button:first-child').classList.add('active');
-    });
-
-    document.getElementById('projectModal2').addEventListener('shown.bs.modal', function () {
-      document.querySelectorAll('#projectModal2 .image-selector-button').forEach(button => {
-        button.classList.remove('active');
-      });
-      document.querySelector('#projectModal2 .image-selector-button:first-child').classList.add('active');
-    });
-
-    document.getElementById('projectModal3').addEventListener('shown.bs.modal', function () {
-      document.querySelectorAll('#projectModal3 .image-selector-button').forEach(button => {
-        button.classList.remove('active');
-      });
-      document.querySelector('#projectModal3 .image-selector-button:first-child').classList.add('active');
-    });
-
-    document.getElementById('projectModal4').addEventListener('shown.bs.modal', function () {
-      document.querySelectorAll('#projectModal4 .image-selector-button').forEach(button => {
-        button.classList.remove('active');
-      });
-      document.querySelector('#projectModal4 .image-selector-button:first-child').classList.add('active');
-    });
-
-    document.getElementById('projectModal5').addEventListener('shown.bs.modal', function () {
-      document.querySelectorAll('#projectModal5 .image-selector-button').forEach(button => {
-        button.classList.remove('active');
-      });
-      document.querySelector('#projectModal5 .image-selector-button:first-child').classList.add('active');
-    });
-
-    document.getElementById('projectModal6').addEventListener('shown.bs.modal', function () {
-      document.querySelectorAll('#projectModal6 .image-selector-button').forEach(button => {
-        button.classList.remove('active');
-      });
-      document.querySelector('#projectModal6 .image-selector-button:first-child').classList.add('active');
-    });
-
-    document.getElementById('projectModal7').addEventListener('shown.bs.modal', function () {
-      document.querySelectorAll('#projectModal7 .image-selector-button').forEach(button => {
-        button.classList.remove('active');
-      });
-      document.querySelector('#projectModal7 .image-selector-button:first-child').classList.add('active');
-    });
-
-    document.getElementById('projectModal8').addEventListener('shown.bs.modal', function () {
-      document.querySelectorAll('#projectModal8 .image-selector-button').forEach(button => {
-        button.classList.remove('active');
-      });
-      document.querySelector('#projectModal8 .image-selector-button:first-child').classList.add('active');
     });
   </script>
 </body>
