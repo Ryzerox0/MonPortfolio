@@ -116,6 +116,10 @@
       position: relative;
       z-index: 1;
     }
+    .subtitle {
+      font-size: 1.5rem;
+      margin-top: 10px;
+    }
     .project-logos {
       display: flex;
       flex-wrap: wrap;
@@ -255,7 +259,8 @@
 
 <body>
   <header class="text-center section reveal">
-    <h1 class="display-5">DÉVELOPPEUR DE SERIOUS GAMES ET JEUX VIDÉO</h1>
+    <h1 class="display-5">Baptiste Curie-Cadet</h1>
+    <p class="subtitle">DÉVELOPPEUR DE SERIOUS GAMES ET JEUX VIDÉO</p>
     <hr style="width: 60px; border: 2px solid #4da6ff; margin: 15px auto 0;">
   </header>
 
@@ -753,7 +758,8 @@
 
     const translations = {
       'fr': {
-        title: "DÉVELOPPEUR DE SERIOUS GAMES ET JEUX VIDÉO",
+        title: "Baptiste Curie-Cadet",
+        subtitle: "DÉVELOPPEUR DE SERIOUS GAMES ET JEUX VIDÉO",
         aboutTitle: "À propos",
         aboutText: "Je m'appelle Baptiste, j'ai 19 ans et je suis passionné par le développement de jeux vidéo, en particulier les serious games. Mon objectif professionnel est de créer des expériences immersives qui offrent une véritable sensation d'évasion et d'apprentissage. Passionné et déterminé, je m'engage pleinement dans chaque projet pour offrir des solutions innovantes et captivantes.",
         phone: "+33 7 68 84 23 64",
@@ -767,7 +773,8 @@
         contactMail: "baptiste.curie-cadet@isen.yncrea.fr"
       },
       'en': {
-        title: "SERIOUS GAMES AND VIDEO GAME DEVELOPER",
+        title: "Baptiste Curie-Cadet",
+        subtitle: "SERIOUS GAMES AND VIDEO GAME DEVELOPER",
         aboutTitle: "About",
         aboutText: "My name is Baptiste, I am 19 years old, and I am passionate about video game development, especially serious games. My professional goal is to create immersive experiences that offer a true sense of escape and learning. Passionate and determined, I am fully committed to each project to provide innovative and captivating solutions.",
         phone: "+33 7 68 84 23 64",
@@ -796,6 +803,7 @@
       const t = translations[currentLang];
 
       document.querySelector("header h1").textContent = t.title;
+      document.querySelector("header .subtitle").textContent = t.subtitle;
       document.querySelector("#about h2").textContent = t.aboutTitle;
       document.querySelector("#about p").textContent = t.aboutText;
 
