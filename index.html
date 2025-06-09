@@ -10,8 +10,8 @@
 
   <style>
     body {
-      background-color: #000033;
-      color: #fff;
+      background-color: #000022; /* Fond plus sombre */
+      color: #f8f9fa; /* Texte plus clair */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
@@ -19,42 +19,42 @@
     }
 
     h1, h2, .subtitle {
-      color: #4da6ff;
+      color: #adc6ff; /* Bleu plus clair pour les titres */
       font-weight: 600;
     }
 
     h2 {
-      border-bottom: 1px solid #4da6ff;
+      border-bottom: 1px solid #adc6ff;
       padding-bottom: 10px;
       margin-bottom: 30px;
     }
 
     a, a:hover {
-      color: #4da6ff;
+      color: #adc6ff;
       text-decoration: none;
       transition: color 0.3s ease;
     }
 
     .section {
       padding: 60px 0;
-      border-bottom: 1px solid rgba(77, 166, 255, 0.3);
-      background-color: #000033;
+      border-bottom: 1px solid rgba(173, 198, 255, 0.3);
+      background-color: #000022; /* Fond plus sombre */
       transition: all 0.5s ease;
     }
 
     .progress {
-      background-color: rgba(0, 0, 51, 0.5);
+      background-color: rgba(0, 0, 34, 0.5);
       height: 20px;
       border-radius: 50px;
       overflow: hidden;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(77, 166, 255, 0.5);
+      border: 1px solid rgba(173, 198, 255, 0.5);
     }
 
     .progress-bar {
       line-height: 20px;
       font-size: 0.85rem;
-      background-color: #4da6ff;
+      background-color: #adc6ff; /* Bleu plus clair */
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       transition: width 0.6s ease;
     }
@@ -71,7 +71,7 @@
     }
 
     .btn-circle {
-      background-color: #4da6ff;
+      background-color: #adc6ff; /* Bleu plus clair */
       border: none;
       border-radius: 50px;
       width: 50px;
@@ -79,7 +79,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #000033;
+      color: #000022;
       transition: all 0.3s ease;
       font-size: 20px;
       position: relative;
@@ -87,7 +87,7 @@
     }
 
     .btn-circle:hover, .btn-circle.active {
-      background-color: #7ab8ff;
+      background-color: #bdd4ff; /* Bleu encore plus clair au survol */
       width: 150px;
     }
 
@@ -103,9 +103,9 @@
 
     .footer {
       padding: 20px 0;
-      background-color: #000033;
+      background-color: #000022; /* Fond plus sombre */
       font-size: 0.9rem;
-      color: #fff;
+      color: #f8f9fa; /* Texte plus clair */
       text-align: center;
     }
 
@@ -146,7 +146,7 @@
     }
 
     .title-container {
-      background-color: rgba(0, 0, 51, 0.7);
+      background-color: rgba(0, 0, 34, 0.7);
       padding: 20px;
       border-radius: 10px;
       display: inline-block;
@@ -168,13 +168,13 @@
       overflow: hidden;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 5px solid #4da6ff;
-      box-shadow: 0 0 10px rgba(77, 166, 255, 0.7);
+      border: 5px solid #adc6ff;
+      box-shadow: 0 0 10px rgba(173, 198, 255, 0.7);
     }
 
     .project-logo:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(77, 166, 255, 0.9);
+      box-shadow: 0 0 20px rgba(173, 198, 255, 0.9);
     }
 
     .project-logo img {
@@ -223,13 +223,14 @@
     }
 
     .image-selector button.active {
-      color: #4da6ff;
+      color: #adc6ff;
       transform: scale(1.2);
     }
 
     .project-details {
       flex: 1;
       padding: 20px;
+      color: #f8f9fa; /* Texte plus clair */
     }
 
     .modal-fullscreen {
@@ -243,6 +244,8 @@
       height: 100%;
       width: 100%;
       transition: all 0.5s ease;
+      background-color: #000022; /* Fond plus sombre */
+      color: #f8f9fa; /* Texte plus clair */
     }
 
     .modal-dialog {
@@ -263,7 +266,7 @@
     }
 
     .navigation-arrows button {
-      background: rgba(0, 0, 51, 0.5);
+      background: rgba(0, 0, 34, 0.5);
       border: none;
       color: white;
       font-size: 24px;
@@ -279,7 +282,7 @@
     }
 
     .navigation-arrows button:hover {
-      background: rgba(0, 0, 51, 0.8);
+      background: rgba(0, 0, 34, 0.8);
     }
 
     .navigation-arrows .right-arrow {
@@ -303,7 +306,7 @@
     }
 
     .filter-buttons button {
-      background-color: #4da6ff;
+      background-color: #adc6ff; /* Bleu plus clair */
       border: none;
       border-radius: 50px;
       padding: 10px 20px;
@@ -314,15 +317,18 @@
     }
 
     .filter-buttons button.active {
-      background-color: #7ab8ff;
+      background-color: #bdd4ff; /* Bleu encore plus clair */
     }
 
     .btn {
       transition: background-color 0.3s ease, transform 0.2s ease;
+      background-color: #adc6ff; /* Bleu plus clair */
+      color: #000022;
     }
 
     .btn:hover {
       transform: scale(1.05);
+      background-color: #bdd4ff; /* Bleu encore plus clair */
     }
 
     .modal {
@@ -347,7 +353,7 @@
       <h1 class="display-5">Baptiste Curie-Cadet</h1>
       <p class="subtitle">DÉVELOPPEUR DE SERIOUS GAMES ET JEUX VIDÉO</p>
     </div>
-    <hr style="width: 60px; border: 2px solid #4da6ff; margin: 15px auto 0;">
+    <hr style="width: 60px; border: 2px solid #adc6ff; margin: 15px auto 0;">
   </header>
 
   <section id="about" class="container section reveal">
@@ -360,10 +366,10 @@
         <p>Je m'appelle Baptiste, j'ai 19 ans et je suis passionné par le développement de jeux vidéo, en particulier les serious games. Mon objectif professionnel est de créer des expériences immersives qui offrent une véritable sensation d'évasion et d'apprentissage. Passionné et déterminé, je m'engage pleinement dans chaque projet pour offrir des solutions innovantes et captivantes.</p>
         <div class="row mt-4">
           <div class="col-sm-6">
-            <p><i class="fas fa-map-marker-alt" style="color: #4da6ff;"></i> Marseille, France</p>
+            <p><i class="fas fa-map-marker-alt" style="color: #adc6ff;"></i> Marseille, France</p>
           </div>
           <div class="col-sm-6">
-            <p><i class="fas fa-graduation-cap" style="color: #4da6ff;"></i> Bachelor de développement de systèmes numériques immersifs</p>
+            <p><i class="fas fa-graduation-cap" style="color: #adc6ff;"></i> Bachelor de développement de systèmes numériques immersifs</p>
           </div>
         </div>
         <a href="CV_Baptiste_Curie-Cadet.pdf" class="btn btn-primary mt-3" download>
@@ -757,10 +763,10 @@
 
   <section id="contact" class="container section reveal">
     <h2>Contact</h2>
-    <p><i class="fas fa-phone-alt" style="color: #4da6ff;"></i> +33 7 68 84 23 64</p>
-    <p><i class="fas fa-envelope" style="color: #4da6ff;"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">baptiste.curie-cadet@isen.yncrea.fr</a></p>
+    <p><i class="fas fa-phone-alt" style="color: #adc6ff;"></i> +33 7 68 84 23 64</p>
+    <p><i class="fas fa-envelope" style="color: #adc6ff;"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">baptiste.curie-cadet@isen.yncrea.fr</a></p>
     <div class="mt-4">
-      <a href="https://www.linkedin.com/in/baptiste-curie-cadet-099b5929a/" target="_blank" class="text-light me-3"><i class="fab fa-linkedin fa-2x" style="color: #4da6ff;"></i></a>
+      <a href="https://www.linkedin.com/in/baptiste-curie-cadet-099b5929a/" target="_blank" class="text-light me-3"><i class="fab fa-linkedin fa-2x" style="color: #adc6ff;"></i></a>
     </div>
   </section>
 
@@ -936,9 +942,9 @@
       document.querySelector("#contact h2").textContent = t.contactTitle;
 
       const phoneP = document.querySelector("#contact .fa-phone-alt").parentElement;
-      phoneP.innerHTML = `<i class="fas fa-phone-alt" style="color: #4da6ff;"></i> ${t.phone}`;
+      phoneP.innerHTML = `<i class="fas fa-phone-alt" style="color: #adc6ff;"></i> ${t.phone}`;
       const emailP = document.querySelector("#contact .fa-envelope").parentElement;
-      emailP.innerHTML = `<i class="fas fa-envelope" style="color: #4da6ff;"></i> <a href="mailto:${t.contactMail}">${t.email}</a>`;
+      emailP.innerHTML = `<i class="fas fa-envelope" style="color: #adc6ff;"></i> <a href="mailto:${t.contactMail}">${t.email}</a>`;
 
       document.querySelectorAll('.modal-title').forEach((element, index) => {
         element.textContent = t[`project${index + 1}Title`];
