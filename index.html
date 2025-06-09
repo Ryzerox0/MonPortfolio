@@ -348,8 +348,8 @@
 <body>
   <header class="text-center section reveal">
     <div class="title-container">
-      <h1 class="display-5">Baptiste Curie-Cadet</h1>
-      <p class="subtitle">DÉVELOPPEUR DE SERIOUS GAMES ET JEUX VIDÉO</p>
+      <h1 class="display-5" id="header-title">Baptiste Curie-Cadet</h1>
+      <p class="subtitle" id="header-subtitle">DÉVELOPPEUR DE SERIOUS GAMES ET JEUX VIDÉO</p>
     </div>
     <hr style="width: 60px; border: 2px solid #adc6ff; margin: 15px auto 0;">
   </header>
@@ -360,17 +360,17 @@
         <img src="Moi.jpg" alt="Photo de profil" class="img-fluid rounded" style="max-height: 400px; transition: transform 0.3s ease;">
       </div>
       <div class="col-md-7">
-        <h2>À propos</h2>
-        <p>Je m'appelle Baptiste, j'ai 19 ans et je suis passionné par le développement de jeux vidéo, en particulier les serious games. Mon objectif professionnel est de créer des expériences immersives qui offrent une véritable sensation d'évasion et d'apprentissage. Passionné et déterminé, je m'engage pleinement dans chaque projet pour offrir des solutions innovantes et captivantes.</p>
+        <h2 id="about-title">À propos</h2>
+        <p id="about-text">Je m'appelle Baptiste, j'ai 19 ans et je suis passionné par le développement de jeux vidéo, en particulier les serious games. Mon objectif professionnel est de créer des expériences immersives qui offrent une véritable sensation d'évasion et d'apprentissage. Passionné et déterminé, je m'engage pleinement dans chaque projet pour offrir des solutions innovantes et captivantes.</p>
         <div class="row mt-4">
           <div class="col-sm-6">
-            <p><i class="fas fa-map-marker-alt" style="color: #adc6ff;"></i> Marseille, France</p>
+            <p><i class="fas fa-map-marker-alt" style="color: #adc6ff;"></i> <span id="about-location">Marseille, France</span></p>
           </div>
           <div class="col-sm-6">
-            <p><i class="fas fa-graduation-cap" style="color: #adc6ff;"></i> Bachelor de développement de systèmes numériques immersifs</p>
+            <p><i class="fas fa-graduation-cap" style="color: #adc6ff;"></i> <span id="about-degree">Bachelor de développement de systèmes numériques immersifs</span></p>
           </div>
         </div>
-        <a href="CV_Baptiste_Curie-Cadet.pdf" class="btn btn-primary mt-3" download>
+        <a href="CV_Baptiste_Curie-Cadet.pdf" class="btn btn-primary mt-3" download id="about-download-cv">
           <i class="fas fa-download"></i> Télécharger mon CV
         </a>
       </div>
@@ -378,7 +378,7 @@
   </section>
 
   <section id="skills" class="container section reveal">
-    <h2>Compétences</h2>
+    <h2 id="skills-title">Compétences</h2>
     <div class="row">
       <div class="col-md-6">
         <p>Unity</p>
@@ -408,29 +408,29 @@
   </section>
 
   <section id="education" class="container section reveal">
-    <h2>Formation</h2>
+    <h2 id="education-title">Formation</h2>
     <ul class="list-group bg-transparent">
       <li class="list-group-item bg-dark text-light">
-        <strong>2023-2025 :</strong> Bachelor Systèmes Numériques Immersifs
+        <strong>2023-2025 :</strong> <span id="education-bachelor">Bachelor Systèmes Numériques Immersifs</span>
         <ul>
-          <li>Développement de jeux vidéo</li>
-          <li>Technologies immersives</li>
-          <li>Conception de serious games</li>
+          <li id="education-bachelor-detail-1">Développement de jeux vidéo</li>
+          <li id="education-bachelor-detail-2">Technologies immersives</li>
+          <li id="education-bachelor-detail-3">Conception de serious games</li>
         </ul>
       </li>
       <li class="list-group-item bg-dark text-light">
-        <strong>2020-2023 :</strong> Bac STI2D (SIN)
+        <strong>2020-2023 :</strong> <span id="education-highschool">Bac STI2D (SIN)</span>
       </li>
     </ul>
   </section>
 
   <section id="projects" class="container section reveal">
-    <h2>Projets</h2>
+    <h2 id="projects-title">Projets</h2>
     <div class="filter-buttons">
-      <button onclick="filterProjects('all')" class="active">Tout</button>
-      <button onclick="filterProjects('Unity')">Unity</button>
-      <button onclick="filterProjects('Unreal')">Unreal</button>
-      <button onclick="filterProjects('HTML')">HTML</button>
+      <button onclick="filterProjects('all')" class="active" id="filter-all">Tout</button>
+      <button onclick="filterProjects('Unity')" id="filter-unity">Unity</button>
+      <button onclick="filterProjects('Unreal')" id="filter-unreal">Unreal</button>
+      <button onclick="filterProjects('HTML')" id="filter-html">HTML</button>
     </div>
     <div class="project-logos">
       <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal1" data-category="Unity">
@@ -443,7 +443,7 @@
         <img src="chapeau.png" alt="Logo Project 3">
       </div>
       <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal4" data-category="Unity">
-        <img src="logo bouloux.jpg" alt="Logo Project 4">
+        <img src="logo ballex.jpg" alt="Logo Project 4">
       </div>
       <div class="project-logo" data-bs-toggle="modal" data-bs-target="#projectModal5" data-category="Unity">
         <img src="balance (1).jpg" alt="Logo Project 5">
@@ -464,7 +464,7 @@
     <div class="modal-dialog">
       <div class="modal-content bg-dark text-light">
         <div class="modal-header">
-          <h5 class="modal-title" id="projectModalLabel1">Pirates de l'étang</h5>
+          <h5 class="modal-title" id="project1-title">Pirates de l'étang</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -482,15 +482,15 @@
             </div>
           </div>
           <div class="project-details">
-            <p><strong>Catégorie:</strong> Unity</p>
-            <p><strong>Utilité :</strong> Développeur / Sound Designer</p>
-            <p><strong>Durée :</strong> Un mois</p>
-            <p>Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !</p>
+            <p><strong id="project1-category-label">Catégorie:</strong> <span id="project1-category">Unity</span></p>
+            <p><strong id="project1-utility-label">Utilité :</strong> <span id="project1-utility">Développeur / Sound Designer</span></p>
+            <p><strong id="project1-duration-label">Durée :</strong> <span id="project1-duration">Un mois</span></p>
+            <p id="project1-description">Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !</p>
           </div>
         </div>
         <div class="modal-footer">
-          <a href="build-pirate.zip" class="btn btn-primary">Télécharger le projet</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <a href="build-pirate.zip" class="btn btn-primary" id="project1-download">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="project1-close">Fermer</button>
         </div>
       </div>
     </div>
@@ -500,7 +500,7 @@
     <div class="modal-dialog">
       <div class="modal-content bg-dark text-light">
         <div class="modal-header">
-          <h5 class="modal-title" id="projectModalLabel2">BABURU</h5>
+          <h5 class="modal-title" id="project2-title">BABURU</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -518,15 +518,15 @@
             </div>
           </div>
           <div class="project-details">
-            <p><strong>Catégorie:</strong> Unity</p>
-            <p><strong>Utilité :</strong> Développeur Gameplay</p>
-            <p><strong>Durée :</strong> 2 jours</p>
-            <p>Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.</p>
+            <p><strong id="project2-category-label">Catégorie:</strong> <span id="project2-category">Unity</span></p>
+            <p><strong id="project2-utility-label">Utilité :</strong> <span id="project2-utility">Développeur Gameplay</span></p>
+            <p><strong id="project2-duration-label">Durée :</strong> <span id="project2-duration">2 jours</span></p>
+            <p id="project2-description">Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.</p>
           </div>
         </div>
         <div class="modal-footer">
-          <a href="build-baburu.zip" class="btn btn-primary">Télécharger le projet</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <a href="build-baburu.zip" class="btn btn-primary" id="project2-download">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="project2-close">Fermer</button>
         </div>
       </div>
     </div>
@@ -536,7 +536,7 @@
     <div class="modal-dialog">
       <div class="modal-content bg-dark text-light">
         <div class="modal-header">
-          <h5 class="modal-title" id="projectModalLabel3">Pablo</h5>
+          <h5 class="modal-title" id="project3-title">Pablo</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -554,15 +554,15 @@
             </div>
           </div>
           <div class="project-details">
-            <p><strong>Catégorie:</strong> Unity</p>
-            <p><strong>Utilité :</strong> Développeur Gameplay</p>
-            <p><strong>Durée :</strong> Un mois</p>
-            <p>Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.</p>
+            <p><strong id="project3-category-label">Catégorie:</strong> <span id="project3-category">Unity</span></p>
+            <p><strong id="project3-utility-label">Utilité :</strong> <span id="project3-utility">Développeur Gameplay</span></p>
+            <p><strong id="project3-duration-label">Durée :</strong> <span id="project3-duration">Un mois</span></p>
+            <p id="project3-description">Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.</p>
           </div>
         </div>
         <div class="modal-footer">
-          <a href="Build-Pablo.zip" class="btn btn-primary">Télécharger le projet</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <a href="Build-Pablo.zip" class="btn btn-primary" id="project3-download">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="project3-close">Fermer</button>
         </div>
       </div>
     </div>
@@ -572,7 +572,7 @@
     <div class="modal-dialog">
       <div class="modal-content bg-dark text-light">
         <div class="modal-header">
-          <h5 class="modal-title" id="projectModalLabel4">Bouloux</h5>
+          <h5 class="modal-title" id="project4-title">Ballex</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -581,7 +581,7 @@
             <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <div class="modal-image-container">
-            <img id="projectImage4" src="header (2).jpg" alt="Project Image">
+            <img id="projectImage4" src="header (1).jpg" alt="Project Image">
             <div class="image-selector">
               <button class="image-selector-button active" onclick="changeImage(4, 0)">●</button>
               <button class="image-selector-button" onclick="changeImage(4, 1)">●</button>
@@ -590,15 +590,15 @@
             </div>
           </div>
           <div class="project-details">
-            <p><strong>Catégorie:</strong> Unity</p>
-            <p><strong>Utilité :</strong> Développeur Gameplay</p>
-            <p><strong>Durée :</strong> 1 mois</p>
-            <p>Bouloux est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.</p>
+            <p><strong id="project4-category-label">Catégorie:</strong> <span id="project4-category">Unity</span></p>
+            <p><strong id="project4-utility-label">Utilité :</strong> <span id="project4-utility">Développeur Gameplay</span></p>
+            <p><strong id="project4-duration-label">Durée :</strong> <span id="project4-duration">1 mois</span></p>
+            <p id="project4-description">Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.</p>
           </div>
         </div>
         <div class="modal-footer">
-          <a href="Build-bouloux.zip" class="btn btn-primary">Télécharger le projet</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <a href="Build-ballex.zip" class="btn btn-primary" id="project4-download">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="project4-close">Fermer</button>
         </div>
       </div>
     </div>
@@ -608,7 +608,7 @@
     <div class="modal-dialog">
       <div class="modal-content bg-dark text-light">
         <div class="modal-header">
-          <h5 class="modal-title" id="projectModalLabel5">Balance ton archétype</h5>
+          <h5 class="modal-title" id="project5-title">Balance ton archétype</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -626,15 +626,15 @@
             </div>
           </div>
           <div class="project-details">
-            <p><strong>Catégorie:</strong> Unity</p>
-            <p><strong>Utilité :</strong> Développeur Gameplay</p>
-            <p><strong>Durée :</strong> 1 mois</p>
-            <p>Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.</p>
+            <p><strong id="project5-category-label">Catégorie:</strong> <span id="project5-category">Unity</span></p>
+            <p><strong id="project5-utility-label">Utilité :</strong> <span id="project5-utility">Développeur Gameplay</span></p>
+            <p><strong id="project5-duration-label">Durée :</strong> <span id="project5-duration">1 mois</span></p>
+            <p id="project5-description">Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.</p>
           </div>
         </div>
         <div class="modal-footer">
-          <a href="Build-BalanceTonArchetype.zip" class="btn btn-primary">Télécharger le projet</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <a href="Build-BalanceTonArchetype.zip" class="btn btn-primary" id="project5-download">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="project5-close">Fermer</button>
         </div>
       </div>
     </div>
@@ -644,7 +644,7 @@
     <div class="modal-dialog">
       <div class="modal-content bg-dark text-light">
         <div class="modal-header">
-          <h5 class="modal-title" id="projectModalLabel6">Route 66</h5>
+          <h5 class="modal-title" id="project6-title">Route 66</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -662,15 +662,15 @@
             </div>
           </div>
           <div class="project-details">
-            <p><strong>Catégorie:</strong> Unity</p>
-            <p><strong>Utilité :</strong> Artiste 3D/Lighting</p>
-            <p><strong>Durée :</strong> 1 semaine</p>
-            <p>Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.</p>
+            <p><strong id="project6-category-label">Catégorie:</strong> <span id="project6-category">Unity</span></p>
+            <p><strong id="project6-utility-label">Utilité :</strong> <span id="project6-utility">Artiste 3D/Lighting</span></p>
+            <p><strong id="project6-duration-label">Durée :</strong> <span id="project6-duration">1 semaine</span></p>
+            <p id="project6-description">Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.</p>
           </div>
         </div>
         <div class="modal-footer">
-          <a href="build-route-66.zip" class="btn btn-primary">Télécharger le projet</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <a href="build-route-66.zip" class="btn btn-primary" id="project6-download">Télécharger le projet</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="project6-close">Fermer</button>
         </div>
       </div>
     </div>
@@ -680,7 +680,7 @@
     <div class="modal-dialog">
       <div class="modal-content bg-dark text-light">
         <div class="modal-header">
-          <h5 class="modal-title" id="projectModalLabel7">Garage The Borges</h5>
+          <h5 class="modal-title" id="project7-title">Garage The Borges</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -689,7 +689,7 @@
             <button class="right-arrow" onclick="changeProject(1)"><i class="fas fa-arrow-right"></i></button>
           </div>
           <div class="modal-image-container">
-            <img id="projectImage7" src="Capture d'écran 2025-06-08 015925.png" alt="Project Image">
+            <img id="projectImage7" src="Capture d'écran 2025-06-09 024811.png" alt="Project Image">
             <div class="image-selector">
               <button class="image-selector-button active" onclick="changeImage(7, 0)">●</button>
               <button class="image-selector-button" onclick="changeImage(7, 1)">●</button>
@@ -699,14 +699,14 @@
             </div>
           </div>
           <div class="project-details">
-            <p><strong>Catégorie:</strong> HTML et PHP</p>
-            <p><strong>Utilité :</strong> Développeur du site</p>
-            <p><strong>Durée :</strong> 1 mois</p>
-            <p>Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.</p>
+            <p><strong id="project7-category-label">Catégorie:</strong> <span id="project7-category">HTML et PHP</span></p>
+            <p><strong id="project7-utility-label">Utilité :</strong> <span id="project7-utility">Développeur du site</span></p>
+            <p><strong id="project7-duration-label">Durée :</strong> <span id="project7-duration">1 mois</span></p>
+            <p id="project7-description">Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.</p>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="project7-close">Fermer</button>
         </div>
       </div>
     </div>
@@ -716,7 +716,7 @@
     <div class="modal-dialog">
       <div class="modal-content bg-dark text-light">
         <div class="modal-header">
-          <h5 class="modal-title" id="projectModalLabel8">Écuyer des Ombres</h5>
+          <h5 class="modal-title" id="project8-title">Écuyer des Ombres</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -737,23 +737,23 @@
             </div>
           </div>
           <div class="project-details">
-            <p><strong>Catégorie:</strong> Unreal</p>
-            <p><strong>Utilité :</strong> Développeur et Sound Designer</p>
-            <p><strong>Durée :</strong> 1 mois et demi</p>
-            <p>Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d’un donjon maudit qui s’est récemment éveillé. D’étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades… et nulle armée en vue pour les défendre.</p>
+            <p><strong id="project8-category-label">Catégorie:</strong> <span id="project8-category">Unreal</span></p>
+            <p><strong id="project8-utility-label">Utilité :</strong> <span id="project8-utility">Développeur et Sound Designer</span></p>
+            <p><strong id="project8-duration-label">Durée :</strong> <span id="project8-duration">1 mois et demi</span></p>
+            <p id="project8-description">Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d’un donjon maudit qui s’est récemment éveillé. D’étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades… et nulle armée en vue pour les défendre.</p>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="project8-close">Fermer</button>
         </div>
       </div>
     </div>
   </div>
 
   <section id="contact" class="container section reveal">
-    <h2>Contact</h2>
-    <p><i class="fas fa-phone-alt" style="color: #adc6ff;"></i> +33 7 68 84 23 64</p>
-    <p><i class="fas fa-envelope" style="color: #adc6ff;"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr">baptiste.curie-cadet@isen.yncrea.fr</a></p>
+    <h2 id="contact-title">Contact</h2>
+    <p><i class="fas fa-phone-alt" style="color: #adc6ff;"></i> <span id="contact-phone">+33 7 68 84 23 64</span></p>
+    <p><i class="fas fa-envelope" style="color: #adc6ff;"></i> <a href="mailto:baptiste.curie-cadet@isen.yncrea.fr" id="contact-email">baptiste.curie-cadet@isen.yncrea.fr</a></p>
     <div class="mt-4">
       <a href="https://www.linkedin.com/in/baptiste-curie-cadet-099b5929a/" target="_blank" class="text-light me-3"><i class="fab fa-linkedin fa-2x" style="color: #adc6ff;"></i></a>
     </div>
@@ -772,7 +772,7 @@
   </div>
 
   <footer class="footer text-center">
-    &copy; 2025 Baptiste Curie-Cadet.
+    <p>&copy; <span id="footer-year">2025</span> Baptiste Curie-Cadet.</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -797,10 +797,10 @@
       1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
       2: ["bulle1 (1).png", "bulle1 (2).png", "bulle1 (3).png", "bulle1 (4).png"],
       3: ["mexi (2).png", "mexi.png", "mexi (3).png", "mexi (4).png"],
-      4: ["header (2).jpg", "ballex (1).png", "ballex (2).png", "ballex (3).png"],
+      4: ["header (1).jpg", "ballex (1).png", "ballex (2).png", "ballex (3).png"],
       5: ["balance (1).jpg", "balance (1).png", "balance (2).png", "balance (3).png"],
       6: ["voiture (1).jpg", "voiture (1).png", "voiture (2).png", "voiture (3).png"],
-      7: ["Capture d'écran 2025-06-08 015925.png", "Capture d'écran 2025-06-08 020533.png", "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png", "Capture d'écran 2025-06-08 020630.png"],
+      7: ["Capture d'écran 2025-06-09 024811.png", "Capture d'écran 2025-06-08 020533.png", "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png", "Capture d'écran 2025-06-08 020630.png"],
       8: ["médiéval (1).png", "médiéval (2).png", "médiéval (3).png", "médiéval (4).png", "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"]
     };
 
@@ -845,71 +845,168 @@
 
     const translations = {
       'fr': {
-        title: "Baptiste Curie-Cadet",
-        subtitle: "DÉVELOPPEUR DE SERIOUS GAMES ET JEUX VIDÉO",
+        headerTitle: "Baptiste Curie-Cadet",
+        headerSubtitle: "DÉVELOPPEUR DE SERIOUS GAMES ET JEUX VIDÉO",
         aboutTitle: "À propos",
         aboutText: "Je m'appelle Baptiste, j'ai 19 ans et je suis passionné par le développement de jeux vidéo, en particulier les serious games. Mon objectif professionnel est de créer des expériences immersives qui offrent une véritable sensation d'évasion et d'apprentissage. Passionné et déterminé, je m'engage pleinement dans chaque projet pour offrir des solutions innovantes et captivantes.",
-        phone: "+33 7 68 84 23 64",
-        city: "Marseille, France",
-        degree: "Bachelor de développement de systèmes numériques immersifs",
-        email: "baptiste.curie-cadet@isen.yncrea.fr",
+        aboutLocation: "Marseille, France",
+        aboutDegree: "Bachelor de développement de systèmes numériques immersifs",
+        aboutDownloadCV: "Télécharger mon CV",
         skillsTitle: "Compétences",
         educationTitle: "Formation",
-        projectTitle: "Projets",
+        educationBachelor: "Bachelor Systèmes Numériques Immersifs",
+        educationBachelorDetail1: "Développement de jeux vidéo",
+        educationBachelorDetail2: "Technologies immersives",
+        educationBachelorDetail3: "Conception de serious games",
+        educationHighschool: "Bac STI2D (SIN)",
+        projectsTitle: "Projets",
+        filterAll: "Tout",
+        filterUnity: "Unity",
+        filterUnreal: "Unreal",
+        filterHTML: "HTML",
         contactTitle: "Contact",
-        contactMail: "baptiste.curie-cadet@isen.yncrea.fr",
+        contactPhone: "+33 7 68 84 23 64",
+        contactEmail: "baptiste.curie-cadet@isen.yncrea.fr",
         project1Title: "Pirates de l'étang",
-        project2Title: "BABURU",
-        project3Title: "Pablo",
-        project4Title: "Ballex",
-        project5Title: "Balance ton archétype",
-        project6Title: "Route 66",
-        project7Title: "Garage The Borges",
-        project8Title: "Écuyer des Ombres",
+        project1Category: "Unity",
+        project1Utility: "Développeur / Sound Designer",
+        project1Duration: "Un mois",
         project1Description: "Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !",
+        project1Download: "Télécharger le projet",
+        project1Close: "Fermer",
+        project2Title: "BABURU",
+        project2Category: "Unity",
+        project2Utility: "Développeur Gameplay",
+        project2Duration: "2 jours",
         project2Description: "Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.",
+        project2Download: "Télécharger le projet",
+        project2Close: "Fermer",
+        project3Title: "Pablo",
+        project3Category: "Unity",
+        project3Utility: "Développeur Gameplay",
+        project3Duration: "Un mois",
         project3Description: "Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.",
+        project3Download: "Télécharger le projet",
+        project3Close: "Fermer",
+        project4Title: "Ballex",
+        project4Category: "Unity",
+        project4Utility: "Développeur Gameplay",
+        project4Duration: "1 mois",
         project4Description: "Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.",
+        project4Download: "Télécharger le projet",
+        project4Close: "Fermer",
+        project5Title: "Balance ton archétype",
+        project5Category: "Unity",
+        project5Utility: "Développeur Gameplay",
+        project5Duration: "1 mois",
         project5Description: "Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.",
+        project5Download: "Télécharger le projet",
+        project5Close: "Fermer",
+        project6Title: "Route 66",
+        project6Category: "Unity",
+        project6Utility: "Artiste 3D/Lighting",
+        project6Duration: "1 semaine",
         project6Description: "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.",
+        project6Download: "Télécharger le projet",
+        project6Close: "Fermer",
+        project7Title: "Garage The Borges",
+        project7Category: "HTML et PHP",
+        project7Utility: "Développeur du site",
+        project7Duration: "1 mois",
         project7Description: "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.",
-        project8Description: "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d’un donjon maudit qui s’est récemment éveillé. D’étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades… et nulle armée en vue pour les défendre."
+        project7Close: "Fermer",
+        project8Title: "Écuyer des Ombres",
+        project8Category: "Unreal",
+        project8Utility: "Développeur et Sound Designer",
+        project8Duration: "1 mois et demi",
+        project8Description: "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d’un donjon maudit qui s’est récemment éveillé. D’étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades… et nulle armée en vue pour les défendre.",
+        project8Close: "Fermer",
+        footerYear: "2025"
       },
       'en': {
-        title: "Baptiste Curie-Cadet",
-        subtitle: "SERIOUS GAMES AND VIDEO GAME DEVELOPER",
+        headerTitle: "Baptiste Curie-Cadet",
+        headerSubtitle: "SERIOUS GAMES AND VIDEO GAME DEVELOPER",
         aboutTitle: "About",
         aboutText: "My name is Baptiste, I am 19 years old, and I am passionate about video game development, especially serious games. My professional goal is to create immersive experiences that offer a true sense of escape and learning. Passionate and determined, I am fully committed to each project to provide innovative and captivating solutions.",
-        phone: "+33 7 68 84 23 64",
-        city: "Marseille, France",
-        degree: "Bachelor's Degree in Immersive Digital Systems Development",
-        email: "baptiste.curie-cadet@isen.yncrea.fr",
+        aboutLocation: "Marseille, France",
+        aboutDegree: "Bachelor's Degree in Immersive Digital Systems Development",
+        aboutDownloadCV: "Download my CV",
         skillsTitle: "Skills",
         educationTitle: "Education",
-        projectTitle: "Projects",
+        educationBachelor: "Bachelor in Immersive Digital Systems",
+        educationBachelorDetail1: "Video game development",
+        educationBachelorDetail2: "Immersive technologies",
+        educationBachelorDetail3: "Serious games design",
+        educationHighschool: "High School Diploma STI2D (SIN)",
+        projectsTitle: "Projects",
+        filterAll: "All",
+        filterUnity: "Unity",
+        filterUnreal: "Unreal",
+        filterHTML: "HTML",
         contactTitle: "Contact",
-        contactMail: "baptiste.curie-cadet@isen.yncrea.fr",
+        contactPhone: "+33 7 68 84 23 64",
+        contactEmail: "baptiste.curie-cadet@isen.yncrea.fr",
         project1Title: "Pirates of the Swamp",
-        project2Title: "BABURU",
-        project3Title: "Pablo",
-        project4Title: "Ballex",
-        project5Title: "Balance your archetype",
-        project6Title: "Route 66",
-        project7Title: "Garage The Borges",
-        project8Title: "Squire of Shadows",
+        project1Category: "Unity",
+        project1Utility: "Developer / Sound Designer",
+        project1Duration: "One month",
         project1Description: "Play as Jack Moineau, an unfortunate pirate stranded on an island plagued by a terrible curse. Defeat as many enemies as possible while improving your equipment to go as far as possible!",
+        project1Download: "Download the project",
+        project1Close: "Close",
+        project2Title: "BABURU",
+        project2Category: "Unity",
+        project2Utility: "Gameplay Developer",
+        project2Duration: "2 days",
         project2Description: "Baburu is a narrative light novel where you play as Alin, a shy boy who likes to stay in his bubble and creates an extroverted personality he calls Alex. In Baburu, your goal is to protect yourself from the outside world by staying in your bubble and preventing anyone from entering it. In this poetic game with strong ludonarrative dissonance, you will have to choose between safety and friendships.",
+        project2Download: "Download the project",
+        project2Close: "Close",
+        project3Title: "Pablo",
+        project3Category: "Unity",
+        project3Utility: "Gameplay Developer",
+        project3Duration: "One month",
         project3Description: "I am the origin of everything present in the game in terms of programming. It is a project we started in class, intended to teach us the use of singletons and GameObject instantiations.",
+        project3Download: "Download the project",
+        project3Close: "Close",
+        project4Title: "Ballex",
+        project4Category: "Unity",
+        project4Utility: "Gameplay Developer",
+        project4Duration: "1 month",
         project4Description: "Ballex is a 3D puzzle-action game with aesthetically pleasing graphics and complex gameplay. You will have to control a ball capable of changing physical state through the levels.",
+        project4Download: "Download the project",
+        project4Close: "Close",
+        project5Title: "Balance your archetype",
+        project5Category: "Unity",
+        project5Utility: "Gameplay Developer",
+        project5Duration: "1 month",
         project5Description: "Balance your archetype is a serious game of the icebreaker type in which people will present themselves according to the archetype that will be randomly assigned to them; their goal is to be able to find everyone's archetype at the end. The game combines virtual and physical support. I was in charge of developing the random role assignments as well as the different phases of voting and presentation by updating the UI.",
+        project5Download: "Download the project",
+        project5Close: "Close",
+        project6Title: "Route 66",
+        project6Category: "Unity",
+        project6Utility: "3D Artist/Lighting",
+        project6Duration: "1 week",
         project6Description: "Design of Route 66 inspired by Overwatch's Route 66.",
+        project6Download: "Download the project",
+        project6Close: "Close",
+        project7Title: "Garage The Borges",
+        project7Category: "HTML and PHP",
+        project7Utility: "Website Developer",
+        project7Duration: "1 month",
         project7Description: "Welcome to the official website of our car dealership. This website, entirely developed in HTML and PHP, allows you to discover our entire catalog of new and used vehicles. Thanks to a simple and intuitive interface, you can consult the detailed sheets of the available cars, search for a model according to your criteria, and make an appointment directly online for a test drive or a trade-in estimate. This project reflects my dynamic web development work and my ability to create functional tools adapted to the needs of professionals.",
-        project8Description: "The game takes place in a fantastic medieval kingdom. The village of Valombre lives under the threat of a cursed dungeon that has recently awakened. Strange creatures lurk there, and shadows creep into the neighboring woods. The terrified villagers have seen their daily lives disrupted: burned crops, disappeared livestock, sick children... and no army in sight to defend them."
+        project7Close: "Close",
+        project8Title: "Squire of Shadows",
+        project8Category: "Unreal",
+        project8Utility: "Developer and Sound Designer",
+        project8Duration: "One and a half months",
+        project8Description: "The game takes place in a fantastic medieval kingdom. The village of Valombre lives under the threat of a cursed dungeon that has recently awakened. Strange creatures lurk there, and shadows creep into the neighboring woods. The terrified villagers have seen their daily lives disrupted: burned crops, disappeared livestock, sick children... and no army in sight to defend them.",
+        project8Close: "Close",
+        footerYear: "2025"
       }
     };
 
     function switchLanguage() {
       const flagImage = document.getElementById('language-flag');
+      const t = translations[currentLang === 'fr' ? 'en' : 'fr'];
 
       if (currentLang === 'fr') {
         currentLang = 'en';
@@ -919,29 +1016,83 @@
         flagImage.src = "https://flagcdn.com/w40/fr.png";
       }
 
-      const t = translations[currentLang];
-
-      document.querySelector("header h1").textContent = t.title;
-      document.querySelector("header .subtitle").textContent = t.subtitle;
-      document.querySelector("#about h2").textContent = t.aboutTitle;
-      document.querySelector("#about p").textContent = t.aboutText;
-      document.querySelector("#skills h2").textContent = t.skillsTitle;
-      document.querySelector("#education h2").textContent = t.educationTitle;
-      document.querySelector("#projects h2").textContent = t.projectTitle;
-      document.querySelector("#contact h2").textContent = t.contactTitle;
-
-      const phoneP = document.querySelector("#contact .fa-phone-alt").parentElement;
-      phoneP.innerHTML = `<i class="fas fa-phone-alt" style="color: #adc6ff;"></i> ${t.phone}`;
-      const emailP = document.querySelector("#contact .fa-envelope").parentElement;
-      emailP.innerHTML = `<i class="fas fa-envelope" style="color: #adc6ff;"></i> <a href="mailto:${t.contactMail}">${t.email}</a>`;
-
-      document.querySelectorAll('.modal-title').forEach((element, index) => {
-        element.textContent = t[`project${index + 1}Title`];
-      });
-
-      document.querySelectorAll('.project-details p:last-child').forEach((element, index) => {
-        element.textContent = t[`project${index + 1}Description`];
-      });
+      document.getElementById("header-title").textContent = t.headerTitle;
+      document.getElementById("header-subtitle").textContent = t.headerSubtitle;
+      document.getElementById("about-title").textContent = t.aboutTitle;
+      document.getElementById("about-text").textContent = t.aboutText;
+      document.getElementById("about-location").textContent = t.aboutLocation;
+      document.getElementById("about-degree").textContent = t.aboutDegree;
+      document.getElementById("about-download-cv").textContent = t.aboutDownloadCV;
+      document.getElementById("skills-title").textContent = t.skillsTitle;
+      document.getElementById("education-title").textContent = t.educationTitle;
+      document.getElementById("education-bachelor").textContent = t.educationBachelor;
+      document.getElementById("education-bachelor-detail-1").textContent = t.educationBachelorDetail1;
+      document.getElementById("education-bachelor-detail-2").textContent = t.educationBachelorDetail2;
+      document.getElementById("education-bachelor-detail-3").textContent = t.educationBachelorDetail3;
+      document.getElementById("education-highschool").textContent = t.educationHighschool;
+      document.getElementById("projects-title").textContent = t.projectsTitle;
+      document.getElementById("filter-all").textContent = t.filterAll;
+      document.getElementById("filter-unity").textContent = t.filterUnity;
+      document.getElementById("filter-unreal").textContent = t.filterUnreal;
+      document.getElementById("filter-html").textContent = t.filterHTML;
+      document.getElementById("contact-title").textContent = t.contactTitle;
+      document.getElementById("contact-phone").textContent = t.contactPhone;
+      document.getElementById("contact-email").textContent = t.contactEmail;
+      document.getElementById("project1-title").textContent = t.project1Title;
+      document.getElementById("project1-category").textContent = t.project1Category;
+      document.getElementById("project1-utility").textContent = t.project1Utility;
+      document.getElementById("project1-duration").textContent = t.project1Duration;
+      document.getElementById("project1-description").textContent = t.project1Description;
+      document.getElementById("project1-download").textContent = t.project1Download;
+      document.getElementById("project1-close").textContent = t.project1Close;
+      document.getElementById("project2-title").textContent = t.project2Title;
+      document.getElementById("project2-category").textContent = t.project2Category;
+      document.getElementById("project2-utility").textContent = t.project2Utility;
+      document.getElementById("project2-duration").textContent = t.project2Duration;
+      document.getElementById("project2-description").textContent = t.project2Description;
+      document.getElementById("project2-download").textContent = t.project2Download;
+      document.getElementById("project2-close").textContent = t.project2Close;
+      document.getElementById("project3-title").textContent = t.project3Title;
+      document.getElementById("project3-category").textContent = t.project3Category;
+      document.getElementById("project3-utility").textContent = t.project3Utility;
+      document.getElementById("project3-duration").textContent = t.project3Duration;
+      document.getElementById("project3-description").textContent = t.project3Description;
+      document.getElementById("project3-download").textContent = t.project3Download;
+      document.getElementById("project3-close").textContent = t.project3Close;
+      document.getElementById("project4-title").textContent = t.project4Title;
+      document.getElementById("project4-category").textContent = t.project4Category;
+      document.getElementById("project4-utility").textContent = t.project4Utility;
+      document.getElementById("project4-duration").textContent = t.project4Duration;
+      document.getElementById("project4-description").textContent = t.project4Description;
+      document.getElementById("project4-download").textContent = t.project4Download;
+      document.getElementById("project4-close").textContent = t.project4Close;
+      document.getElementById("project5-title").textContent = t.project5Title;
+      document.getElementById("project5-category").textContent = t.project5Category;
+      document.getElementById("project5-utility").textContent = t.project5Utility;
+      document.getElementById("project5-duration").textContent = t.project5Duration;
+      document.getElementById("project5-description").textContent = t.project5Description;
+      document.getElementById("project5-download").textContent = t.project5Download;
+      document.getElementById("project5-close").textContent = t.project5Close;
+      document.getElementById("project6-title").textContent = t.project6Title;
+      document.getElementById("project6-category").textContent = t.project6Category;
+      document.getElementById("project6-utility").textContent = t.project6Utility;
+      document.getElementById("project6-duration").textContent = t.project6Duration;
+      document.getElementById("project6-description").textContent = t.project6Description;
+      document.getElementById("project6-download").textContent = t.project6Download;
+      document.getElementById("project6-close").textContent = t.project6Close;
+      document.getElementById("project7-title").textContent = t.project7Title;
+      document.getElementById("project7-category").textContent = t.project7Category;
+      document.getElementById("project7-utility").textContent = t.project7Utility;
+      document.getElementById("project7-duration").textContent = t.project7Duration;
+      document.getElementById("project7-description").textContent = t.project7Description;
+      document.getElementById("project7-close").textContent = t.project7Close;
+      document.getElementById("project8-title").textContent = t.project8Title;
+      document.getElementById("project8-category").textContent = t.project8Category;
+      document.getElementById("project8-utility").textContent = t.project8Utility;
+      document.getElementById("project8-duration").textContent = t.project8Duration;
+      document.getElementById("project8-description").textContent = t.project8Description;
+      document.getElementById("project8-close").textContent = t.project8Close;
+      document.getElementById("footer-year").textContent = t.footerYear;
     }
 
     document.getElementById('language-button').addEventListener('click', (e) => {
