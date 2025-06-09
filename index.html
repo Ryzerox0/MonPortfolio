@@ -13,25 +13,35 @@
       background-color: #000033;
       color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
     }
+
     h1, h2, .subtitle {
       color: #4da6ff;
       font-weight: 600;
     }
+
     h2 {
       border-bottom: 1px solid #4da6ff;
       padding-bottom: 10px;
       margin-bottom: 30px;
     }
+
     a, a:hover {
       color: #4da6ff;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
+
     .section {
       padding: 60px 0;
       border-bottom: 1px solid rgba(77, 166, 255, 0.3);
       background-color: #000033;
+      transition: all 0.5s ease;
     }
+
     .progress {
       background-color: rgba(0, 0, 51, 0.5);
       height: 20px;
@@ -40,12 +50,15 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(77, 166, 255, 0.5);
     }
+
     .progress-bar {
       line-height: 20px;
       font-size: 0.85rem;
       background-color: #4da6ff;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: width 0.6s ease;
     }
+
     .side-buttons {
       position: fixed;
       top: 50%;
@@ -56,6 +69,7 @@
       gap: 10px;
       z-index: 1000;
     }
+
     .btn-circle {
       background-color: #4da6ff;
       border: none;
@@ -71,33 +85,41 @@
       position: relative;
       overflow: hidden;
     }
+
     .btn-circle:hover, .btn-circle.active {
       background-color: #7ab8ff;
       width: 150px;
     }
+
     .btn-text {
       display: none;
       margin-left: 10px;
       white-space: nowrap;
     }
+
     .btn-circle:hover .btn-text {
       display: inline;
     }
+
     .footer {
       padding: 20px 0;
       background-color: #000033;
       font-size: 0.9rem;
       color: #fff;
+      text-align: center;
     }
+
     .reveal {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
+
     .reveal.reveal-visible {
       opacity: 1;
       transform: translateY(0);
     }
+
     header {
       background-image: url('dev.jpg');
       background-size: cover;
@@ -111,15 +133,18 @@
       justify-content: center;
       position: relative;
     }
+
     header h1 {
       text-shadow: 2px 2px 4px #000, -2px -2px 4px #000, 2px -2px 4px #000, -2px 2px 4px #000;
       position: relative;
       z-index: 1;
     }
+
     .subtitle {
       font-size: 1.5rem;
       margin-top: 10px;
     }
+
     .title-container {
       background-color: rgba(0, 0, 51, 0.7);
       padding: 20px;
@@ -127,6 +152,7 @@
       display: inline-block;
       margin-top: 20px;
     }
+
     .project-logos {
       display: flex;
       flex-wrap: wrap;
@@ -134,29 +160,36 @@
       gap: 20px;
       margin-top: 30px;
     }
+
     .project-logo {
       width: 150px;
       height: 150px;
       border-radius: 50%;
       overflow: hidden;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 5px solid #4da6ff;
       box-shadow: 0 0 10px rgba(77, 166, 255, 0.7);
     }
+
     .project-logo:hover {
       transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(77, 166, 255, 0.9);
     }
+
     .project-logo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.3s ease;
     }
+
     .modal-body {
       display: flex;
       height: calc(100vh - 120px);
       overflow-y: auto;
     }
+
     .modal-image-container {
       flex: 1;
       display: flex;
@@ -165,16 +198,20 @@
       align-items: center;
       padding: 20px;
     }
+
     .modal-image-container img {
       max-width: 100%;
       max-height: 70vh;
       object-fit: contain;
+      transition: transform 0.3s ease;
     }
+
     .image-selector {
       display: flex;
       justify-content: center;
       margin-top: 10px;
     }
+
     .image-selector button {
       background: none;
       border: none;
@@ -182,31 +219,39 @@
       font-size: 24px;
       cursor: pointer;
       margin: 0 5px;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
+
     .image-selector button.active {
       color: #4da6ff;
+      transform: scale(1.2);
     }
+
     .project-details {
       flex: 1;
       padding: 20px;
     }
+
     .modal-fullscreen {
       width: 100vw;
       height: 100vh;
       margin: 0;
       max-width: none;
     }
+
     .modal-content {
       height: 100%;
       width: 100%;
+      transition: all 0.5s ease;
     }
+
     .modal-dialog {
       width: 100%;
       height: 100%;
       margin: 0;
       max-width: none;
     }
+
     .navigation-arrows {
       position: absolute;
       top: 50%;
@@ -216,6 +261,7 @@
       transform: translateY(-50%);
       z-index: 10;
     }
+
     .navigation-arrows button {
       background: rgba(0, 0, 51, 0.5);
       border: none;
@@ -229,26 +275,33 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: background 0.3s ease;
     }
+
     .navigation-arrows button:hover {
       background: rgba(0, 0, 51, 0.8);
     }
+
     .navigation-arrows .right-arrow {
       margin-right: 20px;
     }
+
     .modal-image-container {
       margin: 0 60px;
     }
+
     .modal-body {
       display: flex;
       flex-direction: row;
       align-items: center;
     }
+
     .filter-buttons {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
     }
+
     .filter-buttons button {
       background-color: #4da6ff;
       border: none;
@@ -257,9 +310,33 @@
       margin: 0 10px;
       color: white;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
+
     .filter-buttons button.active {
       background-color: #7ab8ff;
+    }
+
+    .btn {
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .modal {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .modal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .modal.hide {
+      opacity: 0;
+      transform: translateY(-20px);
     }
   </style>
 </head>
@@ -276,7 +353,7 @@
   <section id="about" class="container section reveal">
     <div class="row align-items-center">
       <div class="col-md-5 text-center mb-4">
-        <img src="Moi.jpg" alt="Photo de profil" class="img-fluid rounded" style="max-height: 400px;">
+        <img src="Moi.jpg" alt="Photo de profil" class="img-fluid rounded" style="max-height: 400px; transition: transform 0.3s ease;">
       </div>
       <div class="col-md-7">
         <h2>À propos</h2>
@@ -379,6 +456,7 @@
     </div>
   </section>
 
+  <!-- Modals for Projects -->
   <!-- Modal for Project 1 -->
   <div class="modal fade modal-fullscreen" id="projectModal1" tabindex="-1" aria-labelledby="projectModalLabel1" aria-hidden="true">
     <div class="modal-dialog">
@@ -727,7 +805,7 @@
       4: ["header (1).jpg", "ballex (1).png", "ballex (2).png", "ballex (3).png"],
       5: ["balance (1).jpg", "balance (1).png", "balance (2).png", "balance (3).png"],
       6: ["voiture (1).jpg", "voiture (1).png", "voiture (2).png", "voiture (3).png"],
-      7: ["Capture d'écran 2025-06-08 015925.png", "Capture d'écran 2025-06-08 020533.png", "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png", "Capture d'écran 2025-06-08 020630.png"],
+      7: ["Capture d'écran 2025-06-09 024811.png", "Capture d'écran 2025-06-08 020533.png", "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png", "Capture d'écran 2025-06-08 020630.png"],
       8: ["médiéval (1).png", "médiéval (2).png", "médiéval (3).png", "médiéval (4).png", "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"]
     };
 
@@ -862,7 +940,6 @@
       const emailP = document.querySelector("#contact .fa-envelope").parentElement;
       emailP.innerHTML = `<i class="fas fa-envelope" style="color: #4da6ff;"></i> <a href="mailto:${t.contactMail}">${t.email}</a>`;
 
-      // Update modal titles and descriptions
       document.querySelectorAll('.modal-title').forEach((element, index) => {
         element.textContent = t[`project${index + 1}Title`];
       });
@@ -887,7 +964,6 @@
       });
     });
 
-    // Initialize Bootstrap modals
     document.querySelectorAll('[data-bs-toggle="modal"]').forEach(modalTrigger => {
       modalTrigger.addEventListener('click', function() {
         currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
