@@ -214,16 +214,17 @@
       transition: width 1s ease;
     }
 
+    /* Logo des projets (plus petits et en cercle) */
     .project-card {
       background: rgba(26, 26, 46, 0.7);
       border-radius: 15px;
-      overflow: hidden;
       border: 1px solid var(--primary);
       transition: var(--transition);
       box-shadow: var(--glow);
       margin-bottom: 30px;
-      position: relative;
-      height: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
     }
 
     .project-card:hover {
@@ -233,41 +234,50 @@
 
     .project-card img {
       width: 100%;
-      height: 200px;
+      height: 150px;
       object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
       transition: var(--transition);
+      margin: 10px auto;
+      display: block;
     }
 
     .project-card:hover img {
       transform: scale(1.05);
+      border-color: var(--secondary);
     }
 
     .project-card .card-body {
-      padding: 20px;
-      height: 200px;
+      padding: 15px;
+      height: auto;
+      min-height: 150px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      text-align: center;
     }
 
     .project-card .card-title {
       color: var(--accent);
       font-family: 'Press Start 2P', cursive;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 10px;
     }
 
     .project-card .badge {
       background: var(--secondary);
       font-weight: 600;
-      margin-bottom: 10px;
-      align-self: flex-start;
+      margin: 5px auto;
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 10px;
     }
 
     .project-card .btn {
-      align-self: flex-end;
+      align-self: center;
       font-size: 0.8rem;
       padding: 8px 15px;
+      margin-top: auto;
     }
 
     .filter-buttons {
@@ -275,6 +285,7 @@
       justify-content: center;
       margin-bottom: 30px;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .filter-buttons button {
@@ -301,6 +312,7 @@
       border-radius: 15px;
       border: 2px solid var(--primary);
       box-shadow: var(--glow);
+      position: relative;
     }
 
     .modal-header {
@@ -314,6 +326,41 @@
 
     .modal-body {
       padding: 30px;
+      position: relative;
+    }
+
+    .navigation-arrows {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .navigation-arrows button {
+      background: rgba(26, 26, 46, 0.7);
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      box-shadow: var(--glow);
+    }
+
+    .navigation-arrows button:hover {
+      background: var(--primary);
+      transform: scale(1.1);
     }
 
     .image-selector {
@@ -335,6 +382,15 @@
     .image-selector button.active {
       color: var(--accent);
       transform: scale(1.3);
+    }
+
+    .modal-body img {
+      max-height: 400px;
+      width: auto;
+      border-radius: 10px;
+      border: 2px solid var(--accent);
+      display: block;
+      margin: 0 auto;
     }
 
     .timeline {
@@ -463,6 +519,13 @@
       }
       .side-buttons {
         display: none;
+      }
+      .project-card {
+        min-height: auto;
+      }
+      .col-lg-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
       }
     }
   </style>
@@ -598,7 +661,7 @@
     </div>
     <div class="row" id="projects-container">
       <!-- Pirates de l'étang -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
+      <div class="col-md-4 col-lg-3 project-item" data-category="Unity">
         <div class="project-card">
           <img src="pirate.png" alt="Pirates de l'étang">
           <div class="card-body">
@@ -610,7 +673,7 @@
         </div>
       </div>
       <!-- BABURU -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
+      <div class="col-md-4 col-lg-3 project-item" data-category="Unity">
         <div class="project-card">
           <img src="bulle.png" alt="BABURU">
           <div class="card-body">
@@ -622,7 +685,7 @@
         </div>
       </div>
       <!-- Pablo -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
+      <div class="col-md-4 col-lg-3 project-item" data-category="Unity">
         <div class="project-card">
           <img src="chapeau.png" alt="Pablo">
           <div class="card-body">
@@ -634,7 +697,7 @@
         </div>
       </div>
       <!-- Bouloux -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
+      <div class="col-md-4 col-lg-3 project-item" data-category="Unity">
         <div class="project-card">
           <img src="logo bouloux.jpg" alt="Bouloux">
           <div class="card-body">
@@ -646,7 +709,7 @@
         </div>
       </div>
       <!-- Balance ton archétype -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
+      <div class="col-md-4 col-lg-3 project-item" data-category="Unity">
         <div class="project-card">
           <img src="balance (1).jpg" alt="Balance ton archétype">
           <div class="card-body">
@@ -658,7 +721,7 @@
         </div>
       </div>
       <!-- Route 66 -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
+      <div class="col-md-4 col-lg-3 project-item" data-category="Unity">
         <div class="project-card">
           <img src="voiture (1).jpg" alt="Route 66">
           <div class="card-body">
@@ -670,7 +733,7 @@
         </div>
       </div>
       <!-- Garage The Borges -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="HTML">
+      <div class="col-md-4 col-lg-3 project-item" data-category="HTML">
         <div class="project-card">
           <img src="Capture d'écran 2025-06-09 024811.png" alt="Garage The Borges">
           <div class="card-body">
@@ -682,7 +745,7 @@
         </div>
       </div>
       <!-- Écuyer des Ombres -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Unreal">
+      <div class="col-md-4 col-lg-3 project-item" data-category="Unreal">
         <div class="project-card">
           <img src="medieval.png" alt="Écuyer des Ombres">
           <div class="card-body">
@@ -726,6 +789,10 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
+          </div>
           <div class="text-center mb-4">
             <img id="projectImage1" src="1_Pirate.jpg" alt="Pirates de l'étang" class="img-fluid rounded">
           </div>
@@ -759,6 +826,10 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
+          </div>
           <div class="text-center mb-4">
             <img id="projectImage2" src="bulle1 (1).png" alt="BABURU" class="img-fluid rounded">
           </div>
@@ -792,6 +863,10 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
+          </div>
           <div class="text-center mb-4">
             <img id="projectImage3" src="mexi (2).png" alt="Pablo" class="img-fluid rounded">
           </div>
@@ -825,6 +900,10 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
+          </div>
           <div class="text-center mb-4">
             <img id="projectImage4" src="header (2).jpg" alt="Bouloux" class="img-fluid rounded">
           </div>
@@ -858,6 +937,10 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
+          </div>
           <div class="text-center mb-4">
             <img id="projectImage5" src="balance (1).jpg" alt="Balance ton archétype" class="img-fluid rounded">
           </div>
@@ -891,6 +974,10 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
+          </div>
           <div class="text-center mb-4">
             <img id="projectImage6" src="voiture (1).jpg" alt="Route 66" class="img-fluid rounded">
           </div>
@@ -924,6 +1011,10 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
+          </div>
           <div class="text-center mb-4">
             <img id="projectImage7" src="Capture d'écran 2025-06-09 024811.png" alt="Garage The Borges" class="img-fluid rounded">
           </div>
@@ -955,6 +1046,10 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <div class="navigation-arrows">
+            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
+          </div>
           <div class="text-center mb-4">
             <img id="projectImage8" src="medieval.png" alt="Écuyer des Ombres" class="img-fluid rounded">
           </div>
@@ -1044,6 +1139,28 @@
       event.target.classList.add('active');
     }
 
+    // Variable globale pour suivre le projet actuel
+    let currentProject = 1;
+
+    // Fonction pour naviguer entre les projets
+    function changeProject(direction) {
+      const currentModal = bootstrap.Modal.getInstance(document.getElementById(`projectModal${currentProject}`));
+      currentModal.hide();
+
+      // Calcul du nouvel ID (boucle de 1 à 8)
+      currentProject = (((currentProject + direction - 1 + 8) % 8) + 1);
+      const newModal = new bootstrap.Modal(document.getElementById(`projectModal${currentProject}`));
+      newModal.show();
+
+      // Réinitialise l'image active dans le nouveau modal
+      setTimeout(() => {
+        document.querySelectorAll('.image-selector-button').forEach(button => {
+          button.classList.remove('active');
+        });
+        document.querySelector('.image-selector-button:first-child').classList.add('active');
+      }, 300);
+    }
+
     // Fonction pour filtrer les projets
     function filterProjects(category) {
       const items = document.querySelectorAll('.project-item');
@@ -1059,6 +1176,13 @@
       });
       event.target.classList.add('active');
     }
+
+    // Initialisation : ajoute l'écouteur pour réinitialiser currentProject au clic sur un projet
+    document.querySelectorAll('[data-bs-target]').forEach(button => {
+      button.addEventListener('click', function() {
+        currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
+      });
+    });
 
     // Easter Egg
     const easterEgg = document.querySelector('.easter-egg');
