@@ -449,34 +449,6 @@
       width: 24px;
       height: 16px;
     }
-    .project-navigation {
-      position: fixed;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 1001;
-    }
-    .project-navigation button {
-      background: var(--primary);
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      cursor: pointer;
-      transition: var(--transition);
-      box-shadow: var(--glow);
-    }
-    .project-navigation button:hover {
-      background: var(--primary-light);
-      transform: scale(1.1);
-    }
     .profile-img-container {
       width: 300px;
       height: 300px;
@@ -490,6 +462,36 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+    /* CSS pour les flèches de navigation dans les modals */
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(26, 26, 46, 0.8);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 1050;
+      transition: var(--transition);
+      box-shadow: var(--glow);
+    }
+    .modal-nav:hover {
+      background: var(--primary);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .modal-nav-left {
+      left: -25px;
+    }
+    .modal-nav-right {
+      right: -25px;
     }
     @media (max-width: 768px) {
       header h1 {
@@ -509,9 +511,6 @@
         width: 250px;
         height: 250px;
       }
-      .project-navigation {
-        right: 10px;
-      }
     }
   </style>
 </head>
@@ -521,11 +520,6 @@
   <!-- Easter Egg -->
   <div class="easter-egg" title="Konami Code ?">
     <i class="fas fa-gamepad"></i>
-  </div>
-  <!-- Project Navigation Arrows (outside modals) -->
-  <div class="project-navigation">
-    <button id="prevProject" title="Projet précédent"><i class="fas fa-chevron-up"></i></button>
-    <button id="nextProject" title="Projet suivant"><i class="fas fa-chevron-down"></i></button>
   </div>
   <header class="text-center section reveal">
     <div class="title-container">
@@ -775,6 +769,10 @@
   <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <!-- Flèche gauche -->
+        <button type="button" class="modal-nav modal-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
         <div class="modal-header">
           <h5 class="modal-title">Pirates de l'étang</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -802,6 +800,10 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+        <!-- Flèche droite -->
+        <button type="button" class="modal-nav modal-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -809,6 +811,10 @@
   <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <!-- Flèche gauche -->
+        <button type="button" class="modal-nav modal-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
         <div class="modal-header">
           <h5 class="modal-title">BABURU</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -836,6 +842,10 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+        <!-- Flèche droite -->
+        <button type="button" class="modal-nav modal-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -843,6 +853,10 @@
   <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <!-- Flèche gauche -->
+        <button type="button" class="modal-nav modal-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
         <div class="modal-header">
           <h5 class="modal-title">Pablo</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -870,6 +884,10 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+        <!-- Flèche droite -->
+        <button type="button" class="modal-nav modal-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -877,6 +895,10 @@
   <div class="modal fade" id="projectModal4" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <!-- Flèche gauche -->
+        <button type="button" class="modal-nav modal-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
         <div class="modal-header">
           <h5 class="modal-title">Bouloux</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -904,6 +926,10 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+        <!-- Flèche droite -->
+        <button type="button" class="modal-nav modal-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -911,6 +937,10 @@
   <div class="modal fade" id="projectModal5" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <!-- Flèche gauche -->
+        <button type="button" class="modal-nav modal-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
         <div class="modal-header">
           <h5 class="modal-title">Balance ton archétype</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -938,6 +968,10 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+        <!-- Flèche droite -->
+        <button type="button" class="modal-nav modal-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -945,6 +979,10 @@
   <div class="modal fade" id="projectModal6" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <!-- Flèche gauche -->
+        <button type="button" class="modal-nav modal-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
         <div class="modal-header">
           <h5 class="modal-title">Route 66</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -972,6 +1010,10 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+        <!-- Flèche droite -->
+        <button type="button" class="modal-nav modal-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -979,6 +1021,10 @@
   <div class="modal fade" id="projectModal7" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <!-- Flèche gauche -->
+        <button type="button" class="modal-nav modal-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
         <div class="modal-header">
           <h5 class="modal-title">Garage The Borges</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1004,6 +1050,10 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+        <!-- Flèche droite -->
+        <button type="button" class="modal-nav modal-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -1011,6 +1061,10 @@
   <div class="modal fade" id="projectModal8" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <!-- Flèche gauche -->
+        <button type="button" class="modal-nav modal-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
         <div class="modal-header">
           <h5 class="modal-title">Écuyer des Ombres</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1038,6 +1092,10 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+        <!-- Flèche droite -->
+        <button type="button" class="modal-nav modal-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -1185,7 +1243,7 @@
         "WEB": "WEB",
         "VOIR PLUS": "VOIR PLUS",
         "Fermer": "Fermer",
-        "Télécharger le projet": "TÉLÉCHARGER LE PROJET",
+        "Télécharger le projet": "Télécharger le projet",
         "Accueil": "Accueil",
         "À propos": "À propos",
         "Compétences": "Compétences",
@@ -1267,7 +1325,7 @@
         "Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.": "Baburu is a narrative light novel in which you play as Alin, a shy boy who likes to retreat into his bubble and creates an extroverted personality he calls Alex. In Baburu, your goal will be to protect yourself from the outside world by staying in your bubble and preventing anyone from entering it. In this poetic game with strong ludonarrative dissonance, you will have to choose between safety and friendships.",
         "Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.": "I am the origin of everything in the game in terms of programming. This is a project we started in class, meant to teach us the use of singletons and GameObject instantiation.",
         "Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.": "Ballex is a 3D puzzle-action game with aesthetically pleasing graphics and complex gameplay. You will have to control a ball capable of changing its physical state as you progress through the levels.",
-        "Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.": "Balance ton archétype is a serious game icebreaker in which people present themselves according to the archetype randomly assigned to them; their goal is to find everyone's archetype at the end. The game combines virtual and physical support. I was in charge of developing the random role assignments as well as the different voting and presentation phases by updating the UI.",
+        "Balance ton archétype est un serious game icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.": "Balance ton archétype is a serious game icebreaker in which people present themselves according to the archetype randomly assigned to them; their goal is to find everyone's archetype at the end. The game combines virtual and physical support. I was in charge of developing the random role assignments as well as the different voting and presentation phases by updating the UI.",
         "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.": "Design of Route 66 inspired by Overwatch's Route 66.",
         "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.": "Welcome to the official website of our car dealership. This website, entirely developed in HTML and PHP, allows you to discover our entire catalog of new and used vehicles. With a simple and intuitive interface, you can view detailed sheets of available cars, search for a model according to your criteria, and make an appointment online for a test drive or a trade-in estimate. This project reflects my dynamic web development work and my ability to create functional tools tailored to the needs of professionals.",
         "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d’un donjon maudit qui s’est récemment éveillé. D’étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades… et nulle armée en vue pour les défendre.": "The game takes place in a medieval fantasy kingdom. The village of Valombre lives under the threat of a cursed dungeon that has recently awakened. Strange creatures roam there and shadows creep into the neighboring woods. The terrified villagers have seen their daily lives disrupted: burned crops, missing livestock, sick children... and no army in sight to defend them.",
@@ -1299,9 +1357,6 @@
         const newLang = currentLang === 'fr' ? 'en' : 'fr';
         changeLanguage(newLang);
       });
-      // Écouteurs pour les flèches de navigation entre projets
-      document.getElementById('prevProject').addEventListener('click', () => changeProject(-1));
-      document.getElementById('nextProject').addEventListener('click', () => changeProject(1));
     });
   </script>
 </body>
