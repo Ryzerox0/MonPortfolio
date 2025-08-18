@@ -223,7 +223,7 @@
       box-shadow: var(--glow);
       margin-bottom: 30px;
       position: relative;
-      overflow: hidden;
+      height: 100%;
     }
 
     .project-card:hover {
@@ -244,18 +244,30 @@
 
     .project-card .card-body {
       padding: 20px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .project-card .card-title {
       color: var(--accent);
       font-family: 'Press Start 2P', cursive;
       font-size: 1.2rem;
+      margin-bottom: 10px;
     }
 
     .project-card .badge {
       background: var(--secondary);
       font-weight: 600;
       margin-bottom: 10px;
+      align-self: flex-start;
+    }
+
+    .project-card .btn {
+      align-self: flex-end;
+      font-size: 0.8rem;
+      padding: 8px 15px;
     }
 
     .filter-buttons {
@@ -307,7 +319,7 @@
     .image-selector {
       display: flex;
       justify-content: center;
-      margin-top: 20px;
+      margin: 20px 0;
     }
 
     .image-selector button {
@@ -477,7 +489,7 @@
   <section id="about" class="container section reveal">
     <div class="row align-items-center">
       <div class="col-lg-5 text-center mb-4">
-        <img src="Moi.jpg" alt="Photo de profil" class="img-fluid rounded-circle" style="max-height: 300px; border: 3px solid var(--accent); box-shadow: var(--glow);">
+        <img src="Moi.png" alt="Photo de profil" class="img-fluid rounded-circle" style="max-height: 300px; border: 3px solid var(--accent); box-shadow: var(--glow);">
       </div>
       <div class="col-lg-7">
         <h2 class="mb-4">À PROPOS DE MOI</h2>
@@ -585,6 +597,7 @@
       <button onclick="filterProjects('HTML')">WEB</button>
     </div>
     <div class="row" id="projects-container">
+      <!-- Pirates de l'étang -->
       <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
         <div class="project-card">
           <img src="pirate.png" alt="Pirates de l'étang">
@@ -596,6 +609,7 @@
           </div>
         </div>
       </div>
+      <!-- BABURU -->
       <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
         <div class="project-card">
           <img src="bulle.png" alt="BABURU">
@@ -607,6 +621,7 @@
           </div>
         </div>
       </div>
+      <!-- Pablo -->
       <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
         <div class="project-card">
           <img src="chapeau.png" alt="Pablo">
@@ -618,6 +633,7 @@
           </div>
         </div>
       </div>
+      <!-- Bouloux -->
       <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
         <div class="project-card">
           <img src="logo bouloux.jpg" alt="Bouloux">
@@ -629,6 +645,7 @@
           </div>
         </div>
       </div>
+      <!-- Balance ton archétype -->
       <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
         <div class="project-card">
           <img src="balance (1).jpg" alt="Balance ton archétype">
@@ -640,6 +657,7 @@
           </div>
         </div>
       </div>
+      <!-- Route 66 -->
       <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
         <div class="project-card">
           <img src="voiture (1).jpg" alt="Route 66">
@@ -651,6 +669,7 @@
           </div>
         </div>
       </div>
+      <!-- Garage The Borges -->
       <div class="col-md-6 col-lg-4 project-item" data-category="HTML">
         <div class="project-card">
           <img src="Capture d'écran 2025-06-09 024811.png" alt="Garage The Borges">
@@ -662,6 +681,7 @@
           </div>
         </div>
       </div>
+      <!-- Écuyer des Ombres -->
       <div class="col-md-6 col-lg-4 project-item" data-category="Unreal">
         <div class="project-card">
           <img src="medieval.png" alt="Écuyer des Ombres">
@@ -696,6 +716,269 @@
     </div>
   </section>
 
+  <!-- Modals -->
+  <!-- Modal Pirates de l'étang -->
+  <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Pirates de l'étang</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center mb-4">
+            <img id="projectImage1" src="1_Pirate.jpg" alt="Pirates de l'étang" class="img-fluid rounded">
+          </div>
+          <div class="image-selector mb-3">
+            <button class="image-selector-button active" onclick="changeImage(1, 0)">●</button>
+            <button class="image-selector-button" onclick="changeImage(1, 1)">●</button>
+            <button class="image-selector-button" onclick="changeImage(1, 2)">●</button>
+            <button class="image-selector-button" onclick="changeImage(1, 3)">●</button>
+          </div>
+          <p><strong>Catégorie:</strong> Unity</p>
+          <p><strong>Utilité :</strong> Développeur / Sound Designer</p>
+          <p><strong>Durée :</strong> Un mois</p>
+          <p>Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !</p>
+        </div>
+        <div class="modal-footer">
+          <a href="build-pirate.zip" class="btn btn-primary" download>
+            <i class="fas fa-download"></i> Télécharger le projet
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal BABURU -->
+  <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">BABURU</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center mb-4">
+            <img id="projectImage2" src="bulle1 (1).png" alt="BABURU" class="img-fluid rounded">
+          </div>
+          <div class="image-selector mb-3">
+            <button class="image-selector-button active" onclick="changeImage(2, 0)">●</button>
+            <button class="image-selector-button" onclick="changeImage(2, 1)">●</button>
+            <button class="image-selector-button" onclick="changeImage(2, 2)">●</button>
+            <button class="image-selector-button" onclick="changeImage(2, 3)">●</button>
+          </div>
+          <p><strong>Catégorie:</strong> Unity</p>
+          <p><strong>Utilité :</strong> Développeur Gameplay</p>
+          <p><strong>Durée :</strong> 2 jours</p>
+          <p>Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="build-baburu.zip" class="btn btn-primary" download>
+            <i class="fas fa-download"></i> Télécharger le projet
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Pablo -->
+  <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Pablo</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center mb-4">
+            <img id="projectImage3" src="mexi (2).png" alt="Pablo" class="img-fluid rounded">
+          </div>
+          <div class="image-selector mb-3">
+            <button class="image-selector-button active" onclick="changeImage(3, 0)">●</button>
+            <button class="image-selector-button" onclick="changeImage(3, 1)">●</button>
+            <button class="image-selector-button" onclick="changeImage(3, 2)">●</button>
+            <button class="image-selector-button" onclick="changeImage(3, 3)">●</button>
+          </div>
+          <p><strong>Catégorie:</strong> Unity</p>
+          <p><strong>Utilité :</strong> Développeur Gameplay</p>
+          <p><strong>Durée :</strong> Un mois</p>
+          <p>Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="Build-Pablo.zip" class="btn btn-primary" download>
+            <i class="fas fa-download"></i> Télécharger le projet
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Bouloux -->
+  <div class="modal fade" id="projectModal4" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Bouloux</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center mb-4">
+            <img id="projectImage4" src="header (2).jpg" alt="Bouloux" class="img-fluid rounded">
+          </div>
+          <div class="image-selector mb-3">
+            <button class="image-selector-button active" onclick="changeImage(4, 0)">●</button>
+            <button class="image-selector-button" onclick="changeImage(4, 1)">●</button>
+            <button class="image-selector-button" onclick="changeImage(4, 2)">●</button>
+            <button class="image-selector-button" onclick="changeImage(4, 3)">●</button>
+          </div>
+          <p><strong>Catégorie:</strong> Unity</p>
+          <p><strong>Utilité :</strong> Développeur Gameplay</p>
+          <p><strong>Durée :</strong> 1 mois</p>
+          <p>Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="Build-bouloux.zip" class="btn btn-primary" download>
+            <i class="fas fa-download"></i> Télécharger le projet
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Balance ton archétype -->
+  <div class="modal fade" id="projectModal5" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Balance ton archétype</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center mb-4">
+            <img id="projectImage5" src="balance (1).jpg" alt="Balance ton archétype" class="img-fluid rounded">
+          </div>
+          <div class="image-selector mb-3">
+            <button class="image-selector-button active" onclick="changeImage(5, 0)">●</button>
+            <button class="image-selector-button" onclick="changeImage(5, 1)">●</button>
+            <button class="image-selector-button" onclick="changeImage(5, 2)">●</button>
+            <button class="image-selector-button" onclick="changeImage(5, 3)">●</button>
+          </div>
+          <p><strong>Catégorie:</strong> Unity</p>
+          <p><strong>Utilité :</strong> Développeur Gameplay</p>
+          <p><strong>Durée :</strong> 1 mois</p>
+          <p>Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="Build-BalanceTonArchetype.zip" class="btn btn-primary" download>
+            <i class="fas fa-download"></i> Télécharger le projet
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Route 66 -->
+  <div class="modal fade" id="projectModal6" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Route 66</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center mb-4">
+            <img id="projectImage6" src="voiture (1).jpg" alt="Route 66" class="img-fluid rounded">
+          </div>
+          <div class="image-selector mb-3">
+            <button class="image-selector-button active" onclick="changeImage(6, 0)">●</button>
+            <button class="image-selector-button" onclick="changeImage(6, 1)">●</button>
+            <button class="image-selector-button" onclick="changeImage(6, 2)">●</button>
+            <button class="image-selector-button" onclick="changeImage(6, 3)">●</button>
+          </div>
+          <p><strong>Catégorie:</strong> Unity</p>
+          <p><strong>Utilité :</strong> Artiste 3D/Lighting</p>
+          <p><strong>Durée :</strong> 1 semaine</p>
+          <p>Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="build-route-66.zip" class="btn btn-primary" download>
+            <i class="fas fa-download"></i> Télécharger le projet
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Garage The Borges -->
+  <div class="modal fade" id="projectModal7" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Garage The Borges</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center mb-4">
+            <img id="projectImage7" src="Capture d'écran 2025-06-09 024811.png" alt="Garage The Borges" class="img-fluid rounded">
+          </div>
+          <div class="image-selector mb-3">
+            <button class="image-selector-button active" onclick="changeImage(7, 0)">●</button>
+            <button class="image-selector-button" onclick="changeImage(7, 1)">●</button>
+            <button class="image-selector-button" onclick="changeImage(7, 2)">●</button>
+            <button class="image-selector-button" onclick="changeImage(7, 3)">●</button>
+            <button class="image-selector-button" onclick="changeImage(7, 4)">●</button>
+          </div>
+          <p><strong>Catégorie:</strong> HTML et PHP</p>
+          <p><strong>Utilité :</strong> Développeur du site</p>
+          <p><strong>Durée :</strong> 1 mois</p>
+          <p>Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Écuyer des Ombres -->
+  <div class="modal fade" id="projectModal8" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Écuyer des Ombres</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center mb-4">
+            <img id="projectImage8" src="medieval.png" alt="Écuyer des Ombres" class="img-fluid rounded">
+          </div>
+          <div class="image-selector mb-3">
+            <button class="image-selector-button active" onclick="changeImage(8, 0)">●</button>
+            <button class="image-selector-button" onclick="changeImage(8, 1)">●</button>
+            <button class="image-selector-button" onclick="changeImage(8, 2)">●</button>
+            <button class="image-selector-button" onclick="changeImage(8, 3)">●</button>
+            <button class="image-selector-button" onclick="changeImage(8, 4)">●</button>
+            <button class="image-selector-button" onclick="changeImage(8, 5)">●</button>
+            <button class="image-selector-button" onclick="changeImage(8, 6)">●</button>
+          </div>
+          <p><strong>Catégorie:</strong> Unreal</p>
+          <p><strong>Utilité :</strong> Développeur et Sound Designer</p>
+          <p><strong>Durée :</strong> 1 mois et demi</p>
+          <p>Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d’un donjon maudit qui s’est récemment éveillé. D’étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades… et nulle armée en vue pour les défendre.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="side-buttons">
     <a href="#top" class="btn-circle" title="Accueil"><i class="fas fa-home"></i><span class="btn-text"> Accueil</span></a>
     <a href="#about" class="btn-circle" title="À propos"><i class="fas fa-user"></i><span class="btn-text"> À propos</span></a>
@@ -707,30 +990,6 @@
   <footer class="footer text-center">
     <p>&copy; 2025 Baptiste Curie-Cadet. Tous droits réservés.</p>
   </footer>
-
-  <!-- Modals (inchangés, mais avec le nouveau style) -->
-  <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Pirates de l'étang</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <img src="1_Pirate.jpg" alt="Pirates de l'étang" class="img-fluid mb-4">
-          <p><strong>Catégorie:</strong> Unity</p>
-          <p><strong>Utilité :</strong> Développeur / Sound Designer</p>
-          <p><strong>Durée :</strong> Un mois</p>
-          <p>Jouez en tant que Jack Moineau, un pirate échoué sur une île maudite. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !</p>
-        </div>
-        <div class="modal-footer">
-          <a href="build-pirate.zip" class="btn btn-primary">Télécharger le projet</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- (Les autres modals suivent le même modèle) -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -763,7 +1022,29 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Filtre projets
+    // Tableau des images pour chaque projet
+    const projectImages = {
+      1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
+      2: ["bulle1 (1).png", "bulle1 (2).png", "bulle1 (3).png", "bulle1 (4).png"],
+      3: ["mexi (2).png", "mexi.png", "mexi (3).png", "mexi (4).png"],
+      4: ["header (2).jpg", "ballex (1).png", "ballex (2).png", "ballex (3).png"],
+      5: ["balance (1).jpg", "balance (1).png", "balance (2).png", "balance (3).png"],
+      6: ["voiture (1).jpg", "voiture (1).png", "voiture (2).png", "voiture (3).png"],
+      7: ["Capture d'écran 2025-06-09 024811.png", "Capture d'écran 2025-06-08 020533.png", "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png", "Capture d'écran 2025-06-08 020630.png"],
+      8: ["médiéval (1).png", "médiéval (2).png", "médiéval (3).png", "médiéval (4).png", "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"]
+    };
+
+    // Fonction pour changer l'image affichée dans le modal
+    function changeImage(projectId, imageIndex) {
+      const imageElement = document.getElementById(`projectImage${projectId}`);
+      imageElement.src = projectImages[projectId][imageIndex];
+      document.querySelectorAll(`.image-selector-button`).forEach(button => {
+        button.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+
+    // Fonction pour filtrer les projets
     function filterProjects(category) {
       const items = document.querySelectorAll('.project-item');
       items.forEach(item => {
