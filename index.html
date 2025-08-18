@@ -207,7 +207,7 @@
     .project-card img {
       width: 100%;
       height: 200px;
-      object-fit: contain;
+      object-fit: cover;
       background: rgba(0, 0, 0, 0.3);
       border-radius: 10px;
       border: 1px solid var(--primary);
@@ -288,36 +288,14 @@
       padding: 30px;
       position: relative;
     }
-    .navigation-arrows {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 20px;
-      transform: translateY(-50%);
-      z-index: 10;
-    }
-    .navigation-arrows button {
-      background: rgba(26, 26, 46, 0.7);
-      border: none;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      padding: 10px 15px;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-      box-shadow: var(--glow);
-    }
-    .navigation-arrows button:hover {
-      background: var(--primary);
-      transform: scale(1.1);
+    .modal-body img {
+      max-height: 400px;
+      width: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 2px solid var(--accent);
+      display: block;
+      margin: 0 auto;
     }
     .image-selector {
       display: flex;
@@ -336,14 +314,6 @@
     .image-selector button.active {
       color: var(--accent);
       transform: scale(1.3);
-    }
-    .modal-body img {
-      max-height: 400px;
-      width: auto;
-      border-radius: 10px;
-      border: 2px solid var(--accent);
-      display: block;
-      margin: 0 auto;
     }
     .timeline {
       position: relative;
@@ -479,6 +449,48 @@
       width: 24px;
       height: 16px;
     }
+    .project-navigation {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1001;
+    }
+    .project-navigation button {
+      background: var(--primary);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--glow);
+    }
+    .project-navigation button:hover {
+      background: var(--primary-light);
+      transform: scale(1.1);
+    }
+    .profile-img-container {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent);
+      box-shadow: var(--glow);
+      margin: 0 auto;
+    }
+    .profile-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     @media (max-width: 768px) {
       header h1 {
         font-size: 2.5rem;
@@ -493,6 +505,13 @@
       .project-card img {
         height: 150px;
       }
+      .profile-img-container {
+        width: 250px;
+        height: 250px;
+      }
+      .project-navigation {
+        right: 10px;
+      }
     }
   </style>
 </head>
@@ -502,6 +521,11 @@
   <!-- Easter Egg -->
   <div class="easter-egg" title="Konami Code ?">
     <i class="fas fa-gamepad"></i>
+  </div>
+  <!-- Project Navigation Arrows (outside modals) -->
+  <div class="project-navigation">
+    <button id="prevProject" title="Projet précédent"><i class="fas fa-chevron-up"></i></button>
+    <button id="nextProject" title="Projet suivant"><i class="fas fa-chevron-down"></i></button>
   </div>
   <header class="text-center section reveal">
     <div class="title-container">
@@ -515,7 +539,9 @@
   <section id="about" class="container section reveal">
     <div class="row align-items-center">
       <div class="col-lg-5 text-center mb-4">
-        <img src="Moi.png" alt="Photo de profil" class="img-fluid rounded-circle" style="max-height: 300px; border: 3px solid var(--accent); box-shadow: var(--glow);">
+        <div class="profile-img-container">
+          <img src="Moi.png" alt="Photo de profil">
+        </div>
       </div>
       <div class="col-lg-7">
         <h2 class="mb-4" data-translate="À PROPOS DE MOI">À PROPOS DE MOI</h2>
@@ -754,10 +780,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="navigation-arrows">
-            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
-            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
-          </div>
           <div class="text-center mb-4">
             <img id="projectImage1" src="1_Pirate.jpg" alt="Pirates de l'étang" class="img-fluid rounded">
           </div>
@@ -792,10 +814,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="navigation-arrows">
-            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
-            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
-          </div>
           <div class="text-center mb-4">
             <img id="projectImage2" src="bulle1 (1).png" alt="BABURU" class="img-fluid rounded">
           </div>
@@ -830,10 +848,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="navigation-arrows">
-            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
-            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
-          </div>
           <div class="text-center mb-4">
             <img id="projectImage3" src="mexi (2).png" alt="Pablo" class="img-fluid rounded">
           </div>
@@ -868,10 +882,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="navigation-arrows">
-            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
-            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
-          </div>
           <div class="text-center mb-4">
             <img id="projectImage4" src="header (2).jpg" alt="Bouloux" class="img-fluid rounded">
           </div>
@@ -906,10 +916,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="navigation-arrows">
-            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
-            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
-          </div>
           <div class="text-center mb-4">
             <img id="projectImage5" src="balance (1).jpg" alt="Balance ton archétype" class="img-fluid rounded">
           </div>
@@ -927,7 +933,7 @@
           </p>
         </div>
         <div class="modal-footer">
-          <a href="Build-Balalncetonarchétype.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
+          <a href="Build-BalanceTonArchetype.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
@@ -944,10 +950,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="navigation-arrows">
-            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
-            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
-          </div>
           <div class="text-center mb-4">
             <img id="projectImage6" src="voiture (1).jpg" alt="Route 66" class="img-fluid rounded">
           </div>
@@ -982,10 +984,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="navigation-arrows">
-            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
-            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
-          </div>
           <div class="text-center mb-4">
             <img id="projectImage7" src="Capture d'écran 2025-06-09 024811.png" alt="Garage The Borges" class="img-fluid rounded">
           </div>
@@ -1018,10 +1016,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="navigation-arrows">
-            <button onclick="changeProject(-1)"><i class="fas fa-chevron-left"></i></button>
-            <button onclick="changeProject(1)"><i class="fas fa-chevron-right"></i></button>
-          </div>
           <div class="text-center mb-4">
             <img id="projectImage8" src="medieval.png" alt="Écuyer des Ombres" class="img-fluid rounded">
           </div>
@@ -1115,8 +1109,10 @@
     let currentProject = 1;
     // Fonction pour naviguer entre les projets
     function changeProject(direction) {
-      const currentModal = bootstrap.Modal.getInstance(document.getElementById(`projectModal${currentProject}`));
-      currentModal.hide();
+      const currentModal = bootstrap.Modal.getInstance(document.querySelector('.modal.show'));
+      if (currentModal) {
+        currentModal.hide();
+      }
       // Calcul du nouvel ID (boucle de 1 à 8)
       currentProject = (((currentProject + direction - 1 + 8) % 8) + 1);
       const newModal = new bootstrap.Modal(document.getElementById(`projectModal${currentProject}`));
@@ -1303,6 +1299,9 @@
         const newLang = currentLang === 'fr' ? 'en' : 'fr';
         changeLanguage(newLang);
       });
+      // Écouteurs pour les flèches de navigation entre projets
+      document.getElementById('prevProject').addEventListener('click', () => changeProject(-1));
+      document.getElementById('nextProject').addEventListener('click', () => changeProject(1));
     });
   </script>
 </body>
