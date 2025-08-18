@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Baptiste Curie-Cadet | Game Dev & Serious Games</title>
+  <title data-translate="Portfolio - Baptiste Curie-Cadet | Game Dev & Serious Games">Portfolio - Baptiste Curie-Cadet | Game Dev & Serious Games</title>
   <link rel="icon" type="image/png" href="manette.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -20,7 +20,6 @@
       --glow: 0 0 10px rgba(173, 198, 255, 0.7);
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-
     body {
       background: linear-gradient(135deg, var(--darker) 0%, #0f0c29 25%, #1a1a2e 100%);
       color: var(--light);
@@ -30,7 +29,6 @@
       overflow-x: hidden;
       min-height: 100vh;
     }
-
     #particles-js {
       position: fixed;
       width: 100%;
@@ -39,27 +37,23 @@
       left: 0;
       z-index: -1;
     }
-
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Rajdhani', sans-serif;
       font-weight: 600;
       color: var(--primary-light);
       text-shadow: 0 0 5px rgba(173, 198, 255, 0.5);
     }
-
     .game-font {
       font-family: 'Press Start 2P', cursive;
       letter-spacing: 2px;
       color: var(--accent);
       text-shadow: 0 0 5px rgba(78, 205, 196, 0.7);
     }
-
     .section {
       padding: 80px 0;
       border-bottom: 1px solid rgba(173, 198, 255, 0.2);
       position: relative;
     }
-
     .btn {
       transition: var(--transition);
       border-radius: 50px;
@@ -70,7 +64,6 @@
       position: relative;
       z-index: 1;
     }
-
     .btn::after {
       content: '';
       position: absolute;
@@ -83,35 +76,28 @@
       transition: var(--transition);
       z-index: -1;
     }
-
     .btn:hover::after {
       transform: translateX(100%);
     }
-
     .btn-primary {
       background: var(--primary);
       color: white;
     }
-
     .btn-secondary {
       background: var(--secondary);
       color: white;
     }
-
     .btn-accent {
       background: var(--accent);
       color: var(--dark);
     }
-
     .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
-
     .btn:active {
       transform: translateY(1px);
     }
-
     header {
       background: linear-gradient(135deg, var(--darker) 0%, #0f0c29 100%);
       color: white;
@@ -124,25 +110,21 @@
       position: relative;
       overflow: hidden;
     }
-
     header h1 {
       font-size: 3.5rem;
       margin-bottom: 20px;
       animation: float 3s ease-in-out infinite;
     }
-
     @keyframes float {
       0% { transform: translateY(0px); }
       50% { transform: translateY(-10px); }
       100% { transform: translateY(0px); }
     }
-
     .subtitle {
       font-size: 1.5rem;
       margin-top: 10px;
       opacity: 0.9;
     }
-
     .title-container {
       background: rgba(26, 26, 46, 0.8);
       padding: 30px 40px;
@@ -152,7 +134,6 @@
       display: inline-block;
       margin-top: 20px;
     }
-
     .side-buttons {
       position: fixed;
       top: 50%;
@@ -163,7 +144,6 @@
       gap: 15px;
       z-index: 1000;
     }
-
     .btn-circle {
       background: var(--primary);
       border: none;
@@ -180,23 +160,19 @@
       overflow: hidden;
       box-shadow: var(--glow);
     }
-
     .btn-circle:hover {
       width: 180px;
       background: var(--primary-light);
     }
-
     .btn-text {
       display: none;
       margin-left: 10px;
       white-space: nowrap;
       font-family: 'Rajdhani', sans-serif;
     }
-
     .btn-circle:hover .btn-text {
       display: inline;
     }
-
     .progress {
       background: rgba(0, 0, 0, 0.3);
       height: 25px;
@@ -205,7 +181,6 @@
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
       border: 1px solid var(--primary);
     }
-
     .progress-bar {
       line-height: 25px;
       font-size: 0.9rem;
@@ -213,8 +188,6 @@
       background: linear-gradient(90deg, var(--primary), var(--accent));
       transition: width 1s ease;
     }
-
-    /* Logo des projets (rectangulaires et bien scalés) */
     .project-card {
       background: rgba(26, 26, 46, 0.7);
       border-radius: 15px;
@@ -227,28 +200,24 @@
       display: flex;
       flex-direction: column;
     }
-
     .project-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
-
     .project-card img {
       width: 100%;
       height: 200px;
-      object-fit: contain; /* Changé de cover à contain pour éviter la coupure */
+      object-fit: contain;
       background: rgba(0, 0, 0, 0.3);
       border-radius: 10px;
       border: 1px solid var(--primary);
       transition: var(--transition);
       padding: 10px;
     }
-
     .project-card:hover img {
       transform: scale(1.05);
       border-color: var(--accent);
     }
-
     .project-card .card-body {
       padding: 20px;
       height: auto;
@@ -257,14 +226,12 @@
       flex-direction: column;
       text-align: center;
     }
-
     .project-card .card-title {
       color: var(--accent);
       font-family: 'Press Start 2P', cursive;
       font-size: 1.2rem;
       margin-bottom: 10px;
     }
-
     .project-card .badge {
       background: var(--secondary);
       font-weight: 600;
@@ -273,14 +240,12 @@
       padding: 3px 10px;
       border-radius: 10px;
     }
-
     .project-card .btn {
       align-self: center;
       font-size: 0.8rem;
       padding: 8px 15px;
       margin-top: auto;
     }
-
     .filter-buttons {
       display: flex;
       justify-content: center;
@@ -288,7 +253,6 @@
       gap: 10px;
       flex-wrap: wrap;
     }
-
     .filter-buttons button {
       background: var(--primary);
       border: none;
@@ -300,13 +264,11 @@
       font-family: 'Press Start 2P', cursive;
       font-size: 0.8rem;
     }
-
     .filter-buttons button.active {
       background: var(--accent);
       color: var(--dark);
       box-shadow: var(--glow);
     }
-
     .modal-content {
       background: var(--darker);
       color: var(--light);
@@ -315,21 +277,17 @@
       box-shadow: var(--glow);
       position: relative;
     }
-
     .modal-header {
       border-bottom: 1px solid var(--primary);
     }
-
     .modal-title {
       color: var(--accent);
       font-family: 'Press Start 2P', cursive;
     }
-
     .modal-body {
       padding: 30px;
       position: relative;
     }
-
     .navigation-arrows {
       position: absolute;
       top: 50%;
@@ -341,7 +299,6 @@
       transform: translateY(-50%);
       z-index: 10;
     }
-
     .navigation-arrows button {
       background: rgba(26, 26, 46, 0.7);
       border: none;
@@ -358,18 +315,15 @@
       transition: var(--transition);
       box-shadow: var(--glow);
     }
-
     .navigation-arrows button:hover {
       background: var(--primary);
       transform: scale(1.1);
     }
-
     .image-selector {
       display: flex;
       justify-content: center;
       margin: 20px 0;
     }
-
     .image-selector button {
       background: none;
       border: none;
@@ -379,12 +333,10 @@
       margin: 0 5px;
       transition: var(--transition);
     }
-
     .image-selector button.active {
       color: var(--accent);
       transform: scale(1.3);
     }
-
     .modal-body img {
       max-height: 400px;
       width: auto;
@@ -393,13 +345,11 @@
       display: block;
       margin: 0 auto;
     }
-
     .timeline {
       position: relative;
       padding-left: 30px;
       list-style: none;
     }
-
     .timeline::before {
       content: '';
       position: absolute;
@@ -409,12 +359,10 @@
       width: 2px;
       background: var(--primary);
     }
-
     .timeline-item {
       position: relative;
       margin-bottom: 30px;
     }
-
     .timeline-item::before {
       content: '';
       position: absolute;
@@ -426,7 +374,6 @@
       background: var(--accent);
       border: 3px solid var(--primary);
     }
-
     .timeline-content {
       background: rgba(26, 26, 46, 0.7);
       padding: 20px;
@@ -434,14 +381,12 @@
       border-left: 3px solid var(--accent);
       box-shadow: var(--glow);
     }
-
     .skills-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
     }
-
     .skill-item {
       background: rgba(26, 26, 46, 0.7);
       padding: 20px;
@@ -452,37 +397,31 @@
       box-shadow: var(--glow);
       transition: var(--transition);
     }
-
     .skill-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
-
     .skill-icon {
       font-size: 3rem;
       color: var(--accent);
       margin-bottom: 10px;
     }
-
     .contact-icon {
       font-size: 2.5rem;
       color: var(--accent);
       margin-right: 15px;
       transition: var(--transition);
     }
-
     .contact-item:hover .contact-icon {
       transform: rotateY(180deg);
       color: var(--secondary);
     }
-
     footer {
       background: var(--darker);
       padding: 30px 0;
       text-align: center;
       border-top: 1px solid var(--primary);
     }
-
     .easter-egg {
       position: fixed;
       bottom: 20px;
@@ -498,22 +437,44 @@
       transition: var(--transition);
       z-index: 1000;
     }
-
     .easter-egg:hover {
       transform: rotate(360deg);
     }
-
     .reveal {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
-
     .reveal.reveal-visible {
       opacity: 1;
       transform: translateY(0);
     }
-
+    #lang-toggle {
+      background: var(--primary);
+      border: none;
+      border-radius: 50px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: var(--transition);
+      font-size: 22px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--glow);
+      padding: 0;
+    }
+    #lang-toggle:hover {
+      width: 180px;
+      background: var(--primary-light);
+    }
+    #lang-flag {
+      transition: var(--transition);
+      width: 24px;
+      height: 16px;
+    }
     @media (max-width: 768px) {
       header h1 {
         font-size: 2.5rem;
@@ -526,7 +487,7 @@
         max-width: 50%;
       }
       .project-card img {
-        height: 150px; /* Réduction pour mobile */
+        height: 150px;
       }
     }
   </style>
@@ -534,59 +495,60 @@
 <body>
   <!-- Particles.js Background -->
   <div id="particles-js"></div>
-
   <!-- Easter Egg -->
   <div class="easter-egg" title="Konami Code ?">
     <i class="fas fa-gamepad"></i>
   </div>
-
   <header class="text-center section reveal">
     <div class="title-container">
-      <h1 class="game-font">BAPTISTE CURIE-CADET</h1>
-      <p class="subtitle">DÉVELOPPEUR DE <span class="game-font">SERIOUS GAMES</span> & <span class="game-font">JEUX VIDÉO</span></p>
+      <h1 class="game-font" data-translate="BAPTISTE CURIE-CADET">BAPTISTE CURIE-CADET</h1>
+      <p class="subtitle" data-translate="DÉVELOPPEUR DE SERIOUS GAMES & JEUX VIDÉO">DÉVELOPPEUR DE <span class="game-font">SERIOUS GAMES</span> & <span class="game-font">JEUX VIDÉO</span></p>
     </div>
-    <a href="#about" class="btn btn-accent mt-4" style="font-family: 'Press Start 2P', cursive; font-size: 0.9rem;">
+    <a href="#about" class="btn btn-accent mt-4" style="font-family: 'Press Start 2P', cursive; font-size: 0.9rem;" data-translate="COMMENCER L'AVENTURE">
       <i class="fas fa-play"></i> COMMENCER L'AVENTURE
     </a>
   </header>
-
   <section id="about" class="container section reveal">
     <div class="row align-items-center">
       <div class="col-lg-5 text-center mb-4">
         <img src="Moi.png" alt="Photo de profil" class="img-fluid rounded-circle" style="max-height: 300px; border: 3px solid var(--accent); box-shadow: var(--glow);">
       </div>
       <div class="col-lg-7">
-        <h2 class="mb-4">À PROPOS DE MOI</h2>
-        <p style="font-size: 1.1rem; line-height: 1.8;">
+        <h2 class="mb-4" data-translate="À PROPOS DE MOI">À PROPOS DE MOI</h2>
+        <p style="font-size: 1.1rem; line-height: 1.8;" data-translate="Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un passionné de développement de jeux vidéo, surtout les serious games.">
           Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un <strong>passionné de développement de jeux vidéo</strong>, surtout les serious games.
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8;" data-translate="Mon objectif ? Créer des expériences immersives qui mélangent fun et apprentissage, avec une touche de magie numérique.">
           Mon objectif ? Créer des expériences immersives qui <strong>mélangent fun et apprentissage</strong>, avec une touche de magie numérique.
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8;" data-translate="Quand je ne code pas, je joue, je dessine, ou je rêve de mondes virtuels à explorer.">
           Quand je ne code pas, je joue, je dessine, ou je rêve de mondes virtuels à explorer.
         </p>
         <div class="row mt-4">
           <div class="col-sm-6">
-            <p><i class="fas fa-map-marker-alt contact-icon"></i> Marseille, France</p>
+            <p><i class="fas fa-map-marker-alt contact-icon"></i> <span data-translate="Marseille, France">Marseille, France</span></p>
           </div>
           <div class="col-sm-6">
-            <p><i class="fas fa-graduation-cap contact-icon"></i> Bachelor en systèmes numériques immersifs</p>
+            <p><i class="fas fa-graduation-cap contact-icon"></i> <span data-translate="Bachelor en systèmes numériques immersifs">Bachelor en systèmes numériques immersifs</span></p>
           </div>
         </div>
-        <a href="CV_Baptiste_Curie-Cadet.pdf" class="btn btn-primary mt-3" download>
+        <a href="CV_Baptiste_Curie-Cadet.pdf" class="btn btn-primary mt-3" download data-translate="TÉLÉCHARGER MON CV">
           <i class="fas fa-download"></i> TÉLÉCHARGER MON CV
         </a>
       </div>
     </div>
     <div class="row mt-5">
       <div class="col-12">
-        <h3 class="mb-4">MON PARCOURS</h3>
+        <h3 class="mb-4" data-translate="MON PARCOURS">MON PARCOURS</h3>
         <ul class="timeline">
           <li class="timeline-item">
             <div class="timeline-content">
               <h5>2023-2025</h5>
-              <p><strong>Bachelor Systèmes Numériques Immersifs</strong></p>
+              <p><strong data-translate="Bachelor Systèmes Numériques Immersifs">Bachelor Systèmes Numériques Immersifs</strong></p>
               <ul>
-                <li>Développement de jeux vidéo</li>
-                <li>Technologies immersives (VR/AR)</li>
-                <li>Conception de serious games</li>
+                <li data-translate="Développement de jeux vidéo">Développement de jeux vidéo</li>
+                <li data-translate="Technologies immersives (VR/AR)">Technologies immersives (VR/AR)</li>
+                <li data-translate="Conception de serious games">Conception de serious games</li>
               </ul>
             </div>
           </li>
@@ -600,9 +562,8 @@
       </div>
     </div>
   </section>
-
   <section id="skills" class="container section reveal">
-    <h2 class="mb-5 text-center">MES <span class="game-font">COMPÉTENCES</span></h2>
+    <h2 class="mb-5 text-center" data-translate="MES COMPÉTENCES">MES <span class="game-font">COMPÉTENCES</span></h2>
     <div class="skills-container">
       <div class="skill-item">
         <div class="skill-icon">
@@ -644,21 +605,20 @@
         <div class="skill-icon">
           <i class="fas fa-laptop-code"></i>
         </div>
-        <h4>Développement Web</h4>
+        <h4 data-translate="Développement Web">Développement Web</h4>
         <div class="progress mb-3">
           <div class="progress-bar" style="width: 40%;">40%</div>
         </div>
       </div>
     </div>
   </section>
-
   <section id="projects" class="container section reveal">
-    <h2 class="mb-5 text-center">MES <span class="game-font">PROJETS</span></h2>
+    <h2 class="mb-5 text-center" data-translate="MES PROJETS">MES <span class="game-font">PROJETS</span></h2>
     <div class="filter-buttons">
-      <button onclick="filterProjects('all')" class="active">TOUT</button>
-      <button onclick="filterProjects('Unity')">UNITY</button>
-      <button onclick="filterProjects('Unreal')">UNREAL</button>
-      <button onclick="filterProjects('HTML')">WEB</button>
+      <button onclick="filterProjects('all')" class="active" data-translate="TOUT">TOUT</button>
+      <button onclick="filterProjects('Unity')" data-translate="UNITY">UNITY</button>
+      <button onclick="filterProjects('Unreal')" data-translate="UNREAL">UNREAL</button>
+      <button onclick="filterProjects('HTML')" data-translate="WEB">WEB</button>
     </div>
     <div class="row" id="projects-container">
       <!-- Pirates de l'étang -->
@@ -668,8 +628,8 @@
           <div class="card-body">
             <h5 class="card-title">Pirates de l'étang</h5>
             <span class="badge">Unity</span>
-            <p class="card-text">Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal1">VOIR PLUS</button>
+            <p class="card-text" data-translate="Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !">Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal1" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
@@ -680,8 +640,8 @@
           <div class="card-body">
             <h5 class="card-title">BABURU</h5>
             <span class="badge">Unity</span>
-            <p class="card-text">Un light novel poétique sur l'introversion et l'amitié.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal2">VOIR PLUS</button>
+            <p class="card-text" data-translate="Un light novel poétique sur l'introversion et l'amitié.">Un light novel poétique sur l'introversion et l'amitié.</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal2" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
@@ -692,8 +652,8 @@
           <div class="card-body">
             <h5 class="card-title">Pablo</h5>
             <span class="badge">Unity</span>
-            <p class="card-text">Un projet scolaire pour apprendre les singletons et l'instanciation.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal3">VOIR PLUS</button>
+            <p class="card-text" data-translate="Un projet scolaire pour apprendre les singletons et l'instanciation.">Un projet scolaire pour apprendre les singletons et l'instanciation.</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal3" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
@@ -704,8 +664,8 @@
           <div class="card-body">
             <h5 class="card-title">Bouloux</h5>
             <span class="badge">Unity</span>
-            <p class="card-text">Un jeu de puzzle 3D avec une balle aux états changeants.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal4">VOIR PLUS</button>
+            <p class="card-text" data-translate="Un jeu de puzzle 3D avec une balle aux états changeants.">Un jeu de puzzle 3D avec une balle aux états changeants.</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal4" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
@@ -716,8 +676,8 @@
           <div class="card-body">
             <h5 class="card-title">Balance ton archétype</h5>
             <span class="badge">Unity</span>
-            <p class="card-text">Un serious game icebreaker pour briser la glace en équipe.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal5">VOIR PLUS</button>
+            <p class="card-text" data-translate="Un serious game icebreaker pour briser la glace en équipe.">Un serious game icebreaker pour briser la glace en équipe.</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal5" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
@@ -728,8 +688,8 @@
           <div class="card-body">
             <h5 class="card-title">Route 66</h5>
             <span class="badge">Unity</span>
-            <p class="card-text">Recréation de la célèbre route d'Overwatch.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal6">VOIR PLUS</button>
+            <p class="card-text" data-translate="Recréation de la célèbre route d'Overwatch.">Recréation de la célèbre route d'Overwatch.</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal6" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
@@ -740,8 +700,8 @@
           <div class="card-body">
             <h5 class="card-title">Garage The Borges</h5>
             <span class="badge">HTML/PHP</span>
-            <p class="card-text">Site web pour une concession automobile.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal7">VOIR PLUS</button>
+            <p class="card-text" data-translate="Site web pour une concession automobile.">Site web pour une concession automobile.</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal7" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
@@ -752,16 +712,15 @@
           <div class="card-body">
             <h5 class="card-title">Écuyer des Ombres</h5>
             <span class="badge">Unreal</span>
-            <p class="card-text">Un jeu médiéval-fantastique avec un donjon maudit.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal8">VOIR PLUS</button>
+            <p class="card-text" data-translate="Un jeu médiéval-fantastique avec un donjon maudit.">Un jeu médiéval-fantastique avec un donjon maudit.</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal8" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
     </div>
   </section>
-
   <section id="contact" class="container section reveal">
-    <h2 class="mb-5 text-center">ME <span class="game-font">CONTACTER</span></h2>
+    <h2 class="mb-5 text-center" data-translate="ME CONTACTER">ME <span class="game-font">CONTACTER</span></h2>
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="contact-item mb-4">
@@ -774,13 +733,12 @@
         </div>
         <div class="contact-item mb-4">
           <i class="fab fa-linkedin contact-icon"></i>
-          <a href="https://www.linkedin.com/in/baptiste-curie-cadet-099b5929a/" target="_blank">Mon LinkedIn</a>
+          <a href="https://www.linkedin.com/in/baptiste-curie-cadet-099b5929a/" target="_blank" data-translate="Mon LinkedIn">Mon LinkedIn</a>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Modals (avec navigation) -->
+  <!-- Modals -->
   <!-- Modal Pirates de l'étang -->
   <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -803,21 +761,22 @@
             <button class="image-selector-button" onclick="changeImage(1, 2)">●</button>
             <button class="image-selector-button" onclick="changeImage(1, 3)">●</button>
           </div>
-          <p><strong>Catégorie:</strong> Unity</p>
-          <p><strong>Utilité :</strong> Développeur / Sound Designer</p>
-          <p><strong>Durée :</strong> Un mois</p>
-          <p>Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur / Sound Designer</p>
+          <p><strong data-translate="Durée :">Durée :</strong> Un mois</p>
+          <p data-translate="Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !">
+            Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !
+          </p>
         </div>
         <div class="modal-footer">
-          <a href="build-pirate.zip" class="btn btn-primary" download>
+          <a href="build-pirate.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
   </div>
-
   <!-- Modal BABURU -->
   <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -840,21 +799,22 @@
             <button class="image-selector-button" onclick="changeImage(2, 2)">●</button>
             <button class="image-selector-button" onclick="changeImage(2, 3)">●</button>
           </div>
-          <p><strong>Catégorie:</strong> Unity</p>
-          <p><strong>Utilité :</strong> Développeur Gameplay</p>
-          <p><strong>Durée :</strong> 2 jours</p>
-          <p>Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
+          <p><strong data-translate="Durée :">Durée :</strong> 2 jours</p>
+          <p data-translate="Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.">
+            Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.
+          </p>
         </div>
         <div class="modal-footer">
-          <a href="build-baburu.zip" class="btn btn-primary" download>
+          <a href="build-baburu.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
   </div>
-
   <!-- Modal Pablo -->
   <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -877,21 +837,22 @@
             <button class="image-selector-button" onclick="changeImage(3, 2)">●</button>
             <button class="image-selector-button" onclick="changeImage(3, 3)">●</button>
           </div>
-          <p><strong>Catégorie:</strong> Unity</p>
-          <p><strong>Utilité :</strong> Développeur Gameplay</p>
-          <p><strong>Durée :</strong> Un mois</p>
-          <p>Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
+          <p><strong data-translate="Durée :">Durée :</strong> Un mois</p>
+          <p data-translate="Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.">
+            Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.
+          </p>
         </div>
         <div class="modal-footer">
-          <a href="Build-Pablo.zip" class="btn btn-primary" download>
+          <a href="Build-Pablo.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
   </div>
-
   <!-- Modal Bouloux -->
   <div class="modal fade" id="projectModal4" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -914,21 +875,22 @@
             <button class="image-selector-button" onclick="changeImage(4, 2)">●</button>
             <button class="image-selector-button" onclick="changeImage(4, 3)">●</button>
           </div>
-          <p><strong>Catégorie:</strong> Unity</p>
-          <p><strong>Utilité :</strong> Développeur Gameplay</p>
-          <p><strong>Durée :</strong> 1 mois</p>
-          <p>Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
+          <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
+          <p data-translate="Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.">
+            Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.
+          </p>
         </div>
         <div class="modal-footer">
-          <a href="Build-bouloux.zip" class="btn btn-primary" download>
+          <a href="Build-bouloux.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
   </div>
-
   <!-- Modal Balance ton archétype -->
   <div class="modal fade" id="projectModal5" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -951,21 +913,22 @@
             <button class="image-selector-button" onclick="changeImage(5, 2)">●</button>
             <button class="image-selector-button" onclick="changeImage(5, 3)">●</button>
           </div>
-          <p><strong>Catégorie:</strong> Unity</p>
-          <p><strong>Utilité :</strong> Développeur Gameplay</p>
-          <p><strong>Durée :</strong> 1 mois</p>
-          <p>Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
+          <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
+          <p data-translate="Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.">
+            Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.
+          </p>
         </div>
         <div class="modal-footer">
-          <a href="Build-BalanceTonArchetype.zip" class="btn btn-primary" download>
+          <a href="Build-BalanceTonArchetype.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
   </div>
-
   <!-- Modal Route 66 -->
   <div class="modal fade" id="projectModal6" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -988,21 +951,22 @@
             <button class="image-selector-button" onclick="changeImage(6, 2)">●</button>
             <button class="image-selector-button" onclick="changeImage(6, 3)">●</button>
           </div>
-          <p><strong>Catégorie:</strong> Unity</p>
-          <p><strong>Utilité :</strong> Artiste 3D/Lighting</p>
-          <p><strong>Durée :</strong> 1 semaine</p>
-          <p>Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Artiste 3D/Lighting</p>
+          <p><strong data-translate="Durée :">Durée :</strong> 1 semaine</p>
+          <p data-translate="Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.">
+            Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.
+          </p>
         </div>
         <div class="modal-footer">
-          <a href="build-route-66.zip" class="btn btn-primary" download>
+          <a href="build-route-66.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
   </div>
-
   <!-- Modal Garage The Borges -->
   <div class="modal fade" id="projectModal7" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1026,18 +990,19 @@
             <button class="image-selector-button" onclick="changeImage(7, 3)">●</button>
             <button class="image-selector-button" onclick="changeImage(7, 4)">●</button>
           </div>
-          <p><strong>Catégorie:</strong> HTML et PHP</p>
-          <p><strong>Utilité :</strong> Développeur du site</p>
-          <p><strong>Durée :</strong> 1 mois</p>
-          <p>Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> HTML et PHP</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur du site</p>
+          <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
+          <p data-translate="Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.">
+            Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.
+          </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
   </div>
-
   <!-- Modal Écuyer des Ombres -->
   <div class="modal fade" id="projectModal8" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1063,30 +1028,34 @@
             <button class="image-selector-button" onclick="changeImage(8, 5)">●</button>
             <button class="image-selector-button" onclick="changeImage(8, 6)">●</button>
           </div>
-          <p><strong>Catégorie:</strong> Unreal</p>
-          <p><strong>Utilité :</strong> Développeur et Sound Designer</p>
-          <p><strong>Durée :</strong> 1 mois et demi</p>
-          <p>Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d’un donjon maudit qui s’est récemment éveillé. D’étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades… et nulle armée en vue pour les défendre.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unreal</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur et Sound Designer</p>
+          <p><strong data-translate="Durée :">Durée :</strong> 1 mois et demi</p>
+          <p data-translate="Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d’un donjon maudit qui s’est récemment éveillé. D’étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades… et nulle armée en vue pour les défendre.">
+            Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d’un donjon maudit qui s’est récemment éveillé. D’étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades… et nulle armée en vue pour les défendre.
+          </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
   </div>
-
   <div class="side-buttons">
-    <a href="#top" class="btn-circle" title="Accueil"><i class="fas fa-home"></i><span class="btn-text"> Accueil</span></a>
-    <a href="#about" class="btn-circle" title="À propos"><i class="fas fa-user"></i><span class="btn-text"> À propos</span></a>
-    <a href="#skills" class="btn-circle" title="Compétences"><i class="fas fa-star"></i><span class="btn-text"> Compétences</span></a>
-    <a href="#projects" class="btn-circle" title="Projets"><i class="fas fa-gamepad"></i><span class="btn-text"> Projets</span></a>
-    <a href="#contact" class="btn-circle" title="Contact"><i class="fas fa-envelope"></i><span class="btn-text"> Contact</span></a>
+    <a href="#top" class="btn-circle" title="Accueil"><i class="fas fa-home"></i><span class="btn-text" data-translate="Accueil"> Accueil</span></a>
+    <a href="#about" class="btn-circle" title="À propos"><i class="fas fa-user"></i><span class="btn-text" data-translate="À propos"> À propos</span></a>
+    <a href="#skills" class="btn-circle" title="Compétences"><i class="fas fa-star"></i><span class="btn-text" data-translate="Compétences"> Compétences</span></a>
+    <a href="#projects" class="btn-circle" title="Projets"><i class="fas fa-gamepad"></i><span class="btn-text" data-translate="Projets"> Projets</span></a>
+    <a href="#contact" class="btn-circle" title="Contact"><i class="fas fa-envelope"></i><span class="btn-text" data-translate="Contact"> Contact</span></a>
+    <!-- Bouton de langue -->
+    <button id="lang-toggle" class="btn-circle" title="Changer de langue">
+      <img id="lang-flag" src="french.png" alt="Français">
+      <span class="btn-text" data-translate="Langue"> Langue</span>
+    </button>
   </div>
-
   <footer class="footer text-center">
-    <p>&copy; 2025 Baptiste Curie-Cadet. Tous droits réservés.</p>
+    <p>&copy; 2025 Baptiste Curie-Cadet. <span data-translate="Tous droits réservés.">Tous droits réservés.</span></p>
   </footer>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
@@ -1106,7 +1075,6 @@
         events: { onhover: { enable: true, mode: "repulse" } }
       }
     });
-
     // Animation au scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1117,7 +1085,6 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
     // Tableau des images pour chaque projet
     const projectImages = {
       1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
@@ -1129,7 +1096,6 @@
       7: ["Capture d'écran 2025-06-09 024811.png", "Capture d'écran 2025-06-08 020533.png", "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png", "Capture d'écran 2025-06-08 020630.png"],
       8: ["médiéval (1).png", "médiéval (2).png", "médiéval (3).png", "médiéval (4).png", "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"]
     };
-
     // Fonction pour changer l'image affichée dans le modal
     function changeImage(projectId, imageIndex) {
       const imageElement = document.getElementById(`projectImage${projectId}`);
@@ -1139,20 +1105,16 @@
       });
       event.target.classList.add('active');
     }
-
     // Variable globale pour suivre le projet actuel
     let currentProject = 1;
-
     // Fonction pour naviguer entre les projets
     function changeProject(direction) {
       const currentModal = bootstrap.Modal.getInstance(document.getElementById(`projectModal${currentProject}`));
       currentModal.hide();
-
       // Calcul du nouvel ID (boucle de 1 à 8)
       currentProject = (((currentProject + direction - 1 + 8) % 8) + 1);
       const newModal = new bootstrap.Modal(document.getElementById(`projectModal${currentProject}`));
       newModal.show();
-
       // Réinitialise l'image active dans le nouveau modal
       setTimeout(() => {
         document.querySelectorAll('.image-selector-button').forEach(button => {
@@ -1161,7 +1123,6 @@
         document.querySelector('.image-selector-button:first-child').classList.add('active');
       }, 300);
     }
-
     // Fonction pour filtrer les projets
     function filterProjects(category) {
       const items = document.querySelectorAll('.project-item');
@@ -1177,14 +1138,12 @@
       });
       event.target.classList.add('active');
     }
-
     // Initialisation : ajoute l'écouteur pour réinitialiser currentProject au clic sur un projet
     document.querySelectorAll('[data-bs-target]').forEach(button => {
       button.addEventListener('click', function() {
         currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
       });
     });
-
     // Easter Egg
     const easterEgg = document.querySelector('.easter-egg');
     let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
@@ -1199,6 +1158,148 @@
       } else {
         konamiIndex = 0;
       }
+    });
+
+    // Dictionnaire de traduction
+    const translations = {
+      fr: {
+        "BAPTISTE CURIE-CADET": "BAPTISTE CURIE-CADET",
+        "DÉVELOPPEUR DE SERIOUS GAMES & JEUX VIDÉO": "DÉVELOPPEUR DE <span class='game-font'>SERIOUS GAMES</span> & <span class='game-font'>JEUX VIDÉO</span>",
+        "GAME DEV & SERIOUS GAMES DEVELOPER": "GAME DEV & <span class='game-font'>SERIOUS GAMES</span> DEVELOPER",
+        "COMMENCER L'AVENTURE": "COMMENCER L'AVENTURE",
+        "À PROPOS DE MOI": "À PROPOS DE MOI",
+        "Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un passionné de développement de jeux vidéo, surtout les serious games.": "Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un <strong>passionné de développement de jeux vidéo</strong>, surtout les serious games.",
+        "Mon objectif ? Créer des expériences immersives qui mélangent fun et apprentissage, avec une touche de magie numérique.": "Mon objectif ? Créer des expériences immersives qui <strong>mélangent fun et apprentissage</strong>, avec une touche de magie numérique.",
+        "Quand je ne code pas, je joue, je dessine, ou je rêve de mondes virtuels à explorer.": "Quand je ne code pas, je joue, je dessine, ou je rêve de mondes virtuels à explorer.",
+        "Marseille, France": "Marseille, France",
+        "Bachelor en systèmes numériques immersifs": "Bachelor en systèmes numériques immersifs",
+        "TÉLÉCHARGER MON CV": "TÉLÉCHARGER MON CV",
+        "MON PARCOURS": "MON PARCOURS",
+        "MES COMPÉTENCES": "MES <span class='game-font'>COMPÉTENCES</span>",
+        "MES PROJETS": "MES <span class='game-font'>PROJETS</span>",
+        "ME CONTACTER": "ME <span class='game-font'>CONTACTER</span>",
+        "TOUT": "TOUT",
+        "UNITY": "UNITY",
+        "UNREAL": "UNREAL",
+        "WEB": "WEB",
+        "VOIR PLUS": "VOIR PLUS",
+        "Fermer": "Fermer",
+        "Télécharger le projet": "TÉLÉCHARGER LE PROJET",
+        "Accueil": "Accueil",
+        "À propos": "À propos",
+        "Compétences": "Compétences",
+        "Projets": "Projets",
+        "Contact": "Contact",
+        "Tous droits réservés.": "Tous droits réservés.",
+        "Langue": "Langue",
+        "Développement de jeux vidéo": "Développement de jeux vidéo",
+        "Technologies immersives (VR/AR)": "Technologies immersives (VR/AR)",
+        "Conception de serious games": "Conception de serious games",
+        "Développement Web": "Développement Web",
+        "Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !": "Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !",
+        "Un light novel poétique sur l'introversion et l'amitié.": "Un light novel poétique sur l'introversion et l'amitié.",
+        "Un projet scolaire pour apprendre les singletons et l'instanciation.": "Un projet scolaire pour apprendre les singletons et l'instanciation.",
+        "Un jeu de puzzle 3D avec une balle aux états changeants.": "Un jeu de puzzle 3D avec une balle aux états changeants.",
+        "Un serious game icebreaker pour briser la glace en équipe.": "Un serious game icebreaker pour briser la glace en équipe.",
+        "Recréation de la célèbre route d'Overwatch.": "Recréation de la célèbre route d'Overwatch.",
+        "Site web pour une concession automobile.": "Site web pour une concession automobile.",
+        "Un jeu médiéval-fantastique avec un donjon maudit.": "Un jeu médiéval-fantastique avec un donjon maudit.",
+        "Catégorie:": "Catégorie:",
+        "Utilité :": "Utilité :",
+        "Durée :": "Durée :",
+        "Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !": "Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !",
+        "Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.": "Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.",
+        "Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.": "Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.",
+        "Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.": "Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.",
+        "Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.": "Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.",
+        "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.": "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.",
+        "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.": "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.",
+        "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d’un donjon maudit qui s’est récemment éveillé. D’étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades… et nulle armée en vue pour les défendre.": "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d’un donjon maudit qui s’est récemment éveillé. D’étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades… et nulle armée en vue pour les défendre.",
+        "Mon LinkedIn": "Mon LinkedIn",
+      },
+      en: {
+        "BAPTISTE CURIE-CADET": "BAPTISTE CURIE-CADET",
+        "DÉVELOPPEUR DE SERIOUS GAMES & JEUX VIDÉO": "GAME DEV & <span class='game-font'>SERIOUS GAMES</span> DEVELOPER",
+        "GAME DEV & SERIOUS GAMES DEVELOPER": "GAME DEV & <span class='game-font'>SERIOUS GAMES</span> DEVELOPER",
+        "COMMENCER L'AVENTURE": "START THE ADVENTURE",
+        "À PROPOS DE MOI": "ABOUT ME",
+        "Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un passionné de développement de jeux vidéo, surtout les serious games.": "Hi! I'm Baptiste, 19 years old, and I'm passionate about game development, especially serious games.",
+        "Mon objectif ? Créer des expériences immersives qui mélangent fun et apprentissage, avec une touche de magie numérique.": "My goal? To create immersive experiences that blend fun and learning, with a touch of digital magic.",
+        "Quand je ne code pas, je joue, je dessine, ou je rêve de mondes virtuels à explorer.": "When I'm not coding, I play, draw, or dream of virtual worlds to explore.",
+        "Marseille, France": "Marseille, France",
+        "Bachelor en systèmes numériques immersifs": "Bachelor in Immersive Digital Systems",
+        "TÉLÉCHARGER MON CV": "DOWNLOAD MY RESUME",
+        "MON PARCOURS": "MY JOURNEY",
+        "MES COMPÉTENCES": "MY <span class='game-font'>SKILLS</span>",
+        "MES PROJETS": "MY <span class='game-font'>PROJECTS</span>",
+        "ME CONTACTER": "CONTACT <span class='game-font'>ME</span>",
+        "TOUT": "ALL",
+        "UNITY": "UNITY",
+        "UNREAL": "UNREAL",
+        "WEB": "WEB",
+        "VOIR PLUS": "SEE MORE",
+        "Fermer": "Close",
+        "Télécharger le projet": "DOWNLOAD PROJECT",
+        "Accueil": "Home",
+        "À propos": "About",
+        "Compétences": "Skills",
+        "Projets": "Projects",
+        "Contact": "Contact",
+        "Tous droits réservés.": "All rights reserved.",
+        "Langue": "Language",
+        "Développement de jeux vidéo": "Game development",
+        "Technologies immersives (VR/AR)": "Immersive technologies (VR/AR)",
+        "Conception de serious games": "Serious games design",
+        "Développement Web": "Web Development",
+        "Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !": "An adventure game where you play as a cursed pirate. Fight, upgrade your gear, and survive!",
+        "Un light novel poétique sur l'introversion et l'amitié.": "A poetic light novel about introversion and friendship.",
+        "Un projet scolaire pour apprendre les singletons et l'instanciation.": "A school project to learn singletons and instantiation.",
+        "Un jeu de puzzle 3D avec une balle aux états changeants.": "A 3D puzzle game with a ball that changes states.",
+        "Un serious game icebreaker pour briser la glace en équipe.": "A serious game icebreaker to break the ice in teams.",
+        "Recréation de la célèbre route d'Overwatch.": "Recreation of the famous Overwatch Route 66.",
+        "Site web pour une concession automobile.": "Website for a car dealership.",
+        "Un jeu médiéval-fantastique avec un donjon maudit.": "A medieval-fantasy game with a cursed dungeon.",
+        "Catégorie:": "Category:",
+        "Utilité :": "Role:",
+        "Durée :": "Duration:",
+        "Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !": "Play as Jack Moineau, an unfortunate pirate stranded on an island plagued by a terrible curse. Defeat as many enemies as possible while upgrading your gear to go as far as possible!",
+        "Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.": "Baburu is a narrative light novel in which you play as Alin, a shy boy who likes to retreat into his bubble and creates an extroverted personality he calls Alex. In Baburu, your goal will be to protect yourself from the outside world by staying in your bubble and preventing anyone from entering it. In this poetic game with strong ludonarrative dissonance, you will have to choose between safety and friendships.",
+        "Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.": "I am the origin of everything in the game in terms of programming. This is a project we started in class, meant to teach us the use of singletons and GameObject instantiation.",
+        "Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.": "Ballex is a 3D puzzle-action game with aesthetically pleasing graphics and complex gameplay. You will have to control a ball capable of changing its physical state as you progress through the levels.",
+        "Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.": "Balance ton archétype is a serious game icebreaker in which people present themselves according to the archetype randomly assigned to them; their goal is to find everyone's archetype at the end. The game combines virtual and physical support. I was in charge of developing the random role assignments as well as the different voting and presentation phases by updating the UI.",
+        "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.": "Design of Route 66 inspired by Overwatch's Route 66.",
+        "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l’ensemble de notre catalogue de véhicules neufs et d’occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.": "Welcome to the official website of our car dealership. This website, entirely developed in HTML and PHP, allows you to discover our entire catalog of new and used vehicles. With a simple and intuitive interface, you can view detailed sheets of available cars, search for a model according to your criteria, and make an appointment online for a test drive or a trade-in estimate. This project reflects my dynamic web development work and my ability to create functional tools tailored to the needs of professionals.",
+        "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d’un donjon maudit qui s’est récemment éveillé. D’étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades… et nulle armée en vue pour les défendre.": "The game takes place in a medieval fantasy kingdom. The village of Valombre lives under the threat of a cursed dungeon that has recently awakened. Strange creatures roam there and shadows creep into the neighboring woods. The terrified villagers have seen their daily lives disrupted: burned crops, missing livestock, sick children... and no army in sight to defend them.",
+        "Mon LinkedIn": "My LinkedIn",
+      }
+    };
+
+    // Fonction pour changer de langue
+    function changeLanguage(lang) {
+      const elements = document.querySelectorAll('[data-translate]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      // Change le drapeau
+      const flag = document.getElementById('lang-flag');
+      flag.src = lang === 'fr' ? 'french.png' : 'english.png';
+      flag.alt = lang === 'fr' ? 'Français' : 'English';
+      // Change la langue du HTML
+      document.documentElement.lang = lang;
+    }
+
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', () => {
+      // Écouteur pour le bouton de langue
+      const langToggle = document.getElementById('lang-toggle');
+      langToggle.addEventListener('click', () => {
+        const currentLang = document.documentElement.lang;
+        const newLang = currentLang === 'fr' ? 'en' : 'fr';
+        changeLanguage(newLang);
+      });
     });
   </script>
 </body>
