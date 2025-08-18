@@ -405,6 +405,10 @@
       font-size: 3rem;
       color: var(--accent);
       margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
     }
     .contact-icon {
       font-size: 2.5rem;
@@ -576,7 +580,9 @@
       </div>
       <div class="skill-item">
         <div class="skill-icon">
-          <i class="fab fa-unreal"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="var(--accent)">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.88-.63-1.59-1.46-1.85.37-.59.59-1.28.59-2.05 0-.93-.61-1.57-1.43-1.57-.28 0-.54.05-.78.14.95.63 1.57 1.59 1.57 2.81 0 1.13-.6 2.08-1.35 2.59-.23.14-.5.24-.79.24H9.5v3.57c.73.08 1.48.13 2.23.13 2.75 0 4.93-2.02 4.93-4.93 0-.67-.11-1.32-.3-1.92z"/>
+          </svg>
         </div>
         <h4>Unreal Engine</h4>
         <div class="progress mb-3">
@@ -1159,7 +1165,6 @@
         konamiIndex = 0;
       }
     });
-
     // Dictionnaire de traduction
     const translations = {
       fr: {
@@ -1273,7 +1278,6 @@
         "Mon LinkedIn": "My LinkedIn",
       }
     };
-
     // Fonction pour changer de langue
     function changeLanguage(lang) {
       const elements = document.querySelectorAll('[data-translate]');
@@ -1290,7 +1294,6 @@
       // Change la langue du HTML
       document.documentElement.lang = lang;
     }
-
     // Initialisation
     document.addEventListener('DOMContentLoaded', () => {
       // Écouteur pour le bouton de langue
