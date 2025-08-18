@@ -8,6 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
   <style>
     :root {
       --primary: #6a5acd;
@@ -493,6 +494,65 @@
     .modal-nav-right {
       right: -25px;
     }
+    /* Pop-up Easter Egg */
+    .easter-egg-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .easter-egg-popup.hidden {
+      display: none;
+    }
+    .easter-egg-content {
+      background: var(--darker);
+      border: 2px solid var(--accent);
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      max-width: 500px;
+      position: relative;
+      box-shadow: var(--glow);
+    }
+    .easter-egg-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: var(--light);
+      font-size: 24px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .easter-egg-close:hover {
+      color: var(--secondary);
+      transform: scale(1.2);
+    }
+    .easter-egg-content h2 {
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+    .easter-egg-content p {
+      color: var(--light);
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    #confettiCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
     @media (max-width: 768px) {
       header h1 {
         font-size: 2.5rem;
@@ -764,6 +824,16 @@
       </div>
     </div>
   </section>
+  <!-- Pop-up Easter Egg -->
+  <div id="easterEggPopup" class="easter-egg-popup hidden">
+    <div class="easter-egg-content">
+      <button id="closeEasterEgg" class="easter-egg-close">&times;</button>
+      <h2 class="game-font">BRAVO !</h2>
+      <p>Vous avez trouvé le secret de mon site !</p>
+      <p>Merci d'avoir exploré mon portfolio. 🎉</p>
+      <canvas id="confettiCanvas"></canvas>
+    </div>
+  </div>
   <!-- Modals -->
   <!-- Modal Pirates de l'étang -->
   <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
@@ -1204,21 +1274,44 @@
         currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
       });
     });
-    // Easter Egg
+    // Easter Egg : Konami Code
     const easterEgg = document.querySelector('.easter-egg');
-    let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    const easterEggPopup = document.getElementById('easterEggPopup');
+    const closeEasterEgg = document.getElementById('closeEasterEgg');
+    let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // ↑ ↑ ↓ ↓ ← → ← → B A
     let konamiIndex = 0;
+
     document.addEventListener('keydown', (e) => {
       if (e.keyCode === konamiCode[konamiIndex]) {
         konamiIndex++;
         if (konamiIndex === konamiCode.length) {
-          document.body.style.filter = 'hue-rotate(90deg)';
-          setTimeout(() => { document.body.style.filter = 'none'; konamiIndex = 0; }, 3000);
+          showEasterEggPopup();
+          konamiIndex = 0;
         }
       } else {
         konamiIndex = 0;
       }
     });
+
+    // Affiche le pop-up
+    function showEasterEggPopup() {
+      easterEggPopup.classList.remove('hidden');
+      launchConfetti();
+    }
+
+    // Ferme le pop-up
+    closeEasterEgg.addEventListener('click', () => {
+      easterEggPopup.classList.add('hidden');
+    });
+
+    // Confettis
+    function launchConfetti() {
+      const canvas = document.getElementById('confettiCanvas');
+      const confettiSettings = { target: 'confettiCanvas' };
+      const confetti = new ConfettiGenerator(confettiSettings);
+      confetti.render();
+      setTimeout(() => confetti.clear(), 5000);
+    }
     // Dictionnaire de traduction
     const translations = {
       fr: {
