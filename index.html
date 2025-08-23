@@ -9,6 +9,14 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQPF15MPGN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JQPF15MPGN');
+  </script>
   <style>
     :root {
       --primary: #6a5acd;
@@ -1280,7 +1288,6 @@
     const closeEasterEgg = document.getElementById('closeEasterEgg');
     let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // ↑ ↑ ↓ ↓ ← → ← → B A
     let konamiIndex = 0;
-
     document.addEventListener('keydown', (e) => {
       if (e.keyCode === konamiCode[konamiIndex]) {
         konamiIndex++;
@@ -1292,18 +1299,15 @@
         konamiIndex = 0;
       }
     });
-
     // Affiche le pop-up
     function showEasterEggPopup() {
       easterEggPopup.classList.remove('hidden');
       launchConfetti();
     }
-
     // Ferme le pop-up
     closeEasterEgg.addEventListener('click', () => {
       easterEggPopup.classList.add('hidden');
     });
-
     // Confettis
     function launchConfetti() {
       const canvas = document.getElementById('confettiCanvas');
