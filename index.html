@@ -28,7 +28,6 @@
       --glow: 0 0 10px rgba(173, 198, 255, 0.7);
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-
     body {
       background: linear-gradient(135deg, var(--darker) 0%, #0f0c29 25%, #1a1a2e 100%);
       color: var(--light);
@@ -38,7 +37,6 @@
       overflow-x: hidden;
       min-height: 100vh;
     }
-
     #particles-js {
       position: fixed;
       width: 100%;
@@ -47,27 +45,23 @@
       left: 0;
       z-index: -1;
     }
-
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Rajdhani', sans-serif;
       font-weight: 600;
       color: var(--primary-light);
       text-shadow: 0 0 5px rgba(173, 198, 255, 0.5);
     }
-
     .game-font {
       font-family: 'Press Start 2P', cursive;
       letter-spacing: 2px;
       color: var(--accent);
       text-shadow: 0 0 5px rgba(78, 205, 196, 0.7);
     }
-
     .section {
       padding: 80px 0;
       border-bottom: 1px solid rgba(173, 198, 255, 0.2);
       position: relative;
     }
-
     .btn {
       transition: var(--transition);
       border-radius: 50px;
@@ -78,7 +72,6 @@
       position: relative;
       z-index: 1;
     }
-
     .btn::after {
       content: '';
       position: absolute;
@@ -91,35 +84,28 @@
       transition: var(--transition);
       z-index: -1;
     }
-
     .btn:hover::after {
       transform: translateX(100%);
     }
-
     .btn-primary {
       background: var(--primary);
       color: white;
     }
-
     .btn-secondary {
       background: var(--secondary);
       color: white;
     }
-
     .btn-accent {
       background: var(--accent);
       color: var(--dark);
     }
-
     .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
-
     .btn:active {
       transform: translateY(1px);
     }
-
     header {
       background: linear-gradient(135deg, var(--darker) 0%, #0f0c29 100%);
       color: white;
@@ -132,25 +118,21 @@
       position: relative;
       overflow: hidden;
     }
-
     header h1 {
       font-size: 3.5rem;
       margin-bottom: 20px;
       animation: float 3s ease-in-out infinite;
     }
-
     @keyframes float {
       0% { transform: translateY(0px); }
       50% { transform: translateY(-10px); }
       100% { transform: translateY(0px); }
     }
-
     .subtitle {
       font-size: 1.5rem;
       margin-top: 10px;
       opacity: 0.9;
     }
-
     .title-container {
       background: rgba(26, 26, 46, 0.8);
       padding: 30px 40px;
@@ -160,7 +142,6 @@
       display: inline-block;
       margin-top: 20px;
     }
-
     .side-buttons {
       position: fixed;
       top: 50%;
@@ -171,7 +152,6 @@
       gap: 15px;
       z-index: 1000;
     }
-
     .btn-circle {
       background: var(--primary);
       border: none;
@@ -188,23 +168,19 @@
       overflow: hidden;
       box-shadow: var(--glow);
     }
-
     .btn-circle:hover {
       width: 180px;
       background: var(--primary-light);
     }
-
     .btn-text {
       display: none;
       margin-left: 10px;
       white-space: nowrap;
       font-family: 'Rajdhani', sans-serif;
     }
-
     .btn-circle:hover .btn-text {
       display: inline;
     }
-
     .progress {
       background: rgba(0, 0, 0, 0.3);
       height: 25px;
@@ -213,7 +189,6 @@
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
       border: 1px solid var(--primary);
     }
-
     .progress-bar {
       line-height: 25px;
       font-size: 0.9rem;
@@ -221,7 +196,6 @@
       background: linear-gradient(90deg, var(--primary), var(--accent));
       transition: width 1s ease;
     }
-
     .project-card {
       background: rgba(26, 26, 46, 0.7);
       border-radius: 15px;
@@ -234,12 +208,10 @@
       display: flex;
       flex-direction: column;
     }
-
     .project-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
-
     .project-card img {
       width: 100%;
       height: 200px;
@@ -250,12 +222,10 @@
       transition: var(--transition);
       padding: 10px;
     }
-
     .project-card:hover img {
       transform: scale(1.05);
       border-color: var(--accent);
     }
-
     .project-card .card-body {
       padding: 20px;
       height: auto;
@@ -264,14 +234,12 @@
       flex-direction: column;
       text-align: center;
     }
-
     .project-card .card-title {
       color: var(--accent);
       font-family: 'Press Start 2P', cursive;
       font-size: 1.2rem;
       margin-bottom: 10px;
     }
-
     .project-card .badge {
       background: var(--secondary);
       font-weight: 600;
@@ -280,14 +248,12 @@
       padding: 3px 10px;
       border-radius: 10px;
     }
-
     .project-card .btn {
       align-self: center;
       font-size: 0.8rem;
       padding: 8px 15px;
       margin-top: auto;
     }
-
     .filter-buttons {
       display: flex;
       justify-content: center;
@@ -295,7 +261,6 @@
       gap: 10px;
       flex-wrap: wrap;
     }
-
     .filter-buttons button {
       background: var(--primary);
       border: none;
@@ -307,13 +272,11 @@
       font-family: 'Press Start 2P', cursive;
       font-size: 0.8rem;
     }
-
     .filter-buttons button.active {
       background: var(--accent);
       color: var(--dark);
       box-shadow: var(--glow);
     }
-
     .modal-content {
       background: var(--darker);
       color: var(--light);
@@ -322,27 +285,22 @@
       box-shadow: var(--glow);
       position: relative;
     }
-
     .modal-header {
       border-bottom: 1px solid var(--primary);
     }
-
     .modal-title {
       color: var(--accent);
       font-family: 'Press Start 2P', cursive;
     }
-
     .modal-body {
       padding: 30px;
       position: relative;
     }
-
     /* Styles pour les miniatures et navigation */
     .image-container {
       text-align: center;
       margin-bottom: 20px;
     }
-
     .main-image {
       max-height: 400px;
       width: 100%;
@@ -352,7 +310,6 @@
       transition: opacity 0.5s ease;
       margin-bottom: 20px;
     }
-
     .thumbnail-gallery {
       display: flex;
       justify-content: center;
@@ -363,7 +320,6 @@
       background: rgba(26, 26, 46, 0.3);
       border-radius: 10px;
     }
-
     .thumbnail {
       width: 80px;
       height: 60px;
@@ -374,61 +330,70 @@
       transition: all 0.3s ease;
       opacity: 0.7;
     }
-
     .thumbnail:hover {
       opacity: 1;
       border-color: var(--primary);
       transform: scale(1.05);
     }
-
     .thumbnail.active {
       border-color: var(--accent);
       opacity: 1;
       transform: scale(1.1);
       box-shadow: var(--glow);
     }
-
-    /* Flèches de navigation entre projets */
-    .project-nav {
+    /* NOUVEAU STYLE POUR LES BOUTONS DE NAVIGATION */
+    .project-navigation {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 1050;
+    }
+    .project-nav-btn {
       background: rgba(26, 26, 46, 0.8);
       border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
+      border-radius: 50px;
+      padding: 10px 15px;
+      color: var(--accent);
+      font-size: 14px;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent);
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 1050;
       transition: var(--transition);
       box-shadow: var(--glow);
+      min-width: 120px;
     }
-
-    .project-nav:hover {
+    .project-nav-btn:hover {
       background: var(--primary);
-      transform: translateY(-50%) scale(1.1);
       color: white;
+      transform: scale(1.05);
     }
-
+    .project-nav-btn i {
+      margin-right: 8px;
+    }
     .project-nav-left {
-      left: -25px;
+      left: 10px;
     }
-
     .project-nav-right {
-      right: -25px;
+      right: 10px;
     }
-
+    /* Style pour les boutons de navigation dans les modals */
+    .modal-project-nav {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 1050;
+    }
     .timeline {
       position: relative;
       padding-left: 30px;
       list-style: none;
     }
-
     .timeline::before {
       content: '';
       position: absolute;
@@ -438,12 +403,10 @@
       width: 2px;
       background: var(--primary);
     }
-
     .timeline-item {
       position: relative;
       margin-bottom: 30px;
     }
-
     .timeline-item::before {
       content: '';
       position: absolute;
@@ -455,7 +418,6 @@
       background: var(--accent);
       border: 3px solid var(--primary);
     }
-
     .timeline-content {
       background: rgba(26, 26, 46, 0.7);
       padding: 20px;
@@ -463,14 +425,12 @@
       border-left: 3px solid var(--accent);
       box-shadow: var(--glow);
     }
-
     .skills-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
     }
-
     .skill-item {
       background: rgba(26, 26, 46, 0.7);
       padding: 20px;
@@ -481,12 +441,10 @@
       box-shadow: var(--glow);
       transition: var(--transition);
     }
-
     .skill-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
-
     .skill-icon {
       font-size: 3rem;
       color: var(--accent);
@@ -496,26 +454,22 @@
       align-items: center;
       height: 60px;
     }
-
     .contact-icon {
       font-size: 2.5rem;
       color: var(--accent);
       margin-right: 15px;
       transition: var(--transition);
     }
-
     .contact-item:hover .contact-icon {
       transform: rotateY(180deg);
       color: var(--secondary);
     }
-
     footer {
       background: var(--darker);
       padding: 30px 0;
       text-align: center;
       border-top: 1px solid var(--primary);
     }
-
     .easter-egg {
       position: fixed;
       bottom: 20px;
@@ -531,22 +485,18 @@
       transition: var(--transition);
       z-index: 1000;
     }
-
     .easter-egg:hover {
       transform: rotate(360deg);
     }
-
     .reveal {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
-
     .reveal.reveal-visible {
       opacity: 1;
       transform: translateY(0);
     }
-
     #lang-toggle {
       background: var(--primary);
       border: none;
@@ -564,18 +514,15 @@
       box-shadow: var(--glow);
       padding: 0;
     }
-
     #lang-toggle:hover {
       width: 180px;
       background: var(--primary-light);
     }
-
     #lang-flag {
       transition: var(--transition);
       width: 24px;
       height: 16px;
     }
-
     .profile-img-container {
       width: 300px;
       height: 300px;
@@ -585,13 +532,11 @@
       box-shadow: var(--glow);
       margin: 0 auto;
     }
-
     .profile-img-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     /* Pop-up Easter Egg */
     .easter-egg-popup {
       position: fixed;
@@ -605,11 +550,9 @@
       align-items: center;
       z-index: 9999;
     }
-
     .easter-egg-popup.hidden {
       display: none;
     }
-
     .easter-egg-content {
       background: var(--darker);
       border: 2px solid var(--accent);
@@ -620,7 +563,6 @@
       position: relative;
       box-shadow: var(--glow);
     }
-
     .easter-egg-close {
       position: absolute;
       top: 10px;
@@ -632,23 +574,19 @@
       cursor: pointer;
       transition: var(--transition);
     }
-
     .easter-egg-close:hover {
       color: var(--secondary);
       transform: scale(1.2);
     }
-
     .easter-egg-content h2 {
       color: var(--accent);
       margin-bottom: 15px;
     }
-
     .easter-egg-content p {
       color: var(--light);
       font-size: 1.1rem;
       margin-bottom: 20px;
     }
-
     #confettiCanvas {
       position: absolute;
       top: 0;
@@ -658,47 +596,35 @@
       pointer-events: none;
       z-index: -1;
     }
-
     @media (max-width: 768px) {
       header h1 {
         font-size: 2.5rem;
       }
-
       .side-buttons {
         display: none;
       }
-
       .col-lg-4 {
         flex: 0 0 50%;
         max-width: 50%;
       }
-
       .project-card img {
         height: 150px;
       }
-
       .profile-img-container {
         width: 250px;
         height: 250px;
       }
-
       .thumbnail {
         width: 60px;
         height: 45px;
       }
-
-      .project-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
+      .project-nav-btn {
+        min-width: 80px;
+        padding: 8px 10px;
+        font-size: 12px;
       }
-
-      .project-nav-left {
-        left: -20px;
-      }
-
-      .project-nav-right {
-        right: -20px;
+      .project-nav-btn i {
+        margin-right: 5px;
       }
     }
   </style>
@@ -710,7 +636,6 @@
   <div class="easter-egg" title="Konami Code ?">
     <i class="fas fa-gamepad"></i>
   </div>
-
   <header class="text-center section reveal">
     <div class="title-container">
       <h1 class="game-font" data-translate="BAPTISTE CURIE-CADET">BAPTISTE CURIE-CADET</h1>
@@ -720,7 +645,6 @@
       <i class="fas fa-play"></i> COMMENCER L'AVENTURE
     </a>
   </header>
-
   <section id="about" class="container section reveal">
     <div class="row align-items-center">
       <div class="col-lg-5 text-center mb-4">
@@ -777,7 +701,6 @@
       </div>
     </div>
   </section>
-
   <section id="skills" class="container section reveal">
     <h2 class="mb-5 text-center" data-translate="MES COMPÉTENCES">MES <span class="game-font">COMPÉTENCES</span></h2>
     <div class="skills-container">
@@ -839,7 +762,6 @@
       </div>
     </div>
   </section>
-
   <section id="projects" class="container section reveal">
     <h2 class="mb-5 text-center" data-translate="MES PROJETS">MES <span class="game-font">PROJETS</span></h2>
     <div class="filter-buttons">
@@ -960,7 +882,6 @@
       </div>
     </div>
   </section>
-
   <section id="contact" class="container section reveal">
     <h2 class="mb-5 text-center" data-translate="ME CONTACTER">ME <span class="game-font">CONTACTER</span></h2>
     <div class="row justify-content-center">
@@ -980,7 +901,6 @@
       </div>
     </div>
   </section>
-
   <!-- Pop-up Easter Egg -->
   <div id="easterEggPopup" class="easter-egg-popup hidden">
     <div class="easter-egg-content">
@@ -991,17 +911,19 @@
       <canvas id="confettiCanvas"></canvas>
     </div>
   </div>
-
-  <!-- Modals avec miniatures cliquables ET flèches de navigation -->
+  <!-- Modals avec miniatures cliquables ET NOUVEAUX BOUTONS DE NAVIGATION -->
   <!-- Modal Pirates de l'étang -->
   <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <!-- Flèche gauche -->
-        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-
+        <div class="modal-project-nav">
+          <button type="button" class="project-nav-btn" onclick="changeProject(-1)">
+            <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+          </button>
+          <button type="button" class="project-nav-btn" onclick="changeProject(1)">
+            <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
         <div class="modal-header">
           <h5 class="modal-title">Pirates de l'étang</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1010,14 +932,12 @@
           <div class="image-container">
             <img id="projectImage1" src="1_Pirate.jpg" alt="Pirates de l'étang" class="main-image">
           </div>
-
           <div class="thumbnail-gallery">
             <img src="1_Pirate.jpg" class="thumbnail active" onclick="changeImage(1, 0)" alt="Capture 1">
             <img src="2_Pirate.png" class="thumbnail" onclick="changeImage(1, 1)" alt="Capture 2">
             <img src="3_Pirate.png" class="thumbnail" onclick="changeImage(1, 2)" alt="Capture 3">
             <img src="4_Pirate.png" class="thumbnail" onclick="changeImage(1, 3)" alt="Capture 4">
           </div>
-
           <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
           <p><strong data-translate="Utilité :">Utilité :</strong> Développeur / Sound Designer</p>
           <p><strong data-translate="Durée :">Durée :</strong> Un mois</p>
@@ -1031,23 +951,21 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
-
-        <!-- Flèche droite -->
-        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
       </div>
     </div>
   </div>
-
   <!-- Modal BABURU -->
   <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-
+        <div class="modal-project-nav">
+          <button type="button" class="project-nav-btn" onclick="changeProject(-1)">
+            <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+          </button>
+          <button type="button" class="project-nav-btn" onclick="changeProject(1)">
+            <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
         <div class="modal-header">
           <h5 class="modal-title">BABURU</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1056,14 +974,12 @@
           <div class="image-container">
             <img id="projectImage2" src="bulle1 (1).png" alt="BABURU" class="main-image">
           </div>
-
           <div class="thumbnail-gallery">
             <img src="bulle1 (1).png" class="thumbnail active" onclick="changeImage(2, 0)" alt="Capture 1">
             <img src="bulle1 (2).png" class="thumbnail" onclick="changeImage(2, 1)" alt="Capture 2">
             <img src="bulle1 (3).png" class="thumbnail" onclick="changeImage(2, 2)" alt="Capture 3">
             <img src="bulle1 (4).png" class="thumbnail" onclick="changeImage(2, 3)" alt="Capture 4">
           </div>
-
           <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
           <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
           <p><strong data-translate="Durée :">Durée :</strong> 2 jours</p>
@@ -1077,22 +993,21 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
-
-        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
       </div>
     </div>
   </div>
-
   <!-- Modal Pablo -->
   <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-
+        <div class="modal-project-nav">
+          <button type="button" class="project-nav-btn" onclick="changeProject(-1)">
+            <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+          </button>
+          <button type="button" class="project-nav-btn" onclick="changeProject(1)">
+            <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
         <div class="modal-header">
           <h5 class="modal-title">Pablo</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1101,14 +1016,12 @@
           <div class="image-container">
             <img id="projectImage3" src="mexi (2).png" alt="Pablo" class="main-image">
           </div>
-
           <div class="thumbnail-gallery">
             <img src="mexi (2).png" class="thumbnail active" onclick="changeImage(3, 0)" alt="Capture 1">
             <img src="mexi.png" class="thumbnail" onclick="changeImage(3, 1)" alt="Capture 2">
             <img src="mexi (3).png" class="thumbnail" onclick="changeImage(3, 2)" alt="Capture 3">
             <img src="mexi (4).png" class="thumbnail" onclick="changeImage(3, 3)" alt="Capture 4">
           </div>
-
           <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
           <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
           <p><strong data-translate="Durée :">Durée :</strong> Un mois</p>
@@ -1122,22 +1035,21 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
-
-        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
       </div>
     </div>
   </div>
-
   <!-- Modal Bouloux -->
   <div class="modal fade" id="projectModal4" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-
+        <div class="modal-project-nav">
+          <button type="button" class="project-nav-btn" onclick="changeProject(-1)">
+            <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+          </button>
+          <button type="button" class="project-nav-btn" onclick="changeProject(1)">
+            <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
         <div class="modal-header">
           <h5 class="modal-title">Bouloux</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1146,13 +1058,11 @@
           <div class="image-container">
             <img id="projectImage4" src="ballex (1).png" alt="Bouloux" class="main-image">
           </div>
-
           <div class="thumbnail-gallery">
             <img src="ballex (1).png" class="thumbnail active" onclick="changeImage(4, 0)" alt="Capture 1">
             <img src="ballex (2).png" class="thumbnail" onclick="changeImage(4, 1)" alt="Capture 2">
             <img src="ballex (3).png" class="thumbnail" onclick="changeImage(4, 2)" alt="Capture 3">
           </div>
-
           <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
           <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
           <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
@@ -1166,22 +1076,21 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
-
-        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
       </div>
     </div>
   </div>
-
   <!-- Modal Balance ton archétype -->
   <div class="modal fade" id="projectModal5" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-
+        <div class="modal-project-nav">
+          <button type="button" class="project-nav-btn" onclick="changeProject(-1)">
+            <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+          </button>
+          <button type="button" class="project-nav-btn" onclick="changeProject(1)">
+            <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
         <div class="modal-header">
           <h5 class="modal-title">Balance ton archétype</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1190,13 +1099,11 @@
           <div class="image-container">
             <img id="projectImage5" src="balance (1).png" alt="Balance ton archétype" class="main-image">
           </div>
-
           <div class="thumbnail-gallery">
             <img src="balance (1).png" class="thumbnail active" onclick="changeImage(5, 0)" alt="Capture 1">
             <img src="balance (2).png" class="thumbnail" onclick="changeImage(5, 1)" alt="Capture 2">
             <img src="balance (3).png" class="thumbnail" onclick="changeImage(5, 2)" alt="Capture 3">
           </div>
-
           <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
           <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
           <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
@@ -1210,22 +1117,21 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
-
-        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
       </div>
     </div>
   </div>
-
   <!-- Modal Route 66 -->
   <div class="modal fade" id="projectModal6" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-
+        <div class="modal-project-nav">
+          <button type="button" class="project-nav-btn" onclick="changeProject(-1)">
+            <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+          </button>
+          <button type="button" class="project-nav-btn" onclick="changeProject(1)">
+            <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
         <div class="modal-header">
           <h5 class="modal-title">Route 66</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1234,13 +1140,11 @@
           <div class="image-container">
             <img id="projectImage6" src="voiture (1).png" alt="Route 66" class="main-image">
           </div>
-
           <div class="thumbnail-gallery">
             <img src="voiture (1).png" class="thumbnail active" onclick="changeImage(6, 0)" alt="Capture 1">
             <img src="voiture (2).png" class="thumbnail" onclick="changeImage(6, 1)" alt="Capture 2">
             <img src="voiture (3).png" class="thumbnail" onclick="changeImage(6, 2)" alt="Capture 3">
           </div>
-
           <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
           <p><strong data-translate="Utilité :">Utilité :</strong> Artiste 3D/Lighting</p>
           <p><strong data-translate="Durée :">Durée :</strong> 1 semaine</p>
@@ -1254,22 +1158,21 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
-
-        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
       </div>
     </div>
   </div>
-
   <!-- Modal Garage The Borges -->
   <div class="modal fade" id="projectModal7" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-
+        <div class="modal-project-nav">
+          <button type="button" class="project-nav-btn" onclick="changeProject(-1)">
+            <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+          </button>
+          <button type="button" class="project-nav-btn" onclick="changeProject(1)">
+            <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
         <div class="modal-header">
           <h5 class="modal-title">Garage The Borges</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1278,7 +1181,6 @@
           <div class="image-container">
             <img id="projectImage7" src="Capture d'écran 2025-06-08 015925.png" alt="Garage The Borges" class="main-image">
           </div>
-
           <div class="thumbnail-gallery">
             <img src="Capture d'écran 2025-06-08 015925.png" class="thumbnail active" onclick="changeImage(7, 0)" alt="Capture 1">
             <img src="Capture d'écran 2025-06-08 020533.png" class="thumbnail" onclick="changeImage(7, 1)" alt="Capture 2">
@@ -1286,7 +1188,6 @@
             <img src="Capture d'écran 2025-06-08 020616.png" class="thumbnail" onclick="changeImage(7, 3)" alt="Capture 4">
             <img src="Capture d'écran 2025-06-08 020630.png" class="thumbnail" onclick="changeImage(7, 4)" alt="Capture 5">
           </div>
-
           <p><strong data-translate="Catégorie:">Catégorie:</strong> HTML et PHP</p>
           <p><strong data-translate="Utilité :">Utilité :</strong> Développeur du site</p>
           <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
@@ -1297,22 +1198,21 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
-
-        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
       </div>
     </div>
   </div>
-
   <!-- Modal Écuyer des Ombres -->
   <div class="modal fade" id="projectModal8" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-
+        <div class="modal-project-nav">
+          <button type="button" class="project-nav-btn" onclick="changeProject(-1)">
+            <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+          </button>
+          <button type="button" class="project-nav-btn" onclick="changeProject(1)">
+            <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
         <div class="modal-header">
           <h5 class="modal-title">Écuyer des Ombres</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1321,7 +1221,6 @@
           <div class="image-container">
             <img id="projectImage8" src="médiéval (1).png" alt="Écuyer des Ombres" class="main-image">
           </div>
-
           <div class="thumbnail-gallery">
             <img src="médiéval (1).png" class="thumbnail active" onclick="changeImage(8, 0)" alt="Capture 1">
             <img src="médiéval (2).png" class="thumbnail" onclick="changeImage(8, 1)" alt="Capture 2">
@@ -1331,7 +1230,6 @@
             <img src="médiéval (6).png" class="thumbnail" onclick="changeImage(8, 5)" alt="Capture 6">
             <img src="médiéval (7).png" class="thumbnail" onclick="changeImage(8, 6)" alt="Capture 7">
           </div>
-
           <p><strong data-translate="Catégorie:">Catégorie:</strong> Unreal</p>
           <p><strong data-translate="Utilité :">Utilité :</strong> Développeur et Sound Designer</p>
           <p><strong data-translate="Durée :">Durée :</strong> 1 mois et demi</p>
@@ -1342,22 +1240,21 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
-
-        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
       </div>
     </div>
   </div>
-
   <!-- Modal Head War -->
   <div class="modal fade" id="projectModal9" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-
+        <div class="modal-project-nav">
+          <button type="button" class="project-nav-btn" onclick="changeProject(-1)">
+            <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+          </button>
+          <button type="button" class="project-nav-btn" onclick="changeProject(1)">
+            <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
         <div class="modal-header">
           <h5 class="modal-title">Head War</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1366,14 +1263,12 @@
           <div class="image-container">
             <img id="projectImage9" src="AR1.png" alt="Head War" class="main-image">
           </div>
-
           <div class="thumbnail-gallery">
             <img src="AR1.png" class="thumbnail active" onclick="changeImage(9, 0)" alt="Capture 1">
             <img src="AR2.png" class="thumbnail" onclick="changeImage(9, 1)" alt="Capture 2">
             <img src="AR3.png" class="thumbnail" onclick="changeImage(9, 2)" alt="Capture 3">
             <img src="AR4.png" class="thumbnail" onclick="changeImage(9, 3)" alt="Capture 4">
           </div>
-
           <p><strong data-translate="Catégorie:">Catégorie:</strong> Android</p>
           <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay / Sound Design</p>
           <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
@@ -1387,14 +1282,9 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
-
-        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
       </div>
     </div>
   </div>
-
   <div class="side-buttons">
     <a href="#top" class="btn-circle" title="Accueil"><i class="fas fa-home"></i><span class="btn-text" data-translate="Accueil"> Accueil</span></a>
     <a href="#about" class="btn-circle" title="À propos"><i class="fas fa-user"></i><span class="btn-text" data-translate="À propos"> À propos</span></a>
@@ -1407,11 +1297,9 @@
       <span class="btn-text" data-translate="Langue"> Langue</span>
     </button>
   </div>
-
   <footer class="footer text-center">
     <p>&copy; 2025 Baptiste Curie-Cadet. <span data-translate="Tous droits réservés.">Tous droits réservés.</span></p>
   </footer>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
@@ -1431,7 +1319,6 @@
         events: { onhover: { enable: true, mode: "repulse" } }
       }
     });
-
     // Animation au scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1442,7 +1329,6 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
     // Tableau des images pour chaque projet
     const projectImages = {
       1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
@@ -1458,17 +1344,14 @@
           "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"],
       9: ["AR1.png", "AR2.png", "AR3.png", "AR4.png"]
     };
-
     // Fonction pour changer l'image affichée avec transition
     function changeImage(projectId, imageIndex) {
       const mainImage = document.getElementById(`projectImage${projectId}`);
       mainImage.style.opacity = '0';
-
       setTimeout(() => {
         mainImage.src = projectImages[projectId][imageIndex];
         mainImage.style.opacity = '1';
       }, 300);
-
       // Mise à jour des miniatures
       const modal = document.getElementById(`projectModal${projectId}`);
       const thumbnails = modal.querySelectorAll('.thumbnail');
@@ -1476,25 +1359,20 @@
         thumb.classList.toggle('active', index === imageIndex);
       });
     }
-
     // Variable globale pour suivre le projet actuel
     let currentProject = 1;
-
     // Fonction pour naviguer entre les projets
     function changeProject(direction) {
       const currentModal = bootstrap.Modal.getInstance(document.querySelector('.modal.show'));
       if (currentModal) {
         currentModal.hide();
       }
-
       // Calcul du nouvel ID (boucle de 1 à 9)
       currentProject = (((currentProject + direction - 1 + 9) % 9) + 1);
-
       // Attendre que le modal actuel soit fermé avant d'ouvrir le nouveau
       setTimeout(() => {
         const newModal = new bootstrap.Modal(document.getElementById(`projectModal${currentProject}`));
         newModal.show();
-
         // Réinitialiser l'image active dans le nouveau modal
         setTimeout(() => {
           const modal = document.getElementById(`projectModal${currentProject}`);
@@ -1505,7 +1383,6 @@
         }, 300);
       }, 300);
     }
-
     // Fonction pour filtrer les projets
     function filterProjects(category) {
       const items = document.querySelectorAll('.project-item');
@@ -1516,13 +1393,11 @@
           item.style.display = 'none';
         }
       });
-
       document.querySelectorAll('.filter-buttons button').forEach(button => {
         button.classList.remove('active');
       });
       event.target.classList.add('active');
     }
-
     // Initialisation
     document.addEventListener('DOMContentLoaded', () => {
       // Écouteurs pour les boutons de projet
@@ -1531,12 +1406,10 @@
           currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
         });
       });
-
       // Initialiser les images principales
       document.querySelectorAll('.main-image').forEach(img => {
         img.style.opacity = '1';
       });
-
       // Bouton de langue
       const langToggle = document.getElementById('lang-toggle');
       langToggle.addEventListener('click', () => {
@@ -1544,14 +1417,12 @@
         const newLang = currentLang === 'fr' ? 'en' : 'fr';
         changeLanguage(newLang);
       });
-
       // Easter Egg
       const easterEgg = document.querySelector('.easter-egg');
       const easterEggPopup = document.getElementById('easterEggPopup');
       const closeEasterEgg = document.getElementById('closeEasterEgg');
       let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
       let konamiIndex = 0;
-
       document.addEventListener('keydown', (e) => {
         if (e.keyCode === konamiCode[konamiIndex]) {
           konamiIndex++;
@@ -1563,19 +1434,16 @@
           konamiIndex = 0;
         }
       });
-
       closeEasterEgg.addEventListener('click', () => {
         easterEggPopup.classList.add('hidden');
       });
     });
-
     // Affiche le pop-up Easter Egg
     function showEasterEggPopup() {
       const easterEggPopup = document.getElementById('easterEggPopup');
       easterEggPopup.classList.remove('hidden');
       launchConfetti();
     }
-
     // Confettis
     function launchConfetti() {
       const canvas = document.getElementById('confettiCanvas');
@@ -1584,7 +1452,6 @@
       confetti.render();
       setTimeout(() => confetti.clear(), 5000);
     }
-
     // Dictionnaire de traduction
     const translations = {
       fr: {
@@ -1618,6 +1485,8 @@
         "Contact": "Contact",
         "Tous droits réservés.": "Tous droits réservés.",
         "Langue": "Langue",
+        "Projet précédent": "Projet précédent",
+        "Projet suivant": "Projet suivant",
         "Développement de jeux vidéo": "Développement de jeux vidéo",
         "Technologies immersives (VR/AR)": "Technologies immersives (VR/AR)",
         "Conception de serious games": "Conception de serious games",
@@ -1676,6 +1545,8 @@
         "Contact": "Contact",
         "Tous droits réservés.": "All rights reserved.",
         "Langue": "Language",
+        "Projet précédent": "Previous Project",
+        "Projet suivant": "Next Project",
         "Développement de jeux vidéo": "Game development",
         "Technologies immersives (VR/AR)": "Immersive technologies (VR/AR)",
         "Conception de serious games": "Serious games design",
@@ -1704,7 +1575,6 @@
         "Mon LinkedIn": "My LinkedIn"
       }
     };
-
     // Fonction pour changer de langue
     function changeLanguage(lang) {
       const elements = document.querySelectorAll('[data-translate]');
@@ -1714,7 +1584,6 @@
           el.innerHTML = translations[lang][key];
         }
       });
-
       const flag = document.getElementById('lang-flag');
       flag.src = lang === 'fr' ? 'french.png' : 'english.png';
       flag.alt = lang === 'fr' ? 'Français' : 'English';
