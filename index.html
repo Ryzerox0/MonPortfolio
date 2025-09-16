@@ -828,11 +828,10 @@
           <div class="card-body">
             <h5 class="card-title">Head War</h5>
             <span class="badge">Android</span>
-            <p class="card-text" data-translate="Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !">Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !</p>
+            <p class="card-text" data-translate="Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !">Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !</p>
             <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal9" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
-      </div>
     </div>
   </section>
   <section id="contact" class="container section reveal">
@@ -1275,6 +1274,7 @@
         events: { onhover: { enable: true, mode: "repulse" } }
       }
     });
+
     // Animation au scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1285,6 +1285,7 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
     // Tableau des images pour chaque projet
     const projectImages = {
       1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
@@ -1297,6 +1298,7 @@
       8: ["médiéval (1).png", "médiéval (2).png", "médiéval (3).png", "médiéval (4).png", "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"],
       9: ["AR1.png", "AR2.png", "AR3.png", "AR4.png"]
     };
+
     // Fonction pour changer l'image affichée dans le modal
     function changeImage(projectId, imageIndex) {
       const imageElement = document.getElementById(`projectImage${projectId}`);
@@ -1306,8 +1308,10 @@
       });
       event.target.classList.add('active');
     }
+
     // Variable globale pour suivre le projet actuel
     let currentProject = 1;
+
     // Fonction pour naviguer entre les projets
     function changeProject(direction) {
       const currentModal = bootstrap.Modal.getInstance(document.querySelector('.modal.show'));
@@ -1326,6 +1330,7 @@
         document.querySelector('.image-selector-button:first-child').classList.add('active');
       }, 300);
     }
+
     // Fonction pour filtrer les projets
     function filterProjects(category) {
       const items = document.querySelectorAll('.project-item');
@@ -1341,12 +1346,14 @@
       });
       event.target.classList.add('active');
     }
+
     // Initialisation : ajoute l'écouteur pour réinitialiser currentProject au clic sur un projet
     document.querySelectorAll('[data-bs-target]').forEach(button => {
       button.addEventListener('click', function() {
         currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
       });
     });
+
     // Easter Egg : Konami Code
     const easterEgg = document.querySelector('.easter-egg');
     const easterEggPopup = document.getElementById('easterEggPopup');
@@ -1364,15 +1371,18 @@
         konamiIndex = 0;
       }
     });
+
     // Affiche le pop-up
     function showEasterEggPopup() {
       easterEggPopup.classList.remove('hidden');
       launchConfetti();
     }
+
     // Ferme le pop-up
     closeEasterEgg.addEventListener('click', () => {
       easterEggPopup.classList.add('hidden');
     });
+
     // Confettis
     function launchConfetti() {
       const canvas = document.getElementById('confettiCanvas');
@@ -1381,6 +1391,7 @@
       confetti.render();
       setTimeout(() => confetti.clear(), 5000);
     }
+
     // Dictionnaire de traduction
     const translations = {
       fr: {
@@ -1426,6 +1437,7 @@
         "Recréation de la célèbre route d'Overwatch.": "Recréation de la célèbre route d'Overwatch.",
         "Site web pour une concession automobile.": "Site web pour une concession automobile.",
         "Un jeu médiéval-fantastique avec un donjon maudit.": "Un jeu médiéval-fantastique avec un donjon maudit.",
+        "Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !": "Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !",
         "Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !": "Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !",
         "Catégorie:": "Catégorie:",
         "Utilité :": "Utilité :",
@@ -1483,6 +1495,7 @@
         "Recréation de la célèbre route d'Overwatch.": "Recreation of the famous Overwatch Route 66.",
         "Site web pour une concession automobile.": "Website for a car dealership.",
         "Un jeu médiéval-fantastique avec un donjon maudit.": "A medieval-fantasy game with a cursed dungeon.",
+        "Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !": "A crazy mobile game where the real world becomes your head-hunting ground!",
         "Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !": "In Head War, destroy as many heads as possible in the real world from your phone within a set time to win the game!",
         "Catégorie:": "Category:",
         "Utilité :": "Role:",
@@ -1498,6 +1511,7 @@
         "Mon LinkedIn": "My LinkedIn",
       }
     };
+
     // Fonction pour changer de langue
     function changeLanguage(lang) {
       const elements = document.querySelectorAll('[data-translate]');
@@ -1514,6 +1528,7 @@
       // Change la langue du HTML
       document.documentElement.lang = lang;
     }
+
     // Initialisation
     document.addEventListener('DOMContentLoaded', () => {
       // Écouteur pour le bouton de langue
