@@ -10,12 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQPF15MPGN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-JQPF15MPGN');
-  </script>
   <style>
     :root {
       --primary: #6a5acd;
@@ -151,6 +145,60 @@
       flex-direction: column;
       gap: 15px;
       z-index: 1000;
+    }
+    /* NOUVEAU STYLE POUR LES BOUTONS DE NAVIGATION EXTERIEURS */
+    .project-navigation {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1050;
+      display: flex;
+      justify-content: space-between;
+      width: calc(100% - 40px);
+      pointer-events: none;
+    }
+    .project-nav-btn {
+      position: relative;
+      background: var(--primary);
+      border: none;
+      border-radius: 50px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: var(--transition);
+      font-size: 22px;
+      box-shadow: var(--glow);
+      pointer-events: auto;
+      opacity: 0;
+      visibility: hidden;
+    }
+    .project-nav-btn:hover {
+      width: 200px;
+      background: var(--primary-light);
+    }
+    .project-nav-btn .btn-text {
+      display: none;
+      margin-left: 10px;
+      white-space: nowrap;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px;
+    }
+    .project-nav-btn:hover .btn-text {
+      display: inline;
+    }
+    .project-nav-left {
+      left: 20px;
+    }
+    .project-nav-right {
+      right: 20px;
+    }
+    /* Affichage des boutons uniquement quand une modal est ouverte */
+    .modal.show ~ .project-nav-btn {
+      opacity: 1;
+      visibility: visible;
     }
     .btn-circle {
       background: var(--primary);
@@ -341,64 +389,6 @@
       transform: scale(1.1);
       box-shadow: var(--glow);
     }
-
-    /* NOUVEAU STYLE POUR LES BOUTONS DE NAVIGATION LATÉRAUX */
-    .modal-project-nav {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 15px;
-      z-index: 1050;
-      width: 100%;
-      pointer-events: none;
-    }
-
-    .modal-project-nav > button {
-      pointer-events: auto;
-    }
-
-    .project-nav-btn {
-      background: rgba(26, 26, 46, 0.8);
-      border: none;
-      border-radius: 50px;
-      padding: 10px 15px;
-      color: var(--accent);
-      font-size: 14px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-      box-shadow: var(--glow);
-      min-width: 120px;
-      opacity: 0.8;
-    }
-
-    .project-nav-btn:hover {
-      background: var(--primary);
-      color: white;
-      transform: scale(1.05);
-      opacity: 1;
-    }
-
-    .project-nav-btn i {
-      margin-right: 8px;
-    }
-
-    .project-nav-left {
-      position: absolute;
-      left: -10px;
-    }
-
-    .project-nav-right {
-      position: absolute;
-      right: -10px;
-    }
-
     .timeline {
       position: relative;
       padding-left: 30px;
@@ -613,6 +603,9 @@
       .side-buttons {
         display: none;
       }
+      .project-navigation {
+        display: none;
+      }
       .col-lg-4 {
         flex: 0 0 50%;
         max-width: 50%;
@@ -628,29 +621,28 @@
         width: 60px;
         height: 45px;
       }
-      .modal-project-nav {
-        top: auto;
-        bottom: 10px;
-        transform: none;
-      }
-      .project-nav-btn {
-        min-width: 80px;
-        padding: 8px 10px;
-        font-size: 12px;
-      }
-      .project-nav-btn i {
-        margin-right: 5px;
-      }
     }
   </style>
 </head>
 <body>
   <!-- Particles.js Background -->
   <div id="particles-js"></div>
+
+  <!-- Boutons de navigation externes (comme les boutons latéraux) -->
+  <div class="project-navigation">
+    <button class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
+      <i class="fas fa-chevron-left"></i><span class="btn-text" data-translate="Projet précédent">Projet précédent</span>
+    </button>
+    <button class="project-nav-btn project-nav-right" onclick="changeProject(1)">
+      <span class="btn-text" data-translate="Projet suivant">Projet suivant</span><i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+
   <!-- Easter Egg -->
   <div class="easter-egg" title="Konami Code ?">
     <i class="fas fa-gamepad"></i>
   </div>
+
   <header class="text-center section reveal">
     <div class="title-container">
       <h1 class="game-font" data-translate="BAPTISTE CURIE-CADET">BAPTISTE CURIE-CADET</h1>
@@ -660,6 +652,7 @@
       <i class="fas fa-play"></i> COMMENCER L'AVENTURE
     </a>
   </header>
+
   <section id="about" class="container section reveal">
     <div class="row align-items-center">
       <div class="col-lg-5 text-center mb-4">
@@ -716,6 +709,7 @@
       </div>
     </div>
   </section>
+
   <section id="skills" class="container section reveal">
     <h2 class="mb-5 text-center" data-translate="MES COMPÉTENCES">MES <span class="game-font">COMPÉTENCES</span></h2>
     <div class="skills-container">
@@ -777,6 +771,7 @@
       </div>
     </div>
   </section>
+
   <section id="projects" class="container section reveal">
     <h2 class="mb-5 text-center" data-translate="MES PROJETS">MES <span class="game-font">PROJETS</span></h2>
     <div class="filter-buttons">
@@ -897,6 +892,7 @@
       </div>
     </div>
   </section>
+
   <section id="contact" class="container section reveal">
     <h2 class="mb-5 text-center" data-translate="ME CONTACTER">ME <span class="game-font">CONTACTER</span></h2>
     <div class="row justify-content-center">
@@ -916,6 +912,7 @@
       </div>
     </div>
   </section>
+
   <!-- Pop-up Easter Egg -->
   <div id="easterEggPopup" class="easter-egg-popup hidden">
     <div class="easter-egg-content">
@@ -926,7 +923,8 @@
       <canvas id="confettiCanvas"></canvas>
     </div>
   </div>
-  <!-- Modals avec miniatures cliquables et boutons de navigation latéraux -->
+
+  <!-- Modals SANS boutons de navigation internes -->
   <!-- Modal Pirates de l'étang -->
   <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -936,16 +934,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
-          <div class="modal-project-nav">
-            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
-              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
-            </button>
-            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
-              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-
           <div class="image-container">
             <img id="projectImage1" src="1_Pirate.jpg" alt="Pirates de l'étang" class="main-image">
           </div>
@@ -971,6 +959,7 @@
       </div>
     </div>
   </div>
+
   <!-- Modal BABURU -->
   <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -980,16 +969,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
-          <div class="modal-project-nav">
-            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
-              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
-            </button>
-            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
-              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-
           <div class="image-container">
             <img id="projectImage2" src="bulle1 (1).png" alt="BABURU" class="main-image">
           </div>
@@ -1015,6 +994,7 @@
       </div>
     </div>
   </div>
+
   <!-- Modal Pablo -->
   <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1024,16 +1004,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
-          <div class="modal-project-nav">
-            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
-              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
-            </button>
-            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
-              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-
           <div class="image-container">
             <img id="projectImage3" src="mexi (2).png" alt="Pablo" class="main-image">
           </div>
@@ -1059,6 +1029,7 @@
       </div>
     </div>
   </div>
+
   <!-- Modal Bouloux -->
   <div class="modal fade" id="projectModal4" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1068,16 +1039,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
-          <div class="modal-project-nav">
-            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
-              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
-            </button>
-            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
-              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-
           <div class="image-container">
             <img id="projectImage4" src="ballex (1).png" alt="Bouloux" class="main-image">
           </div>
@@ -1102,6 +1063,7 @@
       </div>
     </div>
   </div>
+
   <!-- Modal Balance ton archétype -->
   <div class="modal fade" id="projectModal5" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1111,16 +1073,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
-          <div class="modal-project-nav">
-            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
-              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
-            </button>
-            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
-              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-
           <div class="image-container">
             <img id="projectImage5" src="balance (1).png" alt="Balance ton archétype" class="main-image">
           </div>
@@ -1145,6 +1097,7 @@
       </div>
     </div>
   </div>
+
   <!-- Modal Route 66 -->
   <div class="modal fade" id="projectModal6" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1154,16 +1107,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
-          <div class="modal-project-nav">
-            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
-              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
-            </button>
-            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
-              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-
           <div class="image-container">
             <img id="projectImage6" src="voiture (1).png" alt="Route 66" class="main-image">
           </div>
@@ -1188,6 +1131,7 @@
       </div>
     </div>
   </div>
+
   <!-- Modal Garage The Borges -->
   <div class="modal fade" id="projectModal7" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1197,16 +1141,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
-          <div class="modal-project-nav">
-            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
-              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
-            </button>
-            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
-              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-
           <div class="image-container">
             <img id="projectImage7" src="Capture d'écran 2025-06-08 015925.png" alt="Garage The Borges" class="main-image">
           </div>
@@ -1230,6 +1164,7 @@
       </div>
     </div>
   </div>
+
   <!-- Modal Écuyer des Ombres -->
   <div class="modal fade" id="projectModal8" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1239,16 +1174,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
-          <div class="modal-project-nav">
-            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
-              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
-            </button>
-            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
-              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-
           <div class="image-container">
             <img id="projectImage8" src="médiéval (1).png" alt="Écuyer des Ombres" class="main-image">
           </div>
@@ -1274,6 +1199,7 @@
       </div>
     </div>
   </div>
+
   <!-- Modal Head War -->
   <div class="modal fade" id="projectModal9" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1283,16 +1209,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
-          <div class="modal-project-nav">
-            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
-              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
-            </button>
-            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
-              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-
           <div class="image-container">
             <img id="projectImage9" src="AR1.png" alt="Head War" class="main-image">
           </div>
@@ -1318,6 +1234,7 @@
       </div>
     </div>
   </div>
+
   <div class="side-buttons">
     <a href="#top" class="btn-circle" title="Accueil"><i class="fas fa-home"></i><span class="btn-text" data-translate="Accueil"> Accueil</span></a>
     <a href="#about" class="btn-circle" title="À propos"><i class="fas fa-user"></i><span class="btn-text" data-translate="À propos"> À propos</span></a>
@@ -1330,9 +1247,11 @@
       <span class="btn-text" data-translate="Langue"> Langue</span>
     </button>
   </div>
+
   <footer class="footer text-center">
     <p>&copy; 2025 Baptiste Curie-Cadet. <span data-translate="Tous droits réservés.">Tous droits réservés.</span></p>
   </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
@@ -1352,6 +1271,7 @@
         events: { onhover: { enable: true, mode: "repulse" } }
       }
     });
+
     // Animation au scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1362,6 +1282,7 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
     // Tableau des images pour chaque projet
     const projectImages = {
       1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
@@ -1377,6 +1298,7 @@
           "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"],
       9: ["AR1.png", "AR2.png", "AR3.png", "AR4.png"]
     };
+
     // Fonction pour changer l'image affichée avec transition
     function changeImage(projectId, imageIndex) {
       const mainImage = document.getElementById(`projectImage${projectId}`);
@@ -1392,8 +1314,10 @@
         thumb.classList.toggle('active', index === imageIndex);
       });
     }
+
     // Variable globale pour suivre le projet actuel
     let currentProject = 1;
+
     // Fonction pour naviguer entre les projets
     function changeProject(direction) {
       const currentModal = bootstrap.Modal.getInstance(document.querySelector('.modal.show'));
@@ -1416,6 +1340,7 @@
         }, 300);
       }, 300);
     }
+
     // Fonction pour filtrer les projets
     function filterProjects(category) {
       const items = document.querySelectorAll('.project-item');
@@ -1431,6 +1356,7 @@
       });
       event.target.classList.add('active');
     }
+
     // Initialisation
     document.addEventListener('DOMContentLoaded', () => {
       // Écouteurs pour les boutons de projet
@@ -1439,10 +1365,12 @@
           currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
         });
       });
+
       // Initialiser les images principales
       document.querySelectorAll('.main-image').forEach(img => {
         img.style.opacity = '1';
       });
+
       // Bouton de langue
       const langToggle = document.getElementById('lang-toggle');
       langToggle.addEventListener('click', () => {
@@ -1450,6 +1378,7 @@
         const newLang = currentLang === 'fr' ? 'en' : 'fr';
         changeLanguage(newLang);
       });
+
       // Easter Egg
       const easterEgg = document.querySelector('.easter-egg');
       const easterEggPopup = document.getElementById('easterEggPopup');
@@ -1470,13 +1399,32 @@
       closeEasterEgg.addEventListener('click', () => {
         easterEggPopup.classList.add('hidden');
       });
+
+      // Écouteur pour afficher/masquer les boutons de navigation externes
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('shown.bs.modal', function() {
+          document.querySelectorAll('.project-nav-btn').forEach(btn => {
+            btn.style.opacity = '1';
+            btn.style.visibility = 'visible';
+          });
+        });
+
+        modal.addEventListener('hidden.bs.modal', function() {
+          document.querySelectorAll('.project-nav-btn').forEach(btn => {
+            btn.style.opacity = '0';
+            btn.style.visibility = 'hidden';
+          });
+        });
+      });
     });
+
     // Affiche le pop-up Easter Egg
     function showEasterEggPopup() {
       const easterEggPopup = document.getElementById('easterEggPopup');
       easterEggPopup.classList.remove('hidden');
       launchConfetti();
     }
+
     // Confettis
     function launchConfetti() {
       const canvas = document.getElementById('confettiCanvas');
@@ -1485,6 +1433,7 @@
       confetti.render();
       setTimeout(() => confetti.clear(), 5000);
     }
+
     // Dictionnaire de traduction
     const translations = {
       fr: {
@@ -1608,6 +1557,7 @@
         "Mon LinkedIn": "My LinkedIn"
       }
     };
+
     // Fonction pour changer de langue
     function changeLanguage(lang) {
       const elements = document.querySelectorAll('[data-translate]');
