@@ -9,7 +9,6 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQPF15MPGN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -30,7 +29,6 @@
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
-    /* Styles existants */
     body {
       background: linear-gradient(135deg, var(--darker) 0%, #0f0c29 25%, #1a1a2e 100%);
       color: var(--light);
@@ -339,7 +337,7 @@
       position: relative;
     }
 
-    /* Styles pour les miniatures */
+    /* Styles pour les miniatures et navigation */
     .image-container {
       text-align: center;
       margin-bottom: 20px;
@@ -388,6 +386,41 @@
       opacity: 1;
       transform: scale(1.1);
       box-shadow: var(--glow);
+    }
+
+    /* Flèches de navigation entre projets */
+    .project-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(26, 26, 46, 0.8);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 1050;
+      transition: var(--transition);
+      box-shadow: var(--glow);
+    }
+
+    .project-nav:hover {
+      background: var(--primary);
+      transform: translateY(-50%) scale(1.1);
+      color: white;
+    }
+
+    .project-nav-left {
+      left: -25px;
+    }
+
+    .project-nav-right {
+      right: -25px;
     }
 
     .timeline {
@@ -652,6 +685,20 @@
       .thumbnail {
         width: 60px;
         height: 45px;
+      }
+
+      .project-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      .project-nav-left {
+        left: -20px;
+      }
+
+      .project-nav-right {
+        right: -20px;
       }
     }
   </style>
@@ -945,11 +992,16 @@
     </div>
   </div>
 
-  <!-- Modals avec miniatures cliquables -->
+  <!-- Modals avec miniatures cliquables ET flèches de navigation -->
   <!-- Modal Pirates de l'étang -->
   <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <!-- Flèche gauche -->
+        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
         <div class="modal-header">
           <h5 class="modal-title">Pirates de l'étang</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -979,6 +1031,11 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+
+        <!-- Flèche droite -->
+        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -987,6 +1044,10 @@
   <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
         <div class="modal-header">
           <h5 class="modal-title">BABURU</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1016,6 +1077,10 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+
+        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -1024,6 +1089,10 @@
   <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
         <div class="modal-header">
           <h5 class="modal-title">Pablo</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1053,6 +1122,10 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+
+        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -1061,6 +1134,10 @@
   <div class="modal fade" id="projectModal4" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
         <div class="modal-header">
           <h5 class="modal-title">Bouloux</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1089,6 +1166,10 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+
+        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -1097,6 +1178,10 @@
   <div class="modal fade" id="projectModal5" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
         <div class="modal-header">
           <h5 class="modal-title">Balance ton archétype</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1125,6 +1210,10 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+
+        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -1133,6 +1222,10 @@
   <div class="modal fade" id="projectModal6" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
         <div class="modal-header">
           <h5 class="modal-title">Route 66</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1161,6 +1254,10 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+
+        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -1169,6 +1266,10 @@
   <div class="modal fade" id="projectModal7" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
         <div class="modal-header">
           <h5 class="modal-title">Garage The Borges</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1196,6 +1297,10 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+
+        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -1204,6 +1309,10 @@
   <div class="modal fade" id="projectModal8" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
         <div class="modal-header">
           <h5 class="modal-title">Écuyer des Ombres</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1233,6 +1342,10 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+
+        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -1241,6 +1354,10 @@
   <div class="modal fade" id="projectModal9" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <button type="button" class="project-nav project-nav-left" onclick="changeProject(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
         <div class="modal-header">
           <h5 class="modal-title">Head War</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1270,6 +1387,10 @@
           </a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
+
+        <button type="button" class="project-nav project-nav-right" onclick="changeProject(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -1324,25 +1445,23 @@
 
     // Tableau des images pour chaque projet
     const projectImages = {
-      1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"], // Pirates de l'étang (4)
-      2: ["bulle1 (1).png", "bulle1 (2).png", "bulle1 (3).png", "bulle1 (4).png"], // BABURU (4)
-      3: ["mexi (2).png", "mexi.png", "mexi (3).png", "mexi (4).png"], // Pablo (4)
-      4: ["ballex (1).png", "ballex (2).png", "ballex (3).png"], // Bouloux (3)
-      5: ["balance (1).png", "balance (2).png", "balance (3).png"], // Balance ton archétype (3)
-      6: ["voiture (1).png", "voiture (2).png", "voiture (3).png"], // Route 66 (3)
+      1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
+      2: ["bulle1 (1).png", "bulle1 (2).png", "bulle1 (3).png", "bulle1 (4).png"],
+      3: ["mexi (2).png", "mexi.png", "mexi (3).png", "mexi (4).png"],
+      4: ["ballex (1).png", "ballex (2).png", "ballex (3).png"],
+      5: ["balance (1).png", "balance (2).png", "balance (3).png"],
+      6: ["voiture (1).png", "voiture (2).png", "voiture (3).png"],
       7: ["Capture d'écran 2025-06-08 015925.png", "Capture d'écran 2025-06-08 020533.png",
           "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png",
-          "Capture d'écran 2025-06-08 020630.png"], // Garage The Borges (5)
+          "Capture d'écran 2025-06-08 020630.png"],
       8: ["médiéval (1).png", "médiéval (2).png", "médiéval (3).png", "médiéval (4).png",
-          "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"], // Écuyer des Ombres (7)
-      9: ["AR1.png", "AR2.png", "AR3.png", "AR4.png"] // Head War (4)
+          "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"],
+      9: ["AR1.png", "AR2.png", "AR3.png", "AR4.png"]
     };
 
-    // Fonction pour changer l'image affichée dans le modal avec transition
+    // Fonction pour changer l'image affichée avec transition
     function changeImage(projectId, imageIndex) {
       const mainImage = document.getElementById(`projectImage${projectId}`);
-
-      // Animation de transition
       mainImage.style.opacity = '0';
 
       setTimeout(() => {
@@ -1361,24 +1480,29 @@
     // Variable globale pour suivre le projet actuel
     let currentProject = 1;
 
-    // Fonction pour naviguer entre les projets (navigation entre modaux)
+    // Fonction pour naviguer entre les projets
     function changeProject(direction) {
       const currentModal = bootstrap.Modal.getInstance(document.querySelector('.modal.show'));
       if (currentModal) {
         currentModal.hide();
       }
+
       // Calcul du nouvel ID (boucle de 1 à 9)
       currentProject = (((currentProject + direction - 1 + 9) % 9) + 1);
-      const newModal = new bootstrap.Modal(document.getElementById(`projectModal${currentProject}`));
-      newModal.show();
 
-      // Réinitialise l'image active dans le nouveau modal
+      // Attendre que le modal actuel soit fermé avant d'ouvrir le nouveau
       setTimeout(() => {
-        const modal = document.getElementById(`projectModal${currentProject}`);
-        const thumbnails = modal.querySelectorAll('.thumbnail');
-        thumbnails.forEach((thumb, index) => {
-          thumb.classList.toggle('active', index === 0);
-        });
+        const newModal = new bootstrap.Modal(document.getElementById(`projectModal${currentProject}`));
+        newModal.show();
+
+        // Réinitialiser l'image active dans le nouveau modal
+        setTimeout(() => {
+          const modal = document.getElementById(`projectModal${currentProject}`);
+          const thumbnails = modal.querySelectorAll('.thumbnail');
+          thumbnails.forEach((thumb, index) => {
+            thumb.classList.toggle('active', index === 0);
+          });
+        }, 300);
       }, 300);
     }
 
@@ -1392,47 +1516,65 @@
           item.style.display = 'none';
         }
       });
+
       document.querySelectorAll('.filter-buttons button').forEach(button => {
         button.classList.remove('active');
       });
       event.target.classList.add('active');
     }
 
-    // Initialisation : ajoute l'écouteur pour réinitialiser currentProject au clic sur un projet
-    document.querySelectorAll('[data-bs-target]').forEach(button => {
-      button.addEventListener('click', function() {
-        currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', () => {
+      // Écouteurs pour les boutons de projet
+      document.querySelectorAll('[data-bs-target]').forEach(button => {
+        button.addEventListener('click', function() {
+          currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
+        });
+      });
+
+      // Initialiser les images principales
+      document.querySelectorAll('.main-image').forEach(img => {
+        img.style.opacity = '1';
+      });
+
+      // Bouton de langue
+      const langToggle = document.getElementById('lang-toggle');
+      langToggle.addEventListener('click', () => {
+        const currentLang = document.documentElement.lang;
+        const newLang = currentLang === 'fr' ? 'en' : 'fr';
+        changeLanguage(newLang);
+      });
+
+      // Easter Egg
+      const easterEgg = document.querySelector('.easter-egg');
+      const easterEggPopup = document.getElementById('easterEggPopup');
+      const closeEasterEgg = document.getElementById('closeEasterEgg');
+      let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+      let konamiIndex = 0;
+
+      document.addEventListener('keydown', (e) => {
+        if (e.keyCode === konamiCode[konamiIndex]) {
+          konamiIndex++;
+          if (konamiIndex === konamiCode.length) {
+            showEasterEggPopup();
+            konamiIndex = 0;
+          }
+        } else {
+          konamiIndex = 0;
+        }
+      });
+
+      closeEasterEgg.addEventListener('click', () => {
+        easterEggPopup.classList.add('hidden');
       });
     });
 
-    // Easter Egg : Konami Code
-    const easterEgg = document.querySelector('.easter-egg');
-    const easterEggPopup = document.getElementById('easterEggPopup');
-    const closeEasterEgg = document.getElementById('closeEasterEgg');
-    let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // ↑ ↑ ↓ ↓ ← → ← → B A
-    let konamiIndex = 0;
-    document.addEventListener('keydown', (e) => {
-      if (e.keyCode === konamiCode[konamiIndex]) {
-        konamiIndex++;
-        if (konamiIndex === konamiCode.length) {
-          showEasterEggPopup();
-          konamiIndex = 0;
-        }
-      } else {
-        konamiIndex = 0;
-      }
-    });
-
-    // Affiche le pop-up
+    // Affiche le pop-up Easter Egg
     function showEasterEggPopup() {
+      const easterEggPopup = document.getElementById('easterEggPopup');
       easterEggPopup.classList.remove('hidden');
       launchConfetti();
     }
-
-    // Ferme le pop-up
-    closeEasterEgg.addEventListener('click', () => {
-      easterEggPopup.classList.add('hidden');
-    });
 
     // Confettis
     function launchConfetti() {
@@ -1501,7 +1643,7 @@
         "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.": "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.",
         "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.": "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.",
         "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.": "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.",
-        "Mon LinkedIn": "Mon LinkedIn",
+        "Mon LinkedIn": "Mon LinkedIn"
       },
       en: {
         "BAPTISTE CURIE-CADET": "BAPTISTE CURIE-CADET",
@@ -1559,7 +1701,7 @@
         "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.": "Design of Route 66 inspired by Overwatch's Route 66.",
         "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.": "Welcome to the official website of our car dealership. This website, entirely developed in HTML and PHP, allows you to discover our entire catalog of new and used vehicles. With a simple and intuitive interface, you can view detailed sheets of available cars, search for a model according to your criteria, and make an appointment online for a test drive or a trade-in estimate. This project reflects my dynamic web development work and my ability to create functional tools tailored to the needs of professionals.",
         "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.": "The game takes place in a medieval fantasy kingdom. The village of Valombre lives under the threat of a cursed dungeon that has recently awakened. Strange creatures roam there and shadows creep into the neighboring woods. The terrified villagers have seen their daily lives disrupted: burned crops, missing livestock, sick children... and no army in sight to defend them.",
-        "Mon LinkedIn": "My LinkedIn",
+        "Mon LinkedIn": "My LinkedIn"
       }
     };
 
@@ -1572,36 +1714,12 @@
           el.innerHTML = translations[lang][key];
         }
       });
-      // Change le drapeau
+
       const flag = document.getElementById('lang-flag');
       flag.src = lang === 'fr' ? 'french.png' : 'english.png';
       flag.alt = lang === 'fr' ? 'Français' : 'English';
-      // Change la langue du HTML
       document.documentElement.lang = lang;
     }
-
-    // Initialisation
-    document.addEventListener('DOMContentLoaded', () => {
-      // Écouteur pour le bouton de langue
-      const langToggle = document.getElementById('lang-toggle');
-      langToggle.addEventListener('click', () => {
-        const currentLang = document.documentElement.lang;
-        const newLang = currentLang === 'fr' ? 'en' : 'fr';
-        changeLanguage(newLang);
-      });
-
-      // Initialise les images principales comme "loaded" pour éviter les transitions au chargement
-      document.querySelectorAll('.main-image').forEach(img => {
-        img.classList.add('loaded');
-        img.style.opacity = '1';
-      });
-
-      // Ajoute la compétence Android dans les traductions
-      const androidSkill = document.querySelector('.skill-item:last-child h4');
-      if (androidSkill) {
-        androidSkill.setAttribute('data-translate', 'Android');
-      }
-    });
   </script>
 </body>
 </html>
