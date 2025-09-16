@@ -832,6 +832,7 @@
             <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal9" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
+      </div>
     </div>
   </section>
   <section id="contact" class="container section reveal">
@@ -864,7 +865,7 @@
     </div>
   </div>
   <!-- Modals -->
-  <!-- Modal Pirates de l'étang -->
+  <!-- Modal Pirates de l'étang (4 points) -->
   <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -906,7 +907,8 @@
       </div>
     </div>
   </div>
-  <!-- Modal BABURU -->
+
+  <!-- Modal BABURU (4 points) -->
   <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -948,7 +950,8 @@
       </div>
     </div>
   </div>
-  <!-- Modal Pablo -->
+
+  <!-- Modal Pablo (4 points) -->
   <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -990,7 +993,8 @@
       </div>
     </div>
   </div>
-  <!-- Modal Bouloux -->
+
+  <!-- Modal Bouloux (3 points) -->
   <div class="modal fade" id="projectModal4" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -1010,7 +1014,6 @@
             <button class="image-selector-button active" onclick="changeImage(4, 0)">●</button>
             <button class="image-selector-button" onclick="changeImage(4, 1)">●</button>
             <button class="image-selector-button" onclick="changeImage(4, 2)">●</button>
-            <button class="image-selector-button" onclick="changeImage(4, 3)">●</button>
           </div>
           <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
           <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
@@ -1032,7 +1035,8 @@
       </div>
     </div>
   </div>
-  <!-- Modal Balance ton archétype -->
+
+  <!-- Modal Balance ton archétype (3 points) -->
   <div class="modal fade" id="projectModal5" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -1052,7 +1056,6 @@
             <button class="image-selector-button active" onclick="changeImage(5, 0)">●</button>
             <button class="image-selector-button" onclick="changeImage(5, 1)">●</button>
             <button class="image-selector-button" onclick="changeImage(5, 2)">●</button>
-            <button class="image-selector-button" onclick="changeImage(5, 3)">●</button>
           </div>
           <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
           <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
@@ -1074,7 +1077,8 @@
       </div>
     </div>
   </div>
-  <!-- Modal Route 66 -->
+
+  <!-- Modal Route 66 (3 points) -->
   <div class="modal fade" id="projectModal6" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -1094,7 +1098,6 @@
             <button class="image-selector-button active" onclick="changeImage(6, 0)">●</button>
             <button class="image-selector-button" onclick="changeImage(6, 1)">●</button>
             <button class="image-selector-button" onclick="changeImage(6, 2)">●</button>
-            <button class="image-selector-button" onclick="changeImage(6, 3)">●</button>
           </div>
           <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
           <p><strong data-translate="Utilité :">Utilité :</strong> Artiste 3D/Lighting</p>
@@ -1116,7 +1119,8 @@
       </div>
     </div>
   </div>
-  <!-- Modal Garage The Borges -->
+
+  <!-- Modal Garage The Borges (5 points) -->
   <div class="modal fade" id="projectModal7" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -1156,7 +1160,8 @@
       </div>
     </div>
   </div>
-  <!-- Modal Écuyer des Ombres -->
+
+  <!-- Modal Écuyer des Ombres (7 points) -->
   <div class="modal fade" id="projectModal8" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -1198,7 +1203,8 @@
       </div>
     </div>
   </div>
-  <!-- Modal Head War -->
+
+  <!-- Modal Head War (4 points) -->
   <div class="modal fade" id="projectModal9" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -1240,6 +1246,7 @@
       </div>
     </div>
   </div>
+
   <div class="side-buttons">
     <a href="#top" class="btn-circle" title="Accueil"><i class="fas fa-home"></i><span class="btn-text" data-translate="Accueil"> Accueil</span></a>
     <a href="#about" class="btn-circle" title="À propos"><i class="fas fa-user"></i><span class="btn-text" data-translate="À propos"> À propos</span></a>
@@ -1286,17 +1293,20 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Tableau des images pour chaque projet
+    // Tableau des images pour chaque projet (corrigé avec le bon nombre d'images)
     const projectImages = {
-      1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
-      2: ["bulle1 (1).png", "bulle1 (2).png", "bulle1 (3).png", "bulle1 (4).png"],
-      3: ["mexi (2).png", "mexi.png", "mexi (3).png", "mexi (4).png"],
-      4: ["ballex (1).png", "ballex (2).png", "ballex (3).png"],
-      5: ["balance (1).png", "balance (2).png", "balance (3).png"],
-      6: ["voiture (1).png", "voiture (2).png", "voiture (3).png"],
-      7: ["Capture d'écran 2025-06-08 015925", "Capture d'écran 2025-06-08 020533.png", "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png", "Capture d'écran 2025-06-08 020630.png"],
-      8: ["médiéval (1).png", "médiéval (2).png", "médiéval (3).png", "médiéval (4).png", "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"],
-      9: ["AR1.png", "AR2.png", "AR3.png", "AR4.png"]
+      1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"], // Pirates de l'étang (4)
+      2: ["bulle1 (1).png", "bulle1 (2).png", "bulle1 (3).png", "bulle1 (4).png"], // BABURU (4)
+      3: ["mexi (2).png", "mexi.png", "mexi (3).png", "mexi (4).png"], // Pablo (4)
+      4: ["ballex (1).png", "ballex (2).png", "ballex (3).png"], // Bouloux (3)
+      5: ["balance (1).png", "balance (2).png", "balance (3).png"], // Balance ton archétype (3)
+      6: ["voiture (1).png", "voiture (2).png", "voiture (3).png"], // Route 66 (3)
+      7: ["Capture d'écran 2025-06-08 015925.png", "Capture d'écran 2025-06-08 020533.png",
+          "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png",
+          "Capture d'écran 2025-06-08 020630.png"], // Garage The Borges (5)
+      8: ["médiéval (1).png", "médiéval (2).png", "médiéval (3).png", "médiéval (4).png",
+          "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"], // Écuyer des Ombres (7)
+      9: ["AR1.png", "AR2.png", "AR3.png", "AR4.png"] // Head War (4)
     };
 
     // Fonction pour changer l'image affichée dans le modal
