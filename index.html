@@ -364,18 +364,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      transition: var(--transition);
       box-shadow: var(--strong-glow);
       min-width: 150px;
       opacity: 1;
       pointer-events: auto;
       backdrop-filter: blur(5px);
-      transform-origin: center;
     }
     .project-nav-btn:hover {
       background: var(--primary);
       color: white;
-      transform: scale(1.15);
+      transform: scale(1.08);
       box-shadow: 0 0 25px rgba(173, 198, 255, 0.9);
     }
     .project-nav-btn i {
@@ -384,12 +383,12 @@
     }
     .project-nav-left {
       position: absolute;
-      left: -80px;
+      left: -180px;
       transform: translateY(-50%);
     }
     .project-nav-right {
       position: absolute;
-      right: -80px;
+      right: -160px;
       transform: translateY(-50%);
     }
     .timeline {
@@ -626,23 +625,7 @@
         bottom: 20px;
         transform: none;
       }
-      .project-nav-btn {
-        min-width: 120px;
-        padding: 10px 15px;
-        font-size: 14px;
-        position: static;
-        transform: none;
-        left: auto !important;
-        right: auto !important;
-      }
-      .project-nav-left, .project-nav-right {
-        position: static;
-        transform: none;
-        margin: 0 10px;
-      }
-      .project-nav-btn i {
-        margin-right: 8px;
-      }
+      
     }
   </style>
 </head>
