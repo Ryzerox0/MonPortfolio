@@ -341,26 +341,16 @@
       transform: scale(1.1);
       box-shadow: var(--glow);
     }
-
     /* NOUVEAU STYLE POUR LES BOUTONS DE NAVIGATION LATÉRAUX */
     .modal-project-nav {
       position: absolute;
       top: 50%;
       left: 0;
       right: 0;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 15px;
+      height: 0;
       z-index: 1050;
-      width: 100%;
       pointer-events: none;
     }
-
-    .modal-project-nav > button {
-      pointer-events: auto;
-    }
-
     .project-nav-btn {
       background: rgba(26, 26, 46, 0.8);
       border: none;
@@ -376,29 +366,27 @@
       box-shadow: var(--glow);
       min-width: 120px;
       opacity: 0.8;
+      pointer-events: auto;
     }
-
     .project-nav-btn:hover {
       background: var(--primary);
       color: white;
       transform: scale(1.05);
       opacity: 1;
     }
-
     .project-nav-btn i {
       margin-right: 8px;
     }
-
     .project-nav-left {
       position: absolute;
-      left: -10px;
+      left: 10px;
+      transform: translateY(-50%);
     }
-
     .project-nav-right {
       position: absolute;
-      right: -10px;
+      right: 10px;
+      transform: translateY(-50%);
     }
-
     .timeline {
       position: relative;
       padding-left: 30px;
@@ -637,6 +625,12 @@
         min-width: 80px;
         padding: 8px 10px;
         font-size: 12px;
+        position: static;
+        transform: none;
+      }
+      .project-nav-left, .project-nav-right {
+        position: static;
+        transform: none;
       }
       .project-nav-btn i {
         margin-right: 5px;
@@ -945,7 +939,6 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-
           <div class="image-container">
             <img id="projectImage1" src="1_Pirate.jpg" alt="Pirates de l'étang" class="main-image">
           </div>
@@ -989,7 +982,6 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-
           <div class="image-container">
             <img id="projectImage2" src="bulle1 (1).png" alt="BABURU" class="main-image">
           </div>
@@ -1033,7 +1025,6 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-
           <div class="image-container">
             <img id="projectImage3" src="mexi (2).png" alt="Pablo" class="main-image">
           </div>
@@ -1077,7 +1068,6 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-
           <div class="image-container">
             <img id="projectImage4" src="ballex (1).png" alt="Bouloux" class="main-image">
           </div>
@@ -1120,7 +1110,6 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-
           <div class="image-container">
             <img id="projectImage5" src="balance (1).png" alt="Balance ton archétype" class="main-image">
           </div>
@@ -1163,7 +1152,6 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-
           <div class="image-container">
             <img id="projectImage6" src="voiture (1).png" alt="Route 66" class="main-image">
           </div>
@@ -1206,7 +1194,6 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-
           <div class="image-container">
             <img id="projectImage7" src="Capture d'écran 2025-06-08 015925.png" alt="Garage The Borges" class="main-image">
           </div>
@@ -1248,7 +1235,6 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-
           <div class="image-container">
             <img id="projectImage8" src="médiéval (1).png" alt="Écuyer des Ombres" class="main-image">
           </div>
@@ -1292,7 +1278,6 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-
           <div class="image-container">
             <img id="projectImage9" src="AR1.png" alt="Head War" class="main-image">
           </div>
