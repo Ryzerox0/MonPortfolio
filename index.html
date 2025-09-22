@@ -26,6 +26,7 @@
       --darker: #16213e;
       --light: #f8f9fa;
       --glow: 0 0 10px rgba(173, 198, 255, 0.7);
+      --strong-glow: 0 0 20px rgba(173, 198, 255, 0.9);
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
     body {
@@ -341,7 +342,7 @@
       transform: scale(1.1);
       box-shadow: var(--glow);
     }
-    /* NOUVEAU STYLE POUR LES BOUTONS DE NAVIGATION LATÉRAUX */
+    /* STYLE AMÉLIORÉ POUR LES BOUTONS DE NAVIGATION LATÉRAUX */
     .modal-project-nav {
       position: absolute;
       top: 50%;
@@ -352,39 +353,42 @@
       pointer-events: none;
     }
     .project-nav-btn {
-      background: rgba(26, 26, 46, 0.8);
-      border: none;
+      background: rgba(26, 26, 46, 0.9);
+      border: 2px solid var(--accent);
       border-radius: 50px;
-      padding: 10px 15px;
-      color: var(--accent);
-      font-size: 14px;
+      padding: 12px 20px;
+      color: var(--light);
+      font-size: 16px;
+      font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: var(--transition);
-      box-shadow: var(--glow);
-      min-width: 120px;
-      opacity: 0.8;
+      box-shadow: var(--strong-glow);
+      min-width: 150px;
+      opacity: 1;
       pointer-events: auto;
+      backdrop-filter: blur(5px);
     }
     .project-nav-btn:hover {
       background: var(--primary);
       color: white;
-      transform: scale(1.05);
-      opacity: 1;
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(173, 198, 255, 0.9);
     }
     .project-nav-btn i {
-      margin-right: 8px;
+      margin-right: 10px;
+      font-size: 18px;
     }
     .project-nav-left {
       position: absolute;
-      left: -150px;
+      left: -80px;
       transform: translateY(-50%);
     }
     .project-nav-right {
       position: absolute;
-      right: -150px;
+      right: -80px;
       transform: translateY(-50%);
     }
     .timeline {
@@ -618,22 +622,25 @@
       }
       .modal-project-nav {
         top: auto;
-        bottom: 10px;
+        bottom: 20px;
         transform: none;
       }
       .project-nav-btn {
-        min-width: 80px;
-        padding: 8px 10px;
-        font-size: 12px;
+        min-width: 120px;
+        padding: 10px 15px;
+        font-size: 14px;
         position: static;
         transform: none;
+        left: auto !important;
+        right: auto !important;
       }
       .project-nav-left, .project-nav-right {
         position: static;
         transform: none;
+        margin: 0 10px;
       }
       .project-nav-btn i {
-        margin-right: 5px;
+        margin-right: 8px;
       }
     }
   </style>
