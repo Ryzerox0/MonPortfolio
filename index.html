@@ -3,21 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio de Baptiste Curie-Cadet, développeur de serious games et jeux vidéo. Découvrez mes projets Unity, Unreal, et web.">
-  <meta name="keywords" content="portfolio, game dev, serious games, Unity, Unreal, développement jeu vidéo, Marseille">
-  <title>Baptiste Curie-Cadet | Développeur de Jeux Vidéo & Serious Games</title>
+  <title data-translate="Portfolio - Baptiste Curie-Cadet | Game Dev & Serious Games">Portfolio - Baptiste Curie-Cadet | Game Dev & Serious Games</title>
   <link rel="icon" type="image/png" href="manette.png">
-  <!-- Bootstrap 5.3.0 + Font Awesome 6.4.0 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <!-- Polices Google (Press Start 2P + Rajdhani) -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Typed.js pour l'animation du titre -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <!-- Confetti.js pour l'easter egg -->
   <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
-  <!-- Rellax.js pour l'effet parallaxe -->
-  <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQPF15MPGN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JQPF15MPGN');
+  </script>
   <style>
     :root {
       --primary: #6a5acd;
@@ -27,32 +25,10 @@
       --dark: #1a1a2e;
       --darker: #16213e;
       --light: #f8f9fa;
-      --glow: 0 0 10px rgba(173, 198, 255, 0.5);
-      --strong-glow: 0 0 20px rgba(173, 198, 255, 0.7);
+      --glow: 0 0 10px rgba(173, 198, 255, 0.7);
+      --strong-glow: 0 0 20px rgba(173, 198, 255, 0.9);
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-    /* Arrière-plan animé (remplace particles.js) */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background:
-        linear-gradient(-45deg, rgba(106, 90, 205, 0.1) 25%, transparent 25%),
-        linear-gradient(45deg, rgba(106, 90, 205, 0.1) 25%, transparent 25%),
-        linear-gradient(-45deg, transparent 75%, rgba(78, 205, 196, 0.1) 75%),
-        linear-gradient(45deg, transparent 75%, rgba(78, 205, 196, 0.1) 75%);
-      background-size: 20px 20px;
-      z-index: -1;
-      animation: move 4s linear infinite;
-    }
-    @keyframes move {
-      0% { background-position: 0 0; }
-      100% { background-position: 20px 20px; }
-    }
-    /* Style général */
     body {
       background: linear-gradient(135deg, var(--darker) 0%, #0f0c29 25%, #1a1a2e 100%);
       color: var(--light);
@@ -61,61 +37,76 @@
       padding: 0;
       overflow-x: hidden;
       min-height: 100vh;
-      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%234ecdc4"><circle cx="12" cy="12" r="8"/></svg>'), auto;
     }
-    a, button, .btn {
-      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="%23ff6b6b"><path d="M7 10l5 5 5-5z"/></svg>'), pointer;
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Rajdhani', sans-serif;
       font-weight: 600;
       color: var(--primary-light);
-      text-shadow: 0 0 5px rgba(173, 198, 255, 0.3);
+      text-shadow: 0 0 5px rgba(173, 198, 255, 0.5);
     }
     .game-font {
       font-family: 'Press Start 2P', cursive;
       letter-spacing: 2px;
       color: var(--accent);
-      text-shadow: 0 0 5px rgba(78, 205, 196, 0.5);
+      text-shadow: 0 0 5px rgba(78, 205, 196, 0.7);
     }
     .section {
       padding: 80px 0;
-      border-bottom: 1px solid rgba(173, 198, 255, 0.1);
+      border-bottom: 1px solid rgba(173, 198, 255, 0.2);
       position: relative;
     }
-    /* Barre de navigation fixe */
-    .navbar {
-      background: rgba(26, 26, 46, 0.9) !important;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      border-bottom: 1px solid var(--primary);
-    }
-    .navbar-brand {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 1.2rem;
-      color: var(--accent) !important;
-    }
-    .nav-link {
-      color: var(--light) !important;
+    .btn {
       transition: var(--transition);
+      border-radius: 50px;
+      font-weight: 600;
+      box-shadow: var(--glow);
+      border: none;
+      overflow: hidden;
       position: relative;
+      z-index: 1;
     }
-    .nav-link:hover {
-      color: var(--accent) !important;
-    }
-    .nav-link::after {
+    .btn::after {
       content: '';
       position: absolute;
-      bottom: 0;
+      top: 0;
       left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after {
       width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transform: translateX(-100%);
+      transition: var(--transition);
+      z-index: -1;
     }
-    /* Header avec animation de typing */
+    .btn:hover::after {
+      transform: translateX(100%);
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-secondary {
+      background: var(--secondary);
+      color: white;
+    }
+    .btn-accent {
+      background: var(--accent);
+      color: var(--dark);
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .btn:active {
+      transform: translateY(1px);
+    }
     header {
       background: linear-gradient(135deg, var(--darker) 0%, #0f0c29 100%);
       color: white;
@@ -128,6 +119,21 @@
       position: relative;
       overflow: hidden;
     }
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    .subtitle {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
     .title-container {
       background: rgba(26, 26, 46, 0.8);
       padding: 30px 40px;
@@ -137,22 +143,6 @@
       display: inline-block;
       margin-top: 20px;
     }
-    header h1 {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      min-height: 120px;
-    }
-    .subtitle {
-      font-size: 1.5rem;
-      margin-top: 10px;
-      opacity: 0.9;
-      animation: fadeIn 1.5s ease-in;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 0.9; transform: translateY(0); }
-    }
-    /* Boutons latéraux */
     .side-buttons {
       position: fixed;
       top: 50%;
@@ -175,15 +165,13 @@
       color: white;
       transition: var(--transition);
       font-size: 22px;
-      text-decoration: none;
-      box-shadow: var(--glow);
       position: relative;
       overflow: hidden;
+      box-shadow: var(--glow);
     }
     .btn-circle:hover {
       width: 180px;
       background: var(--primary-light);
-      box-shadow: var(--strong-glow);
     }
     .btn-text {
       display: none;
@@ -194,76 +182,79 @@
     .btn-circle:hover .btn-text {
       display: inline;
     }
-    /* Section "Projet à la une" */
-    .featured-project {
-      border: 2px solid var(--accent) !important;
-      box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
-      transition: all 0.3s ease;
-      margin-bottom: 50px;
+    .progress {
+      background: rgba(0, 0, 0, 0.3);
+      height: 25px;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--primary);
     }
-    .featured-project:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(78, 205, 196, 0.5);
+    .progress-bar {
+      line-height: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 1s ease;
     }
-    /* Cartes de projet améliorées */
     .project-card {
       background: rgba(26, 26, 46, 0.7);
       border-radius: 15px;
+      overflow: hidden;
       border: 1px solid var(--primary);
       transition: var(--transition);
       box-shadow: var(--glow);
       margin-bottom: 30px;
-      height: 100%;
+      height: auto;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
     }
     .project-card:hover {
-      transform: translateY(-10px) scale(1.03) rotate(1deg);
-      box-shadow: 0 20px 40px rgba(106, 90, 205, 0.4);
-      border-color: var(--accent);
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
     .project-card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      border: 1px solid var(--primary);
+      transition: var(--transition);
+      padding: 10px;
     }
     .project-card:hover img {
-      transform: scale(1.1);
+      transform: scale(1.05);
+      border-color: var(--accent);
     }
-    .card-body {
+    .project-card .card-body {
       padding: 20px;
-      flex: 1;
+      height: auto;
+      min-height: 150px;
       display: flex;
       flex-direction: column;
       text-align: center;
     }
-    .card-title {
+    .project-card .card-title {
       color: var(--accent);
       font-family: 'Press Start 2P', cursive;
       font-size: 1.2rem;
       margin-bottom: 10px;
-      transition: color 0.3s ease;
     }
-    .project-card:hover .card-title {
-      color: var(--secondary);
-    }
-    .badge {
+    .project-card .badge {
       background: var(--secondary);
       font-weight: 600;
       margin: 5px auto;
       display: inline-block;
       padding: 3px 10px;
       border-radius: 10px;
-      transition: all 0.3s ease;
     }
-    .project-card:hover .badge {
-      background: var(--accent);
-      color: var(--dark);
-      transform: scale(1.1);
+    .project-card .btn {
+      align-self: center;
+      font-size: 0.8rem;
+      padding: 8px 15px;
+      margin-top: auto;
     }
-    /* Filtres de projets */
     .filter-buttons {
       display: flex;
       justify-content: center;
@@ -282,22 +273,18 @@
       font-family: 'Press Start 2P', cursive;
       font-size: 0.8rem;
     }
-    .filter-buttons button:hover {
-      transform: scale(1.05);
-      box-shadow: var(--glow);
-    }
     .filter-buttons button.active {
       background: var(--accent);
       color: var(--dark);
-      box-shadow: var(--strong-glow);
+      box-shadow: var(--glow);
     }
-    /* Modales améliorées */
     .modal-content {
       background: var(--darker);
       color: var(--light);
       border-radius: 15px;
       border: 2px solid var(--primary);
-      box-shadow: var(--strong-glow);
+      box-shadow: var(--glow);
+      position: relative;
     }
     .modal-header {
       border-bottom: 1px solid var(--primary);
@@ -305,6 +292,15 @@
     .modal-title {
       color: var(--accent);
       font-family: 'Press Start 2P', cursive;
+    }
+    .modal-body {
+      padding: 30px;
+      position: relative;
+    }
+    /* Styles pour les miniatures et navigation */
+    .image-container {
+      text-align: center;
+      margin-bottom: 20px;
     }
     .main-image {
       max-height: 400px;
@@ -346,7 +342,55 @@
       transform: scale(1.1);
       box-shadow: var(--glow);
     }
-    /* Timeline améliorée */
+    /* STYLE AMÉLIORÉ POUR LES BOUTONS DE NAVIGATION LATÉRAUX */
+    .modal-project-nav {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 0;
+      z-index: 1050;
+      pointer-events: none;
+    }
+    .project-nav-btn {
+      background: rgba(26, 26, 46, 0.9);
+      border: 2px solid var(--accent);
+      border-radius: 50px;
+      padding: 12px 20px;
+      color: var(--light);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      box-shadow: var(--strong-glow);
+      min-width: 150px;
+      opacity: 1;
+      pointer-events: auto;
+      backdrop-filter: blur(5px);
+    }
+    .project-nav-btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(173, 198, 255, 0.9);
+    }
+    .project-nav-btn i {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+    .project-nav-left {
+      position: absolute;
+      left: -180px;
+      transform: translateY(-50%);
+    }
+    .project-nav-right {
+      position: absolute;
+      right: -160px;
+      transform: translateY(-50%);
+    }
     .timeline {
       position: relative;
       padding-left: 30px;
@@ -364,7 +408,6 @@
     .timeline-item {
       position: relative;
       margin-bottom: 30px;
-      padding-left: 20px;
     }
     .timeline-item::before {
       content: '';
@@ -376,11 +419,6 @@
       border-radius: 50%;
       background: var(--accent);
       border: 3px solid var(--primary);
-      transition: var(--transition);
-    }
-    .timeline-item:hover::before {
-      transform: scale(1.2);
-      box-shadow: var(--glow);
     }
     .timeline-content {
       background: rgba(26, 26, 46, 0.7);
@@ -388,27 +426,52 @@
       border-radius: 10px;
       border-left: 3px solid var(--accent);
       box-shadow: var(--glow);
-      transition: var(--transition);
     }
-    .timeline-content:hover {
-      box-shadow: var(--strong-glow);
-      border-left-color: var(--secondary);
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
-    /* Section "Ils me font confiance" */
-    .client-logo {
+    .skill-item {
       background: rgba(26, 26, 46, 0.7);
       padding: 20px;
       border-radius: 10px;
-      border: 1px solid var(--primary);
-      transition: var(--transition);
+      width: 200px;
       text-align: center;
-    }
-    .client-logo:hover {
-      transform: translateY(-5px);
+      border: 1px solid var(--primary);
       box-shadow: var(--glow);
-      border-color: var(--accent);
+      transition: var(--transition);
     }
-    /* Easter Egg et Confettis */
+    .skill-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    .skill-icon {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+    }
+    .contact-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-right: 15px;
+      transition: var(--transition);
+    }
+    .contact-item:hover .contact-icon {
+      transform: rotateY(180deg);
+      color: var(--secondary);
+    }
+    footer {
+      background: var(--darker);
+      padding: 30px 0;
+      text-align: center;
+      border-top: 1px solid var(--primary);
+    }
     .easter-egg {
       position: fixed;
       bottom: 20px;
@@ -423,12 +486,60 @@
       cursor: pointer;
       transition: var(--transition);
       z-index: 1000;
-      box-shadow: var(--glow);
     }
     .easter-egg:hover {
       transform: rotate(360deg);
-      box-shadow: var(--strong-glow);
     }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #lang-toggle {
+      background: var(--primary);
+      border: none;
+      border-radius: 50px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: var(--transition);
+      font-size: 22px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--glow);
+      padding: 0;
+    }
+    #lang-toggle:hover {
+      width: 180px;
+      background: var(--primary-light);
+    }
+    #lang-flag {
+      transition: var(--transition);
+      width: 24px;
+      height: 16px;
+    }
+    .profile-img-container {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent);
+      box-shadow: var(--glow);
+      margin: 0 auto;
+    }
+    .profile-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Pop-up Easter Egg */
     .easter-egg-popup {
       position: fixed;
       top: 0;
@@ -440,13 +551,9 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.5s ease;
     }
-    .easter-egg-popup.visible {
-      opacity: 1;
-      pointer-events: all;
+    .easter-egg-popup.hidden {
+      display: none;
     }
     .easter-egg-content {
       background: var(--darker);
@@ -456,7 +563,7 @@
       text-align: center;
       max-width: 500px;
       position: relative;
-      box-shadow: var(--strong-glow);
+      box-shadow: var(--glow);
     }
     .easter-egg-close {
       position: absolute;
@@ -473,30 +580,34 @@
       color: var(--secondary);
       transform: scale(1.2);
     }
-    /* Footer */
-    footer {
-      background: var(--darker);
-      padding: 30px 0;
-      text-align: center;
-      border-top: 1px solid var(--primary);
+    .easter-egg-content h2 {
+      color: var(--accent);
+      margin-bottom: 15px;
     }
-    /* Animations au scroll */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+    .easter-egg-content p {
+      color: var(--light);
+      font-size: 1.1rem;
+      margin-bottom: 20px;
     }
-    .reveal.reveal-visible {
-      opacity: 1;
-      transform: translateY(0);
+    #confettiCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
     }
-    /* Responsive */
     @media (max-width: 768px) {
       header h1 {
         font-size: 2.5rem;
       }
       .side-buttons {
         display: none;
+      }
+      .col-lg-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
       }
       .project-card img {
         height: 150px;
@@ -510,96 +621,77 @@
         height: 45px;
       }
       .modal-project-nav {
-        display: none;
+        top: auto;
+        bottom: 20px;
+        transform: none;
       }
+      
     }
   </style>
 </head>
 <body>
-  <!-- Barre de navigation fixe -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#top">BC<sup>2</sup></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Compétences</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projets</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
+  <!-- Particles.js Background -->
+  <div id="particles-js"></div>
   <!-- Easter Egg -->
   <div class="easter-egg" title="Konami Code ?">
     <i class="fas fa-gamepad"></i>
   </div>
-
-  <!-- Header avec animation de typing -->
-  <header class="text-center section reveal" id="top">
+  <header class="text-center section reveal">
     <div class="title-container">
-      <h1 class="game-font">
-        <span id="typed-title"></span>
-      </h1>
-      <p class="subtitle">DÉVELOPPEUR DE <span class="game-font">SERIOUS GAMES</span> & <span class="game-font">JEUX VIDÉO</span></p>
+      <h1 class="game-font" data-translate="BAPTISTE CURIE-CADET">BAPTISTE CURIE-CADET</h1>
+      <p class="subtitle" data-translate="DÉVELOPPEUR DE SERIOUS GAMES & JEUX VIDÉO">DÉVELOPPEUR DE <span class="game-font">SERIOUS GAMES</span> & <span class="game-font">JEUX VIDÉO</span></p>
     </div>
-    <a href="#about" class="btn btn-accent mt-4" style="font-family: 'Press Start 2P', cursive; font-size: 0.9rem;">
+    <a href="#about" class="btn btn-accent mt-4" style="font-family: 'Press Start 2P', cursive; font-size: 0.9rem;" data-translate="COMMENCER L'AVENTURE">
       <i class="fas fa-play"></i> COMMENCER L'AVENTURE
     </a>
   </header>
-
-  <!-- Section À Propos -->
   <section id="about" class="container section reveal">
     <div class="row align-items-center">
-      <div class="col-lg-5 text-center mb-4 mb-lg-0">
-        <div class="profile-img-container rellax" data-rellax-speed="-2">
-          <img src="Moi.png" alt="Photo de profil" loading="lazy">
+      <div class="col-lg-5 text-center mb-4">
+        <div class="profile-img-container">
+          <img src="Moi.png" alt="Photo de profil">
         </div>
       </div>
       <div class="col-lg-7">
-        <h2 class="mb-4">À PROPOS DE MOI</h2>
-        <p style="font-size: 1.1rem; line-height: 1.8;">
-          Salut ! Je m'appelle <strong>Baptiste</strong>, j'ai 19 ans et je suis un <strong>passionné de développement de jeux vidéo</strong>, surtout les <strong>serious games</strong>.
+        <h2 class="mb-4" data-translate="À PROPOS DE MOI">À PROPOS DE MOI</h2>
+        <p style="font-size: 1.1rem; line-height: 1.8;" data-translate="Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un passionné de développement de jeux vidéo, surtout les serious games.">
+          Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un <strong>passionné de développement de jeux vidéo</strong>, surtout les serious games.
         </p>
-        <p style="font-size: 1.1rem; line-height: 1.8;">
-          Mon objectif ? <strong>Créer des expériences immersives</strong> qui mélangent fun et apprentissage, avec une touche de magie numérique.
+        <p style="font-size: 1.1rem; line-height: 1.8;" data-translate="Mon objectif ? Créer des expériences immersives qui mélangent fun et apprentissage, avec une touche de magie numérique.">
+          Mon objectif ? Créer des expériences immersives qui <strong>mélangent fun et apprentissage</strong>, avec une touche de magie numérique.
         </p>
-        <p style="font-size: 1.1rem; line-height: 1.8;">
+        <p style="font-size: 1.1rem; line-height: 1.8;" data-translate="Quand je ne code pas, je joue, je dessine, ou je rêve de mondes virtuels à explorer.">
           Quand je ne code pas, je joue, je dessine, ou je rêve de mondes virtuels à explorer.
         </p>
         <div class="row mt-4">
           <div class="col-sm-6">
-            <p><i class="fas fa-map-marker-alt contact-icon"></i> Marseille, France</p>
+            <p><i class="fas fa-map-marker-alt contact-icon"></i> <span data-translate="Marseille, France">Marseille, France</span></p>
           </div>
           <div class="col-sm-6">
-            <p><i class="fas fa-graduation-cap contact-icon"></i> Bachelor en systèmes numériques immersifs</p>
+            <p><i class="fas fa-graduation-cap contact-icon"></i> <span data-translate="Bachelor en systèmes numériques immersifs">Bachelor en systèmes numériques immersifs</span></p>
           </div>
         </div>
-        <a href="CV_Baptiste_Curie-Cadet.pdf" class="btn btn-primary mt-3" download>
+        <a href="CV_Baptiste_Curie-Cadet.pdf" class="btn btn-primary mt-3" download data-translate="TÉLÉCHARGER MON CV">
           <i class="fas fa-download"></i> TÉLÉCHARGER MON CV
         </a>
       </div>
     </div>
     <div class="row mt-5">
       <div class="col-12">
-        <h3 class="mb-4">MON PARCOURS</h3>
+        <h3 class="mb-4" data-translate="MON PARCOURS">MON PARCOURS</h3>
         <ul class="timeline">
-          <li class="timeline-item reveal">
+          <li class="timeline-item">
             <div class="timeline-content">
               <h5>2023-2025</h5>
-              <p><strong>Bachelor Systèmes Numériques Immersifs</strong></p>
+              <p><strong data-translate="Bachelor Systèmes Numériques Immersifs">Bachelor Systèmes Numériques Immersifs</strong></p>
               <ul>
-                <li>Développement de jeux vidéo</li>
-                <li>Technologies immersives (VR/AR)</li>
-                <li>Conception de serious games</li>
+                <li data-translate="Développement de jeux vidéo">Développement de jeux vidéo</li>
+                <li data-translate="Technologies immersives (VR/AR)">Technologies immersives (VR/AR)</li>
+                <li data-translate="Conception de serious games">Conception de serious games</li>
               </ul>
             </div>
           </li>
-          <li class="timeline-item reveal">
+          <li class="timeline-item">
             <div class="timeline-content">
               <h5>2020-2023</h5>
               <p><strong>Bac STI2D (SIN)</strong></p>
@@ -609,226 +701,190 @@
       </div>
     </div>
   </section>
-
-  <!-- Section "Ils me font confiance" -->
-  <section class="container section reveal">
-    <h2 class="text-center mb-5">ILS ME FONT CONFIANCE</h2>
-    <div class="row justify-content-center">
-      <div class="col-6 col-md-4 col-lg-2 mb-4">
-        <div class="client-logo">
-          <img src="logo_isen.png" alt="ISEN Yncrea" class="img-fluid" style="filter: brightness(0) invert(1);" loading="lazy">
-        </div>
-      </div>
-      <!-- Ajouter d'autres logos ici si disponible -->
-    </div>
-  </section>
-
-  <!-- Section Compétences -->
   <section id="skills" class="container section reveal">
-    <h2 class="mb-5 text-center">MES <span class="game-font">COMPÉTENCES</span></h2>
+    <h2 class="mb-5 text-center" data-translate="MES COMPÉTENCES">MES <span class="game-font">COMPÉTENCES</span></h2>
     <div class="skills-container">
-      <div class="skill-item reveal">
+      <div class="skill-item">
         <div class="skill-icon">
           <i class="fab fa-unity"></i>
         </div>
         <h4>Unity</h4>
         <div class="progress mb-3">
-          <div class="progress-bar" data-width="70%">70%</div>
+          <div class="progress-bar" style="width: 70%;">70%</div>
         </div>
       </div>
-      <div class="skill-item reveal">
+      <div class="skill-item">
         <div class="skill-icon">
-          <img src="Unreal_Engine_Icon.png" alt="Unreal Engine" style="width: 48px; height: 48px; filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);" loading="lazy">
+          <div class="skill-icon">
+            <img src="Unreal_Engine_Icon.png" alt="Unreal Engine" style="width: 48px; height: 48px; filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);">
+          </div>
         </div>
         <h4>Unreal Engine</h4>
         <div class="progress mb-3">
-          <div class="progress-bar" data-width="60%">60%</div>
+          <div class="progress-bar" style="width: 60%;">60%</div>
         </div>
       </div>
-      <div class="skill-item reveal">
+
+      <div class="skill-item">
         <div class="skill-icon">
           <i class="fas fa-cube"></i>
         </div>
         <h4>Blender</h4>
         <div class="progress mb-3">
-          <div class="progress-bar" data-width="50%">50%</div>
+          <div class="progress-bar" style="width: 50%;">50%</div>
         </div>
       </div>
-      <div class="skill-item reveal">
+      <div class="skill-item">
         <div class="skill-icon">
           <i class="fas fa-code"></i>
         </div>
         <h4>C++</h4>
         <div class="progress mb-3">
-          <div class="progress-bar" data-width="50%">50%</div>
+          <div class="progress-bar" style="width: 50%;">50%</div>
         </div>
       </div>
-      <div class="skill-item reveal">
+      <div class="skill-item">
         <div class="skill-icon">
           <i class="fas fa-laptop-code"></i>
         </div>
-        <h4>Développement Web</h4>
+        <h4 data-translate="Développement Web">Développement Web</h4>
         <div class="progress mb-3">
-          <div class="progress-bar" data-width="40%">40%</div>
+          <div class="progress-bar" style="width: 40%;">40%</div>
         </div>
       </div>
-      <div class="skill-item reveal">
+      <div class="skill-item">
         <div class="skill-icon">
           <i class="fab fa-android"></i>
         </div>
         <h4>Android</h4>
         <div class="progress mb-3">
-          <div class="progress-bar" data-width="65%">65%</div>
+          <div class="progress-bar" style="width: 65%;">65%</div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Section Projets -->
   <section id="projects" class="container section reveal">
-    <h2 class="mb-5 text-center">MES <span class="game-font">PROJETS</span></h2>
-
-    <!-- Projet à la une -->
-    <div class="row mb-5">
-      <div class="col-12">
-        <h3 class="text-center mb-4">PROJET À LA UNE</h3>
-        <div class="featured-project card bg-dark text-white border-accent rellax" data-rellax-speed="1">
-          <img src="pirate.png" class="card-img-top" alt="Pirates de l'étang" loading="lazy">
-          <div class="card-body">
-            <h5 class="card-title game-font">PIRATES DE L’ÉTANG</h5>
-            <p class="card-text">Mon projet le plus abouti : un jeu d’aventure avec combat, craft et exploration. Développé en 1 mois avec Unity.</p>
-            <div class="d-flex justify-content-center gap-3">
-              <a href="build-pirate.zip" class="btn btn-primary" download><i class="fas fa-download"></i> Télécharger</a>
-              <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal1">Détails</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Filtres et liste des projets -->
+    <h2 class="mb-5 text-center" data-translate="MES PROJETS">MES <span class="game-font">PROJETS</span></h2>
     <div class="filter-buttons">
-      <button onclick="filterProjects('all')" class="active">TOUT</button>
-      <button onclick="filterProjects('Unity')">UNITY</button>
-      <button onclick="filterProjects('Unreal')">UNREAL</button>
-      <button onclick="filterProjects('HTML')">WEB</button>
-      <button onclick="filterProjects('Android')">ANDROID</button>
+      <button onclick="filterProjects('all')" class="active" data-translate="TOUT">TOUT</button>
+      <button onclick="filterProjects('Unity')" data-translate="UNITY">UNITY</button>
+      <button onclick="filterProjects('Unreal')" data-translate="UNREAL">UNREAL</button>
+      <button onclick="filterProjects('HTML')" data-translate="WEB">WEB</button>
+      <button onclick="filterProjects('Android')" data-translate="ANDROID">ANDROID</button>
     </div>
     <div class="row" id="projects-container">
       <!-- Pirates de l'étang -->
-      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Unity">
+      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
         <div class="project-card">
-          <img src="pirate.png" alt="Pirates de l'étang" loading="lazy">
+          <img src="pirate.png" alt="Pirates de l'étang">
           <div class="card-body">
             <h5 class="card-title">Pirates de l'étang</h5>
             <span class="badge">Unity</span>
-            <p class="card-text">Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal1">VOIR PLUS</button>
+            <p class="card-text" data-translate="Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !">Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal1" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- BABURU -->
-      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Unity">
+      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
         <div class="project-card">
-          <img src="bulle.png" alt="BABURU" loading="lazy">
+          <img src="bulle.png" alt="BABURU">
           <div class="card-body">
             <h5 class="card-title">BABURU</h5>
             <span class="badge">Unity</span>
-            <p class="card-text">Un light novel poétique sur l'introversion et l'amitié.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal2">VOIR PLUS</button>
+            <p class="card-text" data-translate="Un light novel poétique sur l'introversion et l'amitié.">Un light novel poétique sur l'introversion et l'amitié.</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal2" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- Pablo -->
-      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Unity">
+      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
         <div class="project-card">
-          <img src="chapeau.png" alt="Pablo" loading="lazy">
+          <img src="chapeau.png" alt="Pablo">
           <div class="card-body">
             <h5 class="card-title">Pablo</h5>
             <span class="badge">Unity</span>
-            <p class="card-text">Un projet scolaire pour apprendre les singletons et l'instanciation.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal3">VOIR PLUS</button>
+            <p class="card-text" data-translate="Un projet scolaire pour apprendre les singletons et l'instanciation.">Un projet scolaire pour apprendre les singletons et l'instanciation.</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal3" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- Bouloux -->
-      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Unity">
+      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
         <div class="project-card">
-          <img src="logo bouloux.jpg" alt="Bouloux" loading="lazy">
+          <img src="logo bouloux.jpg" alt="Bouloux">
           <div class="card-body">
             <h5 class="card-title">Bouloux</h5>
             <span class="badge">Unity</span>
-            <p class="card-text">Un jeu de puzzle 3D avec une balle aux états changeants.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal4">VOIR PLUS</button>
+            <p class="card-text" data-translate="Un jeu de puzzle 3D avec une balle aux états changeants.">Un jeu de puzzle 3D avec une balle aux états changeants.</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal4" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- Balance ton archétype -->
-      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Unity">
+      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
         <div class="project-card">
-          <img src="balance (1).jpg" alt="Balance ton archétype" loading="lazy">
+          <img src="balance (1).jpg" alt="Balance ton archétype">
           <div class="card-body">
             <h5 class="card-title">Balance ton archétype</h5>
             <span class="badge">Unity</span>
-            <p class="card-text">Un serious game icebreaker pour briser la glace en équipe.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal5">VOIR PLUS</button>
+            <p class="card-text" data-translate="Un serious game icebreaker pour briser la glace en équipe.">Un serious game icebreaker pour briser la glace en équipe.</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal5" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- Route 66 -->
-      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Unity">
+      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
         <div class="project-card">
-          <img src="voiture (1).jpg" alt="Route 66" loading="lazy">
+          <img src="voiture (1).jpg" alt="Route 66">
           <div class="card-body">
             <h5 class="card-title">Route 66</h5>
             <span class="badge">Unity</span>
-            <p class="card-text">Recréation de la célèbre route d'Overwatch.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal6">VOIR PLUS</button>
+            <p class="card-text" data-translate="Recréation de la célèbre route d'Overwatch.">Recréation de la célèbre route d'Overwatch.</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal6" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- Garage The Borges -->
-      <div class="col-md-6 col-lg-4 project-item reveal" data-category="HTML">
+      <div class="col-md-6 col-lg-4 project-item" data-category="HTML">
         <div class="project-card">
-          <img src="Capture d'écran 2025-06-09 024811.png" alt="Garage The Borges" loading="lazy">
+          <img src="Capture d'écran 2025-06-09 024811.png" alt="Garage The Borges">
           <div class="card-body">
             <h5 class="card-title">Garage The Borges</h5>
             <span class="badge">HTML/PHP</span>
-            <p class="card-text">Site web pour une concession automobile.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal7">VOIR PLUS</button>
+            <p class="card-text" data-translate="Site web pour une concession automobile.">Site web pour une concession automobile.</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal7" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- Écuyer des Ombres -->
-      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Unreal">
+      <div class="col-md-6 col-lg-4 project-item" data-category="Unreal">
         <div class="project-card">
-          <img src="medieval.png" alt="Écuyer des Ombres" loading="lazy">
+          <img src="medieval.png" alt="Écuyer des Ombres">
           <div class="card-body">
             <h5 class="card-title">Écuyer des Ombres</h5>
             <span class="badge">Unreal</span>
-            <p class="card-text">Un jeu médiéval-fantastique avec un donjon maudit.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal8">VOIR PLUS</button>
+            <p class="card-text" data-translate="Un jeu médiéval-fantastique avec un donjon maudit.">Un jeu médiéval-fantastique avec un donjon maudit.</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal8" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- Head War -->
-      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Android">
+      <div class="col-md-6 col-lg-4 project-item" data-category="Android">
         <div class="project-card">
-          <img src="AR_logo.png" alt="Head War" loading="lazy">
+          <img src="AR_logo.png" alt="Head War">
           <div class="card-body">
             <h5 class="card-title">Head War</h5>
             <span class="badge">Android</span>
-            <p class="card-text">Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal9">VOIR PLUS</button>
+            <p class="card-text" data-translate="Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !">Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !</p>
+            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal9" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Section Contact -->
   <section id="contact" class="container section reveal">
-    <h2 class="mb-5 text-center">ME <span class="game-font">CONTACTER</span></h2>
+    <h2 class="mb-5 text-center" data-translate="ME CONTACTER">ME <span class="game-font">CONTACTER</span></h2>
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="contact-item mb-4">
@@ -841,12 +897,11 @@
         </div>
         <div class="contact-item mb-4">
           <i class="fab fa-linkedin contact-icon"></i>
-          <a href="https://www.linkedin.com/in/baptiste-curie-cadet-099b5929a/" target="_blank">Mon LinkedIn</a>
+          <a href="https://www.linkedin.com/in/baptiste-curie-cadet-099b5929a/" target="_blank" data-translate="Mon LinkedIn">Mon LinkedIn</a>
         </div>
       </div>
     </div>
   </section>
-
   <!-- Pop-up Easter Egg -->
   <div id="easterEggPopup" class="easter-egg-popup hidden">
     <div class="easter-egg-content">
@@ -857,8 +912,7 @@
       <canvas id="confettiCanvas"></canvas>
     </div>
   </div>
-
-  <!-- Modales -->
+  <!-- Modals avec miniatures cliquables et boutons de navigation latéraux -->
   <!-- Modal Pirates de l'étang -->
   <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -868,30 +922,40 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
+          <div class="modal-project-nav">
+            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
+              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+            </button>
+            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
+              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
           <div class="image-container">
-            <img id="projectImage1" src="1_Pirate.jpg" alt="Pirates de l'étang" class="main-image" loading="lazy">
+            <img id="projectImage1" src="1_Pirate.jpg" alt="Pirates de l'étang" class="main-image">
           </div>
           <div class="thumbnail-gallery">
-            <img src="1_Pirate.jpg" class="thumbnail active" onclick="changeImage(1, 0)" alt="Capture 1" loading="lazy">
-            <img src="2_Pirate.png" class="thumbnail" onclick="changeImage(1, 1)" alt="Capture 2" loading="lazy">
-            <img src="3_Pirate.png" class="thumbnail" onclick="changeImage(1, 2)" alt="Capture 3" loading="lazy">
-            <img src="4_Pirate.png" class="thumbnail" onclick="changeImage(1, 3)" alt="Capture 4" loading="lazy">
+            <img src="1_Pirate.jpg" class="thumbnail active" onclick="changeImage(1, 0)" alt="Capture 1">
+            <img src="2_Pirate.png" class="thumbnail" onclick="changeImage(1, 1)" alt="Capture 2">
+            <img src="3_Pirate.png" class="thumbnail" onclick="changeImage(1, 2)" alt="Capture 3">
+            <img src="4_Pirate.png" class="thumbnail" onclick="changeImage(1, 3)" alt="Capture 4">
           </div>
-          <p><strong>Catégorie:</strong> Unity</p>
-          <p><strong>Utilité :</strong> Développeur / Sound Designer</p>
-          <p><strong>Durée :</strong> Un mois</p>
-          <p>Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur / Sound Designer</p>
+          <p><strong data-translate="Durée :">Durée :</strong> Un mois</p>
+          <p data-translate="Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !">
+            Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !
+          </p>
         </div>
         <div class="modal-footer">
-          <a href="build-pirate.zip" class="btn btn-primary" download>
+          <a href="build-pirate.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
   </div>
-  <!-- Autres modales (identiques à la première, adaptées pour chaque projet) -->
   <!-- Modal BABURU -->
   <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -901,25 +965,36 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
+          <div class="modal-project-nav">
+            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
+              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+            </button>
+            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
+              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
           <div class="image-container">
-            <img id="projectImage2" src="bulle1 (1).png" alt="BABURU" class="main-image" loading="lazy">
+            <img id="projectImage2" src="bulle1 (1).png" alt="BABURU" class="main-image">
           </div>
           <div class="thumbnail-gallery">
-            <img src="bulle1 (1).png" class="thumbnail active" onclick="changeImage(2, 0)" alt="Capture 1" loading="lazy">
-            <img src="bulle1 (2).png" class="thumbnail" onclick="changeImage(2, 1)" alt="Capture 2" loading="lazy">
-            <img src="bulle1 (3).png" class="thumbnail" onclick="changeImage(2, 2)" alt="Capture 3" loading="lazy">
-            <img src="bulle1 (4).png" class="thumbnail" onclick="changeImage(2, 3)" alt="Capture 4" loading="lazy">
+            <img src="bulle1 (1).png" class="thumbnail active" onclick="changeImage(2, 0)" alt="Capture 1">
+            <img src="bulle1 (2).png" class="thumbnail" onclick="changeImage(2, 1)" alt="Capture 2">
+            <img src="bulle1 (3).png" class="thumbnail" onclick="changeImage(2, 2)" alt="Capture 3">
+            <img src="bulle1 (4).png" class="thumbnail" onclick="changeImage(2, 3)" alt="Capture 4">
           </div>
-          <p><strong>Catégorie:</strong> Unity</p>
-          <p><strong>Utilité :</strong> Développeur Gameplay</p>
-          <p><strong>Durée :</strong> 2 jours</p>
-          <p>Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle. Une expérience poétique sur l'introversion et l'amitié.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
+          <p><strong data-translate="Durée :">Durée :</strong> 2 jours</p>
+          <p data-translate="Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.">
+            Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.
+          </p>
         </div>
         <div class="modal-footer">
-          <a href="build-baburu.zip" class="btn btn-primary" download>
+          <a href="build-baburu.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -933,25 +1008,36 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
+          <div class="modal-project-nav">
+            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
+              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+            </button>
+            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
+              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
           <div class="image-container">
-            <img id="projectImage3" src="mexi (2).png" alt="Pablo" class="main-image" loading="lazy">
+            <img id="projectImage3" src="mexi (2).png" alt="Pablo" class="main-image">
           </div>
           <div class="thumbnail-gallery">
-            <img src="mexi (2).png" class="thumbnail active" onclick="changeImage(3, 0)" alt="Capture 1" loading="lazy">
-            <img src="mexi.png" class="thumbnail" onclick="changeImage(3, 1)" alt="Capture 2" loading="lazy">
-            <img src="mexi (3).png" class="thumbnail" onclick="changeImage(3, 2)" alt="Capture 3" loading="lazy">
-            <img src="mexi (4).png" class="thumbnail" onclick="changeImage(3, 3)" alt="Capture 4" loading="lazy">
+            <img src="mexi (2).png" class="thumbnail active" onclick="changeImage(3, 0)" alt="Capture 1">
+            <img src="mexi.png" class="thumbnail" onclick="changeImage(3, 1)" alt="Capture 2">
+            <img src="mexi (3).png" class="thumbnail" onclick="changeImage(3, 2)" alt="Capture 3">
+            <img src="mexi (4).png" class="thumbnail" onclick="changeImage(3, 3)" alt="Capture 4">
           </div>
-          <p><strong>Catégorie:</strong> Unity</p>
-          <p><strong>Utilité :</strong> Développeur Gameplay</p>
-          <p><strong>Durée :</strong> Un mois</p>
-          <p>Projet scolaire pour apprendre les singletons et l'instanciation de GameObject. Un jeu simple mais efficace pour comprendre les bases de la programmation orientée objet dans Unity.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
+          <p><strong data-translate="Durée :">Durée :</strong> Un mois</p>
+          <p data-translate="Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.">
+            Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.
+          </p>
         </div>
         <div class="modal-footer">
-          <a href="Build-Pablo.zip" class="btn btn-primary" download>
+          <a href="Build-Pablo.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -965,24 +1051,35 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
+          <div class="modal-project-nav">
+            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
+              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+            </button>
+            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
+              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
           <div class="image-container">
-            <img id="projectImage4" src="ballex (1).png" alt="Bouloux" class="main-image" loading="lazy">
+            <img id="projectImage4" src="ballex (1).png" alt="Bouloux" class="main-image">
           </div>
           <div class="thumbnail-gallery">
-            <img src="ballex (1).png" class="thumbnail active" onclick="changeImage(4, 0)" alt="Capture 1" loading="lazy">
-            <img src="ballex (2).png" class="thumbnail" onclick="changeImage(4, 1)" alt="Capture 2" loading="lazy">
-            <img src="ballex (3).png" class="thumbnail" onclick="changeImage(4, 2)" alt="Capture 3" loading="lazy">
+            <img src="ballex (1).png" class="thumbnail active" onclick="changeImage(4, 0)" alt="Capture 1">
+            <img src="ballex (2).png" class="thumbnail" onclick="changeImage(4, 1)" alt="Capture 2">
+            <img src="ballex (3).png" class="thumbnail" onclick="changeImage(4, 2)" alt="Capture 3">
           </div>
-          <p><strong>Catégorie:</strong> Unity</p>
-          <p><strong>Utilité :</strong> Développeur Gameplay</p>
-          <p><strong>Durée :</strong> 1 mois</p>
-          <p>Un jeu de puzzle 3D avec une balle capable de changer d'état physique. Graphismes esthétiques et gameplay complexe pour un défi stimulant.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
+          <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
+          <p data-translate="Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.">
+            Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.
+          </p>
         </div>
         <div class="modal-footer">
-          <a href="Build-bouloux.zip" class="btn btn-primary" download>
+          <a href="Build-bouloux.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -996,24 +1093,35 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
+          <div class="modal-project-nav">
+            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
+              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+            </button>
+            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
+              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
           <div class="image-container">
-            <img id="projectImage5" src="balance (1).png" alt="Balance ton archétype" class="main-image" loading="lazy">
+            <img id="projectImage5" src="balance (1).png" alt="Balance ton archétype" class="main-image">
           </div>
           <div class="thumbnail-gallery">
-            <img src="balance (1).png" class="thumbnail active" onclick="changeImage(5, 0)" alt="Capture 1" loading="lazy">
-            <img src="balance (2).png" class="thumbnail" onclick="changeImage(5, 1)" alt="Capture 2" loading="lazy">
-            <img src="balance (3).png" class="thumbnail" onclick="changeImage(5, 2)" alt="Capture 3" loading="lazy">
+            <img src="balance (1).png" class="thumbnail active" onclick="changeImage(5, 0)" alt="Capture 1">
+            <img src="balance (2).png" class="thumbnail" onclick="changeImage(5, 1)" alt="Capture 2">
+            <img src="balance (3).png" class="thumbnail" onclick="changeImage(5, 2)" alt="Capture 3">
           </div>
-          <p><strong>Catégorie:</strong> Unity</p>
-          <p><strong>Utilité :</strong> Développeur Gameplay</p>
-          <p><strong>Durée :</strong> 1 mois</p>
-          <p>Un serious game icebreaker pour briser la glace en équipe. Combinaison de support virtuel et physique, avec des phases de vote et de présentation dynamiques.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
+          <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
+          <p data-translate="Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.">
+            Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.
+          </p>
         </div>
         <div class="modal-footer">
-          <a href="Build-BalanceTonArchetype.zip" class="btn btn-primary" download>
+          <a href="Build-BalanceTonArchetype.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -1027,24 +1135,35 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
+          <div class="modal-project-nav">
+            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
+              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+            </button>
+            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
+              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
           <div class="image-container">
-            <img id="projectImage6" src="voiture (1).png" alt="Route 66" class="main-image" loading="lazy">
+            <img id="projectImage6" src="voiture (1).png" alt="Route 66" class="main-image">
           </div>
           <div class="thumbnail-gallery">
-            <img src="voiture (1).png" class="thumbnail active" onclick="changeImage(6, 0)" alt="Capture 1" loading="lazy">
-            <img src="voiture (2).png" class="thumbnail" onclick="changeImage(6, 1)" alt="Capture 2" loading="lazy">
-            <img src="voiture (3).png" class="thumbnail" onclick="changeImage(6, 2)" alt="Capture 3" loading="lazy">
+            <img src="voiture (1).png" class="thumbnail active" onclick="changeImage(6, 0)" alt="Capture 1">
+            <img src="voiture (2).png" class="thumbnail" onclick="changeImage(6, 1)" alt="Capture 2">
+            <img src="voiture (3).png" class="thumbnail" onclick="changeImage(6, 2)" alt="Capture 3">
           </div>
-          <p><strong>Catégorie:</strong> Unity</p>
-          <p><strong>Utilité :</strong> Artiste 3D/Lighting</p>
-          <p><strong>Durée :</strong> 1 semaine</p>
-          <p>Recréation de la célèbre route 66 d'Overwatch. Un projet court mais intense pour travailler les environnements 3D et l'éclairage.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Artiste 3D/Lighting</p>
+          <p><strong data-translate="Durée :">Durée :</strong> 1 semaine</p>
+          <p data-translate="Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.">
+            Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.
+          </p>
         </div>
         <div class="modal-footer">
-          <a href="build-route-66.zip" class="btn btn-primary" download>
+          <a href="build-route-66.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -1058,23 +1177,34 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
+          <div class="modal-project-nav">
+            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
+              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+            </button>
+            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
+              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
           <div class="image-container">
-            <img id="projectImage7" src="Capture d'écran 2025-06-08 015925.png" alt="Garage The Borges" class="main-image" loading="lazy">
+            <img id="projectImage7" src="Capture d'écran 2025-06-08 015925.png" alt="Garage The Borges" class="main-image">
           </div>
           <div class="thumbnail-gallery">
-            <img src="Capture d'écran 2025-06-08 015925.png" class="thumbnail active" onclick="changeImage(7, 0)" alt="Capture 1" loading="lazy">
-            <img src="Capture d'écran 2025-06-08 020533.png" class="thumbnail" onclick="changeImage(7, 1)" alt="Capture 2" loading="lazy">
-            <img src="Capture d'écran 2025-06-08 020555.png" class="thumbnail" onclick="changeImage(7, 2)" alt="Capture 3" loading="lazy">
-            <img src="Capture d'écran 2025-06-08 020616.png" class="thumbnail" onclick="changeImage(7, 3)" alt="Capture 4" loading="lazy">
-            <img src="Capture d'écran 2025-06-08 020630.png" class="thumbnail" onclick="changeImage(7, 4)" alt="Capture 5" loading="lazy">
+            <img src="Capture d'écran 2025-06-08 015925.png" class="thumbnail active" onclick="changeImage(7, 0)" alt="Capture 1">
+            <img src="Capture d'écran 2025-06-08 020533.png" class="thumbnail" onclick="changeImage(7, 1)" alt="Capture 2">
+            <img src="Capture d'écran 2025-06-08 020555.png" class="thumbnail" onclick="changeImage(7, 2)" alt="Capture 3">
+            <img src="Capture d'écran 2025-06-08 020616.png" class="thumbnail" onclick="changeImage(7, 3)" alt="Capture 4">
+            <img src="Capture d'écran 2025-06-08 020630.png" class="thumbnail" onclick="changeImage(7, 4)" alt="Capture 5">
           </div>
-          <p><strong>Catégorie:</strong> HTML et PHP</p>
-          <p><strong>Utilité :</strong> Développeur du site</p>
-          <p><strong>Durée :</strong> 1 mois</p>
-          <p>Site web pour une concession automobile. Développement complet en HTML/PHP avec catalogue de véhicules, recherche et prise de rendez-vous.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> HTML et PHP</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur du site</p>
+          <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
+          <p data-translate="Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.">
+            Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.
+          </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -1088,25 +1218,36 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
+          <div class="modal-project-nav">
+            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
+              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+            </button>
+            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
+              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
           <div class="image-container">
-            <img id="projectImage8" src="médiéval (1).png" alt="Écuyer des Ombres" class="main-image" loading="lazy">
+            <img id="projectImage8" src="médiéval (1).png" alt="Écuyer des Ombres" class="main-image">
           </div>
           <div class="thumbnail-gallery">
-            <img src="médiéval (1).png" class="thumbnail active" onclick="changeImage(8, 0)" alt="Capture 1" loading="lazy">
-            <img src="médiéval (2).png" class="thumbnail" onclick="changeImage(8, 1)" alt="Capture 2" loading="lazy">
-            <img src="médiéval (3).png" class="thumbnail" onclick="changeImage(8, 2)" alt="Capture 3" loading="lazy">
-            <img src="médiéval (4).png" class="thumbnail" onclick="changeImage(8, 3)" alt="Capture 4" loading="lazy">
-            <img src="médiéval (5).png" class="thumbnail" onclick="changeImage(8, 4)" alt="Capture 5" loading="lazy">
-            <img src="médiéval (6).png" class="thumbnail" onclick="changeImage(8, 5)" alt="Capture 6" loading="lazy">
-            <img src="médiéval (7).png" class="thumbnail" onclick="changeImage(8, 6)" alt="Capture 7" loading="lazy">
+            <img src="médiéval (1).png" class="thumbnail active" onclick="changeImage(8, 0)" alt="Capture 1">
+            <img src="médiéval (2).png" class="thumbnail" onclick="changeImage(8, 1)" alt="Capture 2">
+            <img src="médiéval (3).png" class="thumbnail" onclick="changeImage(8, 2)" alt="Capture 3">
+            <img src="médiéval (4).png" class="thumbnail" onclick="changeImage(8, 3)" alt="Capture 4">
+            <img src="médiéval (5).png" class="thumbnail" onclick="changeImage(8, 4)" alt="Capture 5">
+            <img src="médiéval (6).png" class="thumbnail" onclick="changeImage(8, 5)" alt="Capture 6">
+            <img src="médiéval (7).png" class="thumbnail" onclick="changeImage(8, 6)" alt="Capture 7">
           </div>
-          <p><strong>Catégorie:</strong> Unreal</p>
-          <p><strong>Utilité :</strong> Développeur et Sound Designer</p>
-          <p><strong>Durée :</strong> 1 mois et demi</p>
-          <p>Un jeu médiéval-fantastique avec un donjon maudit. Le village de Valombre est menacé par des créatures étranges. Un projet ambitieux pour travailler l'atmosphère et le storytelling.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unreal</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur et Sound Designer</p>
+          <p><strong data-translate="Durée :">Durée :</strong> 1 mois et demi</p>
+          <p data-translate="Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.">
+            Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.
+          </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -1120,154 +1261,175 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
+          <div class="modal-project-nav">
+            <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
+              <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
+            </button>
+            <button type="button" class="project-nav-btn project-nav-right" onclick="changeProject(1)">
+              <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
           <div class="image-container">
-            <img id="projectImage9" src="AR1.png" alt="Head War" class="main-image" loading="lazy">
+            <img id="projectImage9" src="AR1.png" alt="Head War" class="main-image">
           </div>
           <div class="thumbnail-gallery">
-            <img src="AR1.png" class="thumbnail active" onclick="changeImage(9, 0)" alt="Capture 1" loading="lazy">
-            <img src="AR2.png" class="thumbnail" onclick="changeImage(9, 1)" alt="Capture 2" loading="lazy">
-            <img src="AR3.png" class="thumbnail" onclick="changeImage(9, 2)" alt="Capture 3" loading="lazy">
-            <img src="AR4.png" class="thumbnail" onclick="changeImage(9, 3)" alt="Capture 4" loading="lazy">
+            <img src="AR1.png" class="thumbnail active" onclick="changeImage(9, 0)" alt="Capture 1">
+            <img src="AR2.png" class="thumbnail" onclick="changeImage(9, 1)" alt="Capture 2">
+            <img src="AR3.png" class="thumbnail" onclick="changeImage(9, 2)" alt="Capture 3">
+            <img src="AR4.png" class="thumbnail" onclick="changeImage(9, 3)" alt="Capture 4">
           </div>
-          <p><strong>Catégorie:</strong> Android</p>
-          <p><strong>Utilité :</strong> Développeur Gameplay / Sound Design</p>
-          <p><strong>Durée :</strong> 1 mois</p>
-          <p>Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes ! Utilisation de la réalité augmentée pour une expérience unique.</p>
+          <p><strong data-translate="Catégorie:">Catégorie:</strong> Android</p>
+          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay / Sound Design</p>
+          <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
+          <p data-translate="Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !">
+            Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !
+          </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Boutons de navigation latéraux (masqués sur mobile) -->
   <div class="side-buttons">
-    <a href="#top" class="btn-circle" title="Accueil"><i class="fas fa-home"></i><span class="btn-text"> Accueil</span></a>
-    <a href="#about" class="btn-circle" title="À propos"><i class="fas fa-user"></i><span class="btn-text"> À propos</span></a>
-    <a href="#skills" class="btn-circle" title="Compétences"><i class="fas fa-star"></i><span class="btn-text"> Compétences</span></a>
-    <a href="#projects" class="btn-circle" title="Projets"><i class="fas fa-gamepad"></i><span class="btn-text"> Projets</span></a>
-    <a href="#contact" class="btn-circle" title="Contact"><i class="fas fa-envelope"></i><span class="btn-text"> Contact</span></a>
+    <a href="#top" class="btn-circle" title="Accueil"><i class="fas fa-home"></i><span class="btn-text" data-translate="Accueil"> Accueil</span></a>
+    <a href="#about" class="btn-circle" title="À propos"><i class="fas fa-user"></i><span class="btn-text" data-translate="À propos"> À propos</span></a>
+    <a href="#skills" class="btn-circle" title="Compétences"><i class="fas fa-star"></i><span class="btn-text" data-translate="Compétences"> Compétences</span></a>
+    <a href="#projects" class="btn-circle" title="Projets"><i class="fas fa-gamepad"></i><span class="btn-text" data-translate="Projets"> Projets</span></a>
+    <a href="#contact" class="btn-circle" title="Contact"><i class="fas fa-envelope"></i><span class="btn-text" data-translate="Contact"> Contact</span></a>
+    <!-- Bouton de langue -->
+    <button id="lang-toggle" class="btn-circle" title="Changer de langue">
+      <img id="lang-flag" src="french.png" alt="Français">
+      <span class="btn-text" data-translate="Langue"> Langue</span>
+    </button>
   </div>
-
-  <!-- Footer -->
   <footer class="footer text-center">
-    <p>&copy; 2025 Baptiste Curie-Cadet. Tous droits réservés.</p>
+    <p>&copy; 2025 Baptiste Curie-Cadet. <span data-translate="Tous droits réservés.">Tous droits réservés.</span></p>
   </footer>
-
-  <!-- Scripts (dans le bon ordre) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    // Initialisation au chargement de la page
-    document.addEventListener('DOMContentLoaded', function() {
-      // Animation du titre avec Typed.js
-      new Typed('#typed-title', {
-        strings: ['BAPTISTE CURIE-CADET'],
-        typeSpeed: 80,
-        showCursor: false,
-      });
-
-      // Effet parallaxe avec Rellax
-      var rellax = new Rellax('.rellax');
-
-      // Animation au scroll
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('reveal-visible');
-            // Animation des barres de compétences
-            const progressBars = entry.target.querySelectorAll('.progress-bar');
-            progressBars.forEach(bar => {
-              const width = bar.getAttribute('data-width') || '70%';
-              bar.style.width = width;
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-      // Tableau des images pour chaque projet
-      const projectImages = {
-        1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
-        2: ["bulle1 (1).png", "bulle1 (2).png", "bulle1 (3).png", "bulle1 (4).png"],
-        3: ["mexi (2).png", "mexi.png", "mexi (3).png", "mexi (4).png"],
-        4: ["ballex (1).png", "ballex (2).png", "ballex (3).png"],
-        5: ["balance (1).png", "balance (2).png", "balance (3).png"],
-        6: ["voiture (1).png", "voiture (2).png", "voiture (3).png"],
-        7: ["Capture d'écran 2025-06-08 015925.png", "Capture d'écran 2025-06-08 020533.png",
-            "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png",
-            "Capture d'écran 2025-06-08 020630.png"],
-        8: ["médiéval (1).png", "médiéval (2).png", "médiéval (3).png", "médiéval (4).png",
-            "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"],
-        9: ["AR1.png", "AR2.png", "AR3.png", "AR4.png"]
-      };
-
-      // Variable globale pour suivre le projet actuel
-      let currentProject = 1;
-
-      // Fonction pour changer l'image affichée avec transition
-      window.changeImage = function(projectId, imageIndex) {
-        const mainImage = document.getElementById(`projectImage${projectId}`);
-        mainImage.style.opacity = '0';
-        setTimeout(() => {
-          mainImage.src = projectImages[projectId][imageIndex];
-          mainImage.style.opacity = '1';
-        }, 300);
-        // Mise à jour des miniatures
-        const modal = document.getElementById(`projectModal${projectId}`);
-        const thumbnails = modal.querySelectorAll('.thumbnail');
-        thumbnails.forEach((thumb, index) => {
-          thumb.classList.toggle('active', index === imageIndex);
-        });
-      };
-
-      // Fonction pour naviguer entre les projets
-      window.changeProject = function(direction) {
-        const currentModal = bootstrap.Modal.getInstance(document.querySelector('.modal.show'));
-        if (currentModal) {
-          currentModal.hide();
+    // Particles.js
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#adc6ff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: "#adc6ff", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: { onhover: { enable: true, mode: "repulse" } }
+      }
+    });
+    // Animation au scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-visible');
+          observer.unobserve(entry.target);
         }
-        // Calcul du nouvel ID (boucle de 1 à 9)
-        currentProject = (((currentProject + direction - 1 + 9) % 9) + 1);
-        // Attendre que le modal actuel soit fermé avant d'ouvrir le nouveau
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // Tableau des images pour chaque projet
+    const projectImages = {
+      1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
+      2: ["bulle1 (1).png", "bulle1 (2).png", "bulle1 (3).png", "bulle1 (4).png"],
+      3: ["mexi (2).png", "mexi.png", "mexi (3).png", "mexi (4).png"],
+      4: ["ballex (1).png", "ballex (2).png", "ballex (3).png"],
+      5: ["balance (1).png", "balance (2).png", "balance (3).png"],
+      6: ["voiture (1).png", "voiture (2).png", "voiture (3).png"],
+      7: ["Capture d'écran 2025-06-08 015925.png", "Capture d'écran 2025-06-08 020533.png",
+          "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png",
+          "Capture d'écran 2025-06-08 020630.png"],
+      8: ["médiéval (1).png", "médiéval (2).png", "médiéval (3).png", "médiéval (4).png",
+          "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"],
+      9: ["AR1.png", "AR2.png", "AR3.png", "AR4.png"]
+    };
+    // Fonction pour changer l'image affichée avec transition
+    function changeImage(projectId, imageIndex) {
+      const mainImage = document.getElementById(`projectImage${projectId}`);
+      mainImage.style.opacity = '0';
+      setTimeout(() => {
+        mainImage.src = projectImages[projectId][imageIndex];
+        mainImage.style.opacity = '1';
+      }, 300);
+      // Mise à jour des miniatures
+      const modal = document.getElementById(`projectModal${projectId}`);
+      const thumbnails = modal.querySelectorAll('.thumbnail');
+      thumbnails.forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === imageIndex);
+      });
+    }
+    // Variable globale pour suivre le projet actuel
+    let currentProject = 1;
+    // Fonction pour naviguer entre les projets
+    function changeProject(direction) {
+      const currentModal = bootstrap.Modal.getInstance(document.querySelector('.modal.show'));
+      if (currentModal) {
+        currentModal.hide();
+      }
+      // Calcul du nouvel ID (boucle de 1 à 9)
+      currentProject = (((currentProject + direction - 1 + 9) % 9) + 1);
+      // Attendre que le modal actuel soit fermé avant d'ouvrir le nouveau
+      setTimeout(() => {
+        const newModal = new bootstrap.Modal(document.getElementById(`projectModal${currentProject}`));
+        newModal.show();
+        // Réinitialiser l'image active dans le nouveau modal
         setTimeout(() => {
-          const newModal = new bootstrap.Modal(document.getElementById(`projectModal${currentProject}`));
-          newModal.show();
-          // Réinitialiser l'image active dans le nouveau modal
-          setTimeout(() => {
-            const modal = document.getElementById(`projectModal${currentProject}`);
-            const thumbnails = modal.querySelectorAll('.thumbnail');
-            thumbnails.forEach((thumb, index) => {
-              thumb.classList.toggle('active', index === 0);
-            });
-          }, 300);
+          const modal = document.getElementById(`projectModal${currentProject}`);
+          const thumbnails = modal.querySelectorAll('.thumbnail');
+          thumbnails.forEach((thumb, index) => {
+            thumb.classList.toggle('active', index === 0);
+          });
         }, 300);
-      };
-
-      // Fonction pour filtrer les projets
-      window.filterProjects = function(category) {
-        const items = document.querySelectorAll('.project-item');
-        items.forEach(item => {
-          if (category === 'all' || item.getAttribute('data-category') === category) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
+      }, 300);
+    }
+    // Fonction pour filtrer les projets
+    function filterProjects(category) {
+      const items = document.querySelectorAll('.project-item');
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      document.querySelectorAll('.filter-buttons button').forEach(button => {
+        button.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', () => {
+      // Écouteurs pour les boutons de projet
+      document.querySelectorAll('[data-bs-target]').forEach(button => {
+        button.addEventListener('click', function() {
+          currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
         });
-        document.querySelectorAll('.filter-buttons button').forEach(button => {
-          button.classList.remove('active');
-        });
-        event.target.classList.add('active');
-      };
-
+      });
+      // Initialiser les images principales
+      document.querySelectorAll('.main-image').forEach(img => {
+        img.style.opacity = '1';
+      });
+      // Bouton de langue
+      const langToggle = document.getElementById('lang-toggle');
+      langToggle.addEventListener('click', () => {
+        const currentLang = document.documentElement.lang;
+        const newLang = currentLang === 'fr' ? 'en' : 'fr';
+        changeLanguage(newLang);
+      });
       // Easter Egg
       const easterEgg = document.querySelector('.easter-egg');
       const easterEggPopup = document.getElementById('easterEggPopup');
       const closeEasterEgg = document.getElementById('closeEasterEgg');
-      const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+      let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
       let konamiIndex = 0;
-
       document.addEventListener('keydown', (e) => {
         if (e.keyCode === konamiCode[konamiIndex]) {
           konamiIndex++;
@@ -1279,26 +1441,161 @@
           konamiIndex = 0;
         }
       });
-
-      easterEgg.addEventListener('click', showEasterEggPopup);
       closeEasterEgg.addEventListener('click', () => {
         easterEggPopup.classList.add('hidden');
       });
-
-      // Affiche le pop-up Easter Egg
-      function showEasterEggPopup() {
-        easterEggPopup.classList.remove('hidden');
-        launchConfetti();
-      }
-
-      // Confettis
-      function launchConfetti() {
-        const confettiSettings = { target: 'confettiCanvas' };
-        const confetti = new ConfettiGenerator(confettiSettings);
-        confetti.render();
-        setTimeout(() => confetti.clear(), 5000);
-      }
     });
+    // Affiche le pop-up Easter Egg
+    function showEasterEggPopup() {
+      const easterEggPopup = document.getElementById('easterEggPopup');
+      easterEggPopup.classList.remove('hidden');
+      launchConfetti();
+    }
+    // Confettis
+    function launchConfetti() {
+      const canvas = document.getElementById('confettiCanvas');
+      const confettiSettings = { target: 'confettiCanvas' };
+      const confetti = new ConfettiGenerator(confettiSettings);
+      confetti.render();
+      setTimeout(() => confetti.clear(), 5000);
+    }
+    // Dictionnaire de traduction
+    const translations = {
+      fr: {
+        "BAPTISTE CURIE-CADET": "BAPTISTE CURIE-CADET",
+        "DÉVELOPPEUR DE SERIOUS GAMES & JEUX VIDÉO": "DÉVELOPPEUR DE <span class='game-font'>SERIOUS GAMES</span> & <span class='game-font'>JEUX VIDÉO</span>",
+        "GAME DEV & SERIOUS GAMES DEVELOPER": "GAME DEV & <span class='game-font'>SERIOUS GAMES</span> DEVELOPER",
+        "COMMENCER L'AVENTURE": "COMMENCER L'AVENTURE",
+        "À PROPOS DE MOI": "À PROPOS DE MOI",
+        "Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un passionné de développement de jeux vidéo, surtout les serious games.": "Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un <strong>passionné de développement de jeux vidéo</strong>, surtout les serious games.",
+        "Mon objectif ? Créer des expériences immersives qui mélangent fun et apprentissage, avec une touche de magie numérique.": "Mon objectif ? Créer des expériences immersives qui <strong>mélangent fun et apprentissage</strong>, avec une touche de magie numérique.",
+        "Quand je ne code pas, je joue, je dessine, ou je rêve de mondes virtuels à explorer.": "Quand je ne code pas, je joue, je dessine, ou je rêve de mondes virtuels à explorer.",
+        "Marseille, France": "Marseille, France",
+        "Bachelor en systèmes numériques immersifs": "Bachelor en systèmes numériques immersifs",
+        "TÉLÉCHARGER MON CV": "TÉLÉCHARGER MON CV",
+        "MON PARCOURS": "MON PARCOURS",
+        "MES COMPÉTENCES": "MES <span class='game-font'>COMPÉTENCES</span>",
+        "MES PROJETS": "MES <span class='game-font'>PROJETS</span>",
+        "ME CONTACTER": "ME <span class='game-font'>CONTACTER</span>",
+        "TOUT": "TOUT",
+        "UNITY": "UNITY",
+        "UNREAL": "UNREAL",
+        "WEB": "WEB",
+        "ANDROID": "ANDROID",
+        "VOIR PLUS": "VOIR PLUS",
+        "Fermer": "Fermer",
+        "Télécharger le projet": "Télécharger le projet",
+        "Accueil": "Accueil",
+        "À propos": "À propos",
+        "Compétences": "Compétences",
+        "Projets": "Projets",
+        "Contact": "Contact",
+        "Tous droits réservés.": "Tous droits réservés.",
+        "Langue": "Langue",
+        "Projet précédent": "Projet précédent",
+        "Projet suivant": "Projet suivant",
+        "Développement de jeux vidéo": "Développement de jeux vidéo",
+        "Technologies immersives (VR/AR)": "Technologies immersives (VR/AR)",
+        "Conception de serious games": "Conception de serious games",
+        "Développement Web": "Développement Web",
+        "Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !": "Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !",
+        "Un light novel poétique sur l'introversion et l'amitié.": "Un light novel poétique sur l'introversion et l'amitié.",
+        "Un projet scolaire pour apprendre les singletons et l'instanciation.": "Un projet scolaire pour apprendre les singletons et l'instanciation.",
+        "Un jeu de puzzle 3D avec une balle aux états changeants.": "Un jeu de puzzle 3D avec une balle aux états changeants.",
+        "Un serious game icebreaker pour briser la glace en équipe.": "Un serious game icebreaker pour briser la glace en équipe.",
+        "Recréation de la célèbre route d'Overwatch.": "Recréation de la célèbre route d'Overwatch.",
+        "Site web pour une concession automobile.": "Site web pour une concession automobile.",
+        "Un jeu médiéval-fantastique avec un donjon maudit.": "Un jeu médiéval-fantastique avec un donjon maudit.",
+        "Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !": "Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !",
+        "Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !": "Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !",
+        "Catégorie:": "Catégorie:",
+        "Utilité :": "Utilité :",
+        "Durée :": "Durée :",
+        "Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !": "Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !",
+        "Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.": "Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.",
+        "Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.": "Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.",
+        "Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.": "Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.",
+        "Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.": "Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.",
+        "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.": "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.",
+        "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.": "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.",
+        "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.": "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.",
+        "Mon LinkedIn": "Mon LinkedIn"
+      },
+      en: {
+        "BAPTISTE CURIE-CADET": "BAPTISTE CURIE-CADET",
+        "DÉVELOPPEUR DE SERIOUS GAMES & JEUX VIDÉO": "GAME DEV & <span class='game-font'>SERIOUS GAMES</span> DEVELOPER",
+        "GAME DEV & SERIOUS GAMES DEVELOPER": "GAME DEV & <span class='game-font'>SERIOUS GAMES</span> DEVELOPER",
+        "COMMENCER L'AVENTURE": "START THE ADVENTURE",
+        "À PROPOS DE MOI": "ABOUT ME",
+        "Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un passionné de développement de jeux vidéo, surtout les serious games.": "Hi! I'm Baptiste, 19 years old, and I'm passionate about game development, especially serious games.",
+        "Mon objectif ? Créer des expériences immersives qui mélangent fun et apprentissage, avec une touche de magie numérique.": "My goal? To create immersive experiences that blend fun and learning, with a touch of digital magic.",
+        "Quand je ne code pas, je joue, je dessine, ou je rêve de mondes virtuels à explorer.": "When I'm not coding, I play, draw, or dream of virtual worlds to explore.",
+        "Marseille, France": "Marseille, France",
+        "Bachelor en systèmes numériques immersifs": "Bachelor in Immersive Digital Systems",
+        "TÉLÉCHARGER MON CV": "DOWNLOAD MY RESUME",
+        "MON PARCOURS": "MY JOURNEY",
+        "MES COMPÉTENCES": "MY <span class='game-font'>SKILLS</span>",
+        "MES PROJETS": "MY <span class='game-font'>PROJECTS</span>",
+        "ME CONTACTER": "CONTACT <span class='game-font'>ME</span>",
+        "TOUT": "ALL",
+        "UNITY": "UNITY",
+        "UNREAL": "UNREAL",
+        "WEB": "WEB",
+        "ANDROID": "ANDROID",
+        "VOIR PLUS": "SEE MORE",
+        "Fermer": "Close",
+        "Télécharger le projet": "DOWNLOAD PROJECT",
+        "Accueil": "Home",
+        "À propos": "About",
+        "Compétences": "Skills",
+        "Projets": "Projects",
+        "Contact": "Contact",
+        "Tous droits réservés.": "All rights reserved.",
+        "Langue": "Language",
+        "Projet précédent": "Previous Project",
+        "Projet suivant": "Next Project",
+        "Développement de jeux vidéo": "Game development",
+        "Technologies immersives (VR/AR)": "Immersive technologies (VR/AR)",
+        "Conception de serious games": "Serious games design",
+        "Développement Web": "Web Development",
+        "Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !": "An adventure game where you play as a cursed pirate. Fight, upgrade your gear, and survive!",
+        "Un light novel poétique sur l'introversion et l'amitié.": "A poetic light novel about introversion and friendship.",
+        "Un projet scolaire pour apprendre les singletons et l'instanciation.": "A school project to learn singletons and instantiation.",
+        "Un jeu de puzzle 3D avec une balle aux états changeants.": "A 3D puzzle game with a ball that changes states.",
+        "Un serious game icebreaker pour briser la glace en équipe.": "A serious game icebreaker to break the ice in teams.",
+        "Recréation de la célèbre route d'Overwatch.": "Recreation of the famous Overwatch Route 66.",
+        "Site web pour une concession automobile.": "Website for a car dealership.",
+        "Un jeu médiéval-fantastique avec un donjon maudit.": "A medieval-fantasy game with a cursed dungeon.",
+        "Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !": "A crazy mobile game where the real world becomes your head-hunting ground!",
+        "Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !": "In Head War, destroy as many heads as possible in the real world from your phone within a set time to win the game!",
+        "Catégorie:": "Category:",
+        "Utilité :": "Role:",
+        "Durée :": "Duration:",
+        "Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !": "Play as Jack Moineau, an unfortunate pirate stranded on an island plagued by a terrible curse. Defeat as many enemies as possible while upgrading your gear to go as far as possible!",
+        "Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.": "Baburu is a narrative light novel in which you play as Alin, a shy boy who likes to retreat into his bubble and creates an extroverted personality he calls Alex. In Baburu, your goal will be to protect yourself from the outside world by staying in your bubble and preventing anyone from entering it. In this poetic game with strong ludonarrative dissonance, you will have to choose between safety and friendships.",
+        "Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.": "I am the origin of everything in the game in terms of programming. This is a project we started in class, meant to teach us the use of singletons and GameObject instantiation.",
+        "Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.": "Ballex is a 3D puzzle-action game with aesthetically pleasing graphics and complex gameplay. You will have to control a ball capable of changing its physical state as you progress through the levels.",
+        "Balance ton archétype est un serious game icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.": "Balance ton archétype is a serious game icebreaker in which people present themselves according to the archetype randomly assigned to them; their goal is to find everyone's archetype at the end. The game combines virtual and physical support. I was in charge of developing the random role assignments as well as the different voting and presentation phases by updating the UI.",
+        "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.": "Design of Route 66 inspired by Overwatch's Route 66.",
+        "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.": "Welcome to the official website of our car dealership. This website, entirely developed in HTML and PHP, allows you to discover our entire catalog of new and used vehicles. With a simple and intuitive interface, you can view detailed sheets of available cars, search for a model according to your criteria, and make an appointment online for a test drive or a trade-in estimate. This project reflects my dynamic web development work and my ability to create functional tools tailored to the needs of professionals.",
+        "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.": "The game takes place in a medieval fantasy kingdom. The village of Valombre lives under the threat of a cursed dungeon that has recently awakened. Strange creatures roam there and shadows creep into the neighboring woods. The terrified villagers have seen their daily lives disrupted: burned crops, missing livestock, sick children... and no army in sight to defend them.",
+        "Mon LinkedIn": "My LinkedIn"
+      }
+    };
+    // Fonction pour changer de langue
+    function changeLanguage(lang) {
+      const elements = document.querySelectorAll('[data-translate]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      const flag = document.getElementById('lang-flag');
+      flag.src = lang === 'fr' ? 'french.png' : 'english.png';
+      flag.alt = lang === 'fr' ? 'Français' : 'English';
+      document.documentElement.lang = lang;
+    }
   </script>
 </body>
 </html>
