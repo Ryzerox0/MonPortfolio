@@ -211,10 +211,10 @@
       font-weight: 600;
       background: linear-gradient(90deg, var(--primary), var(--accent));
       transition: width 1.5s ease;
-      width: 0; /* Initialisé à 0 pour l'animation */
+      width: 0;
     }
     .progress-bar.in-view {
-      width: 70%; /* Valeur réelle */
+      width: 70%;
     }
     .project-card {
       background: rgba(26, 26, 46, 0.7);
@@ -345,7 +345,6 @@
       padding: 30px;
       position: relative;
     }
-    /* Styles pour les miniatures et navigation */
     .image-container {
       text-align: center;
       margin-bottom: 20px;
@@ -391,7 +390,6 @@
       transform: scale(1.1);
       box-shadow: var(--glow);
     }
-    /* STYLE AMÉLIORÉ POUR LES BOUTONS DE NAVIGATION LATÉRAUX */
     .modal-project-nav {
       position: absolute;
       top: 50%;
@@ -629,7 +627,6 @@
       filter: brightness(1.1);
       transform: scale(1.05);
     }
-    /* Pop-up Easter Egg */
     .easter-egg-popup {
       position: fixed;
       top: 0;
@@ -1396,123 +1393,122 @@
   <footer class="footer text-center">
     <p>&copy; 2025 Baptiste Curie-Cadet. <span data-translate="Tous droits réservés.">Tous droits réservés.</span></p>
   </footer>
+
+  <!-- Scripts dans le bon ordre -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    // Particles.js
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: "#adc6ff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 150, color: "#adc6ff", opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: { onhover: { enable: true, mode: "repulse" } }
-      }
-    });
-    // Animation au scroll pour les sections
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-visible');
-          // Animation des barres de compétences
-          if (entry.target.querySelectorAll('.progress-bar').length > 0) {
-            entry.target.querySelectorAll('.progress-bar').forEach(bar => {
-              bar.classList.add('in-view');
-            });
+    // Initialisation de particles.js
+    document.addEventListener('DOMContentLoaded', function() {
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: "#adc6ff" },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: true },
+          size: { value: 3, random: true },
+          line_linked: { enable: true, distance: 150, color: "#adc6ff", opacity: 0.4, width: 1 },
+          move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: { onhover: { enable: true, mode: "repulse" } }
+        }
+      });
+
+      // Animation au scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            // Animation des barres de compétences
+            if (entry.target.querySelectorAll('.progress-bar').length > 0) {
+              entry.target.querySelectorAll('.progress-bar').forEach(bar => {
+                bar.classList.add('in-view');
+              });
+            }
+            observer.unobserve(entry.target);
           }
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    // Animation des cartes de projet et timeline
-    document.querySelectorAll('.project-item, .timeline-item, .skill-item').forEach(el => observer.observe(el));
-    // Tableau des images pour chaque projet
-    const projectImages = {
-      1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
-      2: ["bulle1 (1).png", "bulle1 (2).png", "bulle1 (3).png", "bulle1 (4).png"],
-      3: ["mexi (2).png", "mexi.png", "mexi (3).png", "mexi (4).png"],
-      4: ["ballex (1).png", "ballex (2).png", "ballex (3).png"],
-      5: ["balance (1).png", "balance (2).png", "balance (3).png"],
-      6: ["voiture (1).png", "voiture (2).png", "voiture (3).png"],
-      7: ["Capture d'écran 2025-06-08 015925.png", "Capture d'écran 2025-06-08 020533.png",
-          "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png",
-          "Capture d'écran 2025-06-08 020630.png"],
-      8: ["médiéval (1).png", "médiéval (2).png", "médiéval (3).png", "médiéval (4).png",
-          "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"],
-      9: ["AR1.png", "AR2.png", "AR3.png", "AR4.png"]
-    };
-    // Fonction pour changer l'image affichée avec transition
-    function changeImage(projectId, imageIndex) {
-      const mainImage = document.getElementById(`projectImage${projectId}`);
-      mainImage.style.opacity = '0';
-      setTimeout(() => {
-        mainImage.src = projectImages[projectId][imageIndex];
-        mainImage.style.opacity = '1';
-      }, 300);
-      // Mise à jour des miniatures
-      const modal = document.getElementById(`projectModal${projectId}`);
-      const thumbnails = modal.querySelectorAll('.thumbnail');
-      thumbnails.forEach((thumb, index) => {
-        thumb.classList.toggle('active', index === imageIndex);
-      });
-    }
-    // Variable globale pour suivre le projet actuel
-    let currentProject = 1;
-    // Fonction pour naviguer entre les projets
-    function changeProject(direction) {
-      const currentModal = bootstrap.Modal.getInstance(document.querySelector('.modal.show'));
-      if (currentModal) {
-        currentModal.hide();
-      }
-      // Calcul du nouvel ID (boucle de 1 à 9)
-      currentProject = (((currentProject + direction - 1 + 9) % 9) + 1);
-      // Attendre que le modal actuel soit fermé avant d'ouvrir le nouveau
-      setTimeout(() => {
-        const newModal = new bootstrap.Modal(document.getElementById(`projectModal${currentProject}`));
-        newModal.show();
-        // Réinitialiser l'image active dans le nouveau modal
-        setTimeout(() => {
-          const modal = document.getElementById(`projectModal${currentProject}`);
-          const thumbnails = modal.querySelectorAll('.thumbnail');
-          thumbnails.forEach((thumb, index) => {
-            thumb.classList.toggle('active', index === 0);
-          });
-        }, 300);
-      }, 300);
-    }
-    // Fonction pour filtrer les projets
-    function filterProjects(category) {
-      const items = document.querySelectorAll('.project-item');
-      items.forEach(item => {
-        if (category === 'all' || item.getAttribute('data-category') === category) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-      document.querySelectorAll('.filter-buttons button').forEach(button => {
-        button.classList.remove('active');
-      });
-      event.target.classList.add('active');
-    }
-    // Initialisation
-    document.addEventListener('DOMContentLoaded', () => {
-      // Écouteurs pour les boutons de projet
-      document.querySelectorAll('[data-bs-target]').forEach(button => {
-        button.addEventListener('click', function() {
-          currentProject = parseInt(this.getAttribute('data-bs-target').replace('#projectModal', ''));
         });
-      });
-      // Initialiser les images principales
-      document.querySelectorAll('.main-image').forEach(img => {
-        img.style.opacity = '1';
-      });
+      }, { threshold: 0.1 });
+
+      // Animation des cartes de projet et timeline
+      document.querySelectorAll('.project-item, .timeline-item, .skill-item').forEach(el => observer.observe(el));
+
+      // Tableau des images pour chaque projet
+      const projectImages = {
+        1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
+        2: ["bulle1 (1).png", "bulle1 (2).png", "bulle1 (3).png", "bulle1 (4).png"],
+        3: ["mexi (2).png", "mexi.png", "mexi (3).png", "mexi (4).png"],
+        4: ["ballex (1).png", "ballex (2).png", "ballex (3).png"],
+        5: ["balance (1).png", "balance (2).png", "balance (3).png"],
+        6: ["voiture (1).png", "voiture (2).png", "voiture (3).png"],
+        7: ["Capture d'écran 2025-06-08 015925.png", "Capture d'écran 2025-06-08 020533.png",
+            "Capture d'écran 2025-06-08 020555.png", "Capture d'écran 2025-06-08 020616.png",
+            "Capture d'écran 2025-06-08 020630.png"],
+        8: ["médiéval (1).png", "médiéval (2).png", "médiéval (3).png", "médiéval (4).png",
+            "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"],
+        9: ["AR1.png", "AR2.png", "AR3.png", "AR4.png"]
+      };
+
+      // Fonction pour changer l'image affichée avec transition
+      window.changeImage = function(projectId, imageIndex) {
+        const mainImage = document.getElementById(`projectImage${projectId}`);
+        mainImage.style.opacity = '0';
+        setTimeout(() => {
+          mainImage.src = projectImages[projectId][imageIndex];
+          mainImage.style.opacity = '1';
+        }, 300);
+        // Mise à jour des miniatures
+        const modal = document.getElementById(`projectModal${projectId}`);
+        const thumbnails = modal.querySelectorAll('.thumbnail');
+        thumbnails.forEach((thumb, index) => {
+          thumb.classList.toggle('active', index === imageIndex);
+        });
+      };
+
+      // Variable globale pour suivre le projet actuel
+      let currentProject = 1;
+
+      // Fonction pour naviguer entre les projets
+      window.changeProject = function(direction) {
+        const currentModal = bootstrap.Modal.getInstance(document.querySelector('.modal.show'));
+        if (currentModal) {
+          currentModal.hide();
+        }
+        // Calcul du nouvel ID (boucle de 1 à 9)
+        currentProject = (((currentProject + direction - 1 + 9) % 9) + 1);
+        // Attendre que le modal actuel soit fermé avant d'ouvrir le nouveau
+        setTimeout(() => {
+          const newModal = new bootstrap.Modal(document.getElementById(`projectModal${currentProject}`));
+          newModal.show();
+          // Réinitialiser l'image active dans le nouveau modal
+          setTimeout(() => {
+            const modal = document.getElementById(`projectModal${currentProject}`);
+            const thumbnails = modal.querySelectorAll('.thumbnail');
+            thumbnails.forEach((thumb, index) => {
+              thumb.classList.toggle('active', index === 0);
+            });
+          }, 300);
+        }, 300);
+      };
+
+      // Fonction pour filtrer les projets
+      window.filterProjects = function(category) {
+        const items = document.querySelectorAll('.project-item');
+        items.forEach(item => {
+          if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        document.querySelectorAll('.filter-buttons button').forEach(button => {
+          button.classList.remove('active');
+        });
+        event.target.classList.add('active');
+      };
+
       // Bouton de langue
       const langToggle = document.getElementById('lang-toggle');
       langToggle.addEventListener('click', () => {
@@ -1520,6 +1516,7 @@
         const newLang = currentLang === 'fr' ? 'en' : 'fr';
         changeLanguage(newLang);
       });
+
       // Easter Egg
       const easterEgg = document.querySelector('.easter-egg');
       const easterEggPopup = document.getElementById('easterEggPopup');
@@ -1544,159 +1541,141 @@
         easterEggPopup.classList.add('hidden');
         easterEggPopup.classList.remove('visible');
       });
-    });
-    // Affiche le pop-up Easter Egg
-    function showEasterEggPopup() {
-      const easterEggPopup = document.getElementById('easterEggPopup');
-      easterEggPopup.classList.remove('hidden');
-      easterEggPopup.classList.add('visible');
-      launchConfetti();
-    }
-    // Confettis
-    function launchConfetti() {
-      const canvas = document.getElementById('confettiCanvas');
-      const confettiSettings = { target: 'confettiCanvas' };
-      const confetti = new ConfettiGenerator(confettiSettings);
-      confetti.render();
-      setTimeout(() => confetti.clear(), 5000);
-    }
-    // Dictionnaire de traduction
-    const translations = {
-      fr: {
-        "BAPTISTE CURIE-CADET": "BAPTISTE CURIE-CADET",
-        "DÉVELOPPEUR DE SERIOUS GAMES & JEUX VIDÉO": "DÉVELOPPEUR DE <span class='game-font'>SERIOUS GAMES</span> & <span class='game-font'>JEUX VIDÉO</span>",
-        "GAME DEV & SERIOUS GAMES DEVELOPER": "GAME DEV & <span class='game-font'>SERIOUS GAMES</span> DEVELOPER",
-        "COMMENCER L'AVENTURE": "COMMENCER L'AVENTURE",
-        "À PROPOS DE MOI": "À PROPOS DE MOI",
-        "Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un passionné de développement de jeux vidéo, surtout les serious games.": "Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un <strong>passionné de développement de jeux vidéo</strong>, surtout les serious games.",
-        "Mon objectif ? Créer des expériences immersives qui mélangent fun et apprentissage, avec une touche de magie numérique.": "Mon objectif ? Créer des expériences immersives qui <strong>mélangent fun et apprentissage</strong>, avec une touche de magie numérique.",
-        "Quand je ne code pas, je joue, je dessine, ou je rêve de mondes virtuels à explorer.": "Quand je ne code pas, je joue, je dessine, ou je rêve de mondes virtuels à explorer.",
-        "Marseille, France": "Marseille, France",
-        "Bachelor en systèmes numériques immersifs": "Bachelor en systèmes numériques immersifs",
-        "TÉLÉCHARGER MON CV": "TÉLÉCHARGER MON CV",
-        "MON PARCOURS": "MON PARCOURS",
-        "MES COMPÉTENCES": "MES <span class='game-font'>COMPÉTENCES</span>",
-        "MES PROJETS": "MES <span class='game-font'>PROJETS</span>",
-        "ME CONTACTER": "ME <span class='game-font'>CONTACTER</span>",
-        "TOUT": "TOUT",
-        "UNITY": "UNITY",
-        "UNREAL": "UNREAL",
-        "WEB": "WEB",
-        "ANDROID": "ANDROID",
-        "VOIR PLUS": "VOIR PLUS",
-        "Fermer": "Fermer",
-        "Télécharger le projet": "Télécharger le projet",
-        "Accueil": "Accueil",
-        "À propos": "À propos",
-        "Compétences": "Compétences",
-        "Projets": "Projets",
-        "Contact": "Contact",
-        "Tous droits réservés.": "Tous droits réservés.",
-        "Langue": "Langue",
-        "Projet précédent": "Projet précédent",
-        "Projet suivant": "Projet suivant",
-        "Développement de jeux vidéo": "Développement de jeux vidéo",
-        "Technologies immersives (VR/AR)": "Technologies immersives (VR/AR)",
-        "Conception de serious games": "Conception de serious games",
-        "Développement Web": "Développement Web",
-        "Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !": "Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !",
-        "Un light novel poétique sur l'introversion et l'amitié.": "Un light novel poétique sur l'introversion et l'amitié.",
-        "Un projet scolaire pour apprendre les singletons et l'instanciation.": "Un projet scolaire pour apprendre les singletons et l'instanciation.",
-        "Un jeu de puzzle 3D avec une balle aux états changeants.": "Un jeu de puzzle 3D avec une balle aux états changeants.",
-        "Un serious game icebreaker pour briser la glace en équipe.": "Un serious game icebreaker pour briser la glace en équipe.",
-        "Recréation de la célèbre route d'Overwatch.": "Recréation de la célèbre route d'Overwatch.",
-        "Site web pour une concession automobile.": "Site web pour une concession automobile.",
-        "Un jeu médiéval-fantastique avec un donjon maudit.": "Un jeu médiéval-fantastique avec un donjon maudit.",
-        "Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !": "Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !",
-        "Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !": "Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !",
-        "Catégorie:": "Catégorie:",
-        "Utilité :": "Utilité :",
-        "Durée :": "Durée :",
-        "Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !": "Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !",
-        "Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.": "Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.",
-        "Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.": "Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.",
-        "Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.": "Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.",
-        "Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.": "Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.",
-        "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.": "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.",
-        "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.": "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.",
-        "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.": "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.",
-        "Mon LinkedIn": "Mon LinkedIn"
-      },
-      en: {
-        "BAPTISTE CURIE-CADET": "BAPTISTE CURIE-CADET",
-        "DÉVELOPPEUR DE SERIOUS GAMES & JEUX VIDÉO": "GAME DEV & <span class='game-font'>SERIOUS GAMES</span> DEVELOPER",
-        "GAME DEV & SERIOUS GAMES DEVELOPER": "GAME DEV & <span class='game-font'>SERIOUS GAMES</span> DEVELOPER",
-        "COMMENCER L'AVENTURE": "START THE ADVENTURE",
-        "À PROPOS DE MOI": "ABOUT ME",
-        "Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un passionné de développement de jeux vidéo, surtout les serious games.": "Hi! I'm Baptiste, 19 years old, and I'm passionate about game development, especially serious games.",
-        "Mon objectif ? Créer des expériences immersives qui mélangent fun et apprentissage, avec une touche de magie numérique.": "My goal? To create immersive experiences that blend fun and learning, with a touch of digital magic.",
-        "Quand je ne code pas, je joue, je dessine, ou je rêve de mondes virtuels à explorer.": "When I'm not coding, I play, draw, or dream of virtual worlds to explore.",
-        "Marseille, France": "Marseille, France",
-        "Bachelor en systèmes numériques immersifs": "Bachelor in Immersive Digital Systems",
-        "TÉLÉCHARGER MON CV": "DOWNLOAD MY RESUME",
-        "MON PARCOURS": "MY JOURNEY",
-        "MES COMPÉTENCES": "MY <span class='game-font'>SKILLS</span>",
-        "MES PROJETS": "MY <span class='game-font'>PROJECTS</span>",
-        "ME CONTACTER": "CONTACT <span class='game-font'>ME</span>",
-        "TOUT": "ALL",
-        "UNITY": "UNITY",
-        "UNREAL": "UNREAL",
-        "WEB": "WEB",
-        "ANDROID": "ANDROID",
-        "VOIR PLUS": "SEE MORE",
-        "Fermer": "Close",
-        "Télécharger le projet": "DOWNLOAD PROJECT",
-        "Accueil": "Home",
-        "À propos": "About",
-        "Compétences": "Skills",
-        "Projets": "Projects",
-        "Contact": "Contact",
-        "Tous droits réservés.": "All rights reserved.",
-        "Langue": "Language",
-        "Projet précédent": "Previous Project",
-        "Projet suivant": "Next Project",
-        "Développement de jeux vidéo": "Game development",
-        "Technologies immersives (VR/AR)": "Immersive technologies (VR/AR)",
-        "Conception de serious games": "Serious games design",
-        "Développement Web": "Web Development",
-        "Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !": "An adventure game where you play as a cursed pirate. Fight, upgrade your gear, and survive!",
-        "Un light novel poétique sur l'introversion et l'amitié.": "A poetic light novel about introversion and friendship.",
-        "Un projet scolaire pour apprendre les singletons et l'instanciation.": "A school project to learn singletons and instantiation.",
-        "Un jeu de puzzle 3D avec une balle aux états changeants.": "A 3D puzzle game with a ball that changes states.",
-        "Un serious game icebreaker pour briser la glace en équipe.": "A serious game icebreaker to break the ice in teams.",
-        "Recréation de la célèbre route d'Overwatch.": "Recreation of the famous Overwatch Route 66.",
-        "Site web pour une concession automobile.": "Website for a car dealership.",
-        "Un jeu médiéval-fantastique avec un donjon maudit.": "A medieval-fantasy game with a cursed dungeon.",
-        "Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !": "A crazy mobile game where the real world becomes your head-hunting ground!",
-        "Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !": "In Head War, destroy as many heads as possible in the real world from your phone within a set time to win the game!",
-        "Catégorie:": "Category:",
-        "Utilité :": "Role:",
-        "Durée :": "Duration:",
-        "Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !": "Play as Jack Moineau, an unfortunate pirate stranded on an island plagued by a terrible curse. Defeat as many enemies as possible while upgrading your gear to go as far as possible!",
-        "Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.": "Baburu is a narrative light novel in which you play as Alin, a shy boy who likes to retreat into his bubble and creates an extroverted personality he calls Alex. In Baburu, your goal will be to protect yourself from the outside world by staying in your bubble and preventing anyone from entering it. In this poetic game with strong ludonarrative dissonance, you will have to choose between safety and friendships.",
-        "Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.": "I am the origin of everything in the game in terms of programming. This is a project we started in class, meant to teach us the use of singletons and GameObject instantiation.",
-        "Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.": "Ballex is a 3D puzzle-action game with aesthetically pleasing graphics and complex gameplay. You will have to control a ball capable of changing its physical state as you progress through the levels.",
-        "Balance ton archétype est un serious game icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.": "Balance ton archétype is a serious game icebreaker in which people present themselves according to the archetype randomly assigned to them; their goal is to find everyone's archetype at the end. The game combines virtual and physical support. I was in charge of developing the random role assignments as well as the different voting and presentation phases by updating the UI.",
-        "Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.": "Design of Route 66 inspired by Overwatch's Route 66.",
-        "Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.": "Welcome to the official website of our car dealership. This website, entirely developed in HTML and PHP, allows you to discover our entire catalog of new and used vehicles. With a simple and intuitive interface, you can view detailed sheets of available cars, search for a model according to your criteria, and make an appointment online for a test drive or a trade-in estimate. This project reflects my dynamic web development work and my ability to create functional tools tailored to the needs of professionals.",
-        "Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.": "The game takes place in a medieval fantasy kingdom. The village of Valombre lives under the threat of a cursed dungeon that has recently awakened. Strange creatures roam there and shadows creep into the neighboring woods. The terrified villagers have seen their daily lives disrupted: burned crops, missing livestock, sick children... and no army in sight to defend them.",
-        "Mon LinkedIn": "My LinkedIn"
+
+      // Affiche le pop-up Easter Egg
+      function showEasterEggPopup() {
+        const easterEggPopup = document.getElementById('easterEggPopup');
+        easterEggPopup.classList.remove('hidden');
+        easterEggPopup.classList.add('visible');
+        launchConfetti();
       }
-    };
-    // Fonction pour changer de langue
-    function changeLanguage(lang) {
-      const elements = document.querySelectorAll('[data-translate]');
-      elements.forEach(el => {
-        const key = el.getAttribute('data-translate');
-        if (translations[lang][key]) {
-          el.innerHTML = translations[lang][key];
+
+      // Confettis
+      function launchConfetti() {
+        const canvas = document.getElementById('confettiCanvas');
+        const confettiSettings = { target: 'confettiCanvas' };
+        const confetti = new ConfettiGenerator(confettiSettings);
+        confetti.render();
+        setTimeout(() => confetti.clear(), 5000);
+      }
+
+      // Dictionnaire de traduction
+      const translations = {
+        fr: {
+          "BAPTISTE CURIE-CADET": "BAPTISTE CURIE-CADET",
+          "DÉVELOPPEUR DE SERIOUS GAMES & JEUX VIDÉO": "DÉVELOPPEUR DE <span class='game-font'>SERIOUS GAMES</span> & <span class='game-font'>JEUX VIDÉO</span>",
+          "COMMENCER L'AVENTURE": "COMMENCER L'AVENTURE",
+          "À PROPOS DE MOI": "À PROPOS DE MOI",
+          "Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un passionné de développement de jeux vidéo, surtout les serious games.": "Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un <strong>passionné de développement de jeux vidéo</strong>, surtout les serious games.",
+          "Mon objectif ? Créer des expériences immersives qui mélangent fun et apprentissage, avec une touche de magie numérique.": "Mon objectif ? Créer des expériences immersives qui <strong>mélangent fun et apprentissage</strong>, avec une touche de magie numérique.",
+          "Marseille, France": "Marseille, France",
+          "Bachelor en systèmes numériques immersifs": "Bachelor en systèmes numériques immersifs",
+          "TÉLÉCHARGER MON CV": "TÉLÉCHARGER MON CV",
+          "MON PARCOURS": "MON PARCOURS",
+          "MES COMPÉTENCES": "MES <span class='game-font'>COMPÉTENCES</span>",
+          "MES PROJETS": "MES <span class='game-font'>PROJETS</span>",
+          "ME CONTACTER": "ME <span class='game-font'>CONTACTER</span>",
+          "TOUT": "TOUT",
+          "UNITY": "UNITY",
+          "UNREAL": "UNREAL",
+          "WEB": "WEB",
+          "ANDROID": "ANDROID",
+          "VOIR PLUS": "VOIR PLUS",
+          "Fermer": "Fermer",
+          "Télécharger le projet": "Télécharger le projet",
+          "Accueil": "Accueil",
+          "À propos": "À propos",
+          "Compétences": "Compétences",
+          "Projets": "Projets",
+          "Contact": "Contact",
+          "Tous droits réservés.": "Tous droits réservés.",
+          "Langue": "Langue",
+          "Projet précédent": "Projet précédent",
+          "Projet suivant": "Projet suivant",
+          "Développement de jeux vidéo": "Développement de jeux vidéo",
+          "Technologies immersives (VR/AR)": "Technologies immersives (VR/AR)",
+          "Conception de serious games": "Conception de serious games",
+          "Développement Web": "Développement Web",
+          "Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !": "Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !",
+          "Un light novel poétique sur l'introversion et l'amitié.": "Un light novel poétique sur l'introversion et l'amitié.",
+          "Un projet scolaire pour apprendre les singletons et l'instanciation.": "Un projet scolaire pour apprendre les singletons et l'instanciation.",
+          "Un jeu de puzzle 3D avec une balle aux états changeants.": "Un jeu de puzzle 3D avec une balle aux états changeants.",
+          "Un serious game icebreaker pour briser la glace en équipe.": "Un serious game icebreaker pour briser la glace en équipe.",
+          "Recréation de la célèbre route d'Overwatch.": "Recréation de la célèbre route d'Overwatch.",
+          "Site web pour une concession automobile.": "Site web pour une concession automobile.",
+          "Un jeu médiéval-fantastique avec un donjon maudit.": "Un jeu médiéval-fantastique avec un donjon maudit.",
+          "Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !": "Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !",
+          "Catégorie:": "Catégorie:",
+          "Utilité :": "Utilité :",
+          "Durée :": "Durée :",
+          "Mon LinkedIn": "Mon LinkedIn"
+        },
+        en: {
+          "BAPTISTE CURIE-CADET": "BAPTISTE CURIE-CADET",
+          "DÉVELOPPEUR DE SERIOUS GAMES & JEUX VIDÉO": "GAME DEV & <span class='game-font'>SERIOUS GAMES</span> DEVELOPER",
+          "COMMENCER L'AVENTURE": "START THE ADVENTURE",
+          "À PROPOS DE MOI": "ABOUT ME",
+          "Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un passionné de développement de jeux vidéo, surtout les serious games.": "Hi! I'm Baptiste, 19 years old, and I'm passionate about game development, especially serious games.",
+          "Mon objectif ? Créer des expériences immersives qui mélangent fun et apprentissage, avec une touche de magie numérique.": "My goal? To create immersive experiences that blend fun and learning, with a touch of digital magic.",
+          "Marseille, France": "Marseille, France",
+          "Bachelor en systèmes numériques immersifs": "Bachelor in Immersive Digital Systems",
+          "TÉLÉCHARGER MON CV": "DOWNLOAD MY RESUME",
+          "MON PARCOURS": "MY JOURNEY",
+          "MES COMPÉTENCES": "MY <span class='game-font'>SKILLS</span>",
+          "MES PROJETS": "MY <span class='game-font'>PROJECTS</span>",
+          "ME CONTACTER": "CONTACT <span class='game-font'>ME</span>",
+          "TOUT": "ALL",
+          "UNITY": "UNITY",
+          "UNREAL": "UNREAL",
+          "WEB": "WEB",
+          "ANDROID": "ANDROID",
+          "VOIR PLUS": "SEE MORE",
+          "Fermer": "Close",
+          "Télécharger le projet": "DOWNLOAD PROJECT",
+          "Accueil": "Home",
+          "À propos": "About",
+          "Compétences": "Skills",
+          "Projets": "Projects",
+          "Contact": "Contact",
+          "Tous droits réservés.": "All rights reserved.",
+          "Langue": "Language",
+          "Projet précédent": "Previous Project",
+          "Projet suivant": "Next Project",
+          "Développement de jeux vidéo": "Game development",
+          "Technologies immersives (VR/AR)": "Immersive technologies (VR/AR)",
+          "Conception de serious games": "Serious games design",
+          "Développement Web": "Web Development",
+          "Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !": "An adventure game where you play as a cursed pirate. Fight, upgrade your gear, and survive!",
+          "Un light novel poétique sur l'introversion et l'amitié.": "A poetic light novel about introversion and friendship.",
+          "Un projet scolaire pour apprendre les singletons et l'instanciation.": "A school project to learn singletons and instantiation.",
+          "Un jeu de puzzle 3D avec une balle aux états changeants.": "A 3D puzzle game with a ball that changes states.",
+          "Un serious game icebreaker pour briser la glace en équipe.": "A serious game icebreaker to break the ice in teams.",
+          "Recréation de la célèbre route d'Overwatch.": "Recreation of the famous Overwatch Route 66.",
+          "Site web pour une concession automobile.": "Website for a car dealership.",
+          "Un jeu médiéval-fantastique avec un donjon maudit.": "A medieval-fantasy game with a cursed dungeon.",
+          "Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !": "A crazy mobile game where the real world becomes your head-hunting ground!",
+          "Catégorie:": "Category:",
+          "Utilité :": "Role:",
+          "Durée :": "Duration:",
+          "Mon LinkedIn": "My LinkedIn"
         }
-      });
-      const flag = document.getElementById('lang-flag');
-      flag.src = lang === 'fr' ? 'french.png' : 'english.png';
-      flag.alt = lang === 'fr' ? 'Français' : 'English';
-      document.documentElement.lang = lang;
-    }
+      };
+
+      // Fonction pour changer de langue
+      function changeLanguage(lang) {
+        const elements = document.querySelectorAll('[data-translate]');
+        elements.forEach(el => {
+          const key = el.getAttribute('data-translate');
+          if (translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+          }
+        });
+        const flag = document.getElementById('lang-flag');
+        flag.src = lang === 'fr' ? 'french.png' : 'english.png';
+        flag.alt = lang === 'fr' ? 'Français' : 'English';
+        document.documentElement.lang = lang;
+      }
+    });
   </script>
 </body>
 </html>
