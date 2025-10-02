@@ -122,17 +122,26 @@
     header h1 {
       font-size: 3.5rem;
       margin-bottom: 20px;
-      animation: float 3s ease-in-out infinite;
+      animation: float 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
     }
     @keyframes float {
       0% { transform: translateY(0px); }
       50% { transform: translateY(-10px); }
       100% { transform: translateY(0px); }
     }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px rgba(173, 198, 255, 0.5); }
+      to { text-shadow: 0 0 15px rgba(173, 198, 255, 0.8); }
+    }
     .subtitle {
       font-size: 1.5rem;
       margin-top: 10px;
       opacity: 0.9;
+      animation: fadeIn 1.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 0.9; transform: translateY(0); }
     }
     .title-container {
       background: rgba(26, 26, 46, 0.8);
@@ -142,6 +151,11 @@
       box-shadow: var(--glow);
       display: inline-block;
       margin-top: 20px;
+      transition: var(--transition);
+    }
+    .title-container:hover {
+      box-shadow: var(--strong-glow);
+      border-color: var(--accent);
     }
     .side-buttons {
       position: fixed;
@@ -172,6 +186,7 @@
     .btn-circle:hover {
       width: 180px;
       background: var(--primary-light);
+      box-shadow: var(--strong-glow);
     }
     .btn-text {
       display: none;
@@ -195,7 +210,11 @@
       font-size: 0.9rem;
       font-weight: 600;
       background: linear-gradient(90deg, var(--primary), var(--accent));
-      transition: width 1s ease;
+      transition: width 1.5s ease;
+      width: 0; /* Initialisé à 0 pour l'animation */
+    }
+    .progress-bar.in-view {
+      width: 70%; /* Valeur réelle */
     }
     .project-card {
       background: rgba(26, 26, 46, 0.7);
@@ -208,10 +227,17 @@
       height: auto;
       display: flex;
       flex-direction: column;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    .project-card.reveal-visible {
+      transform: translateY(0);
+      opacity: 1;
     }
     .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(106, 90, 205, 0.4);
+      border-color: var(--accent);
     }
     .project-card img {
       width: 100%;
@@ -226,6 +252,7 @@
     .project-card:hover img {
       transform: scale(1.05);
       border-color: var(--accent);
+      filter: brightness(1.1);
     }
     .project-card .card-body {
       padding: 20px;
@@ -240,6 +267,11 @@
       font-family: 'Press Start 2P', cursive;
       font-size: 1.2rem;
       margin-bottom: 10px;
+      transition: var(--transition);
+    }
+    .project-card:hover .card-title {
+      color: var(--secondary);
+      text-shadow: 0 0 8px rgba(255, 107, 107, 0.7);
     }
     .project-card .badge {
       background: var(--secondary);
@@ -248,12 +280,22 @@
       display: inline-block;
       padding: 3px 10px;
       border-radius: 10px;
+      transition: var(--transition);
+    }
+    .project-card:hover .badge {
+      background: var(--accent);
+      color: var(--dark);
     }
     .project-card .btn {
       align-self: center;
       font-size: 0.8rem;
       padding: 8px 15px;
       margin-top: auto;
+      transition: var(--transition);
+    }
+    .project-card .btn:hover {
+      transform: scale(1.05);
+      box-shadow: var(--strong-glow);
     }
     .filter-buttons {
       display: flex;
@@ -272,11 +314,16 @@
       transition: var(--transition);
       font-family: 'Press Start 2P', cursive;
       font-size: 0.8rem;
+      transform: scale(1);
+    }
+    .filter-buttons button:hover {
+      transform: scale(1.05);
+      box-shadow: var(--glow);
     }
     .filter-buttons button.active {
       background: var(--accent);
       color: var(--dark);
-      box-shadow: var(--glow);
+      box-shadow: var(--strong-glow);
     }
     .modal-content {
       background: var(--darker);
@@ -285,6 +332,7 @@
       border: 2px solid var(--primary);
       box-shadow: var(--glow);
       position: relative;
+      transition: var(--transition);
     }
     .modal-header {
       border-bottom: 1px solid var(--primary);
@@ -308,7 +356,7 @@
       object-fit: contain;
       border-radius: 10px;
       border: 2px solid var(--accent);
-      transition: opacity 0.5s ease;
+      transition: opacity 0.5s ease, transform 0.3s ease;
       margin-bottom: 20px;
     }
     .thumbnail-gallery {
@@ -330,6 +378,7 @@
       border: 2px solid transparent;
       transition: all 0.3s ease;
       opacity: 0.7;
+      transform: scale(1);
     }
     .thumbnail:hover {
       opacity: 1;
@@ -370,11 +419,12 @@
       opacity: 1;
       pointer-events: auto;
       backdrop-filter: blur(5px);
+      transform: translateY(-50%);
     }
     .project-nav-btn:hover {
       background: var(--primary);
       color: white;
-      transform: scale(1.08);
+      transform: translateY(-50%) scale(1.08);
       box-shadow: 0 0 25px rgba(173, 198, 255, 0.9);
     }
     .project-nav-btn i {
@@ -384,12 +434,10 @@
     .project-nav-left {
       position: absolute;
       left: -180px;
-      transform: translateY(-50%);
     }
     .project-nav-right {
       position: absolute;
       right: -160px;
-      transform: translateY(-50%);
     }
     .timeline {
       position: relative;
@@ -408,6 +456,13 @@
     .timeline-item {
       position: relative;
       margin-bottom: 30px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .timeline-item.reveal-visible {
+      opacity: 1;
+      transform: translateX(0);
     }
     .timeline-item::before {
       content: '';
@@ -419,6 +474,11 @@
       border-radius: 50%;
       background: var(--accent);
       border: 3px solid var(--primary);
+      transition: var(--transition);
+    }
+    .timeline-item:hover::before {
+      transform: scale(1.2);
+      box-shadow: var(--glow);
     }
     .timeline-content {
       background: rgba(26, 26, 46, 0.7);
@@ -426,6 +486,11 @@
       border-radius: 10px;
       border-left: 3px solid var(--accent);
       box-shadow: var(--glow);
+      transition: var(--transition);
+    }
+    .timeline-content:hover {
+      box-shadow: var(--strong-glow);
+      border-left-color: var(--secondary);
     }
     .skills-container {
       display: flex;
@@ -442,10 +507,17 @@
       border: 1px solid var(--primary);
       box-shadow: var(--glow);
       transition: var(--transition);
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    .skill-item.reveal-visible {
+      transform: translateY(0);
+      opacity: 1;
     }
     .skill-item:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.05);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      border-color: var(--accent);
     }
     .skill-icon {
       font-size: 3rem;
@@ -455,6 +527,11 @@
       justify-content: center;
       align-items: center;
       height: 60px;
+      transition: var(--transition);
+    }
+    .skill-item:hover .skill-icon {
+      transform: rotateY(180deg);
+      color: var(--secondary);
     }
     .contact-icon {
       font-size: 2.5rem;
@@ -489,6 +566,7 @@
     }
     .easter-egg:hover {
       transform: rotate(360deg);
+      box-shadow: var(--strong-glow);
     }
     .reveal {
       opacity: 0;
@@ -519,6 +597,7 @@
     #lang-toggle:hover {
       width: 180px;
       background: var(--primary-light);
+      box-shadow: var(--strong-glow);
     }
     #lang-flag {
       transition: var(--transition);
@@ -533,11 +612,22 @@
       border: 3px solid var(--accent);
       box-shadow: var(--glow);
       margin: 0 auto;
+      transition: var(--transition);
+    }
+    .profile-img-container:hover {
+      transform: scale(1.03);
+      box-shadow: var(--strong-glow);
+      border-color: var(--secondary);
     }
     .profile-img-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: var(--transition);
+    }
+    .profile-img-container:hover img {
+      filter: brightness(1.1);
+      transform: scale(1.05);
     }
     /* Pop-up Easter Egg */
     .easter-egg-popup {
@@ -551,9 +641,13 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
     }
-    .easter-egg-popup.hidden {
-      display: none;
+    .easter-egg-popup.visible {
+      opacity: 1;
+      pointer-events: all;
     }
     .easter-egg-content {
       background: var(--darker);
@@ -625,7 +719,12 @@
         bottom: 20px;
         transform: none;
       }
-      
+      .project-nav-left,
+      .project-nav-right {
+        position: static;
+        margin: 0 10px;
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -680,7 +779,7 @@
       <div class="col-12">
         <h3 class="mb-4" data-translate="MON PARCOURS">MON PARCOURS</h3>
         <ul class="timeline">
-          <li class="timeline-item">
+          <li class="timeline-item reveal">
             <div class="timeline-content">
               <h5>2023-2025</h5>
               <p><strong data-translate="Bachelor Systèmes Numériques Immersifs">Bachelor Systèmes Numériques Immersifs</strong></p>
@@ -691,7 +790,7 @@
               </ul>
             </div>
           </li>
-          <li class="timeline-item">
+          <li class="timeline-item reveal">
             <div class="timeline-content">
               <h5>2020-2023</h5>
               <p><strong>Bac STI2D (SIN)</strong></p>
@@ -704,7 +803,7 @@
   <section id="skills" class="container section reveal">
     <h2 class="mb-5 text-center" data-translate="MES COMPÉTENCES">MES <span class="game-font">COMPÉTENCES</span></h2>
     <div class="skills-container">
-      <div class="skill-item">
+      <div class="skill-item reveal">
         <div class="skill-icon">
           <i class="fab fa-unity"></i>
         </div>
@@ -713,7 +812,7 @@
           <div class="progress-bar" style="width: 70%;">70%</div>
         </div>
       </div>
-      <div class="skill-item">
+      <div class="skill-item reveal">
         <div class="skill-icon">
           <div class="skill-icon">
             <img src="Unreal_Engine_Icon.png" alt="Unreal Engine" style="width: 48px; height: 48px; filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);">
@@ -724,8 +823,7 @@
           <div class="progress-bar" style="width: 60%;">60%</div>
         </div>
       </div>
-
-      <div class="skill-item">
+      <div class="skill-item reveal">
         <div class="skill-icon">
           <i class="fas fa-cube"></i>
         </div>
@@ -734,7 +832,7 @@
           <div class="progress-bar" style="width: 50%;">50%</div>
         </div>
       </div>
-      <div class="skill-item">
+      <div class="skill-item reveal">
         <div class="skill-icon">
           <i class="fas fa-code"></i>
         </div>
@@ -743,7 +841,7 @@
           <div class="progress-bar" style="width: 50%;">50%</div>
         </div>
       </div>
-      <div class="skill-item">
+      <div class="skill-item reveal">
         <div class="skill-icon">
           <i class="fas fa-laptop-code"></i>
         </div>
@@ -752,7 +850,7 @@
           <div class="progress-bar" style="width: 40%;">40%</div>
         </div>
       </div>
-      <div class="skill-item">
+      <div class="skill-item reveal">
         <div class="skill-icon">
           <i class="fab fa-android"></i>
         </div>
@@ -774,7 +872,7 @@
     </div>
     <div class="row" id="projects-container">
       <!-- Pirates de l'étang -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
+      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Unity">
         <div class="project-card">
           <img src="pirate.png" alt="Pirates de l'étang">
           <div class="card-body">
@@ -786,7 +884,7 @@
         </div>
       </div>
       <!-- BABURU -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
+      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Unity">
         <div class="project-card">
           <img src="bulle.png" alt="BABURU">
           <div class="card-body">
@@ -798,7 +896,7 @@
         </div>
       </div>
       <!-- Pablo -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
+      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Unity">
         <div class="project-card">
           <img src="chapeau.png" alt="Pablo">
           <div class="card-body">
@@ -810,7 +908,7 @@
         </div>
       </div>
       <!-- Bouloux -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
+      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Unity">
         <div class="project-card">
           <img src="logo bouloux.jpg" alt="Bouloux">
           <div class="card-body">
@@ -822,7 +920,7 @@
         </div>
       </div>
       <!-- Balance ton archétype -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
+      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Unity">
         <div class="project-card">
           <img src="balance (1).jpg" alt="Balance ton archétype">
           <div class="card-body">
@@ -834,7 +932,7 @@
         </div>
       </div>
       <!-- Route 66 -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Unity">
+      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Unity">
         <div class="project-card">
           <img src="voiture (1).jpg" alt="Route 66">
           <div class="card-body">
@@ -846,7 +944,7 @@
         </div>
       </div>
       <!-- Garage The Borges -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="HTML">
+      <div class="col-md-6 col-lg-4 project-item reveal" data-category="HTML">
         <div class="project-card">
           <img src="Capture d'écran 2025-06-09 024811.png" alt="Garage The Borges">
           <div class="card-body">
@@ -858,7 +956,7 @@
         </div>
       </div>
       <!-- Écuyer des Ombres -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Unreal">
+      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Unreal">
         <div class="project-card">
           <img src="medieval.png" alt="Écuyer des Ombres">
           <div class="card-body">
@@ -870,7 +968,7 @@
         </div>
       </div>
       <!-- Head War -->
-      <div class="col-md-6 col-lg-4 project-item" data-category="Android">
+      <div class="col-md-6 col-lg-4 project-item reveal" data-category="Android">
         <div class="project-card">
           <img src="AR_logo.png" alt="Head War">
           <div class="card-body">
@@ -912,7 +1010,7 @@
       <canvas id="confettiCanvas"></canvas>
     </div>
   </div>
-  <!-- Modals avec miniatures cliquables et boutons de navigation latéraux -->
+  <!-- Modals -->
   <!-- Modal Pirates de l'étang -->
   <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -922,7 +1020,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
           <div class="modal-project-nav">
             <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
               <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
@@ -965,7 +1062,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
           <div class="modal-project-nav">
             <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
               <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
@@ -1008,7 +1104,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
           <div class="modal-project-nav">
             <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
               <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
@@ -1051,7 +1146,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
           <div class="modal-project-nav">
             <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
               <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
@@ -1093,7 +1187,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
           <div class="modal-project-nav">
             <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
               <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
@@ -1135,7 +1228,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
           <div class="modal-project-nav">
             <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
               <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
@@ -1177,7 +1269,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
           <div class="modal-project-nav">
             <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
               <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
@@ -1218,7 +1309,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
           <div class="modal-project-nav">
             <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
               <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
@@ -1261,7 +1351,6 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- BOUTONS DE NAVIGATION À GAUCHE ET À DROITE -->
           <div class="modal-project-nav">
             <button type="button" class="project-nav-btn project-nav-left" onclick="changeProject(-1)">
               <i class="fas fa-chevron-left"></i> <span data-translate="Projet précédent">Projet précédent</span>
@@ -1326,16 +1415,23 @@
         events: { onhover: { enable: true, mode: "repulse" } }
       }
     });
-    // Animation au scroll
+    // Animation au scroll pour les sections
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('reveal-visible');
+          // Animation des barres de compétences
+          if (entry.target.querySelectorAll('.progress-bar').length > 0) {
+            entry.target.querySelectorAll('.progress-bar').forEach(bar => {
+              bar.classList.add('in-view');
+            });
+          }
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // Animation des cartes de projet et timeline
+    document.querySelectorAll('.project-item, .timeline-item, .skill-item').forEach(el => observer.observe(el));
     // Tableau des images pour chaque projet
     const projectImages = {
       1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
@@ -1441,14 +1537,19 @@
           konamiIndex = 0;
         }
       });
+      easterEgg.addEventListener('click', () => {
+        showEasterEggPopup();
+      });
       closeEasterEgg.addEventListener('click', () => {
         easterEggPopup.classList.add('hidden');
+        easterEggPopup.classList.remove('visible');
       });
     });
     // Affiche le pop-up Easter Egg
     function showEasterEggPopup() {
       const easterEggPopup = document.getElementById('easterEggPopup');
       easterEggPopup.classList.remove('hidden');
+      easterEggPopup.classList.add('visible');
       launchConfetti();
     }
     // Confettis
