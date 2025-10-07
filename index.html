@@ -319,30 +319,29 @@
       height: 100%;
       object-fit: cover;
     }
-    /* Section Compétences - Centrée sur mobile */
+    /* Section Compétences - Réduite pour mobile */
     .skills-section {
-      padding: 60px 0;
-      text-align: center;
+      padding: 40px 0;
     }
     .skills-header {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
     .skills-header h2 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 15px;
       color: var(--primary-light);
     }
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
       margin-top: 20px;
       justify-content: center;
     }
     .skill-card {
       background: rgba(26, 26, 46, 0.8);
       border-radius: 12px;
-      padding: 25px 20px;
+      padding: 15px 10px;
       border: 1px solid rgba(106, 90, 205, 0.3);
       transition: var(--transition);
       box-shadow: var(--card-shadow);
@@ -351,29 +350,36 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-height: 180px;
     }
     .skill-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--card-hover-shadow);
     }
     .skill-icon {
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: var(--accent);
-      margin-bottom: 15px;
-      width: 60px;
-      height: 60px;
+      margin-bottom: 10px;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .skill-title {
-      font-size: 1.2rem;
-      margin-bottom: 15px;
+      font-size: 1rem;
+      margin-bottom: 10px;
       color: var(--light);
     }
     .skill-progress {
       width: 100%;
       margin-top: auto;
+      height: 20px;
+    }
+    .skill-progress .progress-bar {
+      font-size: 0.8rem;
+      height: 20px;
+      line-height: 20px;
     }
     /* Section Projets - Style moderne et attrayant */
     .projects-section {
@@ -399,12 +405,12 @@
       background: rgba(106, 90, 205, 0.7);
       border: none;
       border-radius: 50px;
-      padding: 10px 20px;
+      padding: 8px 16px;
       color: white;
       cursor: pointer;
       transition: var(--transition);
       font-family: 'Press Start 2P', cursive;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       box-shadow: var(--card-shadow);
     }
     .filter-btn.active, .filter-btn:hover {
@@ -520,16 +526,16 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(106, 90, 205, 0.3);
     }
-    /* Section Contact - Centrée sur mobile */
+    /* Section Contact - Réduite pour mobile */
     .contact-section {
-      padding: 60px 0;
+      padding: 40px 0;
       text-align: center;
     }
     .contact-header {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
     .contact-header h2 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 15px;
       color: var(--primary-light);
     }
@@ -537,17 +543,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+      flex-direction: column;
     }
     .contact-icon {
       font-size: 2.5rem;
       color: var(--accent);
-      margin-right: 15px;
+      margin-bottom: 8px;
       transition: var(--transition);
     }
     .contact-item:hover .contact-icon {
       transform: rotateY(180deg);
       color: var(--secondary);
+    }
+    .contact-item a, .contact-item span {
+      color: var(--light);
+      font-size: 1rem;
+      text-decoration: none;
+    }
+    .contact-item a:hover {
+      color: var(--accent);
     }
     /* Footer */
     footer {
@@ -733,7 +748,7 @@
         font-size: 1.1rem;
       }
       .section {
-        padding: 40px 0;
+        padding: 30px 0;
       }
       .container {
         padding-left: 15px;
@@ -753,7 +768,7 @@
       }
       .projects-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 15px;
       }
       .project-image-container {
         height: 150px;
@@ -780,15 +795,31 @@
         padding: 20px;
         max-width: 90%;
       }
-      /* Centrer les sections Compétences et Contact sur mobile */
+      /* Réduction supplémentaire pour mobile */
       .skills-section, .contact-section {
-        text-align: center;
+        padding: 30px 0;
       }
-      .skills-grid {
-        justify-content: center;
+      .skills-header h2, .contact-header h2 {
+        font-size: 1.8rem;
+      }
+      .skill-card {
+        min-height: 160px;
+        padding: 12px 8px;
+      }
+      .skill-icon {
+        font-size: 2rem;
+      }
+      .skill-title {
+        font-size: 0.9rem;
       }
       .contact-item {
-        justify-content: center;
+        margin-bottom: 12px;
+      }
+      .contact-icon {
+        font-size: 2rem;
+      }
+      .contact-item a, .contact-item span {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -928,7 +959,7 @@
       </div>
       <div class="skill-card">
         <div class="skill-icon">
-          <img src="Unreal_Engine_Icon.png" alt="Unreal Engine" style="width: 48px; height: 48px; filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);">
+          <img src="Unreal_Engine_Icon.png" alt="Unreal Engine" style="width: 40px; height: 40px; filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);">
         </div>
         <h4 class="skill-title">Unreal Engine</h4>
         <div class="progress skill-progress">
