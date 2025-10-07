@@ -528,10 +528,15 @@
       background: rgba(26, 26, 46, 0.7);
       padding: 20px;
       border-radius: 10px;
+      width: 100%;
+      height: 100%;
       text-align: center;
       border: 1px solid var(--primary);
       box-shadow: var(--glow);
       transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .skill-item:hover {
       transform: translateY(-5px);
@@ -540,11 +545,19 @@
     .skill-icon {
       font-size: 3rem;
       color: var(--accent);
-      margin-bottom: 10px;
+      margin: 0 auto 15px;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 60px;
+    }
+    .skill-item h4 {
+      margin: 10px 0;
+      font-size: 1.2rem;
+    }
+    .skill-item .progress {
+      margin-top: auto;
+      width: 100%;
     }
     .contact-icon {
       font-size: 2.5rem;
@@ -741,6 +754,12 @@
       .skills-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
+        padding: 0;
+      }
+      .skill-item {
+        min-height: 220px;
+        display: flex;
+        flex-direction: column;
       }
       #projects-container .row {
         display: grid;
