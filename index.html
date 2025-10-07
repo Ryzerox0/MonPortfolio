@@ -289,6 +289,91 @@
       background: linear-gradient(90deg, var(--primary), var(--accent));
       transition: width 1s ease;
     }
+    /* Section À propos - Photo comme avant */
+    .about-section {
+      padding: 60px 0;
+    }
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    .about-image {
+      flex: 0 0 300px;
+      text-align: center;
+    }
+    .about-text {
+      flex: 1;
+    }
+    .profile-img-container {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent);
+      box-shadow: var(--glow);
+      margin: 0 auto;
+    }
+    .profile-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Section Compétences */
+    .skills-section {
+      padding: 60px 0;
+    }
+    .skills-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .skills-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--primary-light);
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+    .skill-card {
+      background: rgba(26, 26, 46, 0.8);
+      border-radius: 12px;
+      padding: 25px 20px;
+      border: 1px solid rgba(106, 90, 205, 0.3);
+      transition: var(--transition);
+      box-shadow: var(--card-shadow);
+      text-align: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--card-hover-shadow);
+    }
+    .skill-icon {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .skill-title {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: var(--light);
+    }
+    .skill-progress {
+      width: 100%;
+      margin-top: auto;
+    }
     /* Section Projets - Style moderne et attrayant */
     .projects-section {
       padding: 60px 0;
@@ -437,8 +522,6 @@
     /* Modal des projets */
     .modal-content {
       background: var(--darker);
-      color: var(--light);
-      border-radius: 15px;
       border: 2px solid var(--primary);
       box-shadow: var(--strong-glow);
       position: relative;
@@ -598,61 +681,34 @@
       background: #ff5252;
       transform: translateY(-2px);
     }
-    /* Section Compétences */
-    .skills-section {
+    /* Section Contact */
+    .contact-section {
       padding: 60px 0;
     }
-    .skills-header {
+    .contact-header {
       text-align: center;
       margin-bottom: 40px;
     }
-    .skills-header h2 {
+    .contact-header h2 {
       font-size: 2.5rem;
       margin-bottom: 15px;
       color: var(--primary-light);
     }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 25px;
-      margin-top: 20px;
-    }
-    .skill-card {
-      background: rgba(26, 26, 46, 0.8);
-      border-radius: 12px;
-      padding: 25px 20px;
-      border: 1px solid rgba(106, 90, 205, 0.3);
-      transition: var(--transition);
-      box-shadow: var(--card-shadow);
-      text-align: center;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .skill-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--card-hover-shadow);
-      border-color: var(--accent);
-    }
-    .skill-icon {
-      font-size: 3rem;
-      color: var(--accent);
-      margin-bottom: 15px;
-      width: 60px;
-      height: 60px;
+    .contact-item {
       display: flex;
       align-items: center;
+      margin-bottom: 20px;
       justify-content: center;
     }
-    .skill-title {
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-      color: var(--light);
+    .contact-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-right: 15px;
+      transition: var(--transition);
     }
-    .skill-progress {
-      width: 100%;
-      margin-top: auto;
+    .contact-item:hover .contact-icon {
+      transform: rotateY(180deg);
+      color: var(--secondary);
     }
     /* Footer */
     footer {
@@ -682,12 +738,21 @@
         padding-left: 15px;
         padding-right: 15px;
       }
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-image {
+        flex: none;
+      }
+      .profile-img-container {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
+      }
       .projects-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
-      }
-      .project-card {
-        height: auto;
       }
       .project-image-container {
         height: 150px;
@@ -779,14 +844,14 @@
     </div>
   </header>
   <!-- Section À propos -->
-  <section id="about" class="container section reveal">
-    <div class="row align-items-center">
-      <div class="col-lg-5 text-center mb-4">
+  <section id="about" class="container about-section reveal">
+    <div class="about-content">
+      <div class="about-image">
         <div class="profile-img-container">
           <img src="Moi.png" alt="Photo de profil">
         </div>
       </div>
-      <div class="col-lg-7">
+      <div class="about-text">
         <h2 class="mb-4" data-translate="À PROPOS DE MOI">À PROPOS DE MOI</h2>
         <p style="font-size: 1.1rem; line-height: 1.8;" data-translate="Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un passionné de développement de jeux vidéo, surtout les serious games.">
           Salut ! Je m'appelle Baptiste, j'ai 19 ans et je suis un <strong>passionné de développement de jeux vidéo</strong>, surtout les serious games.
@@ -1057,8 +1122,10 @@
     </div>
   </section>
   <!-- Section Contact -->
-  <section id="contact" class="container section reveal">
-    <h2 class="mb-5 text-center" data-translate="ME CONTACTER">ME <span class="game-font">CONTACTER</span></h2>
+  <section id="contact" class="container contact-section reveal">
+    <div class="contact-header">
+      <h2 class="mb-5 text-center" data-translate="ME CONTACTER">ME <span class="game-font">CONTACTER</span></h2>
+    </div>
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="contact-item mb-4">
