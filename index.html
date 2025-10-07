@@ -327,21 +327,21 @@
       margin-bottom: 20px;
     }
     .skills-header h2 {
-      font-size: 1.8rem;
+      font-size: 2.5rem;
       margin-bottom: 15px;
       color: var(--primary-light);
     }
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 25px;
       margin-top: 20px;
       justify-content: center;
     }
     .skill-card {
       background: rgba(26, 26, 46, 0.8);
       border-radius: 12px;
-      padding: 15px 10px;
+      padding: 25px 20px;
       border: 1px solid rgba(106, 90, 205, 0.3);
       transition: var(--transition);
       box-shadow: var(--card-shadow);
@@ -350,54 +350,48 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 160px;
+      min-height: 220px;
     }
     .skill-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--card-hover-shadow);
     }
     .skill-icon {
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: var(--accent);
-      margin-bottom: 10px;
-      width: 50px;
-      height: 50px;
+      margin-bottom: 15px;
+      width: 60px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .skill-title {
-      font-size: 1rem;
-      margin-bottom: 10px;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
       color: var(--light);
     }
     .skill-progress {
       width: 100%;
       margin-top: auto;
-      height: 20px;
     }
-    .skill-progress .progress-bar {
-      font-size: 0.8rem;
-      height: 20px;
-      line-height: 20px;
-    }
-    /* Section Projets - Même taille que Compétences et Contact */
+    /* Section Projets - Grille normale sur desktop, 2x2 sur mobile */
     .projects-section {
-      padding: 30px 0;
+      padding: 60px 0;
     }
     .projects-header {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     .projects-header h2 {
-      font-size: 1.8rem;
+      font-size: 2.5rem;
       margin-bottom: 15px;
       color: var(--primary-light);
     }
     .filter-buttons {
       display: flex;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       gap: 10px;
       flex-wrap: wrap;
     }
@@ -405,12 +399,12 @@
       background: rgba(106, 90, 205, 0.7);
       border: none;
       border-radius: 50px;
-      padding: 8px 16px;
+      padding: 10px 20px;
       color: white;
       cursor: pointer;
       transition: var(--transition);
       font-family: 'Press Start 2P', cursive;
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       box-shadow: var(--card-shadow);
     }
     .filter-btn.active, .filter-btn:hover {
@@ -419,14 +413,14 @@
       box-shadow: var(--glow);
       transform: translateY(-2px);
     }
-    /* Grille des projets - Même hauteur que Compétences */
+    /* Grille des projets - Desktop: 3+ colonnes, Mobile: 2x2 */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
       margin-top: 20px;
     }
-    /* Carte de projet - Compacte */
+    /* Carte de projet - Design moderne */
     .project-card {
       background: rgba(26, 26, 46, 0.8);
       border-radius: 12px;
@@ -438,10 +432,9 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      min-height: 280px;
     }
     .project-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
       box-shadow: var(--card-hover-shadow);
       border-color: var(--accent);
     }
@@ -460,7 +453,7 @@
       opacity: 1;
     }
     .project-image-container {
-      height: 120px;
+      height: 180px;
       overflow: hidden;
       position: relative;
     }
@@ -487,7 +480,7 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
     .project-content {
-      padding: 15px 10px;
+      padding: 20px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
@@ -495,29 +488,28 @@
     .project-title {
       color: var(--accent);
       font-family: 'Press Start 2P', cursive;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       margin-bottom: 10px;
       text-align: center;
     }
     .project-description {
       color: rgba(255, 255, 255, 0.9);
-      font-size: 0.85rem;
-      line-height: 1.4;
-      margin-bottom: 10px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
       flex-grow: 1;
     }
     .project-actions {
       display: flex;
       justify-content: center;
       margin-top: auto;
-      padding-bottom: 10px;
     }
     .project-btn {
       background: var(--primary);
       color: white;
       border: none;
       border-radius: 50px;
-      padding: 6px 16px;
+      padding: 8px 20px;
       font-size: 0.8rem;
       font-weight: 600;
       transition: var(--transition);
@@ -537,7 +529,7 @@
       margin-bottom: 20px;
     }
     .contact-header h2 {
-      font-size: 1.8rem;
+      font-size: 2.5rem;
       margin-bottom: 15px;
       color: var(--primary-light);
     }
@@ -545,11 +537,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 12px;
+      margin-bottom: 20px;
       flex-direction: column;
     }
     .contact-icon {
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: var(--accent);
       margin-bottom: 8px;
       transition: var(--transition);
@@ -560,7 +552,7 @@
     }
     .contact-item a, .contact-item span {
       color: var(--light);
-      font-size: 0.9rem;
+      font-size: 1rem;
       text-decoration: none;
     }
     .contact-item a:hover {
@@ -768,22 +760,59 @@
         height: 200px;
         margin-bottom: 20px;
       }
-      /* Sections uniformes */
+      /* Sections uniformes sur mobile */
       .skills-section, .projects-section, .contact-section {
         padding: 30px 0;
       }
       .skills-header h2, .projects-header h2, .contact-header h2 {
         font-size: 1.8rem;
       }
-      .skills-grid, .projects-grid {
+      .skills-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
       }
-      .skill-card, .project-card {
+      .skill-card {
         min-height: 160px;
+        padding: 15px 10px;
+      }
+      .skill-icon {
+        font-size: 2.5rem;
+      }
+      .skill-title {
+        font-size: 1rem;
+      }
+      .skill-progress {
+        height: 20px;
+      }
+      .skill-progress .progress-bar {
+        font-size: 0.8rem;
+        height: 20px;
+        line-height: 20px;
+      }
+      /* Grille des projets en 2x2 sur mobile */
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .project-card {
+        min-height: 280px;
       }
       .project-image-container {
         height: 120px;
+      }
+      .project-content {
+        padding: 15px 10px;
+      }
+      .project-title {
+        font-size: 1.1rem;
+      }
+      .project-description {
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+      .project-btn {
+        padding: 6px 16px;
+        font-size: 0.8rem;
       }
       .modal-project-nav {
         top: auto;
@@ -802,6 +831,15 @@
       .title-container {
         padding: 20px;
         max-width: 90%;
+      }
+      .contact-item {
+        margin-bottom: 12px;
+      }
+      .contact-icon {
+        font-size: 2rem;
+      }
+      .contact-item a, .contact-item span {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -941,7 +979,7 @@
       </div>
       <div class="skill-card">
         <div class="skill-icon">
-          <img src="Unreal_Engine_Icon.png" alt="Unreal Engine" style="width: 40px; height: 40px; filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);">
+          <img src="Unreal_Engine_Icon.png" alt="Unreal Engine" style="width: 48px; height: 48px; filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);">
         </div>
         <h4 class="skill-title">Unreal Engine</h4>
         <div class="progress skill-progress">
