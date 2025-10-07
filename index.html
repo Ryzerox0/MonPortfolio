@@ -244,7 +244,7 @@
       height: 14px;
       border-radius: 2px;
     }
-    /* Bouton circulaire pour desktop */
+    /* Bouton circulaire pour desktop - Corrigé */
     .btn-circle {
       background: var(--primary);
       border: none;
@@ -265,11 +265,18 @@
       width: 180px;
       background: var(--primary-light);
     }
+    .btn-circle img {
+      width: 24px;
+      height: 16px;
+      border-radius: 2px;
+      object-fit: cover;
+    }
     .btn-text {
       display: none;
       margin-left: 10px;
       white-space: nowrap;
       font-family: 'Rajdhani', sans-serif;
+      font-size: 0.9rem;
     }
     .btn-circle:hover .btn-text {
       display: inline;
@@ -887,7 +894,7 @@
     <a href="#skills" class="btn-circle" title="Compétences"><i class="fas fa-star"></i><span class="btn-text" data-translate="Compétences"> Compétences</span></a>
     <a href="#projects" class="btn-circle" title="Projets"><i class="fas fa-gamepad"></i><span class="btn-text" data-translate="Projets"> Projets</span></a>
     <a href="#contact" class="btn-circle" title="Contact"><i class="fas fa-envelope"></i><span class="btn-text" data-translate="Contact"> Contact</span></a>
-    <!-- Bouton de langue -->
+    <!-- Bouton de langue - Corrigé -->
     <button id="lang-toggle" class="btn-circle" title="Changer de langue">
       <img id="lang-flag" src="french.png" alt="Français">
       <span class="btn-text" data-translate="Langue"> Langue</span>
