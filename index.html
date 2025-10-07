@@ -28,6 +28,8 @@
       --glow: 0 0 10px rgba(173, 198, 255, 0.7);
       --strong-glow: 0 0 20px rgba(173, 198, 255, 0.9);
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --card-hover-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
     }
     body {
       background: linear-gradient(135deg, var(--darker) 0%, #0f0c29 25%, #1a1a2e 100%);
@@ -79,6 +81,8 @@
       overflow: hidden;
       position: relative;
       z-index: 1;
+      padding: 10px 20px;
+      font-size: 0.9rem;
     }
     .btn::after {
       content: '';
@@ -109,7 +113,7 @@
     }
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: var(--card-hover-shadow);
     }
     .btn:active {
       transform: translateY(1px);
@@ -285,63 +289,18 @@
       background: linear-gradient(90deg, var(--primary), var(--accent));
       transition: width 1s ease;
     }
-    .project-card {
-      background: rgba(26, 26, 46, 0.7);
-      border-radius: 15px;
-      overflow: hidden;
-      border: 1px solid var(--primary);
-      transition: var(--transition);
-      box-shadow: var(--glow);
-      margin-bottom: 30px;
-      height: auto;
-      display: flex;
-      flex-direction: column;
+    /* Section Projets - Style moderne et attrayant */
+    .projects-section {
+      padding: 60px 0;
     }
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
-    .project-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 10px;
-      border: 1px solid var(--primary);
-      transition: var(--transition);
-      padding: 10px;
-    }
-    .project-card:hover img {
-      transform: scale(1.05);
-      border-color: var(--accent);
-    }
-    .project-card .card-body {
-      padding: 20px;
-      height: auto;
-      min-height: 150px;
-      display: flex;
-      flex-direction: column;
+    .projects-header {
       text-align: center;
+      margin-bottom: 30px;
     }
-    .project-card .card-title {
-      color: var(--accent);
-      font-family: 'Press Start 2P', cursive;
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-    .project-card .badge {
-      background: var(--secondary);
-      font-weight: 600;
-      margin: 5px auto;
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 10px;
-    }
-    .project-card .btn {
-      align-self: center;
-      font-size: 0.8rem;
-      padding: 8px 15px;
-      margin-top: auto;
+    .projects-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--primary-light);
     }
     .filter-buttons {
       display: flex;
@@ -350,8 +309,8 @@
       gap: 10px;
       flex-wrap: wrap;
     }
-    .filter-buttons button {
-      background: var(--primary);
+    .filter-btn {
+      background: rgba(106, 90, 205, 0.7);
       border: none;
       border-radius: 50px;
       padding: 10px 20px;
@@ -360,39 +319,200 @@
       transition: var(--transition);
       font-family: 'Press Start 2P', cursive;
       font-size: 0.8rem;
+      box-shadow: var(--card-shadow);
     }
-    .filter-buttons button.active {
+    .filter-btn.active, .filter-btn:hover {
       background: var(--accent);
       color: var(--dark);
       box-shadow: var(--glow);
+      transform: translateY(-2px);
     }
+    /* Grille des projets */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+    /* Carte de projet - Design moderne */
+    .project-card {
+      background: rgba(26, 26, 46, 0.8);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(106, 90, 205, 0.3);
+      transition: var(--transition);
+      box-shadow: var(--card-shadow);
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--card-hover-shadow);
+      border-color: var(--accent);
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .project-card:hover::before {
+      opacity: 1;
+    }
+    .project-image-container {
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      border-bottom: 1px solid rgba(106, 90, 205, 0.2);
+    }
+    .project-card:hover .project-image {
+      transform: scale(1.05);
+    }
+    .project-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--secondary);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .project-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-title {
+      color: var(--accent);
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .project-description {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+    .project-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: auto;
+    }
+    .project-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: var(--glow);
+    }
+    .project-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(106, 90, 205, 0.3);
+    }
+    /* Modal des projets */
     .modal-content {
       background: var(--darker);
       color: var(--light);
       border-radius: 15px;
       border: 2px solid var(--primary);
-      box-shadow: var(--glow);
+      box-shadow: var(--strong-glow);
       position: relative;
+      overflow: hidden;
     }
     .modal-header {
       border-bottom: 1px solid var(--primary);
+      padding: 20px;
+      text-align: center;
     }
     .modal-title {
       color: var(--accent);
       font-family: 'Press Start 2P', cursive;
-      text-align: center;
       width: 100%;
+      font-size: 1.8rem;
     }
     .modal-body {
-      padding: 30px;
+      padding: 25px;
       position: relative;
     }
-    /* Styles pour les miniatures et navigation */
-    .image-container {
+    .modal-project-nav {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 0;
+      z-index: 1050;
+      pointer-events: none;
+    }
+    .project-nav-btn {
+      background: rgba(26, 26, 46, 0.9);
+      border: 2px solid var(--accent);
+      border-radius: 50px;
+      padding: 12px 20px;
+      color: var(--light);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      box-shadow: var(--strong-glow);
+      min-width: 150px;
+      opacity: 1;
+      pointer-events: auto;
+      backdrop-filter: blur(5px);
+    }
+    .project-nav-btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(173, 198, 255, 0.9);
+    }
+    .project-nav-btn i {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+    .project-nav-left {
+      position: absolute;
+      left: -180px;
+      transform: translateY(-50%);
+    }
+    .project-nav-right {
+      position: absolute;
+      right: -160px;
+      transform: translateY(-50%);
+    }
+    .modal-image-container {
       text-align: center;
       margin-bottom: 20px;
+      position: relative;
     }
-    .main-image {
+    .modal-image {
       max-height: 400px;
       width: 100%;
       object-fit: contain;
@@ -400,6 +520,7 @@
       border: 2px solid var(--accent);
       transition: opacity 0.5s ease;
       margin-bottom: 20px;
+      box-shadow: var(--glow);
     }
     .thumbnail-gallery {
       display: flex;
@@ -432,275 +553,115 @@
       transform: scale(1.1);
       box-shadow: var(--glow);
     }
-    /* STYLE AMÉLIORÉ POUR LES BOUTONS DE NAVIGATION LATÉRAUX */
-    .modal-project-nav {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 0;
-      z-index: 1050;
-      pointer-events: none;
+    .modal-details {
+      margin-top: 20px;
     }
-    .project-nav-btn {
-      background: rgba(26, 26, 46, 0.9);
-      border: 2px solid var(--accent);
-      border-radius: 50px;
-      padding: 12px 20px;
-      color: var(--light);
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
+    .modal-details p {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .modal-details strong {
+      color: var(--accent);
+    }
+    .modal-footer {
+      border-top: 1px solid var(--primary);
+      padding: 15px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      transition: var(--transition);
-      box-shadow: var(--strong-glow);
-      min-width: 150px;
-      opacity: 1;
-      pointer-events: auto;
-      backdrop-filter: blur(5px);
+      gap: 15px;
     }
-    .project-nav-btn:hover {
+    .modal-download-btn {
       background: var(--primary);
       color: white;
-      transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(173, 198, 255, 0.9);
-    }
-    .project-nav-btn i {
-      margin-right: 10px;
-      font-size: 18px;
-    }
-    .project-nav-left {
-      position: absolute;
-      left: -180px;
-      transform: translateY(-50%);
-    }
-    .project-nav-right {
-      position: absolute;
-      right: -160px;
-      transform: translateY(-50%);
-    }
-    .timeline {
-      position: relative;
-      padding-left: 30px;
-      list-style: none;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--primary);
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 30px;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -30px;
-      top: 0;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 3px solid var(--primary);
-    }
-    .timeline-content {
-      background: rgba(26, 26, 46, 0.7);
-      padding: 20px;
-      border-radius: 10px;
-      border-left: 3px solid var(--accent);
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      transition: var(--transition);
       box-shadow: var(--glow);
     }
-    .skills-container {
+    .modal-download-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    .modal-close-btn {
+      background: var(--secondary);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .modal-close-btn:hover {
+      background: #ff5252;
+      transform: translateY(-2px);
+    }
+    /* Section Compétences */
+    .skills-section {
+      padding: 60px 0;
+    }
+    .skills-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .skills-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--primary-light);
+    }
+    .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
-      justify-content: center;
-      padding: 0 20px;
+      gap: 25px;
+      margin-top: 20px;
     }
-    .skill-item {
-      background: rgba(26, 26, 46, 0.7);
-      padding: 20px;
-      border-radius: 10px;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      border: 1px solid var(--primary);
-      box-shadow: var(--glow);
+    .skill-card {
+      background: rgba(26, 26, 46, 0.8);
+      border-radius: 12px;
+      padding: 25px 20px;
+      border: 1px solid rgba(106, 90, 205, 0.3);
       transition: var(--transition);
+      box-shadow: var(--card-shadow);
+      text-align: center;
+      height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
     }
-    .skill-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    .skill-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--card-hover-shadow);
+      border-color: var(--accent);
     }
     .skill-icon {
       font-size: 3rem;
       color: var(--accent);
-      margin: 0 auto 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      margin-bottom: 15px;
+      width: 60px;
       height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .skill-item h4 {
-      margin: 10px 0;
+    .skill-title {
       font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: var(--light);
     }
-    .skill-item .progress {
-      margin-top: auto;
+    .skill-progress {
       width: 100%;
+      margin-top: auto;
     }
-    .contact-icon {
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-right: 15px;
-      transition: var(--transition);
-    }
-    .contact-item:hover .contact-icon {
-      transform: rotateY(180deg);
-      color: var(--secondary);
-    }
+    /* Footer */
     footer {
       background: var(--darker);
       padding: 30px 0;
       text-align: center;
       border-top: 1px solid var(--primary);
     }
-    .easter-egg {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      background: var(--secondary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition);
-      z-index: 1000;
-    }
-    .easter-egg:hover {
-      transform: rotate(360deg);
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal.reveal-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    #lang-toggle {
-      background: var(--primary);
-      border: none;
-      border-radius: 50px;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      transition: var(--transition);
-      font-size: 22px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--glow);
-      padding: 0;
-    }
-    #lang-toggle:hover {
-      width: 180px;
-      background: var(--primary-light);
-    }
-    #lang-flag {
-      transition: var(--transition);
-      width: 24px;
-      height: 16px;
-    }
-    .profile-img-container {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid var(--accent);
-      box-shadow: var(--glow);
-      margin: 0 auto;
-    }
-    .profile-img-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    /* Pop-up Easter Egg */
-    .easter-egg-popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    .easter-egg-popup.hidden {
-      display: none;
-    }
-    .easter-egg-content {
-      background: var(--darker);
-      border: 2px solid var(--accent);
-      border-radius: 15px;
-      padding: 30px;
-      text-align: center;
-      max-width: 500px;
-      position: relative;
-      box-shadow: var(--glow);
-    }
-    .easter-egg-close {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background: none;
-      border: none;
-      color: var(--light);
-      font-size: 24px;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .easter-egg-close:hover {
-      color: var(--secondary);
-      transform: scale(1.2);
-    }
-    .easter-egg-content h2 {
-      color: var(--accent);
-      margin-bottom: 15px;
-    }
-    .easter-egg-content p {
-      color: var(--light);
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
-    #confettiCanvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-    }
+    /* Responsive Design */
     @media (max-width: 768px) {
       .navbar {
         display: block;
@@ -721,16 +682,19 @@
         padding-left: 15px;
         padding-right: 15px;
       }
-      .project-card img {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .project-card {
+        height: auto;
+      }
+      .project-image-container {
         height: 150px;
       }
-      .profile-img-container {
-        width: 200px;
-        height: 200px;
-      }
-      .thumbnail {
-        width: 60px;
-        height: 45px;
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
       }
       .modal-project-nav {
         top: auto;
@@ -750,44 +714,12 @@
         padding: 20px;
         max-width: 90%;
       }
-      /* Affichage 2 par 2 pour compétences et projets */
-      .skills-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        padding: 0;
-      }
-      .skill-item {
-        min-height: 220px;
-        display: flex;
-        flex-direction: column;
-      }
-      #projects-container .row {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
-      #projects-container .col-12 {
-        width: 100%;
-      }
-      #projects-container .col-sm-6 {
-        width: 100%;
-      }
-      #projects-container .col-lg-4 {
-        width: 100%;
-      }
-      #projects-container .project-item {
-        width: 100%;
-      }
     }
   </style>
 </head>
 <body>
   <!-- Particles.js Background -->
   <div id="particles-js"></div>
-  <!-- Easter Egg -->
-  <div class="easter-egg" title="Konami Code ?">
-    <i class="fas fa-gamepad"></i>
-  </div>
   <!-- Menu burger pour mobile -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
@@ -834,6 +766,7 @@
       <span class="btn-text" data-translate="Langue"> Langue</span>
     </button>
   </div>
+  <!-- Header -->
   <header id="top" class="text-center section reveal">
     <div class="header-content">
       <div class="title-container">
@@ -845,6 +778,7 @@
       </a>
     </div>
   </header>
+  <!-- Section À propos -->
   <section id="about" class="container section reveal">
     <div class="row align-items-center">
       <div class="col-lg-5 text-center mb-4">
@@ -901,185 +835,228 @@
       </div>
     </div>
   </section>
-  <section id="skills" class="container section reveal">
-    <h2 class="mb-5 text-center" data-translate="MES COMPÉTENCES">MES <span class="game-font">COMPÉTENCES</span></h2>
-    <div class="skills-container">
-      <div class="skill-item">
+  <!-- Section Compétences -->
+  <section id="skills" class="container skills-section reveal">
+    <div class="skills-header">
+      <h2 class="mb-5 text-center" data-translate="MES COMPÉTENCES">MES <span class="game-font">COMPÉTENCES</span></h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
         <div class="skill-icon">
           <i class="fab fa-unity"></i>
         </div>
-        <h4>Unity</h4>
-        <div class="progress mb-3">
+        <h4 class="skill-title">Unity</h4>
+        <div class="progress skill-progress">
           <div class="progress-bar" style="width: 70%;">70%</div>
         </div>
       </div>
-      <div class="skill-item">
+      <div class="skill-card">
         <div class="skill-icon">
           <img src="Unreal_Engine_Icon.png" alt="Unreal Engine" style="width: 48px; height: 48px; filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);">
         </div>
-        <h4>Unreal Engine</h4>
-        <div class="progress mb-3">
+        <h4 class="skill-title">Unreal Engine</h4>
+        <div class="progress skill-progress">
           <div class="progress-bar" style="width: 60%;">60%</div>
         </div>
       </div>
-      <div class="skill-item">
+      <div class="skill-card">
         <div class="skill-icon">
           <i class="fas fa-cube"></i>
         </div>
-        <h4>Blender</h4>
-        <div class="progress mb-3">
+        <h4 class="skill-title">Blender</h4>
+        <div class="progress skill-progress">
           <div class="progress-bar" style="width: 50%;">50%</div>
         </div>
       </div>
-      <div class="skill-item">
+      <div class="skill-card">
         <div class="skill-icon">
           <i class="fas fa-code"></i>
         </div>
-        <h4>C++</h4>
-        <div class="progress mb-3">
+        <h4 class="skill-title">C++</h4>
+        <div class="progress skill-progress">
           <div class="progress-bar" style="width: 50%;">50%</div>
         </div>
       </div>
-      <div class="skill-item">
+      <div class="skill-card">
         <div class="skill-icon">
           <i class="fas fa-laptop-code"></i>
         </div>
-        <h4 data-translate="Développement Web">Développement Web</h4>
-        <div class="progress mb-3">
+        <h4 class="skill-title" data-translate="Développement Web">Développement Web</h4>
+        <div class="progress skill-progress">
           <div class="progress-bar" style="width: 40%;">40%</div>
         </div>
       </div>
-      <div class="skill-item">
+      <div class="skill-card">
         <div class="skill-icon">
           <i class="fab fa-android"></i>
         </div>
-        <h4>Android</h4>
-        <div class="progress mb-3">
+        <h4 class="skill-title">Android</h4>
+        <div class="progress skill-progress">
           <div class="progress-bar" style="width: 65%;">65%</div>
         </div>
       </div>
     </div>
   </section>
-  <section id="projects" class="container section reveal">
-    <h2 class="mb-5 text-center" data-translate="MES PROJETS">MES <span class="game-font">PROJETS</span></h2>
-    <div class="filter-buttons">
-      <button onclick="filterProjects('all')" class="active" data-translate="TOUT">TOUT</button>
-      <button onclick="filterProjects('Unity')" data-translate="UNITY">UNITY</button>
-      <button onclick="filterProjects('Unreal')" data-translate="UNREAL">UNREAL</button>
-      <button onclick="filterProjects('HTML')" data-translate="WEB">WEB</button>
-      <button onclick="filterProjects('Android')" data-translate="ANDROID">ANDROID</button>
+  <!-- Section Projets -->
+  <section id="projects" class="container projects-section reveal">
+    <div class="projects-header">
+      <h2 class="mb-5 text-center" data-translate="MES PROJETS">MES <span class="game-font">PROJETS</span></h2>
+      <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterProjects('all')" data-translate="TOUT">TOUT</button>
+        <button class="filter-btn" onclick="filterProjects('Unity')" data-translate="UNITY">UNITY</button>
+        <button class="filter-btn" onclick="filterProjects('Unreal')" data-translate="UNREAL">UNREAL</button>
+        <button class="filter-btn" onclick="filterProjects('HTML')" data-translate="WEB">WEB</button>
+        <button class="filter-btn" onclick="filterProjects('Android')" data-translate="ANDROID">ANDROID</button>
+      </div>
     </div>
-    <div class="row gy-4" id="projects-container">
+    <div class="projects-grid" id="projects-container">
       <!-- Pirates de l'étang -->
-      <div class="col-12 col-sm-6 col-lg-4 project-item" data-category="Unity">
-        <div class="project-card">
-          <img src="pirate.png" alt="Pirates de l'étang">
-          <div class="card-body">
-            <h5 class="card-title">Pirates de l'étang</h5>
-            <span class="badge">Unity</span>
-            <p class="card-text" data-translate="Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !">Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal1" data-translate="VOIR PLUS">VOIR PLUS</button>
+      <div class="project-card project-item" data-category="Unity">
+        <div class="project-image-container">
+          <img src="pirate.png" alt="Pirates de l'étang" class="project-image">
+          <span class="project-badge">Unity</span>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Pirates de l'étang</h3>
+          <p class="project-description" data-translate="Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !">
+            Un jeu d'aventure où tu incarnes un pirate maudit. Combats, améliore ton équipement et survie !
+          </p>
+          <div class="project-actions">
+            <button class="project-btn" data-bs-toggle="modal" data-bs-target="#projectModal1" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- BABURU -->
-      <div class="col-12 col-sm-6 col-lg-4 project-item" data-category="Unity">
-        <div class="project-card">
-          <img src="bulle.png" alt="BABURU">
-          <div class="card-body">
-            <h5 class="card-title">BABURU</h5>
-            <span class="badge">Unity</span>
-            <p class="card-text" data-translate="Un light novel poétique sur l'introversion et l'amitié.">Un light novel poétique sur l'introversion et l'amitié.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal2" data-translate="VOIR PLUS">VOIR PLUS</button>
+      <div class="project-card project-item" data-category="Unity">
+        <div class="project-image-container">
+          <img src="bulle.png" alt="BABURU" class="project-image">
+          <span class="project-badge">Unity</span>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">BABURU</h3>
+          <p class="project-description" data-translate="Un light novel poétique sur l'introversion et l'amitié.">
+            Un light novel poétique sur l'introversion et l'amitié.
+          </p>
+          <div class="project-actions">
+            <button class="project-btn" data-bs-toggle="modal" data-bs-target="#projectModal2" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- Pablo -->
-      <div class="col-12 col-sm-6 col-lg-4 project-item" data-category="Unity">
-        <div class="project-card">
-          <img src="chapeau.png" alt="Pablo">
-          <div class="card-body">
-            <h5 class="card-title">Pablo</h5>
-            <span class="badge">Unity</span>
-            <p class="card-text" data-translate="Un projet scolaire pour apprendre les singletons et l'instanciation.">Un projet scolaire pour apprendre les singletons et l'instanciation.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal3" data-translate="VOIR PLUS">VOIR PLUS</button>
+      <div class="project-card project-item" data-category="Unity">
+        <div class="project-image-container">
+          <img src="chapeau.png" alt="Pablo" class="project-image">
+          <span class="project-badge">Unity</span>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Pablo</h3>
+          <p class="project-description" data-translate="Un projet scolaire pour apprendre les singletons et l'instanciation.">
+            Un projet scolaire pour apprendre les singletons et l'instanciation.
+          </p>
+          <div class="project-actions">
+            <button class="project-btn" data-bs-toggle="modal" data-bs-target="#projectModal3" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- Bouloux -->
-      <div class="col-12 col-sm-6 col-lg-4 project-item" data-category="Unity">
-        <div class="project-card">
-          <img src="logo bouloux.jpg" alt="Bouloux">
-          <div class="card-body">
-            <h5 class="card-title">Bouloux</h5>
-            <span class="badge">Unity</span>
-            <p class="card-text" data-translate="Un jeu de puzzle 3D avec une balle aux états changeants.">Un jeu de puzzle 3D avec une balle aux états changeants.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal4" data-translate="VOIR PLUS">VOIR PLUS</button>
+      <div class="project-card project-item" data-category="Unity">
+        <div class="project-image-container">
+          <img src="logo bouloux.jpg" alt="Bouloux" class="project-image">
+          <span class="project-badge">Unity</span>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Bouloux</h3>
+          <p class="project-description" data-translate="Un jeu de puzzle 3D avec une balle aux états changeants.">
+            Un jeu de puzzle 3D avec une balle aux états changeants.
+          </p>
+          <div class="project-actions">
+            <button class="project-btn" data-bs-toggle="modal" data-bs-target="#projectModal4" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- Balance ton archétype -->
-      <div class="col-12 col-sm-6 col-lg-4 project-item" data-category="Unity">
-        <div class="project-card">
-          <img src="balance (1).jpg" alt="Balance ton archétype">
-          <div class="card-body">
-            <h5 class="card-title">Balance ton archétype</h5>
-            <span class="badge">Unity</span>
-            <p class="card-text" data-translate="Un serious game icebreaker pour briser la glace en équipe.">Un serious game icebreaker pour briser la glace en équipe.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal5" data-translate="VOIR PLUS">VOIR PLUS</button>
+      <div class="project-card project-item" data-category="Unity">
+        <div class="project-image-container">
+          <img src="balance (1).jpg" alt="Balance ton archétype" class="project-image">
+          <span class="project-badge">Unity</span>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Balance ton archétype</h3>
+          <p class="project-description" data-translate="Un serious game icebreaker pour briser la glace en équipe.">
+            Un serious game icebreaker pour briser la glace en équipe.
+          </p>
+          <div class="project-actions">
+            <button class="project-btn" data-bs-toggle="modal" data-bs-target="#projectModal5" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- Route 66 -->
-      <div class="col-12 col-sm-6 col-lg-4 project-item" data-category="Unity">
-        <div class="project-card">
-          <img src="voiture (1).jpg" alt="Route 66">
-          <div class="card-body">
-            <h5 class="card-title">Route 66</h5>
-            <span class="badge">Unity</span>
-            <p class="card-text" data-translate="Recréation de la célèbre route d'Overwatch.">Recréation de la célèbre route d'Overwatch.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal6" data-translate="VOIR PLUS">VOIR PLUS</button>
+      <div class="project-card project-item" data-category="Unity">
+        <div class="project-image-container">
+          <img src="voiture (1).jpg" alt="Route 66" class="project-image">
+          <span class="project-badge">Unity</span>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Route 66</h3>
+          <p class="project-description" data-translate="Recréation de la célèbre route d'Overwatch.">
+            Recréation de la célèbre route d'Overwatch.
+          </p>
+          <div class="project-actions">
+            <button class="project-btn" data-bs-toggle="modal" data-bs-target="#projectModal6" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- Garage The Borges -->
-      <div class="col-12 col-sm-6 col-lg-4 project-item" data-category="HTML">
-        <div class="project-card">
-          <img src="Capture d'écran 2025-06-09 024811.png" alt="Garage The Borges">
-          <div class="card-body">
-            <h5 class="card-title">Garage The Borges</h5>
-            <span class="badge">HTML/PHP</span>
-            <p class="card-text" data-translate="Site web pour une concession automobile.">Site web pour une concession automobile.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal7" data-translate="VOIR PLUS">VOIR PLUS</button>
+      <div class="project-card project-item" data-category="HTML">
+        <div class="project-image-container">
+          <img src="Capture d'écran 2025-06-09 024811.png" alt="Garage The Borges" class="project-image">
+          <span class="project-badge">HTML/PHP</span>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Garage The Borges</h3>
+          <p class="project-description" data-translate="Site web pour une concession automobile.">
+            Site web pour une concession automobile.
+          </p>
+          <div class="project-actions">
+            <button class="project-btn" data-bs-toggle="modal" data-bs-target="#projectModal7" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- Écuyer des Ombres -->
-      <div class="col-12 col-sm-6 col-lg-4 project-item" data-category="Unreal">
-        <div class="project-card">
-          <img src="medieval.png" alt="Écuyer des Ombres">
-          <div class="card-body">
-            <h5 class="card-title">Écuyer des Ombres</h5>
-            <span class="badge">Unreal</span>
-            <p class="card-text" data-translate="Un jeu médiéval-fantastique avec un donjon maudit.">Un jeu médiéval-fantastique avec un donjon maudit.</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal8" data-translate="VOIR PLUS">VOIR PLUS</button>
+      <div class="project-card project-item" data-category="Unreal">
+        <div class="project-image-container">
+          <img src="medieval.png" alt="Écuyer des Ombres" class="project-image">
+          <span class="project-badge">Unreal</span>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Écuyer des Ombres</h3>
+          <p class="project-description" data-translate="Un jeu médiéval-fantastique avec un donjon maudit.">
+            Un jeu médiéval-fantastique avec un donjon maudit.
+          </p>
+          <div class="project-actions">
+            <button class="project-btn" data-bs-toggle="modal" data-bs-target="#projectModal8" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
       <!-- Head War -->
-      <div class="col-12 col-sm-6 col-lg-4 project-item" data-category="Android">
-        <div class="project-card">
-          <img src="AR_logo.png" alt="Head War">
-          <div class="card-body">
-            <h5 class="card-title">Head War</h5>
-            <span class="badge">Android</span>
-            <p class="card-text" data-translate="Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !">Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !</p>
-            <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#projectModal9" data-translate="VOIR PLUS">VOIR PLUS</button>
+      <div class="project-card project-item" data-category="Android">
+        <div class="project-image-container">
+          <img src="AR_logo.png" alt="Head War" class="project-image">
+          <span class="project-badge">Android</span>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Head War</h3>
+          <p class="project-description" data-translate="Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !">
+            Un jeu mobile déjanté où le monde réel devient votre terrain de chasse aux têtes !
+          </p>
+          <div class="project-actions">
+            <button class="project-btn" data-bs-toggle="modal" data-bs-target="#projectModal9" data-translate="VOIR PLUS">VOIR PLUS</button>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <!-- Section Contact -->
   <section id="contact" class="container section reveal">
     <h2 class="mb-5 text-center" data-translate="ME CONTACTER">ME <span class="game-font">CONTACTER</span></h2>
     <div class="row justify-content-center">
@@ -1099,16 +1076,12 @@
       </div>
     </div>
   </section>
-  <!-- Pop-up Easter Egg -->
-  <div id="easterEggPopup" class="easter-egg-popup hidden">
-    <div class="easter-egg-content">
-      <button id="closeEasterEgg" class="easter-egg-close">&times;</button>
-      <h2 class="game-font">BRAVO !</h2>
-      <p>Vous avez trouvé le secret de mon site !</p>
-      <p>Merci d'avoir exploré mon portfolio.</p>
-      <canvas id="confettiCanvas"></canvas>
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <p>&copy; 2025 Baptiste Curie-Cadet. <span data-translate="Tous droits réservés.">Tous droits réservés.</span></p>
     </div>
-  </div>
+  </footer>
   <!-- Modals -->
   <!-- Modal Pirates de l'étang -->
   <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
@@ -1127,8 +1100,8 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-          <div class="image-container">
-            <img id="projectImage1" src="1_Pirate.jpg" alt="Pirates de l'étang" class="main-image">
+          <div class="modal-image-container">
+            <img id="projectImage1" src="1_Pirate.jpg" alt="Pirates de l'étang" class="modal-image">
           </div>
           <div class="thumbnail-gallery">
             <img src="1_Pirate.jpg" class="thumbnail active" onclick="changeImage(1, 0)" alt="Capture 1">
@@ -1136,18 +1109,20 @@
             <img src="3_Pirate.png" class="thumbnail" onclick="changeImage(1, 2)" alt="Capture 3">
             <img src="4_Pirate.png" class="thumbnail" onclick="changeImage(1, 3)" alt="Capture 4">
           </div>
-          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
-          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur / Sound Designer</p>
-          <p><strong data-translate="Durée :">Durée :</strong> Un mois</p>
-          <p data-translate="Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !">
-            Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !
-          </p>
+          <div class="modal-details">
+            <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+            <p><strong data-translate="Utilité :">Utilité :</strong> Développeur / Sound Designer</p>
+            <p><strong data-translate="Durée :">Durée :</strong> Un mois</p>
+            <p data-translate="Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !">
+              Jouez en tant que Jack Moineau, un malheureux pirate échoué sur une île en proie à une terrible malédiction. Vainquez le plus d'ennemis possible tout en améliorant votre équipement pour aller le plus loin possible !
+            </p>
+          </div>
         </div>
         <div class="modal-footer">
-          <a href="build-pirate.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
+          <a href="build-pirate.zip" class="btn modal-download-btn" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
+          <button type="button" class="btn modal-close-btn" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -1169,8 +1144,8 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-          <div class="image-container">
-            <img id="projectImage2" src="bulle1 (1).png" alt="BABURU" class="main-image">
+          <div class="modal-image-container">
+            <img id="projectImage2" src="bulle1 (1).png" alt="BABURU" class="modal-image">
           </div>
           <div class="thumbnail-gallery">
             <img src="bulle1 (1).png" class="thumbnail active" onclick="changeImage(2, 0)" alt="Capture 1">
@@ -1178,18 +1153,20 @@
             <img src="bulle1 (3).png" class="thumbnail" onclick="changeImage(2, 2)" alt="Capture 3">
             <img src="bulle1 (4).png" class="thumbnail" onclick="changeImage(2, 3)" alt="Capture 4">
           </div>
-          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
-          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
-          <p><strong data-translate="Durée :">Durée :</strong> 2 jours</p>
-          <p data-translate="Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.">
-            Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.
-          </p>
+          <div class="modal-details">
+            <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+            <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
+            <p><strong data-translate="Durée :">Durée :</strong> 2 jours</p>
+            <p data-translate="Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.">
+              Baburu est un light novel narratif dans lequel vous incarnez Alin, un jeune garçon introverti qui aime se renfermer dans sa bulle et qui se crée une personnalité extravertie qu'il appelle Alex. Dans Baburu, votre but sera de vous protéger du monde extérieur en restant dans votre bulle et empêcher quiconque d'y pénétrer. Dans ce jeu poétique avec une forte dissonance ludo-narrative, vous devrez choisir entre sécurité et amitiés.
+            </p>
+          </div>
         </div>
         <div class="modal-footer">
-          <a href="build-baburu.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
+          <a href="build-baburu.zip" class="btn modal-download-btn" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
+          <button type="button" class="btn modal-close-btn" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -1211,8 +1188,8 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-          <div class="image-container">
-            <img id="projectImage3" src="mexi (2).png" alt="Pablo" class="main-image">
+          <div class="modal-image-container">
+            <img id="projectImage3" src="mexi (2).png" alt="Pablo" class="modal-image">
           </div>
           <div class="thumbnail-gallery">
             <img src="mexi (2).png" class="thumbnail active" onclick="changeImage(3, 0)" alt="Capture 1">
@@ -1220,18 +1197,20 @@
             <img src="mexi (3).png" class="thumbnail" onclick="changeImage(3, 2)" alt="Capture 3">
             <img src="mexi (4).png" class="thumbnail" onclick="changeImage(3, 3)" alt="Capture 4">
           </div>
-          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
-          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
-          <p><strong data-translate="Durée :">Durée :</strong> Un mois</p>
-          <p data-translate="Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.">
-            Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.
-          </p>
+          <div class="modal-details">
+            <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+            <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
+            <p><strong data-translate="Durée :">Durée :</strong> Un mois</p>
+            <p data-translate="Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.">
+              Je suis à l'origine de tout ce qui est présent dans le jeu en termes de programmation. Il s'agit d'un projet que nous avions débuté en classe, censé nous apprendre l'utilisation des singletons et des instanciations de GameObject.
+            </p>
+          </div>
         </div>
         <div class="modal-footer">
-          <a href="Build-Pablo.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
+          <a href="Build-Pablo.zip" class="btn modal-download-btn" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
+          <button type="button" class="btn modal-close-btn" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -1253,26 +1232,28 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-          <div class="image-container">
-            <img id="projectImage4" src="ballex (1).png" alt="Bouloux" class="main-image">
+          <div class="modal-image-container">
+            <img id="projectImage4" src="ballex (1).png" alt="Bouloux" class="modal-image">
           </div>
           <div class="thumbnail-gallery">
             <img src="ballex (1).png" class="thumbnail active" onclick="changeImage(4, 0)" alt="Capture 1">
             <img src="ballex (2).png" class="thumbnail" onclick="changeImage(4, 1)" alt="Capture 2">
             <img src="ballex (3).png" class="thumbnail" onclick="changeImage(4, 2)" alt="Capture 3">
           </div>
-          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
-          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
-          <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
-          <p data-translate="Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.">
-            Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.
-          </p>
+          <div class="modal-details">
+            <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+            <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
+            <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
+            <p data-translate="Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.">
+              Ballex est un jeu de puzzle-action en 3D avec des graphismes esthétiquement plaisants et un gameplay complexe. Vous devrez contrôler une balle capable de changer d'état physique au fil des niveaux.
+            </p>
+          </div>
         </div>
         <div class="modal-footer">
-          <a href="Build-bouloux.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
+          <a href="Build-bouloux.zip" class="btn modal-download-btn" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
+          <button type="button" class="btn modal-close-btn" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -1294,26 +1275,28 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-          <div class="image-container">
-            <img id="projectImage5" src="balance (1).png" alt="Balance ton archétype" class="main-image">
+          <div class="modal-image-container">
+            <img id="projectImage5" src="balance (1).png" alt="Balance ton archétype" class="modal-image">
           </div>
           <div class="thumbnail-gallery">
             <img src="balance (1).png" class="thumbnail active" onclick="changeImage(5, 0)" alt="Capture 1">
             <img src="balance (2).png" class="thumbnail" onclick="changeImage(5, 1)" alt="Capture 2">
             <img src="balance (3).png" class="thumbnail" onclick="changeImage(5, 2)" alt="Capture 3">
           </div>
-          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
-          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
-          <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
-          <p data-translate="Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.">
-            Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.
-          </p>
+          <div class="modal-details">
+            <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+            <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay</p>
+            <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
+            <p data-translate="Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.">
+              Balance ton archétype est un serious game de type icebreaker dans lequel des personnes vont se présenter selon l'archétype qui leur sera aléatoirement assigné; leur but est de pouvoir trouver l'archétype de chacun à la fin. Le jeu combine support virtuel et physique. Je me suis chargé du développement des assignations aléatoires de rôles ainsi que des différentes phases de vote et de présentation en mettant à jour l'UI.
+            </p>
+          </div>
         </div>
         <div class="modal-footer">
-          <a href="Build-BalanceTonArchetype.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
+          <a href="Build-BalanceTonArchetype.zip" class="btn modal-download-btn" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
+          <button type="button" class="btn modal-close-btn" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -1335,26 +1318,28 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-          <div class="image-container">
-            <img id="projectImage6" src="voiture (1).png" alt="Route 66" class="main-image">
+          <div class="modal-image-container">
+            <img id="projectImage6" src="voiture (1).png" alt="Route 66" class="modal-image">
           </div>
           <div class="thumbnail-gallery">
             <img src="voiture (1).png" class="thumbnail active" onclick="changeImage(6, 0)" alt="Capture 1">
             <img src="voiture (2).png" class="thumbnail" onclick="changeImage(6, 1)" alt="Capture 2">
             <img src="voiture (3).png" class="thumbnail" onclick="changeImage(6, 2)" alt="Capture 3">
           </div>
-          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
-          <p><strong data-translate="Utilité :">Utilité :</strong> Artiste 3D/Lighting</p>
-          <p><strong data-translate="Durée :">Durée :</strong> 1 semaine</p>
-          <p data-translate="Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.">
-            Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.
-          </p>
+          <div class="modal-details">
+            <p><strong data-translate="Catégorie:">Catégorie:</strong> Unity</p>
+            <p><strong data-translate="Utilité :">Utilité :</strong> Artiste 3D/Lighting</p>
+            <p><strong data-translate="Durée :">Durée :</strong> 1 semaine</p>
+            <p data-translate="Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.">
+              Conception de la route 66 avec comme inspiration la route 66 d'Overwatch.
+            </p>
+          </div>
         </div>
         <div class="modal-footer">
-          <a href="build-route-66.zip" class="btn btn-primary" download data-translate="Télécharger le projet">
+          <a href="build-route-66.zip" class="btn modal-download-btn" download data-translate="Télécharger le projet">
             <i class="fas fa-download"></i> Télécharger le projet
           </a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
+          <button type="button" class="btn modal-close-btn" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -1376,8 +1361,8 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-          <div class="image-container">
-            <img id="projectImage7" src="Capture d'écran 2025-06-08 015925.png" alt="Garage The Borges" class="main-image">
+          <div class="modal-image-container">
+            <img id="projectImage7" src="Capture d'écran 2025-06-08 015925.png" alt="Garage The Borges" class="modal-image">
           </div>
           <div class="thumbnail-gallery">
             <img src="Capture d'écran 2025-06-08 015925.png" class="thumbnail active" onclick="changeImage(7, 0)" alt="Capture 1">
@@ -1386,15 +1371,17 @@
             <img src="Capture d'écran 2025-06-08 020616.png" class="thumbnail" onclick="changeImage(7, 3)" alt="Capture 4">
             <img src="Capture d'écran 2025-06-08 020630.png" class="thumbnail" onclick="changeImage(7, 4)" alt="Capture 5">
           </div>
-          <p><strong data-translate="Catégorie:">Catégorie:</strong> HTML et PHP</p>
-          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur du site</p>
-          <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
-          <p data-translate="Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.">
-            Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.
-          </p>
+          <div class="modal-details">
+            <p><strong data-translate="Catégorie:">Catégorie:</strong> HTML et PHP</p>
+            <p><strong data-translate="Utilité :">Utilité :</strong> Développeur du site</p>
+            <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
+            <p data-translate="Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.">
+              Bienvenue sur le site officiel de notre concession automobile. Ce site web, entièrement développé en HTML et PHP, vous permet de découvrir l'ensemble de notre catalogue de véhicules neufs et d'occasion. Grâce à une interface simple et intuitive, vous pouvez consulter les fiches détaillées des voitures disponibles, rechercher un modèle selon vos critères et prendre rendez-vous directement en ligne pour un essai ou une estimation de reprise. Ce projet reflète mon travail de développement web dynamique et ma capacité à créer des outils fonctionnels et adaptés aux besoins des professionnels.
+            </p>
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
+          <button type="button" class="btn modal-close-btn" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -1416,8 +1403,8 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-          <div class="image-container">
-            <img id="projectImage8" src="médiéval (1).png" alt="Écuyer des Ombres" class="main-image">
+          <div class="modal-image-container">
+            <img id="projectImage8" src="médiéval (1).png" alt="Écuyer des Ombres" class="modal-image">
           </div>
           <div class="thumbnail-gallery">
             <img src="médiéval (1).png" class="thumbnail active" onclick="changeImage(8, 0)" alt="Capture 1">
@@ -1428,15 +1415,17 @@
             <img src="médiéval (6).png" class="thumbnail" onclick="changeImage(8, 5)" alt="Capture 6">
             <img src="médiéval (7).png" class="thumbnail" onclick="changeImage(8, 6)" alt="Capture 7">
           </div>
-          <p><strong data-translate="Catégorie:">Catégorie:</strong> Unreal</p>
-          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur et Sound Designer</p>
-          <p><strong data-translate="Durée :">Durée :</strong> 1 mois et demi</p>
-          <p data-translate="Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.">
-            Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.
-          </p>
+          <div class="modal-details">
+            <p><strong data-translate="Catégorie:">Catégorie:</strong> Unreal</p>
+            <p><strong data-translate="Utilité :">Utilité :</strong> Développeur et Sound Designer</p>
+            <p><strong data-translate="Durée :">Durée :</strong> 1 mois et demi</p>
+            <p data-translate="Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.">
+              Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.
+            </p>
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
+          <button type="button" class="btn modal-close-btn" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
@@ -1458,8 +1447,8 @@
               <span data-translate="Projet suivant">Projet suivant</span> <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-          <div class="image-container">
-            <img id="projectImage9" src="AR1.png" alt="Head War" class="main-image">
+          <div class="modal-image-container">
+            <img id="projectImage9" src="AR1.png" alt="Head War" class="modal-image">
           </div>
           <div class="thumbnail-gallery">
             <img src="AR1.png" class="thumbnail active" onclick="changeImage(9, 0)" alt="Capture 1">
@@ -1467,24 +1456,21 @@
             <img src="AR3.png" class="thumbnail" onclick="changeImage(9, 2)" alt="Capture 3">
             <img src="AR4.png" class="thumbnail" onclick="changeImage(9, 3)" alt="Capture 4">
           </div>
-          <p><strong data-translate="Catégorie:">Catégorie:</strong> Android</p>
-          <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay / Sound Design</p>
-          <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
-          <p data-translate="Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !">
-            Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !
-          </p>
+          <div class="modal-details">
+            <p><strong data-translate="Catégorie:">Catégorie:</strong> Android</p>
+            <p><strong data-translate="Utilité :">Utilité :</strong> Développeur Gameplay / Sound Design</p>
+            <p><strong data-translate="Durée :">Durée :</strong> 1 mois</p>
+            <p data-translate="Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !">
+              Dans Head War, détruisez un maximum de têtes présentes dans le monde réel depuis votre téléphone dans un temps défini pour remporter la partie !
+            </p>
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
+          <button type="button" class="btn modal-close-btn" data-bs-dismiss="modal" data-translate="Fermer">Fermer</button>
         </div>
       </div>
     </div>
   </div>
-  <footer class="footer text-center">
-    <div class="container">
-      <p>&copy; 2025 Baptiste Curie-Cadet. <span data-translate="Tous droits réservés.">Tous droits réservés.</span></p>
-    </div>
-  </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
@@ -1578,7 +1564,7 @@
           item.style.display = 'none';
         }
       });
-      document.querySelectorAll('.filter-buttons button').forEach(button => {
+      document.querySelectorAll('.filter-btn').forEach(button => {
         button.classList.remove('active');
       });
       event.target.classList.add('active');
@@ -1592,7 +1578,7 @@
         });
       });
       // Initialiser les images principales
-      document.querySelectorAll('.main-image').forEach(img => {
+      document.querySelectorAll('.modal-image').forEach(img => {
         img.style.opacity = '1';
       });
       // Bouton de langue (desktop)
@@ -1609,41 +1595,7 @@
         const newLang = currentLang === 'fr' ? 'en' : 'fr';
         changeLanguage(newLang);
       });
-      // Easter Egg
-      const easterEgg = document.querySelector('.easter-egg');
-      const easterEggPopup = document.getElementById('easterEggPopup');
-      const closeEasterEgg = document.getElementById('closeEasterEgg');
-      let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-      let konamiIndex = 0;
-      document.addEventListener('keydown', (e) => {
-        if (e.keyCode === konamiCode[konamiIndex]) {
-          konamiIndex++;
-          if (konamiIndex === konamiCode.length) {
-            showEasterEggPopup();
-            konamiIndex = 0;
-          }
-        } else {
-          konamiIndex = 0;
-        }
-      });
-      closeEasterEgg.addEventListener('click', () => {
-        easterEggPopup.classList.add('hidden');
-      });
     });
-    // Affiche le pop-up Easter Egg
-    function showEasterEggPopup() {
-      const easterEggPopup = document.getElementById('easterEggPopup');
-      easterEggPopup.classList.remove('hidden');
-      launchConfetti();
-    }
-    // Confettis
-    function launchConfetti() {
-      const canvas = document.getElementById('confettiCanvas');
-      const confettiSettings = { target: 'confettiCanvas' };
-      const confetti = new ConfettiGenerator(confettiSettings);
-      confetti.render();
-      setTimeout(() => confetti.clear(), 5000);
-    }
     // Dictionnaire de traduction
     const translations = {
       fr: {
