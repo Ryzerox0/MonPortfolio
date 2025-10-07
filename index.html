@@ -47,14 +47,17 @@
       z-index: -1;
     }
     .container {
+      width: 100%;
       padding-left: 15px;
       padding-right: 15px;
+      margin: 0 auto;
     }
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Rajdhani', sans-serif;
       font-weight: 600;
       color: var(--primary-light);
       text-shadow: 0 0 5px rgba(173, 198, 255, 0.5);
+      margin: 0;
     }
     .game-font {
       font-family: 'Press Start 2P', cursive;
@@ -123,29 +126,35 @@
       position: relative;
       overflow: hidden;
     }
+    .header-content {
+      width: 100%;
+      max-width: 600px;
+      padding: 0 20px;
+    }
+    .title-container {
+      background: rgba(26, 26, 46, 0.8);
+      padding: 30px;
+      border-radius: 15px;
+      border: 2px solid var(--primary-light);
+      box-shadow: var(--glow);
+      margin: 0 auto 20px;
+      text-align: center;
+    }
     header h1 {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
       animation: float 3s ease-in-out infinite;
     }
     @keyframes float {
       0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-8px); }
       100% { transform: translateY(0px); }
     }
     .subtitle {
-      font-size: 1.5rem;
-      margin-top: 10px;
+      font-size: 1.1rem;
       opacity: 0.9;
-    }
-    .title-container {
-      background: rgba(26, 26, 46, 0.8);
-      padding: 30px 40px;
-      border-radius: 15px;
-      border: 2px solid var(--primary-light);
-      box-shadow: var(--glow);
-      display: inline-block;
-      margin-top: 20px;
+      margin: 0;
+      line-height: 1.4;
     }
     /* Menu latéral pour desktop */
     .side-buttons {
@@ -206,6 +215,7 @@
       justify-content: center;
       gap: 8px;
       margin-top: 10px;
+      padding-bottom: 10px;
     }
     .lang-mobile-btn {
       background: var(--primary);
@@ -369,6 +379,8 @@
     .modal-title {
       color: var(--accent);
       font-family: 'Press Start 2P', cursive;
+      text-align: center;
+      width: 100%;
     }
     .modal-body {
       padding: 30px;
@@ -603,8 +615,8 @@
       height: 16px;
     }
     .profile-img-container {
-      width: 300px;
-      height: 300px;
+      width: 250px;
+      height: 250px;
       border-radius: 50%;
       overflow: hidden;
       border: 3px solid var(--accent);
@@ -683,10 +695,10 @@
         display: none;
       }
       header h1 {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
       }
       .subtitle {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
       .section {
         padding: 40px 0;
@@ -699,8 +711,8 @@
         height: 150px;
       }
       .profile-img-container {
-        width: 250px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
       }
       .thumbnail {
         width: 60px;
@@ -716,6 +728,12 @@
       }
       .project-nav-right {
         right: 10px;
+      }
+      .header-content {
+        padding: 0 10px;
+      }
+      .title-container {
+        padding: 20px;
       }
     }
   </style>
@@ -774,12 +792,12 @@
     </button>
   </div>
   <header id="top" class="text-center section reveal">
-    <div class="container">
+    <div class="header-content">
       <div class="title-container">
         <h1 class="game-font" data-translate="BAPTISTE CURIE-CADET">BAPTISTE CURIE-CADET</h1>
         <p class="subtitle" data-translate="DÉVELOPPEUR DE SERIOUS GAMES & JEUX VIDÉO">DÉVELOPPEUR DE <span class="game-font">SERIOUS GAMES</span> & <span class="game-font">JEUX VIDÉO</span></p>
       </div>
-      <a href="#about" class="btn btn-accent mt-4" style="font-family: 'Press Start 2P', cursive; font-size: 0.9rem;" data-translate="COMMENCER L'AVENTURE">
+      <a href="#about" class="btn btn-accent mt-3" style="font-family: 'Press Start 2P', cursive; font-size: 0.9rem;" data-translate="COMMENCER L'AVENTURE">
         <i class="fas fa-play"></i> COMMENCER L'AVENTURE
       </a>
     </div>
