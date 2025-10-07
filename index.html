@@ -128,32 +128,33 @@
     }
     .header-content {
       width: 100%;
-      max-width: 600px;
+      max-width: 1200px;
       padding: 0 20px;
     }
     .title-container {
       background: rgba(26, 26, 46, 0.8);
-      padding: 30px;
+      padding: 30px 40px;
       border-radius: 15px;
       border: 2px solid var(--primary-light);
       box-shadow: var(--glow);
+      display: inline-block;
       margin: 0 auto 20px;
       text-align: center;
     }
     header h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
+      font-size: 3.5rem;
+      margin-bottom: 15px;
       animation: float 3s ease-in-out infinite;
     }
     @keyframes float {
       0% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
+      50% { transform: translateY(-10px); }
       100% { transform: translateY(0px); }
     }
     .subtitle {
-      font-size: 1.1rem;
-      opacity: 0.9;
+      font-size: 1.5rem;
       margin: 0;
+      opacity: 0.9;
       line-height: 1.4;
     }
     /* Menu latéral pour desktop */
@@ -517,16 +518,16 @@
       box-shadow: var(--glow);
     }
     .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 20px;
+      justify-content: center;
+      padding: 0 20px;
     }
     .skill-item {
       background: rgba(26, 26, 46, 0.7);
       padding: 20px;
       border-radius: 10px;
-      width: 200px;
       text-align: center;
       border: 1px solid var(--primary);
       box-shadow: var(--glow);
@@ -615,8 +616,8 @@
       height: 16px;
     }
     .profile-img-container {
-      width: 250px;
-      height: 250px;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
       overflow: hidden;
       border: 3px solid var(--accent);
@@ -695,17 +696,17 @@
         display: none;
       }
       header h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
       .subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       .section {
         padding: 40px 0;
       }
       .container {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
       }
       .project-card img {
         height: 150px;
@@ -730,10 +731,33 @@
         right: 10px;
       }
       .header-content {
-        padding: 0 10px;
+        padding: 0;
       }
       .title-container {
         padding: 20px;
+        max-width: 90%;
+      }
+      /* Affichage 2 par 2 pour compétences et projets */
+      .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      #projects-container .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      #projects-container .col-12 {
+        width: 100%;
+      }
+      #projects-container .col-sm-6 {
+        width: 100%;
+      }
+      #projects-container .col-lg-4 {
+        width: 100%;
+      }
+      #projects-container .project-item {
+        width: 100%;
       }
     }
   </style>
