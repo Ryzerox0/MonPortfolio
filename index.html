@@ -599,7 +599,7 @@
     }
     /* Boutons de navigation des projets dans les modals */
     .modal-project-nav {
-      position: absolute;
+      position: fixed;
       top: 50%;
       left: 0;
       right: 0;
@@ -637,11 +637,11 @@
       font-size: 18px;
     }
     .project-nav-left {
-      left: -20px;
+      left: 10px;
       transform: translateY(-50%);
     }
     .project-nav-right {
-      right: -20px;
+      right: 10px;
       transform: translateY(-50%);
     }
     .modal-image-container {
@@ -824,6 +824,7 @@
       }
       /* Positionnement des boutons de navigation sur mobile */
       .modal-project-nav {
+        position: fixed;
         top: auto;
         bottom: 20px;
         transform: none;
