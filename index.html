@@ -31,6 +31,7 @@
       --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       --card-hover-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
     }
+    
     body {
       background: linear-gradient(135deg, var(--darker) 0%, #0f0c29 25%, #1a1a2e 100%);
       color: var(--light);
@@ -40,6 +41,7 @@
       overflow-x: hidden;
       min-height: 100vh;
     }
+    
     #particles-js {
       position: fixed;
       width: 100%;
@@ -48,12 +50,14 @@
       left: 0;
       z-index: -1;
     }
+    
     .container {
       width: 100%;
       padding-left: 15px;
       padding-right: 15px;
       margin: 0 auto;
     }
+    
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Rajdhani', sans-serif;
       font-weight: 600;
@@ -61,17 +65,20 @@
       text-shadow: 0 0 5px rgba(173, 198, 255, 0.5);
       margin: 0;
     }
+    
     .game-font {
       font-family: 'Press Start 2P', cursive;
       letter-spacing: 2px;
       color: var(--accent);
       text-shadow: 0 0 5px rgba(78, 205, 196, 0.7);
     }
+    
     .section {
       padding: 80px 0;
       border-bottom: 1px solid rgba(173, 198, 255, 0.2);
       position: relative;
     }
+    
     .btn {
       transition: var(--transition);
       border-radius: 50px;
@@ -84,6 +91,7 @@
       padding: 10px 20px;
       font-size: 0.9rem;
     }
+    
     .btn::after {
       content: '';
       position: absolute;
@@ -96,28 +104,35 @@
       transition: var(--transition);
       z-index: -1;
     }
+    
     .btn:hover::after {
       transform: translateX(100%);
     }
+    
     .btn-primary {
       background: var(--primary);
       color: white;
     }
+    
     .btn-secondary {
       background: var(--secondary);
       color: white;
     }
+    
     .btn-accent {
       background: var(--accent);
       color: var(--dark);
     }
+    
     .btn:hover {
       transform: translateY(-3px);
       box-shadow: var(--card-hover-shadow);
     }
+    
     .btn:active {
       transform: translateY(1px);
     }
+    
     header {
       background: linear-gradient(135deg, var(--darker) 0%, #0f0c29 100%);
       color: white;
@@ -130,11 +145,13 @@
       position: relative;
       overflow: hidden;
     }
+    
     .header-content {
       width: 100%;
       max-width: 1200px;
       padding: 0 20px;
     }
+    
     .title-container {
       background: rgba(26, 26, 46, 0.8);
       padding: 30px 40px;
@@ -145,22 +162,26 @@
       margin: 0 auto 20px;
       text-align: center;
     }
+    
     header h1 {
       font-size: 3.5rem;
       margin-bottom: 15px;
       animation: float 3s ease-in-out infinite;
     }
+    
     @keyframes float {
       0% { transform: translateY(0px); }
       50% { transform: translateY(-10px); }
       100% { transform: translateY(0px); }
     }
+    
     .subtitle {
       font-size: 1.5rem;
       margin: 0;
       opacity: 0.9;
       line-height: 1.4;
     }
+    
     /* Menu latéral pour desktop */
     .side-buttons {
       position: fixed;
@@ -172,9 +193,11 @@
       gap: 15px;
       z-index: 1000;
     }
+    
     /* Menu burger pour mobile */
     .navbar {
       background: rgba(26, 26, 46, 0.9);
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--primary);
       padding: 10px 0;
@@ -185,19 +208,23 @@
       z-index: 1050;
       display: none;
     }
+    
     .navbar-toggler {
       border: none;
       padding: 0.5rem;
       margin-right: 15px;
     }
+    
     .navbar-toggler-icon {
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
+    
     .navbar-nav {
       gap: 10px;
       width: 100%;
       justify-content: center;
     }
+    
     .nav-link {
       color: var(--light) !important;
       font-family: 'Rajdhani', sans-serif;
@@ -208,11 +235,13 @@
       background: rgba(173, 198, 255, 0.1);
       text-align: center;
     }
+    
     .nav-link:hover, .nav-link.active {
       background: var(--primary);
       color: white !important;
       box-shadow: var(--glow);
     }
+    
     /* Bouton de langue pour mobile */
     .lang-mobile-container {
       display: flex;
@@ -222,6 +251,7 @@
       margin-top: 10px;
       padding-bottom: 10px;
     }
+    
     .lang-mobile-btn {
       background: var(--primary);
       border: none;
@@ -237,15 +267,18 @@
       box-shadow: var(--glow);
       cursor: pointer;
     }
+    
     .lang-mobile-btn:hover {
       background: var(--primary-light);
       transform: translateY(-2px);
     }
+    
     .lang-mobile-flag {
       width: 20px;
       height: 14px;
       border-radius: 2px;
     }
+    
     /* Bouton circulaire pour desktop - Corrigé */
     .btn-circle {
       background: var(--primary);
@@ -264,16 +297,19 @@
       box-shadow: var(--glow);
       cursor: pointer;
     }
+    
     .btn-circle:hover {
       width: 180px;
       background: var(--primary-light);
     }
+    
     .btn-circle img {
       width: 24px;
       height: 16px;
       border-radius: 2px;
       object-fit: cover;
     }
+    
     .btn-text {
       display: none;
       margin-left: 10px;
@@ -281,14 +317,17 @@
       font-family: 'Rajdhani', sans-serif;
       font-size: 0.9rem;
     }
+    
     .btn-circle:hover .btn-text {
       display: inline;
       animation: fadeIn 0.3s ease;
     }
+    
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
+    
     .progress {
       background: rgba(0, 0, 0, 0.3);
       height: 25px;
@@ -297,6 +336,7 @@
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
       border: 1px solid var(--primary);
     }
+    
     .progress-bar {
       line-height: 25px;
       font-size: 0.9rem;
@@ -304,22 +344,27 @@
       background: linear-gradient(90deg, var(--primary), var(--accent));
       transition: width 1s ease;
     }
+    
     /* Section À propos - Photo comme avant */
     .about-section {
       padding: 60px 0;
     }
+    
     .about-content {
       display: flex;
       align-items: center;
       gap: 40px;
     }
+    
     .about-image {
       flex: 0 0 300px;
       text-align: center;
     }
+    
     .about-text {
       flex: 1;
     }
+    
     .profile-img-container {
       width: 300px;
       height: 300px;
@@ -329,23 +374,47 @@
       box-shadow: var(--glow);
       margin: 0 auto;
     }
+    
     .profile-img-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+    
+    /* Styles pour remplacer les styles inline */
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    
+    .modal-details p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    
+    .project-description {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
     /* Section Compétences - Réduite pour mobile */
     .skills-section {
       padding: 30px 0;
     }
+    
     .skills-header {
       margin-bottom: 20px;
     }
+    
     .skills-header h2 {
       font-size: 2.5rem;
       margin-bottom: 15px;
       color: var(--primary-light);
     }
+    
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -353,6 +422,7 @@
       margin-top: 20px;
       justify-content: center;
     }
+    
     .skill-card {
       background: rgba(26, 26, 46, 0.8);
       border-radius: 12px;
@@ -367,10 +437,12 @@
       align-items: center;
       min-height: 220px;
     }
+    
     .skill-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--card-hover-shadow);
     }
+    
     .skill-icon {
       font-size: 3rem;
       color: var(--accent);
@@ -381,28 +453,34 @@
       align-items: center;
       justify-content: center;
     }
+    
     .skill-title {
       font-size: 1.2rem;
       margin-bottom: 15px;
       color: var(--light);
     }
+    
     .skill-progress {
       width: 100%;
       margin-top: auto;
     }
+    
     /* Section Projets - Grille normale sur desktop, 2x2 sur mobile */
     .projects-section {
       padding: 60px 0;
     }
+    
     .projects-header {
       text-align: center;
       margin-bottom: 30px;
     }
+    
     .projects-header h2 {
       font-size: 2.5rem;
       margin-bottom: 15px;
       color: var(--primary-light);
     }
+    
     .filter-buttons {
       display: flex;
       justify-content: center;
@@ -410,6 +488,7 @@
       gap: 10px;
       flex-wrap: wrap;
     }
+    
     .filter-btn {
       background: rgba(106, 90, 205, 0.7);
       border: none;
@@ -422,12 +501,14 @@
       font-size: 0.8rem;
       box-shadow: var(--card-shadow);
     }
+    
     .filter-btn.active, .filter-btn:hover {
       background: var(--accent);
       color: var(--dark);
       box-shadow: var(--glow);
       transform: translateY(-2px);
     }
+    
     /* Grille des projets - Desktop: 3+ colonnes, Mobile: 2x2 */
     .projects-grid {
       display: grid;
@@ -435,6 +516,7 @@
       gap: 25px;
       margin-top: 20px;
     }
+    
     /* Carte de projet - Design moderne */
     .project-card {
       background: rgba(26, 26, 46, 0.8);
@@ -448,11 +530,13 @@
       display: flex;
       flex-direction: column;
     }
+    
     .project-card:hover {
       transform: translateY(-8px);
       box-shadow: var(--card-hover-shadow);
       border-color: var(--accent);
     }
+    
     .project-card::before {
       content: '';
       position: absolute;
@@ -464,14 +548,17 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
+    
     .project-card:hover::before {
       opacity: 1;
     }
+    
     .project-image-container {
       height: 180px;
       overflow: hidden;
       position: relative;
     }
+    
     .project-image {
       width: 100%;
       height: 100%;
@@ -479,9 +566,11 @@
       transition: transform 0.5s ease;
       border-bottom: 1px solid rgba(106, 90, 205, 0.2);
     }
+    
     .project-card:hover .project-image {
       transform: scale(1.05);
     }
+    
     .project-badge {
       position: absolute;
       top: 10px;
@@ -494,12 +583,14 @@
       font-weight: 600;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
+    
     .project-content {
       padding: 20px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
     }
+    
     .project-title {
       color: var(--accent);
       font-family: 'Press Start 2P', cursive;
@@ -507,18 +598,13 @@
       margin-bottom: 10px;
       text-align: center;
     }
-    .project-description {
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 0.9rem;
-      line-height: 1.5;
-      margin-bottom: 15px;
-      flex-grow: 1;
-    }
+    
     .project-actions {
       display: flex;
       justify-content: center;
       margin-top: auto;
     }
+    
     .project-btn {
       background: var(--primary);
       color: white;
@@ -530,24 +616,29 @@
       transition: var(--transition);
       box-shadow: var(--glow);
     }
+    
     .project-btn:hover {
       background: var(--primary-light);
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(106, 90, 205, 0.3);
     }
+    
     /* Section Contact - Même taille que Compétences */
     .contact-section {
       padding: 30px 0;
       text-align: center;
     }
+    
     .contact-header {
       margin-bottom: 20px;
     }
+    
     .contact-header h2 {
       font-size: 2.5rem;
       margin-bottom: 15px;
       color: var(--primary-light);
     }
+    
     .contact-item {
       display: flex;
       align-items: center;
@@ -555,24 +646,29 @@
       margin-bottom: 20px;
       flex-direction: column;
     }
+    
     .contact-icon {
       font-size: 2.5rem;
       color: var(--accent);
       margin-bottom: 8px;
       transition: var(--transition);
     }
+    
     .contact-item:hover .contact-icon {
       transform: rotateY(180deg);
       color: var(--secondary);
     }
+    
     .contact-item a, .contact-item span {
       color: var(--light);
       font-size: 1rem;
       text-decoration: none;
     }
+    
     .contact-item a:hover {
       color: var(--accent);
     }
+    
     /* Footer */
     footer {
       background: var(--darker);
@@ -580,6 +676,7 @@
       text-align: center;
       border-top: 1px solid var(--primary);
     }
+    
     /* Modal des projets */
     .modal-content {
       background: var(--darker);
@@ -589,22 +686,26 @@
       overflow: visible;
       padding: 20px;
     }
+    
     .modal-header {
       border-bottom: 1px solid var(--primary);
       padding: 20px;
       text-align: center;
     }
+    
     .modal-title {
       color: var(--accent);
       font-family: 'Press Start 2P', cursive;
       width: 100%;
       font-size: 1.8rem;
     }
+    
     .modal-body {
       padding: 25px;
       position: relative;
       overflow: visible;
     }
+    
     /* Boutons de navigation des projets dans les modals */
     .modal-project-nav {
       position: fixed;
@@ -615,6 +716,7 @@
       z-index: 1050;
       pointer-events: none;
     }
+    
     .project-nav-btn {
       background: rgba(26, 26, 46, 0.9);
       border: 2px solid var(--accent);
@@ -634,29 +736,35 @@
       pointer-events: auto;
       position: absolute;
     }
+    
     .project-nav-btn:hover {
       transform: scale(1.05);
       background: var(--primary);
       color: white;
       box-shadow: 0 0 25px rgba(173, 198, 255, 0.9);
     }
+    
     .project-nav-btn i {
       margin-right: 10px;
       font-size: 18px;
     }
+    
     .project-nav-left {
       left: 225px;
       transform: translateY(-20%);
     }
+    
     .project-nav-right {
       right: 260px;
       transform: translateY(-20%);
     }
+    
     .modal-image-container {
       text-align: center;
       margin-bottom: 20px;
       position: relative;
     }
+    
     .modal-image {
       max-height: 400px;
       width: 100%;
@@ -667,6 +775,7 @@
       margin-bottom: 20px;
       box-shadow: var(--glow);
     }
+    
     .thumbnail-gallery {
       display: flex;
       justify-content: center;
@@ -677,6 +786,7 @@
       background: rgba(26, 26, 46, 0.3);
       border-radius: 10px;
     }
+    
     .thumbnail {
       width: 80px;
       height: 60px;
@@ -687,28 +797,20 @@
       transition: all 0.3s ease;
       opacity: 0.7;
     }
+    
     .thumbnail:hover {
       opacity: 1;
       border-color: var(--primary);
       transform: scale(1.05);
     }
+    
     .thumbnail.active {
       border-color: var(--accent);
       opacity: 1;
       transform: scale(1.1);
       box-shadow: var(--glow);
     }
-    .modal-details {
-      margin-top: 20px;
-    }
-    .modal-details p {
-      margin-bottom: 10px;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-    .modal-details strong {
-      color: var(--accent);
-    }
+    
     .modal-footer {
       border-top: 1px solid var(--primary);
       padding: 15px;
@@ -716,6 +818,7 @@
       justify-content: center;
       gap: 15px;
     }
+    
     .modal-download-btn {
       background: var(--primary);
       color: white;
@@ -726,10 +829,12 @@
       transition: var(--transition);
       box-shadow: var(--glow);
     }
+    
     .modal-download-btn:hover {
       background: var(--primary-light);
       transform: translateY(-2px);
     }
+    
     .modal-close-btn {
       background: var(--secondary);
       color: white;
@@ -739,16 +844,19 @@
       font-size: 0.9rem;
       transition: var(--transition);
     }
+    
     .modal-close-btn:hover {
       background: #ff5252;
       transform: translateY(-2px);
     }
+    
     /* Timeline */
     .timeline {
       position: relative;
       max-width: 800px;
       margin: 0 auto;
     }
+    
     .timeline::before {
       content: '';
       position: absolute;
@@ -759,10 +867,12 @@
       background: var(--primary);
       transform: translateX(-50%);
     }
+    
     .timeline-item {
       position: relative;
       margin-bottom: 50px;
     }
+    
     .timeline-content {
       background: rgba(26, 26, 46, 0.8);
       padding: 20px;
@@ -772,14 +882,17 @@
       width: 45%;
       position: relative;
     }
+    
     .timeline-item:nth-child(odd) .timeline-content {
       margin-left: 0;
       margin-right: auto;
     }
+    
     .timeline-item:nth-child(even) .timeline-content {
       margin-left: auto;
       margin-right: 0;
     }
+    
     .timeline-content::before {
       content: '';
       position: absolute;
@@ -790,99 +903,146 @@
       border-radius: 50%;
       box-shadow: var(--glow);
     }
+    
     .timeline-item:nth-child(odd) .timeline-content::before {
       right: -60px;
     }
+    
     .timeline-item:nth-child(even) .timeline-content::before {
       left: -60px;
     }
+    
+    /* Classes pour les styles de progression */
+    .progress-70 { width: 70%; }
+    .progress-60 { width: 60%; }
+    .progress-50 { width: 50%; }
+    .progress-40 { width: 40%; }
+    .progress-65 { width: 65%; }
+    
+    /* Styles pour le bouton d'aventure */
+    .adventure-btn {
+      font-family: 'Press Start 2P', cursive !important;
+      font-size: 0.9rem !important;
+    }
+    
+    /* Styles pour les images Unreal Engine */
+    .unreal-icon {
+      width: 48px;
+      height: 48px;
+      filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);
+    }
+    
     /* Responsive Design */
     @media (max-width: 768px) {
       .navbar {
         display: block;
       }
+      
       .side-buttons {
         display: none;
       }
+      
       header h1 {
         font-size: 2rem;
       }
+      
       .subtitle {
         font-size: 1.1rem;
       }
+      
       .section {
         padding: 30px 0;
       }
+      
       .container {
         padding-left: 15px;
         padding-right: 15px;
       }
+      
       .about-content {
         flex-direction: column;
         text-align: center;
       }
+      
       .about-image {
         flex: none;
       }
+      
       .profile-img-container {
         width: 200px;
         height: 200px;
         margin-bottom: 20px;
       }
+      
       /* Sections uniformes sur mobile */
       .skills-section, .projects-section, .contact-section {
         padding: 30px 0;
       }
+      
       .skills-header h2, .projects-header h2, .contact-header h2 {
         font-size: 1.8rem;
       }
+      
       .skills-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
       }
+      
       .skill-card {
         min-height: 160px;
         padding: 15px 10px;
       }
+      
       .skill-icon {
         font-size: 2.5rem;
       }
+      
       .skill-title {
         font-size: 1rem;
       }
+      
       .skill-progress {
         height: 20px;
       }
+      
       .skill-progress .progress-bar {
         font-size: 0.8rem;
         height: 20px;
         line-height: 20px;
       }
+      
       /* Grille des projets en 2x2 sur mobile */
       .projects-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
       }
+      
       .project-card {
         min-height: 280px;
       }
+      
       .project-image-container {
         height: 120px;
       }
+      
       .project-content {
         padding: 15px 10px;
       }
+      
       .project-title {
         font-size: 1.1rem;
       }
+      
       .project-description {
-        font-size: 0.75rem !important;
+        font-size: 0.75rem;
         line-height: 1.3;
       }
+      
       .project-btn {
         padding: 6px 16px;
         font-size: 0.8rem;
       }
+      
       /* Positionnement des boutons de navigation sur mobile */
       .modal-project-nav {
         position: fixed;
@@ -890,49 +1050,61 @@
         bottom: 20px;
         transform: none;
       }
+      
       .project-nav-left {
         left: 10px;
         transform: none;
       }
+      
       .project-nav-right {
         right: 10px;
         transform: none;
       }
+      
       .project-nav-btn i {
         margin-right: 0;
       }
+      
       .header-content {
         padding: 0;
       }
+      
       .title-container {
         padding: 20px;
         max-width: 90%;
       }
+      
       .contact-item {
         margin-bottom: 12px;
       }
+      
       .contact-icon {
         font-size: 2rem;
       }
+      
       .contact-item a, .contact-item span {
         font-size: 0.9rem;
       }
+      
       /* Timeline responsive */
       .timeline::before {
         left: 20px;
       }
+      
       .timeline-content {
         width: calc(100% - 60px);
         margin-left: 60px !important;
         margin-right: 0 !important;
       }
+      
       .timeline-content::before {
         left: -50px !important;
         right: auto !important;
       }
+      
       /* Réduction de la taille du texte dans les détails des modals */
       .modal-details p {
-        font-size: 0.8rem !important;
+        font-size: 0.8rem;
         line-height: 1.4;
       }
     }
@@ -941,6 +1113,7 @@
 <body>
   <!-- Particles.js Background -->
   <div id="particles-js"></div>
+  
   <!-- Menu burger pour mobile -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
@@ -974,6 +1147,7 @@
       </div>
     </div>
   </nav>
+  
   <!-- Menu latéral pour desktop -->
   <div class="side-buttons">
     <a href="#top" class="btn-circle" title="Accueil"><i class="fas fa-home"></i><span class="btn-text" data-translate="Accueil"> Accueil</span></a>
@@ -987,6 +1161,7 @@
       <span class="btn-text" data-translate="Langue"> Langue</span>
     </button>
   </div>
+  
   <!-- Header -->
   <header id="top" class="text-center section reveal">
     <div class="header-content">
@@ -994,11 +1169,12 @@
         <h1 class="game-font" data-translate="BAPTISTE CURIE-CADET">BAPTISTE CURIE-CADET</h1>
         <p class="subtitle" data-translate="DÉVELOPPEUR DE SERIOUS GAMES & JEUX VIDÉO">DÉVELOPPEUR DE <span class="game-font">SERIOUS GAMES</span> & <span class="game-font">JEUX VIDÉO</span></p>
       </div>
-      <a href="#about" class="btn btn-accent mt-3" style="font-family: 'Press Start 2P', cursive; font-size: 0.9rem;" data-translate="COMMENCER L'AVENTURE">
+      <a href="#about" class="btn btn-accent mt-3 adventure-btn" data-translate="COMMENCER L'AVENTURE">
         <i class="fas fa-play"></i> COMMENCER L'AVENTURE
       </a>
     </div>
   </header>
+  
   <!-- Section À propos -->
   <section id="about" class="container about-section reveal">
     <div class="about-content">
@@ -1009,13 +1185,13 @@
       </div>
       <div class="about-text">
         <h2 class="mb-4" data-translate="À PROPOS DE MOI">À PROPOS DE MOI</h2>
-        <p style="font-size: 1.1rem; line-height: 1.8;" data-translate="Je m'appelle Baptiste, j'ai 19 ans et je me spécialise dans le développement de jeux vidéo, avec un intérêt particulier pour les serious games.">
+        <p data-translate="Je m'appelle Baptiste, j'ai 19 ans et je me spécialise dans le développement de jeux vidéo, avec un intérêt particulier pour les serious games.">
           Je m'appelle <strong>Baptiste</strong>, j'ai 20 ans et je me spécialise dans le <strong>développement de jeux vidéo</strong>, avec un intérêt particulier pour les serious games.
         </p>
-        <p style="font-size: 1.1rem; line-height: 1.8;" data-translate="Mon objectif est de concevoir des expériences interactives qui allient apprentissage, immersion et plaisir de jeu.">
+        <p data-translate="Mon objectif est de concevoir des expériences interactives qui allient apprentissage, immersion et plaisir de jeu.">
           Mon objectif est de concevoir des <strong>expériences interactives</strong> qui allient <strong>apprentissage, immersion et plaisir de jeu</strong>.
         </p>
-        <p style="font-size: 1.1rem; line-height: 1.8;" data-translate="En dehors du développement, je m'intéresse à la création artistique, au game design et à tout ce qui touche à la conception d'univers immersifs.">
+        <p data-translate="En dehors du développement, je m'intéresse à la création artistique, au game design et à tout ce qui touche à la conception d'univers immersifs.">
           En dehors du développement, je m'intéresse à la <strong>création artistique</strong>, au <strong>game design</strong> et à tout ce qui touche à la <strong>conception d'univers immersifs</strong>.
         </p>
 
@@ -1057,6 +1233,7 @@
       </div>
     </div>
   </section>
+  
   <!-- Section Compétences -->
   <section id="skills" class="container skills-section reveal">
     <div class="skills-header">
@@ -1069,16 +1246,16 @@
         </div>
         <h4 class="skill-title">Unity</h4>
         <div class="progress skill-progress">
-          <div class="progress-bar" style="width: 70%;">70%</div>
+          <div class="progress-bar progress-70">70%</div>
         </div>
       </div>
       <div class="skill-card">
         <div class="skill-icon">
-          <img src="Unreal_Engine_Icon.png" alt="Unreal Engine" style="width: 48px; height: 48px; filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);">
+          <img src="Unreal_Engine_Icon.png" alt="Unreal Engine" class="unreal-icon">
         </div>
         <h4 class="skill-title">Unreal Engine</h4>
         <div class="progress skill-progress">
-          <div class="progress-bar" style="width: 60%;">60%</div>
+          <div class="progress-bar progress-60">60%</div>
         </div>
       </div>
       <div class="skill-card">
@@ -1087,7 +1264,7 @@
         </div>
         <h4 class="skill-title">Blender</h4>
         <div class="progress skill-progress">
-          <div class="progress-bar" style="width: 50%;">50%</div>
+          <div class="progress-bar progress-50">50%</div>
         </div>
       </div>
       <div class="skill-card">
@@ -1096,7 +1273,7 @@
         </div>
         <h4 class="skill-title">C++</h4>
         <div class="progress skill-progress">
-          <div class="progress-bar" style="width: 50%;">50%</div>
+          <div class="progress-bar progress-50">50%</div>
         </div>
       </div>
       <div class="skill-card">
@@ -1105,7 +1282,7 @@
         </div>
         <h4 class="skill-title" data-translate="Développement Web">Développement Web</h4>
         <div class="progress skill-progress">
-          <div class="progress-bar" style="width: 40%;">40%</div>
+          <div class="progress-bar progress-40">40%</div>
         </div>
       </div>
       <div class="skill-card">
@@ -1114,11 +1291,12 @@
         </div>
         <h4 class="skill-title">Android</h4>
         <div class="progress skill-progress">
-          <div class="progress-bar" style="width: 65%;">65%</div>
+          <div class="progress-bar progress-65">65%</div>
         </div>
       </div>
     </div>
   </section>
+  
   <!-- Section Projets -->
   <section id="projects" class="container projects-section reveal">
     <div class="projects-header">
@@ -1148,6 +1326,7 @@
           </div>
         </div>
       </div>
+      
       <!-- BABURU -->
       <div class="project-card project-item" data-category="Unity">
         <div class="project-image-container">
@@ -1164,6 +1343,7 @@
           </div>
         </div>
       </div>
+      
       <!-- Pablo -->
       <div class="project-card project-item" data-category="Unity">
         <div class="project-image-container">
@@ -1180,6 +1360,7 @@
           </div>
         </div>
       </div>
+      
       <!-- Bouloux -->
       <div class="project-card project-item" data-category="Unity">
         <div class="project-image-container">
@@ -1196,6 +1377,7 @@
           </div>
         </div>
       </div>
+      
       <!-- Balance ton archétype -->
       <div class="project-card project-item" data-category="Unity">
         <div class="project-image-container">
@@ -1212,6 +1394,7 @@
           </div>
         </div>
       </div>
+      
       <!-- Route 66 -->
       <div class="project-card project-item" data-category="Unity">
         <div class="project-image-container">
@@ -1228,6 +1411,7 @@
           </div>
         </div>
       </div>
+      
       <!-- Garage The Borges -->
       <div class="project-card project-item" data-category="HTML">
         <div class="project-image-container">
@@ -1244,6 +1428,7 @@
           </div>
         </div>
       </div>
+      
       <!-- Écuyer des Ombres -->
       <div class="project-card project-item" data-category="Unreal">
         <div class="project-image-container">
@@ -1260,6 +1445,7 @@
           </div>
         </div>
       </div>
+      
       <!-- Head War -->
       <div class="project-card project-item" data-category="Android">
         <div class="project-image-container">
@@ -1278,6 +1464,7 @@
       </div>
     </div>
   </section>
+  
   <!-- Section Contact -->
   <section id="contact" class="container contact-section reveal">
     <div class="contact-header">
@@ -1295,17 +1482,19 @@
         </div>
         <div class="contact-item mb-4">
           <i class="fab fa-linkedin contact-icon"></i>
-          <a href="https://www.linkedin.com/in/baptiste-curie-cadet-099b5929a/" target="_blank" data-translate="Mon LinkedIn">Mon LinkedIn</a>
+          <a href="https://www.linkedin.com/in/baptiste-curie-cadet-099b5929a/" target="_blank" rel="noopener" data-translate="Mon LinkedIn">Mon LinkedIn</a>
         </div>
       </div>
     </div>
   </section>
+  
   <!-- Footer -->
   <footer class="footer text-center">
     <div class="container">
       <p>&copy; 2025 Baptiste Curie-Cadet. <span data-translate="Tous droits réservés.">Tous droits réservés.</span></p>
     </div>
   </footer>
+  
   <!-- Modals -->
   <!-- Modal Pirates de l'étang -->
   <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
@@ -1351,6 +1540,7 @@
       </div>
     </div>
   </div>
+  
   <!-- Modal BABURU -->
   <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1395,6 +1585,8 @@
       </div>
     </div>
   </div>
+  
+  <!-- Autres modals (Pablo, Bouloux, etc.) -->
   <!-- Modal Pablo -->
   <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1439,6 +1631,7 @@
       </div>
     </div>
   </div>
+  
   <!-- Modal Bouloux -->
   <div class="modal fade" id="projectModal4" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1482,6 +1675,7 @@
       </div>
     </div>
   </div>
+  
   <!-- Modal Balance ton archétype -->
   <div class="modal fade" id="projectModal5" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1525,6 +1719,7 @@
       </div>
     </div>
   </div>
+  
   <!-- Modal Route 66 -->
   <div class="modal fade" id="projectModal6" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1568,6 +1763,7 @@
       </div>
     </div>
   </div>
+  
   <!-- Modal Garage The Borges -->
   <div class="modal fade" id="projectModal7" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1610,6 +1806,7 @@
       </div>
     </div>
   </div>
+  
   <!-- Modal Écuyer des Ombres -->
   <div class="modal fade" id="projectModal8" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1644,7 +1841,7 @@
             <p><strong data-translate="Utilité :">Utilité :</strong> Développeur et Sound Designer</p>
             <p><strong data-translate="Durée :">Durée :</strong> <span data-translate="1 mois et demi">1 mois et demi</span></p>
             <p data-translate="Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.">
-              Le jeu se déroule dans un royaume médiéval fantastique. Le village de Valombre vit sous la menace d'un donjon maudit qui s'est récemment éveillé. D'étranges créatures y rôdent et des ombres rampent jusque dans les bois voisins. Les villageois, terrifiés, ont vu leur quotidien bouleversé : récoltes brûlées, bétail disparu, enfants malades... et nulle armée en vue pour les défendre.
+              Le jeu se déroule dans un royaume médiéval fantastique. The village of Valombre lives under the threat of a cursed dungeon that has recently awakened. Strange creatures roam there and shadows creep into the neighboring woods. The terrified villagers have seen their daily lives disrupted: burned crops, missing livestock, sick children... and no army in sight to defend them.
             </p>
           </div>
         </div>
@@ -1654,6 +1851,7 @@
       </div>
     </div>
   </div>
+  
   <!-- Modal Head War -->
   <div class="modal fade" id="projectModal9" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1695,6 +1893,7 @@
       </div>
     </div>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
@@ -1714,6 +1913,7 @@
         events: { onhover: { enable: true, mode: "repulse" } }
       }
     });
+    
     // Animation au scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1723,7 +1923,9 @@
         }
       });
     }, { threshold: 0.1 });
+    
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    
     // Tableau des images pour chaque projet
     const projectImages = {
       1: ["1_Pirate.jpg", "2_Pirate.png", "3_Pirate.png", "4_Pirate.png"],
@@ -1739,6 +1941,7 @@
           "médiéval (5).png", "médiéval (6).png", "médiéval (7).png"],
       9: ["AR1.png", "AR2.png", "AR3.png", "AR4.png"]
     };
+    
     // Fonction pour changer l'image affichée avec transition
     function changeImage(projectId, imageIndex) {
       const mainImage = document.getElementById(`projectImage${projectId}`);
@@ -1747,6 +1950,7 @@
         mainImage.src = projectImages[projectId][imageIndex];
         mainImage.style.opacity = '1';
       }, 300);
+      
       // Mise à jour des miniatures
       const modal = document.getElementById(`projectModal${projectId}`);
       const thumbnails = modal.querySelectorAll('.thumbnail');
@@ -1754,20 +1958,25 @@
         thumb.classList.toggle('active', index === imageIndex);
       });
     }
+    
     // Variable globale pour suivre le projet actuel
     let currentProject = 1;
+    
     // Fonction pour naviguer entre les projets
     function changeProject(direction) {
       const currentModal = bootstrap.Modal.getInstance(document.querySelector('.modal.show'));
       if (currentModal) {
         currentModal.hide();
       }
+      
       // Calcul du nouvel ID (boucle de 1 à 9)
       currentProject = (((currentProject + direction - 1 + 9) % 9) + 1);
+      
       // Attendre que le modal actuel soit fermé avant d'ouvrir le nouveau
       setTimeout(() => {
         const newModal = new bootstrap.Modal(document.getElementById(`projectModal${currentProject}`));
         newModal.show();
+        
         // Réinitialiser l'image active dans le nouveau modal
         setTimeout(() => {
           const modal = document.getElementById(`projectModal${currentProject}`);
@@ -1778,6 +1987,7 @@
         }, 300);
       }, 300);
     }
+    
     // Fonction pour filtrer les projets
     function filterProjects(category) {
       const items = document.querySelectorAll('.project-item');
@@ -1788,11 +1998,13 @@
           item.style.display = 'none';
         }
       });
+      
       document.querySelectorAll('.filter-btn').forEach(button => {
         button.classList.remove('active');
       });
       event.target.classList.add('active');
     }
+    
     // Dictionnaire de traduction complet
     const translations = {
       fr: {
@@ -1930,6 +2142,7 @@
         "Projet suivant": "Next Project"
       }
     };
+    
     // Fonction pour changer de langue
     function changeLanguage(lang) {
       const elements = document.querySelectorAll('[data-translate]');
@@ -1957,6 +2170,7 @@
       // Sauvegarder la préférence de langue
       localStorage.setItem('preferredLanguage', lang);
     }
+    
     // Initialisation
     document.addEventListener('DOMContentLoaded', () => {
       // Charger la langue sauvegardée
