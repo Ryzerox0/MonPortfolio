@@ -1106,196 +1106,6 @@
         font-size: 0.8rem;
         line-height: 1.4;
       }
-
-      /* Section compétences scroller */
-
-/* ------------------------------ */
-/*  Base Logoloop                 */
-/* ------------------------------ */
-
-.logoloop {
-  position: relative;
-  --gap: 32px;
-  --logo-h: 28px;
-  --fade-color-auto: #ffffff;
-}
-
-@media (prefers-color-scheme: dark) {
-  .logoloop {
-    --fade-color-auto: #0b0b0b;
-  }
-}
-
-/* Orientation */
-.logoloop--vertical {
-  height: 100%;
-  display: inline-block;
-}
-
-/* Hover scale padding */
-.logoloop--scale-hover {
-  padding: calc(var(--logo-h) * 0.1) 0;
-}
-
-/* ------------------------------ */
-/*  Track                         */
-/* ------------------------------ */
-
-.logoloop__track {
-  display: flex;
-  width: max-content;
-  position: relative;
-  will-change: transform;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.logoloop--vertical .logoloop__track {
-  flex-direction: column;
-  width: 100%;
-}
-
-/* ------------------------------ */
-/*  List + Items                  */
-/* ------------------------------ */
-
-.logoloop__list {
-  display: flex;
-  align-items: center;
-}
-
-.logoloop--vertical .logoloop__list {
-  flex-direction: column;
-}
-
-.logoloop__item {
-  flex: 0 0 auto;
-  margin-right: var(--gap);
-  font-size: var(--logo-h);
-  line-height: 1;
-}
-
-.logoloop--vertical .logoloop__item {
-  margin-right: 0;
-  margin-bottom: var(--gap);
-}
-
-.logoloop__item:last-child {
-  margin-right: var(--gap);
-}
-
-.logoloop--vertical .logoloop__item:last-child {
-  margin-bottom: var(--gap);
-}
-
-/* ------------------------------ */
-/*  Logos                         */
-/* ------------------------------ */
-
-.logoloop__item img {
-  height: var(--logo-h);
-  width: auto;
-  display: block;
-  object-fit: contain;
-  pointer-events: none;
-  -webkit-user-drag: none;
-  image-rendering: -webkit-optimize-contrast;
-
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Hover scale effect */
-.logoloop--scale-hover .logoloop__item {
-  overflow: visible;
-}
-
-.logoloop--scale-hover .logoloop__item:hover img,
-.logoloop--scale-hover .logoloop__item:hover .logoloop__node {
-  transform: scale(1.2);
-  transform-origin: center;
-}
-
-.logoloop__node {
-  display: inline-flex;
-  align-items: center;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ------------------------------ */
-/*  Fade edges                    */
-/* ------------------------------ */
-
-.logoloop--fade::before,
-.logoloop--fade::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: clamp(24px, 8%, 120px);
-  pointer-events: none;
-  z-index: 10;
-}
-
-.logoloop--fade::before {
-  left: 0;
-  background: linear-gradient(
-    to right,
-    var(--fade-color, var(--fade-color-auto)),
-    transparent
-  );
-}
-
-.logoloop--fade::after {
-  right: 0;
-  background: linear-gradient(
-    to left,
-    var(--fade-color, var(--fade-color-auto)),
-    transparent
-  );
-}
-
-/* Vertical fade */
-.logoloop--vertical.logoloop--fade::before,
-.logoloop--vertical.logoloop--fade::after {
-  width: 100%;
-  height: clamp(24px, 8%, 120px);
-}
-
-.logoloop--vertical.logoloop--fade::before {
-  top: 0;
-  background: linear-gradient(
-    to bottom,
-    var(--fade-color, var(--fade-color-auto)),
-    transparent
-  );
-}
-
-.logoloop--vertical.logoloop--fade::after {
-  bottom: 0;
-  background: linear-gradient(
-    to top,
-    var(--fade-color, var(--fade-color-auto)),
-    transparent
-  );
-}
-
-/* ------------------------------ */
-/*  Reduced motion                */
-/* ------------------------------ */
-
-@media (prefers-reduced-motion: reduce) {
-  .logoloop__track {
-    transform: translate3d(0, 0, 0) !important;
-  }
-
-  .logoloop__item img,
-  .logoloop__node {
-    transition: none !important;
-  }
-}
-
-
-
     }
   </style>
 </head>
@@ -1423,45 +1233,68 @@
     </div>
   </section>
   
-<!-- Section Compétences -->
-<section id="skills" class="container skills-section reveal">
-
-  <div class="skills-header">
-    <h2 class="mb-5 text-center">MES <span class="game-font">COMPÉTENCES</span></h2>
-  </div>
-
-  <!-- Logoloop -->
-  <div class="logoloop logoloop--fade logoloop--scale-hover">
-    <div class="logoloop__track">
-      <div class="logoloop__list">
-
-        <!-- Série 1 -->
-        <div class="logoloop__item"><div class="logoloop__node"><img src="unity.png" alt="Unity"></div></div>
-        <div class="logoloop__item"><div class="logoloop__node"><img src="unrealengine.png" alt="Unreal Engine"></div></div>
-        <div class="logoloop__item"><div class="logoloop__node"><img src="blender.png" alt="Blender"></div></div>
-        <div class="logoloop__item"><div class="logoloop__node"><img src="csharp.png" alt="C#"></div></div>
-        <div class="logoloop__item"><div class="logoloop__node"><img src="cplus.png" alt="C++"></div></div>
-        <div class="logoloop__item"><div class="logoloop__node"><img src="html.png" alt="HTML"></div></div>
-        <div class="logoloop__item"><div class="logoloop__node"><img src="php.png" alt="PHP"></div></div>
-        <div class="logoloop__item"><div class="logoloop__node"><img src="android.png" alt="Android"></div></div>
-
-        <!-- Série 2 (boucle infinie) -->
-        <div class="logoloop__item"><div class="logoloop__node"><img src="unity.png" alt="Unity"></div></div>
-        <div class="logoloop__item"><div class="logoloop__node"><img src="unrealengine.png" alt="Unreal Engine"></div></div>
-        <div class="logoloop__item"><div class="logoloop__node"><img src="blender.png" alt="Blender"></div></div>
-        <div class="logoloop__item"><div class="logoloop__node"><img src="csharp.png" alt="C#"></div></div>
-        <div class="logoloop__item"><div class="logoloop__node"><img src="cplus.png" alt="C++"></div></div>
-        <div class="logoloop__item"><div class="logoloop__node"><img src="html.png" alt="HTML"></div></div>
-        <div class="logoloop__item"><div class="logoloop__node"><img src="php.png" alt="PHP"></div></div>
-        <div class="logoloop__item"><div class="logoloop__node"><img src="android.png" alt="Android"></div></div>
-
+  <!-- Section Compétences -->
+  <section id="skills" class="container skills-section reveal">
+    <div class="skills-header">
+      <h2 class="mb-5 text-center">MES <span class="game-font">COMPÉTENCES</span></h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fab fa-unity"></i>
+        </div>
+        <h4 class="skill-title">Unity</h4>
+        <div class="progress skill-progress">
+          <div class="progress-bar progress-70">70%</div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <img src="Unreal_Engine_Icon.png" alt="Unreal Engine" class="unreal-icon">
+        </div>
+        <h4 class="skill-title">Unreal Engine</h4>
+        <div class="progress skill-progress">
+          <div class="progress-bar progress-60">60%</div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-cube"></i>
+        </div>
+        <h4 class="skill-title">Blender</h4>
+        <div class="progress skill-progress">
+          <div class="progress-bar progress-50">50%</div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h4 class="skill-title">C++</h4>
+        <div class="progress skill-progress">
+          <div class="progress-bar progress-50">50%</div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <h4 class="skill-title">Développement Web</h4>
+        <div class="progress skill-progress">
+          <div class="progress-bar progress-40">40%</div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fab fa-android"></i>
+        </div>
+        <h4 class="skill-title">Android</h4>
+        <div class="progress skill-progress">
+          <div class="progress-bar progress-65">65%</div>
+        </div>
       </div>
     </div>
-  </div>
-
-</section>
-
-
+  </section>
   
   <!-- Section Projets -->
   <section id="projects" class="container projects-section reveal">
