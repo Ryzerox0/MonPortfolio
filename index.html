@@ -860,6 +860,7 @@
       width: 2px;
       background: var(--primary);
       transform: translateX(-50%);
+      z-index: 1;
     }
     
     .timeline-item {
@@ -867,6 +868,7 @@
       margin-bottom: 50px;
       display: flex;
       justify-content: center;
+      width: 100%;
     }
     
     .timeline-content {
@@ -877,38 +879,34 @@
       box-shadow: var(--glow);
       width: 45%;
       position: relative;
+      z-index: 2;
     }
     
     .timeline-item:nth-child(odd) .timeline-content {
       margin-left: 0;
       margin-right: auto;
+      text-align: right;
     }
     
     .timeline-item:nth-child(even) .timeline-content {
       margin-left: auto;
       margin-right: 0;
+      text-align: left;
     }
     
-    /* Boules de la timeline - Positionnement corrigé */
-    .timeline-content::before {
+    /* Boules de la timeline - Positionnement corrigé pour être alignées avec la ligne */
+    .timeline-item::before {
       content: '';
       position: absolute;
       top: 50%;
+      left: 50%;
       width: 20px;
       height: 20px;
       background: var(--accent);
       border-radius: 50%;
       box-shadow: var(--glow);
-      transform: translateY(-50%);
-      z-index: 2;
-    }
-    
-    .timeline-item:nth-child(odd) .timeline-content::before {
-      right: -60px;
-    }
-    
-    .timeline-item:nth-child(even) .timeline-content::before {
-      left: -60px;
+      transform: translate(-50%, -50%);
+      z-index: 3;
     }
     
     /* Classes pour les styles de progression */
@@ -1094,11 +1092,12 @@
         width: calc(100% - 60px);
         margin-left: 60px !important;
         margin-right: 0 !important;
+        text-align: left !important;
       }
       
-      .timeline-content::before {
-        left: -50px !important;
-        right: auto !important;
+      .timeline-item::before {
+        left: 20px;
+        transform: translateY(-50%);
       }
       
       /* Réduction de la taille du texte dans les détails des modals */
