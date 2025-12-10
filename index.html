@@ -2037,6 +2037,240 @@
       event.target.classList.add('active');
     }
     
+    // Traductions pour les langues
+    const translations = {
+      fr: {
+        // Titres et menus
+        "navHome": "Accueil",
+        "navAbout": "À propos",
+        "navSkills": "Compétences",
+        "navProjects": "Projets",
+        "navContact": "Contact",
+        "title": "BAPTISTE CURIE-CADET",
+        "subtitle": "DÉVELOPPEUR WEB INTERACTIF & JEUX VIDÉO<br>EN RECHERCHE DE STAGE",
+        "adventureBtn": "COMMENCER L'AVENTURE",
+        
+        // Section À propos
+        "aboutTitle": "À PROPOS DE MOI",
+        "aboutText1": "Je m'appelle <strong>Baptiste</strong>, j'ai 20 ans et je me spécialise dans le <strong>développement de jeux vidéo</strong>, avec un intérêt particulier pour les serious games.",
+        "aboutText2": "Passionné par le web interactif et le jeu vidéo, je souhaite créer des <strong>expériences immersives</strong> mêlant web, game design et UI/UX.",
+        "aboutText3": "Mon objectif est de concevoir des <strong>expériences interactives</strong> qui allient <strong>apprentissage, immersion et plaisir de jeu</strong>.",
+        "aboutText4": "Je recherche un <strong>stage de 6 mois</strong> pour renforcer mes compétences en développement web, Unity, Unreal Engine et sound design au sein de projets innovants.",
+        "downloadCV": "TÉLÉCHARGER MON CV",
+        "myJourney": "MON PARCOURS",
+        
+        // Section Compétences
+        "skillsTitle": "MES COMPÉTENCES",
+        
+        // Section Projets
+        "projectsTitle": "MES PROJETS",
+        "filterAll": "TOUT",
+        "filterUnity": "UNITY",
+        "filterUnreal": "UNREAL",
+        "filterWeb": "WEB",
+        "filterAndroid": "ANDROID",
+        "seeMore": "VOIR PLUS",
+        
+        // Modals des projets
+        "category": "Catégorie:",
+        "role": "Utilité :",
+        "duration": "Durée :",
+        "previousProject": "Projet précédent",
+        "nextProject": "Projet suivant",
+        "downloadProject": "Télécharger le projet",
+        "close": "Fermer",
+        
+        // Section Contact
+        "contactTitle": "ME CONTACTER",
+        "myLinkedIn": "Mon LinkedIn",
+        
+        // Footer
+        "footer": "&copy; 2025 Baptiste Curie-Cadet. Tous droits réservés."
+      },
+      en: {
+        // Titles and menus
+        "navHome": "Home",
+        "navAbout": "About",
+        "navSkills": "Skills",
+        "navProjects": "Projects",
+        "navContact": "Contact",
+        "title": "BAPTISTE CURIE-CADET",
+        "subtitle": "INTERACTIVE WEB & VIDEO GAME DEVELOPER<br>SEEKING INTERNSHIP",
+        "adventureBtn": "START THE ADVENTURE",
+        
+        // About section
+        "aboutTitle": "ABOUT ME",
+        "aboutText1": "My name is <strong>Baptiste</strong>, I'm 20 years old and I specialize in <strong>video game development</strong>, with a particular interest in serious games.",
+        "aboutText2": "Passionate about interactive web and video games, I want to create <strong>immersive experiences</strong> combining web, game design and UI/UX.",
+        "aboutText3": "My goal is to design <strong>interactive experiences</strong> that combine <strong>learning, immersion and gaming pleasure</strong>.",
+        "aboutText4": "I'm looking for a <strong>6-month internship</strong> to strengthen my skills in web development, Unity, Unreal Engine and sound design within innovative projects.",
+        "downloadCV": "DOWNLOAD MY CV",
+        "myJourney": "MY JOURNEY",
+        
+        // Skills section
+        "skillsTitle": "MY SKILLS",
+        
+        // Projects section
+        "projectsTitle": "MY PROJECTS",
+        "filterAll": "ALL",
+        "filterUnity": "UNITY",
+        "filterUnreal": "UNREAL",
+        "filterWeb": "WEB",
+        "filterAndroid": "ANDROID",
+        "seeMore": "SEE MORE",
+        
+        // Project modals
+        "category": "Category:",
+        "role": "Role:",
+        "duration": "Duration:",
+        "previousProject": "Previous project",
+        "nextProject": "Next project",
+        "downloadProject": "Download project",
+        "close": "Close",
+        
+        // Contact section
+        "contactTitle": "CONTACT ME",
+        "myLinkedIn": "My LinkedIn",
+        
+        // Footer
+        "footer": "&copy; 2025 Baptiste Curie-Cadet. All rights reserved."
+      }
+    };
+    
+    // Fonction pour changer la langue
+    function changeLanguage(lang) {
+      // Mettre à jour l'attribut lang de l'html
+      document.documentElement.lang = lang;
+      
+      // Mettre à jour les drapeaux
+      if (lang === 'fr') {
+        document.getElementById('lang-flag').src = 'french.png';
+        document.getElementById('lang-flag-mobile').src = 'french.png';
+        document.querySelector('#lang-toggle .btn-text').textContent = ' Langue';
+        document.querySelector('#lang-toggle-mobile span').textContent = 'Langue';
+      } else {
+        document.getElementById('lang-flag').src = 'english.png';
+        document.getElementById('lang-flag-mobile').src = 'english.png';
+        document.querySelector('#lang-toggle .btn-text').textContent = ' Language';
+        document.querySelector('#lang-toggle-mobile span').textContent = 'Language';
+      }
+      
+      // Traduire les textes
+      const trans = translations[lang];
+      
+      // Titre et sous-titre
+      document.querySelector('header h1').textContent = trans.title;
+      document.querySelector('.subtitle').innerHTML = trans.subtitle;
+      
+      // Bouton d'aventure
+      document.querySelector('.adventure-btn').innerHTML = `<i class="fas fa-play"></i> ${trans.adventureBtn}`;
+      
+      // Navigation desktop
+      const desktopButtons = document.querySelectorAll('.side-buttons .btn-text');
+      if (desktopButtons.length >= 5) {
+        desktopButtons[0].textContent = ` ${trans.navHome}`;
+        desktopButtons[1].textContent = ` ${trans.navAbout}`;
+        desktopButtons[2].textContent = ` ${trans.navSkills}`;
+        desktopButtons[3].textContent = ` ${trans.navProjects}`;
+        desktopButtons[4].textContent = ` ${trans.navContact}`;
+      }
+      
+      // Navigation mobile
+      const navLinks = document.querySelectorAll('.nav-link');
+      if (navLinks.length >= 5) {
+        navLinks[0].textContent = trans.navHome;
+        navLinks[1].textContent = trans.navAbout;
+        navLinks[2].textContent = trans.navSkills;
+        navLinks[3].textContent = trans.navProjects;
+        navLinks[4].textContent = trans.navContact;
+      }
+      
+      // Section À propos
+      document.querySelector('#about h2').textContent = trans.aboutTitle;
+      const aboutParagraphs = document.querySelectorAll('.about-text p');
+      if (aboutParagraphs.length >= 4) {
+        aboutParagraphs[0].innerHTML = trans.aboutText1;
+        aboutParagraphs[1].innerHTML = trans.aboutText2;
+        aboutParagraphs[2].innerHTML = trans.aboutText3;
+        aboutParagraphs[3].innerHTML = trans.aboutText4;
+      }
+      
+      document.querySelector('#about a.btn').innerHTML = `<i class="fas fa-download"></i> ${trans.downloadCV}`;
+      document.querySelector('#about h3').textContent = trans.myJourney;
+      
+      // Section Compétences
+      document.querySelector('#skills h2').innerHTML = `${trans.skillsTitle.split(' ')[0]} <span class="game-font">${trans.skillsTitle.split(' ')[1]}</span>`;
+      
+      // Section Projets
+      document.querySelector('#projects h2').innerHTML = `${trans.projectsTitle.split(' ')[0]} <span class="game-font">${trans.projectsTitle.split(' ')[1]}</span>`;
+      
+      // Filtres des projets
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      if (filterButtons.length >= 5) {
+        filterButtons[0].textContent = trans.filterAll;
+        filterButtons[1].textContent = trans.filterUnity;
+        filterButtons[2].textContent = trans.filterUnreal;
+        filterButtons[3].textContent = trans.filterWeb;
+        filterButtons[4].textContent = trans.filterAndroid;
+      }
+      
+      // Boutons "Voir plus"
+      document.querySelectorAll('.project-btn').forEach(btn => {
+        btn.textContent = trans.seeMore;
+      });
+      
+      // Section Contact
+      const contactTitleParts = trans.contactTitle.split(' ');
+      if (contactTitleParts.length > 1) {
+        document.querySelector('#contact h2').innerHTML = `${contactTitleParts[0]} <span class="game-font">${contactTitleParts.slice(1).join(' ')}</span>`;
+      }
+      
+      document.querySelector('.contact-item:last-child a').textContent = trans.myLinkedIn;
+      
+      // Footer
+      document.querySelector('footer p').innerHTML = trans.footer;
+      
+      // Mettre à jour les modals
+      updateModalsLanguage(lang);
+    }
+    
+    // Fonction pour mettre à jour les textes dans les modals
+    function updateModalsLanguage(lang) {
+      const trans = translations[lang];
+      
+      // Mettre à jour tous les modals existants
+      for (let i = 1; i <= 9; i++) {
+        const modal = document.getElementById(`projectModal${i}`);
+        if (modal) {
+          // Titre (garder le nom du projet)
+          const title = modal.querySelector('.modal-title');
+          // On garde le titre du projet, pas de traduction nécessaire
+          
+          // Boutons de navigation
+          const navLeft = modal.querySelector('.project-nav-left span');
+          const navRight = modal.querySelector('.project-nav-right span');
+          if (navLeft) navLeft.textContent = trans.previousProject;
+          if (navRight) navRight.textContent = trans.nextProject;
+          
+          // Boutons du footer
+          const downloadBtn = modal.querySelector('.modal-download-btn');
+          const closeBtn = modal.querySelector('.modal-close-btn');
+          if (downloadBtn) downloadBtn.innerHTML = `<i class="fas fa-download"></i> ${trans.downloadProject}`;
+          if (closeBtn) closeBtn.textContent = trans.close;
+          
+          // Remplacer les étiquettes dans les détails
+          const details = modal.querySelector('.modal-details');
+          if (details) {
+            let html = details.innerHTML;
+            html = html.replace(/<strong>Catégorie:<\/strong>/g, `<strong>${trans.category}</strong>`);
+            html = html.replace(/<strong>Utilité :<\/strong>/g, `<strong>${trans.role}</strong>`);
+            html = html.replace(/<strong>Durée :<\/strong>/g, `<strong>${trans.duration}</strong>`);
+            details.innerHTML = html;
+          }
+        }
+      }
+    }
+    
     // Initialisation
     document.addEventListener('DOMContentLoaded', () => {
       // Écouteurs pour les boutons de projet
@@ -2065,6 +2299,14 @@
         const currentLang = document.documentElement.lang;
         const newLang = currentLang === 'fr' ? 'en' : 'fr';
         changeLanguage(newLang);
+      });
+      
+      // Observer l'ouverture des modals pour mettre à jour la langue
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('shown.bs.modal', () => {
+          const currentLang = document.documentElement.lang;
+          updateModalsLanguage(currentLang);
+        });
       });
     });
   </script>
